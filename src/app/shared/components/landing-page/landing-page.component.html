@@ -1,0 +1,45 @@
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://sscol.jebal.comuv.com/css/font.css">
+</head>
+<body>
+
+  <div class="ribbon"></div>
+  <div class="login">
+  <h1>Join as</h1>
+
+      <div class="navigations">
+
+        <button [routerLink]="['register']" routerLinkActive="active" >CLIENT</button>
+      </div>
+
+      <div class="navigations">
+
+        <button
+        [routerLink]="['register']"
+        routerLinkActive="active"
+        style="background-color: white; color: #297bff;">PRACTITIONER</button>
+      </div>
+
+      <div class="navigations">
+
+        <button>TRAINEE</button>
+      </div>
+
+      <div class="navigations">
+
+        <button
+        [routerLink]="['register']"
+        routerLinkActive="active"
+        style="background-color: white; color: #297bff;">TRAINER</button>
+      </div>
+
+      </div>
+      <br><br>
+  <div class="login" style="padding-top: 10%;">
+
+    <button   [routerLink]="['login']"
+    routerLinkActive="active" >Login</button>
+  </div>
+  <br><br>
+</body>
