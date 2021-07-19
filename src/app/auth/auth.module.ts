@@ -1,3 +1,5 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,16 +10,23 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
-  declarations: [ LoginComponent, RegisterComponent, ResetPasswordComponent, ForgotPasswordComponent,],
+  declarations: [ LoginComponent, RegisterComponent, ResetPasswordComponent, ForgotPasswordComponent,LandingPageComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserModule,
+    RouterModule
   ],
   exports:[
-    LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent
+    LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent
 
   ],
   providers: [AuthService, AuthGuard],

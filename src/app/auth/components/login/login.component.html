@@ -9,16 +9,16 @@
   <h1>Login</h1>
   <p>This will be an amazing experience</p>
   <br><br>  <br><br>
-  <form action="login">
+  <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
     <div class="input">
 
 
       <div class="blockinput">
-        <i class="icon-envelope-alt"></i><input type="mail" placeholder="Email">
+        <i class="icon-envelope-alt"></i><input type="mail" formControlName="Username" placeholder="Email">
       </div>
       <br>
       <div class="blockinput">
-        <i class="icon-unlock"></i><input type="password" placeholder="Password">
+        <i class="icon-unlock"></i><input type="password" formControlName="Password" placeholder="Password">
       </div>
     </div>
     <button>Login</button>
