@@ -12,6 +12,7 @@ import { AuthGuard } from './auth.guard';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HomeGuard } from './components/landing-page/home.guard';
 
 
 
@@ -29,6 +30,6 @@ import { RouterModule } from '@angular/router';
     LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent
 
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,HomeGuard],
 })
 export class AuthModule { }

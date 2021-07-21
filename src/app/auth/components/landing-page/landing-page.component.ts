@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean> | undefined;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+
   }
-
 }

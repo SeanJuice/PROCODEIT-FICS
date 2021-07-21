@@ -1,8 +1,9 @@
 import { Router } from '@angular/router';
 import { User } from './../models/user.model';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, throwError} from 'rxjs';
+import { BehaviorSubject} from 'rxjs';
+import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 
 
 const   rootURL = 'https://localhost:44332/api/Access'
@@ -11,14 +12,27 @@ const   rootURL = 'https://localhost:44332/api/Access'
   providedIn: 'root'
 })
 export class AuthService {
+  // Behavior subjects 
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  constructor(public http : HttpClient,public router:Router) { }
+
+
+  constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService) { }
 
   //returns the state of login
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
 
+  /**
+   * Ger Role 
+   */
+  get Role() {
+    return  this.storage.get("Role")
+  }
+
+  /*
+  Login
+  */
   Login(user:User){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
      this.http.post(rootURL+'/Login',user,httpOptions ).subscribe((res:any)=>{
@@ -26,7 +40,9 @@ export class AuthService {
       if(!res.Error)
       {
         this.loggedIn.next(true)
-        this.router.navigate(['dashboard'])
+        this.storage.set("isloggedin", "true");
+        this.storage.set("Role", res.UserRole_ID);
+        this.router.navigate(['./dashboard'])
       }
 
       else{
@@ -42,7 +58,9 @@ export class AuthService {
   //Used for logging out
   logout() {
     this.loggedIn.next(false);
-    this.router.navigate(['/login']);
+    this.router.navigate(['Welcome']);
+    this.storage.remove("Role")
+    this.storage.remove("isloggedin");
   }
 
 

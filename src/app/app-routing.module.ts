@@ -3,43 +3,36 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
-import { AuthlayoutComponent } from './shared/layouts/authlayout/authlayout.component';
+
 import { Error404Component } from './shared/components/error404/error404.component';
+import { HomeGuard } from './auth/components/landing-page/home.guard';
+import { LandingPageComponent } from './auth/components/landing-page/landing-page.component';
+import { LoginComponent } from './auth/components/login/login.component';
+import { RegisterComponent } from './auth/components/register/register.component';
+import { ForgotPasswordComponent } from './auth/components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './auth/components/reset-password/reset-password.component';
 
 const routes: Routes = [
 
-
-  //Dash Route
   {
     path: '',
+    redirectTo: 'Welcome',
+    pathMatch: 'full',
+  
+  },
+  //Dash Route
+  {
+    path: 'dashboard',
     component: DashboardlayoutComponent  ,
-   // canActivate:[AuthGuard],
-    children: [
-
-                {
-                  path: 'dashboard',
-                  loadChildren: () => import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
-                }
-
-              ]
+   canActivate:[AuthGuard],
+   loadChildren: () => import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
   },
     //Dash Route
-  {
-      path: '',
-      component: AuthlayoutComponent  ,
-      children: [
-                    {
-                    path: '',
-                    redirectTo: '/auth',
-                    pathMatch: 'full'
-                  },
-                  {
-                    path: 'auth',
-                    loadChildren: () => import('./auth/auth-routing.module').then(m=>m.AuthRoutingModule)
-                  }
-
-                ]
-    },
+    {path: 'Welcome', component: LandingPageComponent, canActivate:[HomeGuard]},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path:'forgot-password', component: ForgotPasswordComponent},
+    {path:'reset-password', component: ResetPasswordComponent},
     {
       path: "**",
       component:Error404Component
