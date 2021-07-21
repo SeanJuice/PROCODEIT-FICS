@@ -1,6 +1,8 @@
+import { User } from './../../../models/user.model';
 import { AuthService } from './../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   LoginForm: any
 
-  constructor(private AuthServe:AuthService) {
+  constructor(private AuthServe:AuthService,public router:Router) {
 
    }
 
@@ -19,22 +21,20 @@ export class LoginComponent implements OnInit {
   }
 
   CreateForm(){
-    // this.LoginForm =  this.formBuilder.group({
-    //   Username: ['', [Validators.required, Validators.minLength(2)]],
-    //   Password: ['', Validators.required],
-    // })
+
   }
 
 
-  onSubmit(){
+  onSubmit(user:User){
     //this.submitted = true;
-    if(!this.LoginForm.valid) {
-      console.log(this.LoginForm.value)
+    if(user.Username=="" || user.Password=="") {
+
       alert('Please fill all the required fields to create a super hero!')
 
     } else {
 
-      this.AuthServe.Login(this.LoginForm.value)
+      this.AuthServe.Login(user)
+
     }
   }
 

@@ -9,19 +9,19 @@
   <h1>Login</h1>
   <p>This will be an amazing experience</p>
   <br><br>  <br><br>
-  <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+  <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)">
     <div class="input">
 
 
       <div class="blockinput">
-        <i class="icon-envelope-alt"></i><input type="mail" formControlName="Username" placeholder="Email">
+        <i class="icon-envelope-alt"></i><input type="mail" ngModel name="Username" placeholder="Email">
       </div>
       <br>
       <div class="blockinput">
-        <i class="icon-unlock"></i><input type="password" formControlName="Password" placeholder="Password">
+        <i class="icon-unlock"></i><input ngModel name="Password" placeholder="Password">
       </div>
     </div>
-    <button>Login</button>
+    <button type="submit"  [disabled]="!myForm.valid">Login</button>
   </form>
 
   <div style="padding-top: 5%;">

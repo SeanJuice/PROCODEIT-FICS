@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardlayoutComponent  ,
-    canActivate:[AuthGuard],
+   // canActivate:[AuthGuard],
     children: [
 
                 {

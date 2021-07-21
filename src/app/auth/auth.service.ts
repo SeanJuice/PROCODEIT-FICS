@@ -21,18 +21,19 @@ export class AuthService {
 
   Login(user:User){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post(rootURL+'/Login',user,httpOptions ).subscribe((res:any)=>{
+     this.http.post(rootURL+'/Login',user,httpOptions ).subscribe((res:any)=>{
 
       if(!res.Error)
       {
         this.loggedIn.next(true)
-        console.log(this.isLoggedIn)
+        this.router.navigate(['dashboard'])
       }
 
       else{
          alert("Wrong Password or Username please try again. :)")
         }
     })
+    return this.http.post(rootURL+'/Login',user,httpOptions )
 
   }
 
