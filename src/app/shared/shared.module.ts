@@ -5,13 +5,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { Error404Component } from './components/error404/error404.component';
 import { AuthlayoutComponent } from './layouts/authlayout/authlayout.component';
 import { DashboardlayoutComponent } from './layouts/dashboardlayout/dashboardlayout.component';
-
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [HeaderComponent, Error404Component, AuthlayoutComponent, DashboardlayoutComponent],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,RouterModule,MatIconModule,MatCardModule
   ],
   exports:[
     HeaderComponent
