@@ -7,14 +7,19 @@ import { AuthlayoutComponent } from './layouts/authlayout/authlayout.component';
 import { DashboardlayoutComponent } from './layouts/dashboardlayout/dashboardlayout.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [HeaderComponent, Error404Component, AuthlayoutComponent, DashboardlayoutComponent],
   imports: [
-    CommonModule,RouterModule,MatIconModule,MatCardModule
+    CommonModule,RouterModule,
+    //Material 
+    MatIconModule,MatCardModule,MatInputModule,
+    MatButtonModule
   ],
   exports:[
-    HeaderComponent
+    HeaderComponent,MatIconModule,MatCardModule,MatInputModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

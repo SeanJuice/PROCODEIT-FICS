@@ -10,27 +10,29 @@
 
       <div class="navigations">
 
-        <button [routerLink]="['register']" routerLinkActive="active" >CLIENT</button>
+        <button   [routerLink]="['../register/1']" routerLinkActive="active" >CLIENT</button>
       </div>
 
       
       <div class="navigations">
 
         <button
-        [routerLink]="['register']"
+        [routerLink]="['../register/2']"
         routerLinkActive="active"
         style="background-color: white; color: #297bff;">PRACTITIONER</button>
       </div>
 
       <div class="navigations">
 
-        <button>TRAINEE</button>
+        <button  [routerLink]="['../register/3']"
+        routerLinkActive="active"
+       >TRAINEE</button>
       </div>
 
       <div class="navigations">
 
         <button
-        [routerLink]="['../register']"
+        [routerLink]="['../register/4']"
         routerLinkActive="active"
         style="background-color: white; color: #297bff;">TRAINER</button>
       </div>

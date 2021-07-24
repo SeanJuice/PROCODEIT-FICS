@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeGuard } from './components/landing-page/home.guard';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -24,7 +25,8 @@ import { HomeGuard } from './components/landing-page/home.guard';
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports:[
     LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent

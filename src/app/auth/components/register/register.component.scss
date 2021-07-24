@@ -1,0 +1,27 @@
+.mat-card {
+    background: rgba(6, 155, 255, 0.568);
+}
+.mat-hint {
+    color: rgba(255, 6, 6, 0.568);
+}
+.mat-card2 {
+    background: rgba(255, 255, 255, 0.774);
+}
+.example-full-width {
+    width: 100%;
+    color: black;
+    
+  }
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .wrapper{
+      padding-top: 5%;
+      width: 90%;
+  }

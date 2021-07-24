@@ -14,7 +14,8 @@ import { LazyLoadScriptService } from './services/lazy-load-script.service';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    ClientModule
+    ClientModule,
+    
 
   ],
   providers:[LazyLoadScriptService]
