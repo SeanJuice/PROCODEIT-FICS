@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
+import { ClientModule } from './Client/client.module';
+import { LazyLoadScriptService } from './services/lazy-load-script.service';
 
 
 @NgModule({
@@ -11,8 +13,10 @@ import { DashboardComponent } from './dashboard.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    ClientModule
 
-  ]
+  ],
+  providers:[LazyLoadScriptService]
 })
 export class DashboardModule { }
