@@ -1,3 +1,4 @@
+<!-- Client Application  -->
 <div class="wrapper" *ngIf="ApplicationType==1">
     <div class="Grid Grid--full u-textCenter">
   
@@ -24,7 +25,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Contact Number</mat-label>
-                    <input type="text" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <input type="tel" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroup.controls['Contact_Number'].valid && formGroup.controls['Contact_Number'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>
@@ -63,7 +64,16 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Title</mat-label>
-                    <input type="text" matInput formControlName="Title"  placeholder="Ex. pat@example.com">
+                  
+                    <mat-select  matInput formControlName="Title" >
+                        <mat-option value="Mr">Mr</mat-option>
+                        <mat-option value="Ms">Ms</mat-option>
+                        <mat-option value="Mrs">Mrs</mat-option>
+                        <mat-option value="Dr">Dr</mat-option>
+                        <mat-option value="Prof">Prof</mat-option>
+
+                      </mat-select>
+
                 </mat-form-field>
               </div>
             </div>
@@ -86,6 +96,12 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Gender</mat-label>
                     <input type="text" matInput formControlName="Gender" placeholder="Ex. pat@example.com">
+                    <mat-select  matInput formControlName="Title" >
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Other">Other</mat-option>
+                        <mat-option value="Not Say">Prefer not say</mat-option>
+                      </mat-select>
                 </mat-form-field>
               </div>
             </div>
@@ -120,6 +136,160 @@
                     <mat-hint *ngIf=" f.Confirm_Password.errors" class="invalid-feedback">
                         <a *ngIf="f.Confirm_Password.errors.required">Confirm Password is required</a>
                         <a *ngIf="f.Confirm_Password.errors.mustMatch">Passwords must match</a>
+                    </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="wrapper">
+            <div class="Grid Grid--full u-textCenter">
+  
+              <div class="Grid-cell">  
+                <mat-card class="mat-card"> 
+                    <button mat-raised-button color="accent"  style="width:50%" type="submit">Apply</button>
+                    &nbsp; &nbsp; &nbsp;
+                    <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']" routerLinkActive="active"  >CANCEL</button>
+              </mat-card>
+              </div>
+          
+            </div>
+  
+          </div>
+    </form>
+
+  </div>
+
+  <!-- Other Application Types -->
+  <div class="wrapper" *ngIf="ApplicationType!=1">
+    <div class="Grid Grid--full u-textCenter">
+  
+  <div class="Grid-cell"  *ngIf="ApplicationType==2">     <mat-card><h1>PRACTITIONER APPLICATION</h1></mat-card> </div>
+  <div class="Grid-cell"  *ngIf="ApplicationType==3">     <mat-card><h1>TRAINEE APPLICATION</h1></mat-card> </div>
+  <div class="Grid-cell"  *ngIf="ApplicationType==4">     <mat-card><h1>TRAINER APPLICATION</h1></mat-card> </div>
+</div>
+  
+  
+  <br>
+    <form [formGroup]="formGroupOthers" (ngSubmit)="onSubmit(formGroup.value)">
+          <!-- First Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Name</mat-label>
+                    <input type="text" matInput  formControlName="Name" placeholder="Ex. pat@example.com">
+                    <mat-hint *ngIf="!formGroupOthers.controls['Name'].valid && formGroupOthers.controls['Name'].touched">
+                        Name cannot be left empty
+                      </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Contact Number</mat-label>
+                    <input type="tel" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <mat-hint *ngIf="!formGroupOthers.controls['Contact_Number'].valid && formGroupOthers.controls['Contact_Number'].touched">
+                        Contact Number cannot be left empty
+                      </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- Second Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Surname</mat-label>
+                    <input type="text" matInput formControlName="Surname" placeholder="Ex. pat@example.com">
+                    <mat-hint *ngIf="!formGroupOthers.controls['Surname'].valid && formGroupOthers.controls['Surname'].touched">
+                        Surname cannot be left empty
+                      </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Email Address</mat-label>
+                    <input type="email" matInput formControlName="Email_Address"  placeholder="Ex. 0735346222">
+                    <mat-hint *ngIf="!formGroupOthers.controls['Email_Address'].valid && formGroupOthers.controls['Email_Address'].touched">
+                        {{ getErrorEmail() }}
+                      </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- third Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Title</mat-label>
+                  
+                    <mat-select  matInput formControlName="Title" >
+                        <mat-option value="Mr">Mr</mat-option>
+                        <mat-option value="Ms">Ms</mat-option>
+                        <mat-option value="Mrs">Mrs</mat-option>
+                        <mat-option value="Dr">Dr</mat-option>
+                        <mat-option value="Prof">Prof</mat-option>
+
+                      </mat-select>
+
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">ID Number</mat-label>
+                    <input type="number" matInput formControlName="ID_Number" placeholder="Ex. 194735346222">
+                    <mat-hint *ngIf="!formGroupOthers.controls['ID_Number'].valid && formGroupOthers.controls['ID_Number'].touched">
+                        ID Number Cannot be left Empty
+                      </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- fourth Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+             <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Physical Address</mat-label>
+                    <textarea matInput type="Text" matInput  formControlName="Physical_Address"></textarea>
+                    <mat-hint *ngIf="!formGroupOthers.controls['Physical_Address'].valid && formGroupOthers.controls['Physical_Address'].touched">
+                      Address Cannot be left Empty
+                    </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <!-- fifth Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Password</mat-label>
+                    <input type="password" matInput formControlName="Password" placeholder="Ex. pat@example.com">
+                    <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+                    <mat-hint *ngIf="!formGroupOthers.controls['Password'].valid && formGroupOthers.controls['Password'].touched">
+                      {{ getErrorPassword() }}
+                    </mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="Grid-cell">
+              <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Confirm password</mat-label>
+                    <input type="password" matInput  formControlName="Confirm_Password" placeholder="Ex. **********">
+                    <mat-hint *ngIf=" g.Confirm_Password.errors" class="invalid-feedback">
+                        <a *ngIf="g.Confirm_Password.errors.required">Confirm Password is required</a>
+                        <a *ngIf="g.Confirm_Password.errors.mustMatch">Passwords must match</a>
                     </mat-hint>
                 </mat-form-field>
               </div>

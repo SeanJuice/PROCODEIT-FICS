@@ -9,15 +9,24 @@ import { MustMatch } from './must-match.validator';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  formGroup: FormGroup;
-  ApplicationType:Number;
-  submitted = false;
+
+    formGroup: FormGroup;
+    formGroupOthers: FormGroup;
+    ApplicationType:Number;
+    isClient:boolean
+    submitted = false;
 
   constructor(private activatedRoute: ActivatedRoute,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.ApplicationType = Number(this.activatedRoute.snapshot.params.ApplicationTypeId);
-    this.createClientForm()
+    if(this.ApplicationType==1){
+      this.createClientForm();
+      this.isClient = true;
+    }
+    else{
+        this.createOtherForm()
+    }
     console.log(this.ApplicationType)
   }
 
@@ -25,11 +34,26 @@ export class RegisterComponent implements OnInit {
 
 
 
+    createOtherForm()
+    {
+          let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          this.formGroupOthers = this.formBuilder.group({
+            'Title': [null, Validators.required],
+            'Name': [null, Validators.required],
+            'Surname': [null, Validators.required],
+            'Contact_Number': [null, [Validators.required, Validators.maxLength(10)]],
+            'ID_Number': [null, Validators.required,Validators.maxLength(13)],
+            'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
+            'Physical_Address': [null,Validators.required],
+            'Password': [null, [Validators.required, this.checkPassword]],
+            "Confirm_Password": ['', Validators.required],
+          }, {
+            validator: MustMatch('Password', 'Confirm_Password')
+        });
+    }
   createClientForm() {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     this.formGroup = this.formBuilder.group({
-
-      'Client_ID': [null, Validators.required],
       'Title': [null, Validators.required],
       'Name': [null, Validators.required],
       'Surname': [null, Validators.required],
@@ -49,8 +73,24 @@ export class RegisterComponent implements OnInit {
  
   onSubmit(value:any)
   {
-    this.submitted = false;
-    console.log(value)
+    if(this.isClient)
+    {
+      this.submitted = false;
+      console.log(value)
+    }
+    else if(this.ApplicationType==2)
+    {
+
+    }
+    else if(this.ApplicationType==3)
+    {
+
+    }
+    else if(this.ApplicationType==4)
+    {
+
+    }
+    
   }
 
 
@@ -64,6 +104,8 @@ export class RegisterComponent implements OnInit {
       this.formGroup.get('Password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
   }
   get f() { return this.formGroup.controls; }
+  get g() { return this.formGroupOthers.controls; }
+
   
   getErrorEmail() {
     return this.formGroup.get('Email_Address').hasError('required') ? 'Field is required' :

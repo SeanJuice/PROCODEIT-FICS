@@ -7,6 +7,8 @@ import { ProfileComponent } from './Profile/Profile.component';
 import { PurchasePackagesComponent } from './PurchasePackages/PurchasePackages.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewPackagesComponent } from './PurchasePackages/ViewPackages/ViewPackages.component';
+import { FinalPurchaseComponent } from './PurchasePackages/FinalPurchase/FinalPurchase.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   
   ],
-  declarations: [MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,ProfileComponent,PurchasePackagesComponent]
+  declarations: [MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
+    ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent]
 })
 export class ClientModule { }

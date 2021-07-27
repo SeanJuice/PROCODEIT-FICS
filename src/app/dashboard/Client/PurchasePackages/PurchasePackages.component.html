@@ -1,3 +1,25 @@
-<p>
-  PurchasePackages works!
-</p>
+
+<div id="registration" class="conatiner col-md-12">
+  <form id="regForm" [formGroup]="registrationForm">
+    <mat-horizontal-stepper #stepper >
+      <mat-step formGroupName="personalDetails" 
+        [stepControl]="registrationForm.get('personalDetails')">
+        <ng-template matStepLabel>Enter Personal Details</ng-template>
+        <app-ViewPackages [regForm]="registrationForm"></app-ViewPackages>
+      </mat-step>
+      <mat-step formGroupName="contactDetails"
+      [stepControl]="registrationForm.get('contactDetails')">
+        <ng-template matStepLabel>Enter Contact Details</ng-template>
+        <app-FinalPurchase [regForm]="registrationForm"></app-FinalPurchase>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button >Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>
