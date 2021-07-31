@@ -9,7 +9,7 @@
         <div class="icon">
           <div class="logo" id="tour-logo">
             <i class="fas fa-bus"></i>
-            Tour Bus
+            FICS
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
           <button class="icon">
             <i class="fas fa-bell"></i>
           </button>
-          <button class="user-profile" id="tour-user">
+          <button  [routerLink]="['Profile']" routerLinkActive="active"class="user-profile" id="tour-user">
             Sami Smith
             <img src="https://randomuser.me/api/portraits/women/17.jpg"/>
           </button>
@@ -33,21 +33,15 @@
     <div class="sidebar">
       <ul class="sidebar-nav">
         <li>
-          <button>
+          <button [routerLink]="['../dashboard']" routerLinkActive="active"class="user-profile" id="tour-user" >
             <span>Dashboard</span>
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home">	<mat-icon>dashboard</mat-icon></i>
           </button>
         </li>
         <li>
-          <button id="tour-elements">
-            <span>Elements</span>
-            <i class="fas fa-basketball-ball"></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <span>Components</span>
-            <i class="fas fa-book"></i>
+          <button [routerLink]="['Profile']" routerLinkActive="active" id="tour-elements">
+            <span>Profile</span>
+            <i class="fas fa-basketball-ball"><mat-icon> person_pin</mat-icon></i>
           </button>
         </li>
         <li>
@@ -62,14 +56,22 @@
             <i class="fas fa-cloud"></i>
           </button>
         </li>
-        <li class="cta">
-          <button class="primary" (click)="Logout()">
-            Log Out >
+        <li>
+          <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" id="tour-elements" style="color: rgb(3, 63, 173);">
+            <span> Trial Questionnaire</span>
+            <mat-icon> present_to_all</mat-icon>
           </button>
         </li>
         <li class="cta">
           <button class="primary" id="start-tour">
             Start New Tour
+          </button>
+        </li>
+        <li class="cta">
+          <button class="primary" style="background-color: red; color: white;" (click)="Logout()">
+            <span>   Log Out </span>
+            <i class="fas fa-basketball-ball"><mat-icon>power_settings_new</mat-icon></i>
+
           </button>
         </li>
       </ul>

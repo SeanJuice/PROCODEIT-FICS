@@ -1,0 +1,131 @@
+
+<div class="wrapper">
+  <div class="Grid Grid--full u-textCenter">
+
+    <div class="Grid-cell">     <mat-card><h1>My Profile</h1></mat-card> </div>
+  </div>
+
+</div>
+<br>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+      <!-- First Row -->
+      <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Name</mat-label>
+                <input type="text" matInput [value]='info.Name' formControlName="Name" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Contact Number</mat-label>
+                <input type="text" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- Second Row -->
+      <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Surname</mat-label>
+                <input type="text" matInput formControlName="Surname" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Email Address</mat-label>
+                <input type="email" matInput formControlName="Email_Address"  placeholder="Ex. 0735346222">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- third Row -->
+      <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Title</mat-label>
+                <input type="text" matInput formControlName="Title"  placeholder="Ex. pat@example.com">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">ID Number</mat-label>
+                <input type="number" matInput formControlName="ID_Number" placeholder="Ex. 0735346222">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- fourth Row -->
+      <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Gender</mat-label>
+                <input type="text" matInput formControlName="Gender" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label style="color: black;">Passport Number</mat-label>
+                <input type="number" matInput  formControlName="Passport_Number" placeholder="Ex. 0735346222">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- fifth Row -->
+      <div class="Grid Grid--gutters Grid--cols-3 u-textCenter">
+        <div class="Grid-cell">
+          <div class="Demo content-1of3">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label style="color: black;">Country</mat-label>
+              <input type="text" matInput formControlName="Country" placeholder="Ex. 0735346222">
+          </mat-form-field>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of3">
+            <div class="example-label">Status</div>
+            <button mat-flat-button color="warn">Warn</button>
+            <br>
+          </div>
+        </div>
+        <div class="Grid-cell">
+          <div class="Demo content-1of3">
+            <mat-card class="example-card">
+              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              <mat-card-actions>
+                <button mat-button>LIKE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="wrapper">
+        <div class="Grid Grid--full u-textCenter">
+
+          <div class="Grid-cell">  
+            <mat-card class="mat-card"> 
+                <button mat-raised-button color="accent" type="submit">UPDATE</button>
+                &nbsp; &nbsp; &nbsp;
+                <button mat-raised-button color="warn">CANCEL</button>
+          </mat-card>
+          </div>
+      
+        </div>
+
+      </div>
+</form>

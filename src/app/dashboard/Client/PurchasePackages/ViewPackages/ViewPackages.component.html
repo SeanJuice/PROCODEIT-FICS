@@ -1,0 +1,40 @@
+
+  <h1 class="h1 title" style="color:white" align="center">
+    <i class="fas fa-home"></i>
+    <span>SELECT A PACKAGE</span>
+  </h1>
+  <div class="cards">
+
+
+      <div class="card" *ngFor="let package of Packages; let i=index" (click)="ChoosePackage(package.Package_ID, i)">
+        <div class="card__image-holder" >
+          <img class="card__image" src="https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg" alt="mountain" />
+        </div>
+        <div class="card-title" [ngStyle]="{'color': PackageID==package.Package_ID ? 'green' : 'white'}">
+          <a class="toggle-info btn">
+            <span class="left"></span>
+            <span class="right"></span>
+          </a>
+          <h2  >
+            {{package.Name}}
+              <small><mat-icon>receipt</mat-icon>Price: R{{package.Price}} </small>
+              <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection" *ngIf="MoveToNext && PackageID==package.Package_ID">
+                <mat-chip  color="primary">
+                 Selected Package
+                </mat-chip>
+              </mat-chip-list>
+          </h2>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+<button type="button"  mat-flat-button color="warn"matStepperPrevious>Back</button>
+&nbsp;
+<button type="button" mat-flat-button color="primary" matStepperNext *ngIf="this.MoveToNext" (click)="step2Submitted()">Next</button>

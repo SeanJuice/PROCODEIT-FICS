@@ -4,42 +4,56 @@
 </head>
 <body>
 
-  <div class="ribbon"></div>
-  <div class="login">
-  <h1>Join as</h1>
+  <div class="ribbon"style="padding-top: 2%;"></div>
+  <div class="form">
+ 
+    <div class="form-panel one" >
+      <div class="form-header">
+        <h1>Join as</h1>
+        </div>
 
-      <div class="navigations">
+        <div class="form-group">
 
-        <button [routerLink]="['register']" routerLinkActive="active" >CLIENT</button>
-      </div>
+          <button   [routerLink]="['../register/1']" routerLinkActive="active" >CLIENT</button>
+        </div>
 
-      <div class="navigations">
+        
+        <div class="form-group">
 
-        <button
-        [routerLink]="['register']"
-        routerLinkActive="active"
-        style="background-color: white; color: #297bff;">PRACTITIONER</button>
-      </div>
+          <button
+          [routerLink]="['../register/2']"
+          routerLinkActive="active"
+          style="background-color: white; color: #297bff;">PRACTITIONER</button>
+        </div>
 
-      <div class="navigations">
+  
 
-        <button>TRAINEE</button>
-      </div>
+        <div class="form-group">
 
-      <div class="navigations">
+          <button
+          [routerLink]="['../register/3']"
+          routerLinkActive="active"
+          >TRAINER</button>
+        </div>
+        <div class="form-group">
 
-        <button
-        [routerLink]="['../register']"
-        routerLinkActive="active"
-        style="background-color: white; color: #297bff;">TRAINER</button>
-      </div>
-
-      </div>
-      <br><br>
-  <div class="login" style="padding-top: 10%;">
-
-    <button   [routerLink]="['../login']"
-    routerLinkActive="active" >Login</button>
+          <button  [routerLink]="['../register/4']"
+          routerLinkActive="active"
+          style="background-color: white; color: #297bff;">TRAINEE</button>
+        </div>
+    </div>
   </div>
+
+  
+      <div class="form">
+        <div class="form-panel one" style="padding-top: 5%;">
+          <div class="form-group">
+            <button   [routerLink]="['../login']" routerLinkActive="active" >Login</button>
+          </div>
+        </div>
+      </div>
+
   <br><br>
 </body>
+
+

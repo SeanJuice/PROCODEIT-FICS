@@ -11,19 +11,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   LoginForm: any
-
+  Spinner:Boolean;
   constructor(private AuthServe:AuthService,public router:Router) {
 
    }
 
   ngOnInit(): void {
-    this.CreateForm()
+    this.Spinner = false;
   }
-
-  CreateForm(){
-
-  }
-
 
   onSubmit(user:User){
     //this.submitted = true;
@@ -33,7 +28,10 @@ export class LoginComponent implements OnInit {
 
     } else {
 
-      this.AuthServe.Login(user)
+
+      let request =  this.AuthServe.Login(user);
+      this.Spinner =  this.AuthServe.SetLoadingSpanner(request)
+      // this.AuthServe.SeUpLoginData(request)
 
     }
   }
