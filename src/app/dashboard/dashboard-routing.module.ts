@@ -6,6 +6,7 @@ import { MySessionsComponent } from './Client/MySessions/MySessions.component';
 import { MytasksComponent } from './Client/Mytasks/Mytasks.component';
 import { ProfileComponent } from './Client/Profile/Profile.component';
 import { PurchasePackagesComponent } from './Client/PurchasePackages/PurchasePackages.component';
+import { TrialQuestionnaireComponent } from './Client/TrialQuestionnaire/TrialQuestionnaire.component';
 
 
 const routes: Routes = [
@@ -18,12 +19,13 @@ const routes: Routes = [
           
     ]
   },
-  {path: 'Questionnaires', component: MyQuestionnairesComponent},
+  {path: 'My_Questionnaires', component: MyQuestionnairesComponent},
           {path: 'Sessions', component: MySessionsComponent},
           {path: 'tasks', component: MytasksComponent},
           {path: 'Profile', component: ProfileComponent},
           {path: 'PurchasePackage', component: PurchasePackagesComponent},
           {path: 'Profile', component: ProfileComponent},
+          {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
 
 
 

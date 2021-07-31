@@ -1,3 +1,28 @@
-<p>
-  MySessions works!
-</p>
+<div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>My Sessions</span>
+  </h1>
+
+  <div class="table-card">
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Name</td>
+          <td>Description</td>
+          <td>Date</td>
+          <td>____</td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let session of sessions">
+            <td>//</td>
+            <td>{{session.Description}}</td>
+            <td>{{session.Date | date}}</td>
+            <td>
+              <button mat-flat-button color="primary" (click)="openReviewDialog(session.Session_ID)">Review</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

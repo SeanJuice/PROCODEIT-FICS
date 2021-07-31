@@ -1,19 +1,19 @@
 
 <div id="registration" class="conatiner col-md-12">
-  <form id="regForm" [formGroup]="registrationForm">
-    <mat-horizontal-stepper #stepper >
-      <mat-step formGroupName="personalDetails" 
-        [stepControl]="registrationForm.get('personalDetails')">
-        <ng-template matStepLabel>Enter Personal Details</ng-template>
-        <app-ViewPackages [regForm]="registrationForm"></app-ViewPackages>
+  <form id="regForm" [formGroup]="PurchaseForm">
+    <mat-horizontal-stepper #stepper  class="conatiner" >
+      <mat-step formGroupName="ChoosePackageDetails"
+        [stepControl]="PurchaseForm.get('ChoosePackageDetails')">
+        <ng-template matStepLabel style="color: blue;">Package selections</ng-template>
+        <app-ViewPackages [regForm]="PurchaseForm"></app-ViewPackages>
       </mat-step>
-      <mat-step formGroupName="contactDetails"
-      [stepControl]="registrationForm.get('contactDetails')">
-        <ng-template matStepLabel>Enter Contact Details</ng-template>
-        <app-FinalPurchase [regForm]="registrationForm"></app-FinalPurchase>
+      <mat-step formGroupName="PurchaseDetails"
+      [stepControl]="PurchaseForm.get('PurchaseDetails')">
+        <ng-template matStepLabel class="lbl">Purchase confirmation</ng-template>
+        <app-FinalPurchase [regForm]="PurchaseForm"></app-FinalPurchase>
       </mat-step>
       <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
+        <ng-template matStepLabel class="lbl">Done</ng-template>
         <p>You are now done.</p>
         <div>
           <button mat-button matStepperPrevious>Back</button>

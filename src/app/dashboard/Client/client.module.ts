@@ -9,15 +9,27 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewPackagesComponent } from './PurchasePackages/ViewPackages/ViewPackages.component';
 import { FinalPurchaseComponent } from './PurchasePackages/FinalPurchase/FinalPurchase.component';
+import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.component';
+import { ConfirmUpdateDialogComponent } from './Profile/ConfirmUpdateDialog/ConfirmUpdateDialog.component';
+import { TrialQuestionnaireComponent } from './TrialQuestionnaire/TrialQuestionnaire.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
-  
+    ReactiveFormsModule,
+    RouterModule
+
   ],
-  declarations: [MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
-    ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent]
+  declarations: [
+    MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
+    ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
+    TrialQuestionnaireComponent,
+    // Dialogs
+    ReviewDialogComponent,ConfirmUpdateDialogComponent
+  ]
+    ,
+    entryComponents:[ReviewDialogComponent,ConfirmUpdateDialogComponent]
 })
 export class ClientModule { }

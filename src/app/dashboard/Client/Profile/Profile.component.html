@@ -14,7 +14,7 @@
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label style="color: black;">Name</mat-label>
-                <input type="text" matInput  formControlName="Name" placeholder="Ex. pat@example.com">
+                <input type="text" matInput [value]='info.Name' formControlName="Name" placeholder="Ex. pat@example.com">
             </mat-form-field>
           </div>
         </div>
@@ -90,7 +90,7 @@
           <div class="Demo content-1of3">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label style="color: black;">Country</mat-label>
-              <input type="number" matInput formControlName="Country" placeholder="Ex. 0735346222">
+              <input type="text" matInput formControlName="Country" placeholder="Ex. 0735346222">
           </mat-form-field>
           </div>
         </div>

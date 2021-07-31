@@ -46,12 +46,6 @@
         </li>
         <li>
           <button>
-            <span>Components</span>
-            <i class="fas fa-book"></i>
-          </button>
-        </li>
-        <li>
-          <button>
             <span>Forms</span>
             <i class="fas fa-car"></i>
           </button>
@@ -60,6 +54,12 @@
           <button>
             <span>Icons</span>
             <i class="fas fa-cloud"></i>
+          </button>
+        </li>
+        <li>
+          <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" id="tour-elements" style="color: rgb(3, 63, 173);">
+            <span> Trial Questionnaire</span>
+            <mat-icon> present_to_all</mat-icon>
           </button>
         </li>
         <li class="cta">
@@ -71,7 +71,7 @@
           <button class="primary" style="background-color: red; color: white;" (click)="Logout()">
             <span>   Log Out </span>
             <i class="fas fa-basketball-ball"><mat-icon>power_settings_new</mat-icon></i>
-     	     
+
           </button>
         </li>
       </ul>

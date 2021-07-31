@@ -16,10 +16,19 @@ export class FinalPurchaseComponent implements OnInit {
   }
 
   step1Submitted() {
-    this.regForm.get('personalDetails').get('firstname').markAsTouched();
-    this.regForm.get('personalDetails').get('firstname').updateValueAndValidity();
-    this.regForm.get('personalDetails').get('lastname').markAsTouched();
-    this.regForm.get('personalDetails').get('lastname').updateValueAndValidity();
+    console.log()
+    let form =  this.regForm.value.PurchaseDetails
+   if(form.Confirmation == "true" && form.Quantity != null)
+   {
+    this.regForm.get('ChoosePackageDetails').get('Quantity').markAsTouched();
+    this.regForm.get('ChoosePackageDetails').get('Quantity').updateValueAndValidity();
+    this.regForm.get('ChoosePackageDetails').get('Confirmation').markAsTouched();
+    this.regForm.get('ChoosePackageDetails').get('Confirmation').updateValueAndValidity();
+   }
+   else{
+     alert("Payment now confirmed or quantity listed")
+   }
+
   }
 
 }

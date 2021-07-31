@@ -10,18 +10,18 @@ export class PurchasePackagesComponent implements OnInit {
 
   constructor() { }
 
-  registrationForm: FormGroup;
+  PurchaseForm: FormGroup;
 
   ngOnInit(): void {
-    this.registrationForm = new FormGroup({
-      'personalDetails': new FormGroup({
-        'firstname': new FormControl(null, Validators.required),
-        'mi': new FormControl(null),
-        'lastname': new FormControl(null, Validators.required),
+    this.PurchaseForm = new FormGroup({
+      'ChoosePackageDetails': new FormGroup({
+        'PackageID': new FormControl(null, Validators.required),
+        'Client_ID': new FormControl(null),
+
       }),
-      'contactDetails': new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),
-        'phone': new FormControl(null)
+      'PurchaseDetails': new FormGroup({
+        'Confirmation': new FormControl(null, [Validators.required]),
+        'Quantity': new FormControl(null, Validators.required),
       })
     });
 

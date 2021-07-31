@@ -8,12 +8,13 @@
           <h1>Account Login</h1>
       </div>
       <div class="form-content">
-          <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)">
+          <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)" *ngIf="!Spinner">
               <div class="form-group"><label for="username">Username</label><input type="text" id="username" ngModel name="Username" required="required" /></div>
               <div class="form-group"><label for="password">Password</label><input type="password" id="password"  ngModel name="Password" required="required" /></div>
               <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a class="form-recovery" href="#">Forgot Password?</a></div>
               <div class="form-group"><button type="submit"  [disabled]="!myForm.valid">Log In</button></div>
           </form>
+          <mat-progress-bar mode="indeterminate" *ngIf="Spinner"></mat-progress-bar>
       </div>
       <div style="padding-top: 5%;">
         <h3 > <a [routerLink]="['../Welcome']" routerLinkActive="active">DON'T HAVE AN ACCOUNT? REGISTER HERE</a></h3>

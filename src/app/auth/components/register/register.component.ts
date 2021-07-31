@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Client } from 'src/app/models/Client';
+import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
 
 @Component({
@@ -12,14 +14,14 @@ export class RegisterComponent implements OnInit {
 
     formGroup: FormGroup;
     formGroupOthers: FormGroup;
-    ApplicationType:Number;
+    ApplicationType:number;
     isClient:boolean
     submitted = false;
 
-  constructor(private activatedRoute: ActivatedRoute,private formBuilder: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute,private formBuilder: FormBuilder, private Authservice:AuthService) { }
 
   ngOnInit(): void {
-    this.ApplicationType = Number(this.activatedRoute.snapshot.params.ApplicationTypeId);
+    this.ApplicationType =this.activatedRoute.snapshot.params.ApplicationTypeId;
     if(this.ApplicationType==1){
       this.createClientForm();
       this.isClient = true;
@@ -34,65 +36,78 @@ export class RegisterComponent implements OnInit {
 
 
 
-    createOtherForm()
-    {
-          let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          this.formGroupOthers = this.formBuilder.group({
-            'Title': [null, Validators.required],
-            'Name': [null, Validators.required],
-            'Surname': [null, Validators.required],
-            'Contact_Number': [null, [Validators.required, Validators.maxLength(10)]],
-            'ID_Number': [null, Validators.required,Validators.maxLength(13)],
-            'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
-            'Physical_Address': [null,Validators.required],
-            'Password': [null, [Validators.required, this.checkPassword]],
-            "Confirm_Password": ['', Validators.required],
-          }, {
-            validator: MustMatch('Password', 'Confirm_Password')
-        });
-    }
-  createClientForm() {
-    let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    this.formGroup = this.formBuilder.group({
-      'Title': [null, Validators.required],
-      'Name': [null, Validators.required],
-      'Surname': [null, Validators.required],
-      'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
-      'Passport_Number': [null, Validators.required,Validators.maxLength(9)],
-      'ID_Number': [null, Validators.required,Validators.maxLength(13)],
-      'Contact_Number': [null, [Validators.required, Validators.maxLength(10)]],
-      'Gender': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      'Country': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-      'Client_Status': [null],
-      'Password': [null, [Validators.required, this.checkPassword]],
-      "Confirm_Password": ['', Validators.required],
-    }, {
-      validator: MustMatch('Password', 'Confirm_Password')
-  });
-  }
+
  
-  onSubmit(value:any)
+  onSubmit(client:Client,role:number)
   {
-    if(this.isClient)
-    {
-      this.submitted = false;
-      console.log(value)
-    }
-    else if(this.ApplicationType==2)
-    {
+    client.Username =  client.Email_Address;
+    let  Role = Number(role)+Number(1)
+    client.UserRole_ID = Role ;
+    this.submitted = false;
 
-    }
-    else if(this.ApplicationType==3)
-    {
+    console.log(client," ", Role)
+   // this.Authservice.Register(client,  client.UserRole_ID)
 
-    }
-    else if(this.ApplicationType==4)
-    {
+    // if(this.isClient)//Client
+    // {
+    //   client.UserRole_ID = 2;
+    //   this.submitted = false;
+    //   console.log(client)
+    // }
+    // else if(this.ApplicationType==2) //Practitioner
+    // {
+        
+    // }
+    // else if(this.ApplicationType==3)
+    // {
+    //   client.UserRole_ID = 4;
+    //   this.Authservice.Register(client,  client.UserRole_ID)
 
-    }
+    // }
+    // else if(this.ApplicationType==4)
+    // {
+    //   client.UserRole_ID = 5;
+    //   this.Authservice.Register(client,  client.UserRole_ID)
+    // }
     
   }
-
+  createOtherForm()
+  {
+        let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        this.formGroupOthers = this.formBuilder.group({
+          'Title': [null, Validators.required],
+          'Name': [null, Validators.required],
+          'Surname': [null, Validators.required],
+          'Contact_Number': [null, [Validators.required]],
+          'ID_Number': [null, Validators.required],
+          'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
+          'Physical_Address': [null,Validators.required],
+          'Gender': [null, [Validators.required]],
+          'Password': [null, [Validators.required, this.checkPassword]],
+          "Confirm_Password": ['', Validators.required],
+        }, {
+          validator: MustMatch('Password', 'Confirm_Password')
+      });
+  }
+createClientForm() {
+  let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  this.formGroup = this.formBuilder.group({
+    'Title': [null, Validators.required],
+    'Name': [null, Validators.required],
+    'Surname': [null, Validators.required],
+    'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
+    'Passport_Number': [null, Validators.required,Validators.maxLength(9)],
+    'ID_Number': [null, Validators.required],
+    'Contact_Number': [null, [Validators.required, Validators.maxLength(10)]],
+    'Gender': [null, [Validators.required]],
+    'Country': [null, [Validators.required]],
+    'Client_Status': [null],
+    'Password': [null, [Validators.required, this.checkPassword]],
+    "Confirm_Password": ['', Validators.required],
+  }, {
+    validator: MustMatch('Password', 'Confirm_Password')
+});
+}
 
   public checkPassword(control) {
     let enteredPassword = control.value
@@ -109,8 +124,7 @@ export class RegisterComponent implements OnInit {
   
   getErrorEmail() {
     return this.formGroup.get('Email_Address').hasError('required') ? 'Field is required' :
-      this.formGroup.get('Email_Address').hasError('pattern') ? 'Not a valid emailaddress' :
-        this.formGroup.get('Email_Address').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
+      this.formGroup.get('Email_Address').hasError('pattern') ? 'Not a valid emailaddress' :'';
   }
   
 }

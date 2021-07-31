@@ -1,3 +1,41 @@
-<p>
-  TrialQuestionnaire works!
-</p>
+
+<div class="app" align="center">
+  <h1 class="h1 title" style="font-size: 300%;">
+    <i class="fas fa-home"></i>
+    <span>Teaser Questionnaire</span>
+  </h1>
+</div>
+
+<hr>
+<br>
+<br>
+
+<h1 class="p1">Which picture represents you the most?</h1>
+<div class="cards-list">
+
+  <div class="card 1" *ngFor="let Question of Questions">
+    <div class="card_image">
+
+      <!-- <img src='{{Question.Question_Image}}' /> -->
+      <!-- Temporary image -->
+      <img src='https://i.redd.it/b3esnz5ra34y.jpg' />
+
+    </div>
+    <div class="card_title title-white">
+      <p>{{Question.Question}}</p>
+    </div>
+  </div>
+<!-- https://i.redd.it/b3esnz5ra34y.jpg -->
+
+<mat-card class="example-full-width" style="background-color: white; width: 100%;">
+  <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+    <div class="Grid-cell">
+      <button mat-flat-button color="primary">Done</button>
+    </div>
+    <div class="Grid-cell">
+       <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
+    </div>
+  </div>
+</mat-card>
+
+  </div>
