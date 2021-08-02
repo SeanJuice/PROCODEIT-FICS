@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ClientService } from 'src/app/dashboard/services/client.service';
+import { Package } from 'src/app/models/Package';
 
 @Component({
   selector: 'app-FinalPurchase',
@@ -9,21 +11,29 @@ import { FormGroup } from '@angular/forms';
 export class FinalPurchaseComponent implements OnInit {
 
   @Input() regForm: FormGroup;
-  constructor() { }
+  constructor(private clientService:ClientService) { }
 
   ngOnInit() {
 
   }
 
   step1Submitted() {
-    console.log()
+    console.log(  this.regForm.value)
     let form =  this.regForm.value.PurchaseDetails
+    let form2 =  this.regForm.value.ChoosePackageDetails
+
    if(form.Confirmation == "true" && form.Quantity != null)
    {
-    this.regForm.get('ChoosePackageDetails').get('Quantity').markAsTouched();
-    this.regForm.get('ChoosePackageDetails').get('Quantity').updateValueAndValidity();
-    this.regForm.get('ChoosePackageDetails').get('Confirmation').markAsTouched();
-    this.regForm.get('ChoosePackageDetails').get('Confirmation').updateValueAndValidity();
+     let pack = {Package_ID:form2.PackageID,Client_ID: form2.Client_ID,Quantity:form.Quantity}
+    // this.regForm.get('ChoosePackageDetails').get('Quantity').markAsTouched();
+    // this.regForm.get('ChoosePackageDetails').get('Quantity').updateValueAndValidity();
+    // this.regForm.get('ChoosePackageDetails').get('Confirmation').markAsTouched();
+    // this.regForm.get('ChoosePackageDetails').get('Confirmation').updateValueAndValidity();
+
+    this.clientService.PurchasePackage(pack).subscribe(res=>{
+      console.log("Purchased -->>",res)
+    })
+
    }
    else{
      alert("Payment now confirmed or quantity listed")

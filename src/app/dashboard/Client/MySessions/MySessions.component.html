@@ -11,6 +11,10 @@
           <td id="tour-table">Name</td>
           <td>Description</td>
           <td>Date</td>
+          <td>Start Time</td>
+          <td>End Time</td>
+          <td>PackageName</td>
+
           <td>____</td>
         </tr>
       <tbody>
@@ -18,6 +22,11 @@
             <td>//</td>
             <td>{{session.Description}}</td>
             <td>{{session.Date | date}}</td>
+            <td>{{session.Start_Time}}</td>
+            <td>{{session.End_Time}}</td>
+            <td>{{session.PackageName}}</td>
+
+
             <td>
               <button mat-flat-button color="primary" (click)="openReviewDialog(session.Session_ID)">Review</button>
             </td>

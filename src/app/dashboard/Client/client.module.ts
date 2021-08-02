@@ -13,6 +13,7 @@ import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.co
 import { ConfirmUpdateDialogComponent } from './Profile/ConfirmUpdateDialog/ConfirmUpdateDialog.component';
 import { TrialQuestionnaireComponent } from './TrialQuestionnaire/TrialQuestionnaire.component';
 import { RouterModule } from '@angular/router';
+import { ProgressReportComponent } from './ProgressReport/ProgressReport.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
     ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
-    TrialQuestionnaireComponent,
+    TrialQuestionnaireComponent,ProgressReportComponent,
     // Dialogs
     ReviewDialogComponent,ConfirmUpdateDialogComponent
   ]

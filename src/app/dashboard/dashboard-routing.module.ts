@@ -7,6 +7,7 @@ import { MytasksComponent } from './Client/Mytasks/Mytasks.component';
 import { ProfileComponent } from './Client/Profile/Profile.component';
 import { PurchasePackagesComponent } from './Client/PurchasePackages/PurchasePackages.component';
 import { TrialQuestionnaireComponent } from './Client/TrialQuestionnaire/TrialQuestionnaire.component';
+import { ProgressReportComponent } from './Client/ProgressReport/ProgressReport.component';
 
 
 const routes: Routes = [
@@ -15,17 +16,19 @@ const routes: Routes = [
   pathMatch: 'full',
   children: [
           {path: 'Dashboard', component: DashboardComponent},
-          //clients
-          
+
+
     ]
   },
-  {path: 'My_Questionnaires', component: MyQuestionnairesComponent},
+       //clients
+         {path: 'My_Questionnaires', component: MyQuestionnairesComponent},
           {path: 'Sessions', component: MySessionsComponent},
           {path: 'tasks', component: MytasksComponent},
           {path: 'Profile', component: ProfileComponent},
           {path: 'PurchasePackage', component: PurchasePackagesComponent},
           {path: 'Profile', component: ProfileComponent},
           {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
+          {path:  'ProgressReport', component:ProgressReportComponent}
 
 
 

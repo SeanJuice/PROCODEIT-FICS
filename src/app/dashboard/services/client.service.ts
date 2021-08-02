@@ -26,7 +26,7 @@ export class ClientService {
    */
   geClientProfile(id : number)
   {
-    return this.http.get(`${rootURL}/ViewClientProfile/${id}`);
+    return this.http.get(`${rootURL}/ViewClientProfile/${id}`).pipe(share());;
   }
 
   /**
@@ -51,8 +51,8 @@ export class ClientService {
   // Get Sessions
   getSessions(id?: number):Observable<Session[]>
   {
-    let ID = Number(this.storage.get("Client_ID"));
-    return this.http.get<Session[]>(`${rootURL}/GetSessions/${ID}`).pipe(share());
+
+    return this.http.get<Session[]>(`${rootURL}/ViewSchedule/${this.ClientID}`).pipe(share());
   }
 
 
@@ -82,8 +82,10 @@ export class ClientService {
    *
    */
 
-  PurchasePackage(PurchaseObject: Package){
-    this.http.get(`${rootURL}/PurchasePackages/${PurchaseObject.Package_ID}/${PurchaseObject.Client_ID}/${PurchaseObject.Quantity}`);
+  PurchasePackage(PurchaseObject){
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+    return this.http.post(`${rootURL}/PurchasePackages/${PurchaseObject.Package_ID}/${PurchaseObject.Client_ID}/${PurchaseObject.Quantity}`,httpOptions);
+
   }
 
   /**
@@ -94,6 +96,27 @@ export class ClientService {
     return this.http.get(`${rootURL}/TrialQuestionnaire/`).pipe(share());
   }
 
+  /**
+   * get Tasks
+   */
+
+   getTasks() {
+    return this.http.get(`${rootURL}/ViewTasks/${this.ClientID}`).pipe(share());
+  }
 
 
+  /**
+   * get Tasks
+   */
+
+   ProgressReport() {
+    return this.http.get(`${rootURL}/ViewProgressReport/${this.ClientID}`).pipe(share());
+  }
+  /**
+   * get Tasks
+   */
+
+   ClientQuestionnaire() {
+    return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
+  }
 }
