@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-Mytasks',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Mytasks.component.scss']
 })
 export class MytasksComponent implements OnInit {
-
-  constructor() { }
+  Tasks:any;
+  constructor(private clientservice:ClientService) { }
 
   ngOnInit() {
+    this.clientservice.getTasks().subscribe(res=>{
+      this.Tasks = res;
+      console.log(res,"       ",this.Tasks)
+    })
   }
 
 }

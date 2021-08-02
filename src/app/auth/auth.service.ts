@@ -13,7 +13,7 @@ const   rootURL = 'https://localhost:44332/api/Access'
   providedIn: 'root'
 })
 export class AuthService {
-  // Behavior subjects 
+  // Behavior subjects
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   /**
-   * Ger Role 
+   * Ger Role
    */
   get Role() {
     return  this.storage.get("Role")
@@ -43,8 +43,8 @@ export class AuthService {
         this.storage.set("isloggedin", "true");
         this.storage.set("Role", res.UserRole_ID);
         this.storage.set("User_ID", res.User_ID);
-        this.storage.set("Client_ID", res.ClientID); 
-        
+        this.storage.set("Client_ID", res.LoginID);
+
         console.log(res)
         this.router.navigate(['./dashboard'])
       }
@@ -86,7 +86,7 @@ export class AuthService {
     this.storage.remove("User_ID");
     this.storage.remove("Client_ID");
 
-    
+
   }
 
   SetLoadingSpanner(observable: Observable<any>): Boolean{

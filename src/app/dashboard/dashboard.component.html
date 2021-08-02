@@ -61,246 +61,45 @@
 
 
   </div> -->
+
+
   <h1 class="h1 title">
     <i class="fas fa-home"></i>
     <span>Dashboard</span>
   </h1>
   <div class="cards">
 
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg" alt="wave" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-             Book Session 
-            <small><mat-icon>library_add</mat-icon></small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          
+    <div *ngFor="let dashboard of DashboardSettings" style="display:inline;">
+      <div class="card">
+        <div class="card__image-holder">
+          <img class="card__image" src="{{dashboard.ImageLink}}" alt="wave" />
         </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a>Book</a>
+        <div class="card-title" >
+          <a href="#" class="toggle-info btn" [ngStyle]="{'background-color':dashboard.color}">
+            <span class="left"></span>
+            <span class="right"></span>
+          </a>
+          <h2>
+            {{dashboard.Header_Name}}
+              <small><mat-icon>{{dashboard.icon}}</mat-icon></small>
+          </h2>
+        </div>
+        <div class="card-flap flap1">
+          <div class="card-description">
+
+          </div>
+          <div class="card-flap flap2">
+            <div class="card-actions">
+              <a  [routerLink]="[dashboard.RouterLink]" routerLinkActive="active"class="btn">{{dashboard.Button_Name}}</a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?beach" alt="beach" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-           My Sessions
-            <small><mat-icon> format_line_spacing</mat-icon></small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-         
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a [routerLink]="['Sessions']" routerLinkActive="active" class="btn" class="btn">View Sessions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg" alt="mountain" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Purchase Package
-            <small><mat-icon>receipt</mat-icon> </small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-        
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a [routerLink]="['PurchasePackage']" routerLinkActive="active"class="btn">Purchase</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?field" alt="field" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            View Questionnaires
-            <!-- <small>Image from unsplash.com</small> -->
-        </h2>
-      </div>
-      <div class="card-flap flap1">
->
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a [routerLink]="['My_Questionnaires']" routerLinkActive="active" class="btn" class="btn">My Questionnaires</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?water" alt="water" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Card title
-            <small>Image from unsplash.com</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?river" alt="river" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Card title
-            <small>Image from unsplash.com</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?kite" alt="kite" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Card title
-            <small>Image from unsplash.com</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?underwater" alt="underwater" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Card title
-            <small>Image from unsplash.com</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="card">
-      <div class="card__image-holder">
-        <img class="card__image" src="https://source.unsplash.com/300x225/?desert" alt="desert" />
-      </div>
-      <div class="card-title">
-        <a href="#" class="toggle-info btn">
-          <span class="left"></span>
-          <span class="right"></span>
-        </a>
-        <h2>
-            Card title
-            <small>Image from unsplash.com</small>
-        </h2>
-      </div>
-      <div class="card-flap flap1">
-        <div class="card-description">
-          This grid is an attempt to make something nice that works on touch devices. Ignoring hover states when they're not available etc.
-        </div>
-        <div class="card-flap flap2">
-          <div class="card-actions">
-            <a href="#" class="btn">Read more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
+
+
   </div>
-  
-  
-  
-  
+
+
+
