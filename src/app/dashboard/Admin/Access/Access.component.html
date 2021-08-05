@@ -1,0 +1,31 @@
+
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Access management</span>
+  </h1>
+<section class="app-body mat-app-background">
+<nav mat-tab-nav-bar>
+
+  <a mat-tab-link
+     routerLinkActive="active"
+     routerLink="./clients"  class="txt" >
+    clients
+  </a>
+  <a mat-tab-link
+     routerLinkActive="active"
+     routerLink="./practitioners" class="txt">
+    practitioners
+  </a>
+  <a mat-tab-link
+    routerLinkActive="active"
+    routerLink="./trainers"  class="txt">
+     trainers
+  </a>
+  <a mat-tab-link
+  routerLinkActive="active"
+  routerLink="./trainees"  class="txt">
+   trainees
+</a>
+</nav>
+</section>
+<router-outlet></router-outlet>

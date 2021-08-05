@@ -6,6 +6,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ClientModule } from './Client/client.module';
 import { LazyLoadScriptService } from './services/lazy-load-script.service';
+import { AdminModule } from './Admin/admin.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LazyLoadScriptService } from './services/lazy-load-script.service';
     DashboardRoutingModule,
     SharedModule,
     ClientModule,
-    
+    AdminModule
+
 
   ],
   providers:[LazyLoadScriptService]

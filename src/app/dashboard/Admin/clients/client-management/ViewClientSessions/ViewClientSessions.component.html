@@ -1,0 +1,35 @@
+<button mat-flat-button routerLinkActive="active"
+ [routerLink]="['../../client-management/']" >Back</button>
+ <div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Client: {{message}}</span>
+  </h1>
+
+  <div class="table-card">
+    <h2>Sessions</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Session</td>
+          <td>Date</td>
+          <td>Time</td>
+          <td>Client</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let client of Sessions">
+            <td>{{client.Session}}</td>
+            <td>{{client.Date | date}}</td>
+            <td>{{client.Time}}</td>
+            <td>{{client.Client}}</td>
+            <td>
+              <button mat-flat-button color="primary"  routerLinkActive="active"class="btn" >View</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable} from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 import { share } from 'rxjs/operators';
 
+const KEY = "FICSINF"
 
 const   rootURL = 'https://localhost:44332/api/Access'
 
@@ -13,6 +14,8 @@ const   rootURL = 'https://localhost:44332/api/Access'
   providedIn: 'root'
 })
 export class AuthService {
+
+  decrypted: string;
   // Behavior subjects
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
@@ -28,9 +31,12 @@ export class AuthService {
    * Ger Role
    */
   get Role() {
-    return  this.storage.get("Role")
+    return  this.storage.get("rle")
   }
 
+  get loginId() {
+    return  this.decrypt(this.storage.get("liid"))
+  }
   /*
   Login
   */
@@ -40,10 +46,10 @@ export class AuthService {
       if(!res.Error)
       {
         this.loggedIn.next(true)
-        this.storage.set("isloggedin", "true");
-        this.storage.set("Role", res.UserRole_ID);
-        this.storage.set("User_ID", res.User_ID);
-        this.storage.set("Client_ID", res.LoginID);
+        this.storage.set("IULI", this.encrypt("true")); //is user logged in
+        this.storage.set("rle",  this.encrypt(res.UserRole_ID));
+        this.storage.set("User_ID", this.encrypt( res.User_ID));
+        this.storage.set("liid", this.encrypt( res.LoginID));
 
         console.log(res)
         this.router.navigate(['./dashboard'])
@@ -81,10 +87,10 @@ export class AuthService {
   logout() {
     this.loggedIn.next(false);
     this.router.navigate(['Welcome']);
-    this.storage.remove("Role")
-    this.storage.remove("isloggedin");
+    this.storage.remove("rle")
+    this.storage.remove("IULI");
     this.storage.remove("User_ID");
-    this.storage.remove("Client_ID");
+    this.storage.remove("liid");
 
 
   }
@@ -94,6 +100,16 @@ export class AuthService {
     observable.subscribe(()=>{loading=false})
     return loading
   }
+
+  encrypt(value){
+
+      return value
+
+  }
+  decrypt(encrypted){
+    return encrypted
+  }
+
 
 
 }

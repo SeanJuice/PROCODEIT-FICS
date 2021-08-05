@@ -12,13 +12,14 @@ declare var $;
 })
 export class DashboardComponent implements OnInit {
   Role: Number | 0;
-  DashboardSettings:any =  dashboards_settings;
+  DashboardSettings:any
 
   constructor(private Auth:AuthService,private lazyLoadService: LazyLoadScriptService) { }
 
   ngOnInit(): void {
-    this.Role = Number(this.Auth.Role)
-
+    this.Role = this.Auth.Role
+    console.log(this.Auth.decrypt(this.Role))
+    this.RoleFilter(this.Role)
     this.lazyLoadService.loadScript('/assets/jquery.min.js').subscribe(_ => {
       console.log('Jquery is loaded!')
       this.loadJS()
@@ -26,6 +27,30 @@ export class DashboardComponent implements OnInit {
   });
   }
 
+  RoleFilter(role){
+
+    switch (role) {
+      case 1:
+        this.DashboardSettings =  Admin;
+        break;
+      case 2:
+          this.DashboardSettings =  dashboards_settings_client;
+          break;
+      case 3:
+          this.DashboardSettings =  dashboards_settings_practitioner;
+          break;
+      case 4:
+          this.DashboardSettings =  dashboards_settings_trainer;
+          break;
+      case 5:
+          this.DashboardSettings =  dashboards_settings_trainee;
+          break;
+      default:
+          console.log("No such day exists!");
+          break;
+      }
+
+  }
 
 
 
@@ -78,15 +103,17 @@ export class DashboardComponent implements OnInit {
 
 }
 
-
-const dashboards_settings  =
+/**
+ * ?Client dashboard
+ */
+const dashboards_settings_client =
 [
    {
      NumberOfObject:1,
      Header_Name:"Book Sessions",
      Button_Name:"Book",
      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
-     RouterLink:"",
+     RouterLink:"Booking",
      icon:"library_add",
      color:"rgb(15, 147, 255);"
    },
@@ -155,3 +182,74 @@ const dashboards_settings  =
   },
 
 ]
+
+/**
+ * ?Practitioner dashboard
+ */
+const dashboards_settings_practitioner =
+[
+   {
+     NumberOfObject:1,
+     Header_Name:"Book Sessions",
+     Button_Name:"Book",
+     ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+     RouterLink:"Booking",
+     icon:"library_add",
+     color:"rgb(15, 147, 255);"
+   },
+]
+/**
+ * ? Trainer dashboard
+ */
+
+const dashboards_settings_trainer =
+[
+   {
+     NumberOfObject:1,
+     Header_Name:"Book Sessions",
+     Button_Name:"Book",
+     ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+     RouterLink:"",
+     icon:"library_add",
+     color:"rgb(15, 147, 255);"
+   },
+]
+/**
+ * ? Trainee dashboard
+ */
+const dashboards_settings_trainee =
+[
+   {
+     NumberOfObject:1,
+     Header_Name:"Book Sessions",
+     Button_Name:"Book",
+     ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+     RouterLink:"",
+     icon:"library_add",
+     color:"rgb(15, 147, 255);"
+   },
+]
+/**
+ * ? Admin dashboard
+ */
+ const Admin =
+ [
+    {
+      NumberOfObject:1,
+      Header_Name:"Client Management",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"client-management",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+    {
+      NumberOfObject:1,
+      Header_Name:"Access Management",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"access",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+ ]
