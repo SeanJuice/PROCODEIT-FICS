@@ -14,19 +14,22 @@ import { ConfirmUpdateDialogComponent } from './Profile/ConfirmUpdateDialog/Conf
 import { TrialQuestionnaireComponent } from './TrialQuestionnaire/TrialQuestionnaire.component';
 import { RouterModule } from '@angular/router';
 import { ProgressReportComponent } from './ProgressReport/ProgressReport.component';
+import { BookingComponent } from './Booking/Booking.component';
+import {ClientRoutingModule } from './client-routing.module'
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    ClientRoutingModule,
 
   ],
   declarations: [
     MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
     ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
-    TrialQuestionnaireComponent,ProgressReportComponent,
+    TrialQuestionnaireComponent,ProgressReportComponent,BookingComponent,
     // Dialogs
     ReviewDialogComponent,ConfirmUpdateDialogComponent
   ]

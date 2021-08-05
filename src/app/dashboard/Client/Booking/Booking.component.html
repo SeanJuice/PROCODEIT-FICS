@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="Grid Grid--full u-textCenter">
+
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> </div>
+  </div>
+
+</div>
+<br>
+
+<div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+  <div class="Grid-cell">
+      <div class="example-full-width" appearance="fill">
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+            Select a Date
+          </mat-card-title>
+          <br>
+          <mat-calendar (selectedChange)="selected = $event" style="background-color: rgb(1, 134, 230);"></mat-calendar>
+        </mat-card>
+      </div>
+
+  </div>
+  <div class="Grid-cell">
+
+      <div class="example-full-width" appearance="fill">
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+           Current Booking
+          </mat-card-title>
+          <br>
+            {{selected |date}}
+
+        </mat-card>
+        <hr>
+        <mat-card class="demo-inline-calendar-card">
+          <mat-card-title>
+            Available Slots
+          </mat-card-title>
+          <br>
+
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <br>
+  <mat-card class="example-full-width" style="background-color: white; width: 100%;">
+    <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+      <div class="Grid-cell">
+        <button mat-flat-button color="primary" (click)="Book()">Confirm</button>
+      </div>
+      <div class="Grid-cell">
+         <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
+      </div>
+    </div>
+  </mat-card>

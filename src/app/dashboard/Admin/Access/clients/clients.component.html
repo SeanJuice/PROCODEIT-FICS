@@ -1,0 +1,32 @@
+<div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Clients</span>
+  </h1>
+
+  <div class="table-card">
+    <h2>Table</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{client.Title}}</td>
+            <td>{{client.Name}}</td>
+            <td>{{client.Surname}}</td>
+            <td>{{client.Email_Address}}</td>
+            <td>
+              <button mat-flat-button color="primary" (click)="DisableClient(client.Client_ID)"  class="btn" >Disable</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

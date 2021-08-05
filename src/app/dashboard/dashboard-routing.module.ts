@@ -1,34 +1,29 @@
 import { DashboardComponent } from './dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MyQuestionnairesComponent } from './Client/myQuestionnaires/myQuestionnaires.component';
-import { MySessionsComponent } from './Client/MySessions/MySessions.component';
-import { MytasksComponent } from './Client/Mytasks/Mytasks.component';
-import { ProfileComponent } from './Client/Profile/Profile.component';
-import { PurchasePackagesComponent } from './Client/PurchasePackages/PurchasePackages.component';
-import { TrialQuestionnaireComponent } from './Client/TrialQuestionnaire/TrialQuestionnaire.component';
-import { ProgressReportComponent } from './Client/ProgressReport/ProgressReport.component';
-
+import { DashboardRoleGuard } from '../auth/dashboard-role.guard';
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
    component:DashboardComponent,
-  pathMatch: 'full',
-  children: [
+   pathMatch: 'full',
+   children: [
           {path: 'Dashboard', component: DashboardComponent},
-
-
     ]
+    },
+    {
+      path: '',
+      loadChildren: () => import('./Client/client-routing.module').then( m => m.ClientRoutingModule),
+      canActivate: [DashboardRoleGuard],
+      data: {roles: [2]} //a sends this data to Auth guard
+    },
+    {
+      path: '',
+    loadChildren: () => import('./Admin/admin-routing.module').then( m => m.AdminRoutingModule),
+    canActivate: [DashboardRoleGuard],
+    data: {roles: [1]}
   },
-       //clients
-         {path: 'My_Questionnaires', component: MyQuestionnairesComponent},
-          {path: 'Sessions', component: MySessionsComponent},
-          {path: 'tasks', component: MytasksComponent},
-          {path: 'Profile', component: ProfileComponent},
-          {path: 'PurchasePackage', component: PurchasePackagesComponent},
-          {path: 'Profile', component: ProfileComponent},
-          {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
-          {path:  'ProgressReport', component:ProgressReportComponent}
 
 
 

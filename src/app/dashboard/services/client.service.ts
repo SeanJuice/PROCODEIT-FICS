@@ -7,6 +7,7 @@ import { Client } from 'src/app/models/Client';
 import { Session } from 'src/app/models/Session';
 import { share } from 'rxjs/operators';
 import { Package } from 'src/app/models/Package';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 const   rootURL = 'https://localhost:44332/api/Client/'
@@ -17,7 +18,7 @@ const   rootURL = 'https://localhost:44332/api/Client/'
 export class ClientService {
 
 
-  constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService) { }
+  constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService, private auth:AuthService) { }
 
   /**
    * Used to get Client profile
@@ -42,7 +43,7 @@ export class ClientService {
   //get Client ID
   get ClientID()
   {
-    let id =  this.storage.get("Client_ID")
+    let id =  this.auth.loginId //ClientID
     return Number(id);
   }
 
@@ -83,7 +84,9 @@ export class ClientService {
    */
 
   PurchasePackage(PurchaseObject){
+
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+    this.storage.set("Package",PurchaseObject.Package_ID )
     return this.http.post(`${rootURL}/PurchasePackages/${PurchaseObject.Package_ID}/${PurchaseObject.Client_ID}/${PurchaseObject.Quantity}`,httpOptions);
 
   }
@@ -118,5 +121,12 @@ export class ClientService {
 
    ClientQuestionnaire() {
     return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
+  }
+
+  BookSlot(BookingIDs){
+    BookingIDs.Package_ID =  Number(this.storage.get("Package"))
+    BookingIDs.Client_ID = this.ClientID;
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}/BookSession/1`,BookingIDs,httpOptions).pipe(share());
   }
 }
