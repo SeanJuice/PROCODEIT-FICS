@@ -8,13 +8,19 @@ import { RouterModule } from '@angular/router';
 import { ViewClientSessionsComponent } from './clients/client-management/ViewClientSessions/ViewClientSessions.component';
 import { AccessComponent } from './Access/Access.component';
 import { AccessModule } from './Access/access.module';
+import { TypeManagementComponent } from './type-management/type-management.component';
+import { TypeModule } from './type-management/type.module';
+import { ApplicationRequestsModule } from './application-request-management/application-requests.module';
+import { ApplicationRequestManagementComponent } from './application-request-management/application-request-management.component';
 
 
 @NgModule({
   declarations: [
     ClientManagementComponent,
     ViewClientSessionsComponent,
-    AccessComponent
+    AccessComponent,
+    TypeManagementComponent,
+    ApplicationRequestManagementComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +29,9 @@ import { AccessModule } from './Access/access.module';
     FormsModule,
     SharedModule,
     RouterModule,
-    AccessModule
+    AccessModule,
+    TypeModule,
+    ApplicationRequestsModule
 
   ]
 })

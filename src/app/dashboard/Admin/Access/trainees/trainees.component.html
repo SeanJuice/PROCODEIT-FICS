@@ -1,10 +1,14 @@
 <div class="app">
   <h1 class="h1 title">
     <i class="fas fa-home"></i>
-    <span>Trainees</span>
+    <span></span>
   </h1>
 
   <div class="table-card">
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>Trainee Access</span>
+    </h1>
     <table class="table">
       <thead>
         <tr>
@@ -22,7 +26,7 @@
             <td>{{trainee.Surname}}</td>
             <td>{{trainee.Email_Address}}</td>
             <td>
-              <button mat-flat-button color="primary" (click)="DisableTrainee(trainee.Trainee_ID)"  class="btn" >Disable</button>
+              <input type="button"   (click)="DisableTrainee(trainee.Trainee_ID)"  class="btn-gradient red" value="Disable" >
             </td>
           </tr>
       </tbody>

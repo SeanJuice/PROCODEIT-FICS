@@ -9,7 +9,7 @@ import { TrainerService } from '../../services/trainer.service';
 })
 export class TrainersComponent implements OnInit {
 
-  trainers:Array<Trainee>
+  trainers:Array<any>
   constructor( private TrainersService:TrainerService) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class TrainersComponent implements OnInit {
   }
 
 
-  DisableTrainee(ID){
+  DisableTrainer(ID){
      this.TrainersService.DisableTrainer(ID).subscribe(res=>{
        console.log("disabled")
      })

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
 
       let request =  this.AuthServe.Login(user);
-      this.Spinner =  this.AuthServe.SetLoadingSpanner(request)
+      // this.Spinner =  this.AuthServe.SetLoadingSpanner(request)
       // this.AuthServe.SeUpLoginData(request)
 
     }

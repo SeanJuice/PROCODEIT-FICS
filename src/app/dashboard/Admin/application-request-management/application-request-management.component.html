@@ -1,0 +1,27 @@
+
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Application Requests Management</span>
+  </h1>
+<section class="app-body mat-app-background">
+<nav mat-tab-nav-bar>
+
+  <a mat-tab-link
+     routerLinkActive="active"
+     routerLink="./practitioner-requests"  class="txt" >
+     practitioner requests
+  </a>
+  <a mat-tab-link
+     routerLinkActive="active"
+     routerLink="./trainee-requests" class="txt">
+     Trainee Requests
+  </a>
+  <a mat-tab-link
+    routerLinkActive="active"
+    routerLink="./trainer-requests"  class="txt">
+    Trainer Requests
+  </a>
+
+</nav>
+</section>
+<router-outlet></router-outlet>

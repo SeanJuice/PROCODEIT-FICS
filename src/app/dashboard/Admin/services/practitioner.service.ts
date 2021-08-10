@@ -23,11 +23,19 @@ export class PractitionerService {
   }
 
   DisablePractitioner(PracID){
-
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-
     return this.http.post(`${rootURL}/DisablePractitionerProfile/${PracID}`,httpOptions);
 
   }
 
+  getPractitionerRegistrations():Observable<any[]>
+  {
+    return this.http.get<any[]>(`${rootURL}/PractitionerRegistrationRequest`).pipe(share());;
+  }
+
+  AcceptORejectPractitioner(Practitioner:any,decision:number){
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+    return this.http.post(`${rootURL}/AcceptorDeclinePractitionerRequest/${Practitioner}/${decision}`,Practitioner,httpOptions);
+
+  }
 }

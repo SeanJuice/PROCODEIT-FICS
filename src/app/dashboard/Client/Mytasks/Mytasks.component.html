@@ -10,22 +10,16 @@
       <thead>
         <tr>
           <td id="tour-table">Description</td>
-          <td>Feedback</td>
-          <td>Start Date</td>
           <td>Due Date</td>
-          <td>Task status</td>
+          <td>Practitioner</td>
           <td>Task type</td>
-          <td>Description</td>
         </tr>
       <tbody>
           <tr *ngFor="let Task of Tasks">
             <td >{{Task.Description}}</td>
-            <td >{{Task.Feedback}}</td>
-            <td >{{Task.StartDate |date}}</td>
             <td >{{Task.DueDate |date }}</td>
-            <td >{{Task.TaskStatus  }}</td>
-            <td >{{Task.TaskTypeName  }}</td>
-            <td >{{Task.TaskTypeDescription  }}</td>
+            <td >{{Task.Practitioner  }}</td>
+            <td >{{Task.TaskType  }}</td>
 
           </tr>
       </tbody>

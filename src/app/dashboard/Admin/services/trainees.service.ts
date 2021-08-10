@@ -24,7 +24,7 @@ export class TraineesService {
    */
   getTrainees():Observable<any[]>
   {
-    return this.http.get<any[]>(`${rootURL}/GetPractitioners`).pipe(share());;
+    return this.http.get<any[]>(`${rootURL}/GetTrainees`).pipe(share());;
   }
 
   DisableTrainee(TraineeID){
@@ -33,5 +33,16 @@ export class TraineesService {
 
     return this.http.post(`${rootURL}/DisableTraineeProfile/${TraineeID}`,httpOptions);
 
+  }
+
+  AcceptORejectTrainee(trainee:any,decision:number){
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+    return this.http.post(`${rootURL}/AcceptorDeclineTraineeRequest/${trainee}/${decision}`,trainee,httpOptions);
+
+  }
+
+  getTraineeRegistrations():Observable<any[]>
+  {
+    return this.http.get<any[]>(`${rootURL}/TraineeRegistrationRequest`).pipe(share());;
   }
 }

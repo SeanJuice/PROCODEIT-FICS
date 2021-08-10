@@ -1,0 +1,29 @@
+<div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Client Types</span>
+  </h1>
+  <td>
+    <button mat-flat-button color="primary" (click)="AddClientType()"  class="btn" >Add Client Type</button>
+  </td>
+  <div class="table-card">
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Client Type Name</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of clientTypes">
+            <td>{{type.ClientType_Name}}</td>
+
+            <td>
+              <button mat-flat-button color="primary" (click)="Maintain(type.ClientType_ID)"  class="btn" >Maintain</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

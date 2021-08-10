@@ -25,10 +25,6 @@ export class FinalPurchaseComponent implements OnInit {
    if(form.Confirmation == "true" && form.Quantity != null)
    {
      let pack = {Package_ID:form2.PackageID,Client_ID: form2.Client_ID,Quantity:form.Quantity}
-    // this.regForm.get('ChoosePackageDetails').get('Quantity').markAsTouched();
-    // this.regForm.get('ChoosePackageDetails').get('Quantity').updateValueAndValidity();
-    // this.regForm.get('ChoosePackageDetails').get('Confirmation').markAsTouched();
-    // this.regForm.get('ChoosePackageDetails').get('Confirmation').updateValueAndValidity();
 
     this.clientService.PurchasePackage(pack).subscribe(res=>{
       console.log("Purchased -->>",res)

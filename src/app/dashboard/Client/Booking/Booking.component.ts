@@ -36,6 +36,8 @@ class PickDateAdapter extends NativeDateAdapter {
 })
 export class BookingComponent implements OnInit {
   selected: Date | null;
+
+  AvailableSlots: any =[]
   constructor(private clientservice:ClientService) { }
 
   ngOnInit() {
@@ -56,6 +58,16 @@ export class BookingComponent implements OnInit {
     }
     this.clientservice.BookSlot(book).subscribe(res=>{
       console.log(res)
+    })
+  }
+
+  getDateAvailability(date){
+    const momentDate = new Date(date); // Replace event.value with your date value
+    const formattedDate = moment(momentDate).format("YYYY/MM/DD");
+
+    console.log(formattedDate)
+    this.clientservice.getDateAvailability(formattedDate).subscribe(res=>{
+        console.log(res)
     })
   }
 

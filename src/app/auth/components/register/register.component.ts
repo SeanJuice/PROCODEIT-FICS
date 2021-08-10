@@ -18,10 +18,12 @@ export class RegisterComponent implements OnInit {
     isClient:boolean
     submitted = false;
 
+
   constructor(private activatedRoute: ActivatedRoute,private formBuilder: FormBuilder, private Authservice:AuthService) { }
 
   ngOnInit(): void {
-    this.ApplicationType =this.activatedRoute.snapshot.params.ApplicationTypeId;
+
+    this.ApplicationType =Number(this.activatedRoute.snapshot.params.ApplicationTypeId);
     if(this.ApplicationType==1){
       this.createClientForm();
       this.isClient = true;
@@ -37,7 +39,7 @@ export class RegisterComponent implements OnInit {
 
 
 
- 
+
   onSubmit(client:Client,role:number)
   {
     client.Username =  client.Email_Address;
@@ -46,30 +48,8 @@ export class RegisterComponent implements OnInit {
     this.submitted = false;
 
     console.log(client," ", Role)
-   // this.Authservice.Register(client,  client.UserRole_ID)
+   this.Authservice.Register(client,  client.UserRole_ID)
 
-    // if(this.isClient)//Client
-    // {
-    //   client.UserRole_ID = 2;
-    //   this.submitted = false;
-    //   console.log(client)
-    // }
-    // else if(this.ApplicationType==2) //Practitioner
-    // {
-        
-    // }
-    // else if(this.ApplicationType==3)
-    // {
-    //   client.UserRole_ID = 4;
-    //   this.Authservice.Register(client,  client.UserRole_ID)
-
-    // }
-    // else if(this.ApplicationType==4)
-    // {
-    //   client.UserRole_ID = 5;
-    //   this.Authservice.Register(client,  client.UserRole_ID)
-    // }
-    
   }
   createOtherForm()
   {
@@ -96,7 +76,7 @@ createClientForm() {
     'Name': [null, Validators.required],
     'Surname': [null, Validators.required],
     'Email_Address': [null, [Validators.required, Validators.pattern(emailregex)]],
-    'Passport_Number': [null, Validators.required,Validators.maxLength(9)],
+    'Passport_Number': [null, [Validators.required,Validators.maxLength(9)]],
     'ID_Number': [null, Validators.required],
     'Contact_Number': [null, [Validators.required, Validators.maxLength(10)]],
     'Gender': [null, [Validators.required]],
@@ -121,10 +101,10 @@ createClientForm() {
   get f() { return this.formGroup.controls; }
   get g() { return this.formGroupOthers.controls; }
 
-  
+
   getErrorEmail() {
     return this.formGroup.get('Email_Address').hasError('required') ? 'Field is required' :
       this.formGroup.get('Email_Address').hasError('pattern') ? 'Not a valid emailaddress' :'';
   }
-  
+
 }

@@ -11,7 +11,7 @@ declare var $;
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  Role: Number | 0;
+  Role: number | 0;
   DashboardSettings:any
 
   constructor(private Auth:AuthService,private lazyLoadService: LazyLoadScriptService) { }
@@ -249,6 +249,42 @@ const dashboards_settings_trainee =
       Button_Name:"View",
       ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
       RouterLink:"access",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+    {
+      NumberOfObject:1,
+      Header_Name:"Application Requests ",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"application-requests",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+    {
+      NumberOfObject:1,
+      Header_Name:"Questionnaire Management",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"questionnaire-management",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+    {
+      NumberOfObject:1,
+      Header_Name:"Assign Questionnaire",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"assign-questionnaire",
+      icon:"library_add",
+      color:"rgb(15, 147, 255);"
+    },
+    {
+      NumberOfObject:1,
+      Header_Name:"Audit Trail",
+      Button_Name:"View",
+      ImageLink: "https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg",
+      RouterLink:"audit-trail",
       icon:"library_add",
       color:"rgb(15, 147, 255);"
     },

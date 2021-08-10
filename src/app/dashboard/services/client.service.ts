@@ -104,7 +104,7 @@ export class ClientService {
    */
 
    getTasks() {
-    return this.http.get(`${rootURL}/ViewTasks/${this.ClientID}`).pipe(share());
+    return this.http.get(`${rootURL}/GetTasks/${this.ClientID}`).pipe(share());
   }
 
 
@@ -128,5 +128,11 @@ export class ClientService {
     BookingIDs.Client_ID = this.ClientID;
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
      return this.http.post(`${rootURL}/BookSession/1`,BookingIDs,httpOptions).pipe(share());
+  }
+
+  getDateAvailability(Date:any){
+    return this.http.get(`${rootURL}/GetDateAvailablity
+    /${Date}`,Date).pipe(share());
+
   }
 }
