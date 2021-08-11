@@ -14,8 +14,10 @@
               <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a class="form-recovery" href="#">Forgot Password?</a></div>
               <div class="form-group"><button type="submit"  [disabled]="!myForm.valid">Log In</button></div>
           </form>
-          <mat-progress-bar mode="indeterminate" *ngIf="Spinner"></mat-progress-bar>
+
       </div>
+
+      <mat-progress-bar mode="indeterminate" *ngIf="Spinner"></mat-progress-bar>
       <div style="padding-top: 5%;">
         <h3 > <a [routerLink]="['../Welcome']" routerLinkActive="active">DON'T HAVE AN ACCOUNT? REGISTER HERE</a></h3>
       </div>

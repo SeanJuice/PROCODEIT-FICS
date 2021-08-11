@@ -1,0 +1,35 @@
+
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Access management</span>
+  </h1>
+<section class="app-body mat-app-background">
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+      routerLinkActive="active"
+      routerLink="./client-type"  class="txt" >
+      Client types
+    </a>
+    <a mat-tab-link
+      routerLinkActive="active"
+      routerLink="./document-type" class="txt">
+      Document types
+    </a>
+    <a mat-tab-link
+      routerLinkActive="active"
+      routerLink="./event-type"  class="txt">
+      Event types
+    </a>
+    <a mat-tab-link
+    routerLinkActive="active"
+    routerLink="./package-type"  class="txt">
+    Package types
+  </a>
+  <a mat-tab-link
+  routerLinkActive="active"
+  routerLink="./questionnaire-type"  class="txt">
+  Questionnaire
+  </a>
+</nav>
+</section>
+<router-outlet></router-outlet>

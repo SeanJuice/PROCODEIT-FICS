@@ -25,7 +25,7 @@ body {
   margin: 0;
   color: #297bff;
 }
-a.btn {
+a.btnn {
   background: $teal;
   border-radius: 4px;
 	box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
@@ -37,15 +37,15 @@ a.btn {
 	transition: all 0.1s 0s ease-out;
 }
 
-.no-touch a.btn:hover {
+.no-touch a.btnn:hover {
   background: lighten($teal,2.5);
   box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
   transform: translateY(-2px);
   transition: all 0.25s 0s ease-out;
 }
 
-.no-touch a.btn:active,
-a.btn:active {
+.no-touch a.btnn:active,
+a.btnn:active {
   background: darken($teal,2.5);
   box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
   transform: translate3d(0,1px,0);
@@ -73,7 +73,7 @@ div.card {
   img {
     max-width: 300px;
   }
-  
+
   .card__image-holder {
     background: rgba(0,0,0,0.1);
     height: 0;
@@ -85,7 +85,7 @@ div.card {
     padding: 6px 15px 10px;
     position: relative;
     z-index: 0;
-    
+
     a.toggle-info {
       border-radius: 32px;
       height: 32px;
@@ -94,7 +94,7 @@ div.card {
       right: 15px;
       top: 10px;
       width: 32px;
-      
+
       span {
         background: $white;
         display: block;
@@ -104,7 +104,7 @@ div.card {
         transition: all 0.15s 0s ease-out;
         width: 12px;
       }
-      
+
       span.left {
         right: 14px;
         transform: rotate(45deg);
@@ -114,14 +114,14 @@ div.card {
         transform: rotate(-45deg);
       }
     }
-    
+
     h2 {
       font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.05em;
       margin: 0;
       padding: 0;
-      
+
       small {
         display: block;
         font-size: 18px;
@@ -142,7 +142,7 @@ div.card {
     padding: 10px 15px 20px;
     text-align: center;
   }
-  
+
   div.card-flap {
     background: darken($white,15);
     position: absolute;
@@ -158,7 +158,7 @@ div.card {
     transition: all 0.3s 0s ease-out;
     z-index: -2;
   }
-  
+
 }
 
 div.cards.showing {

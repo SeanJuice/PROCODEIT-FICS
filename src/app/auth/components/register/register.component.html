@@ -1,11 +1,11 @@
 <!-- Client Application  -->
 <div class="wrapper" *ngIf="ApplicationType==1">
     <div class="Grid Grid--full u-textCenter">
-  
+
       <div class="Grid-cell">     <mat-card><h1>Client Application</h1></mat-card> </div>
     </div>
-  
-  
+
+
   <br>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value,this.ApplicationType)">
           <!-- First Row -->
@@ -64,7 +64,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Title</mat-label>
-                  
+
                     <mat-select  matInput formControlName="Title" >
                         <mat-option value="Mr">Mr</mat-option>
                         <mat-option value="Ms">Ms</mat-option>
@@ -95,8 +95,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Gender</mat-label>
-                    <input type="text" matInput formControlName="Gender" placeholder="Ex. pat@example.com">
-                    <mat-select  matInput formControlName="Title" >
+                    <mat-select  matInput formControlName="Gender" >
                         <mat-option value="Male">Male</mat-option>
                         <mat-option value="Female">Female</mat-option>
                         <mat-option value="Other">Other</mat-option>
@@ -114,7 +113,23 @@
               </div>
             </div>
           </div>
-          <!-- fifth Row -->
+           <!-- fifth Row -->
+           <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label style="color: black;">Country</mat-label>
+                      <mat-select  matInput formControlName="Country" >
+                          <mat-option value="South Africa">South Africa</mat-option>
+                          <mat-option value="Zimbabwe">Zimbabwe</mat-option>
+                          <mat-option value="Australia">Australia</mat-option>
+                          <mat-option value="Not Say">Prefer not say</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                  </div>
+                </div>
+           </div>
+          <!-- Sixth Row -->
           <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
             <div class="Grid-cell">
               <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
@@ -141,21 +156,21 @@
               </div>
             </div>
           </div>
-  
-  
+
+
           <div class="wrapper">
             <div class="Grid Grid--full u-textCenter">
-  
-              <div class="Grid-cell">  
-                <mat-card class="mat-card"> 
+
+              <div class="Grid-cell">
+                <mat-card class="mat-card">
                     <button mat-raised-button color="accent"  style="width:50%" type="submit">Apply</button>
                     &nbsp; &nbsp; &nbsp;
                     <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']" routerLinkActive="active"  >CANCEL</button>
               </mat-card>
               </div>
-          
+
             </div>
-  
+
           </div>
     </form>
 
@@ -164,13 +179,13 @@
   <!-- Other Application Types -->
   <div class="wrapper" *ngIf="ApplicationType!=1">
     <div class="Grid Grid--full u-textCenter">
-  
+
   <div class="Grid-cell"  *ngIf="ApplicationType==2">     <mat-card><h1>PRACTITIONER APPLICATION</h1></mat-card> </div>
   <div class="Grid-cell"  *ngIf="ApplicationType==3">     <mat-card><h1>TRAINER APPLICATION</h1></mat-card> </div>
   <div class="Grid-cell"  *ngIf="ApplicationType==4">     <mat-card><h1>TRAINEE APPLICATION</h1></mat-card> </div>
 </div>
-  
-  
+
+
   <br>
     <form [formGroup]="formGroupOthers" (ngSubmit)="onSubmit(formGroupOthers.value,this.ApplicationType)">
           <!-- First Row -->
@@ -229,7 +244,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Title</mat-label>
-                  
+
                     <mat-select  matInput formControlName="Title" >
                         <mat-option value="Mr">Mr</mat-option>
                         <mat-option value="Ms">Ms</mat-option>
@@ -291,7 +306,7 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Password</mat-label>
                     <input type="password"  matInput formControlName="Password" placeholder="Ex. pat@example.com">
-                  
+
                     <mat-hint *ngIf="!formGroupOthers.controls['Password'].valid && formGroupOthers.controls['Password'].touched">
                       <h4>Choose a password of at least eight characters, one uppercase letter and one number</h4>
                     </mat-hint>
@@ -311,21 +326,21 @@
               </div>
             </div>
           </div>
-  
-  
+
+
           <div class="wrapper">
             <div class="Grid Grid--full u-textCenter">
-  
-              <div class="Grid-cell">  
-                <mat-card class="mat-card"> 
+
+              <div class="Grid-cell">
+                <mat-card class="mat-card">
                     <button mat-raised-button color="accent"  style="width:50%" type="submit">Apply</button>
                     &nbsp; &nbsp; &nbsp;
                     <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']" routerLinkActive="active"  >CANCEL</button>
               </mat-card>
               </div>
-          
+
             </div>
-  
+
           </div>
     </form>
 

@@ -62,7 +62,9 @@
 
   </div> -->
 
+<app-pre-loader *ngIf="isLoaded" ></app-pre-loader>
 
+  <ng-container *ngIf="!isLoaded" >
   <h1 class="h1 title">
     <i class="fas fa-home"></i>
     <span>Dashboard</span>
@@ -75,7 +77,7 @@
           <img class="card__image" src="{{dashboard.ImageLink}}" alt="wave" />
         </div>
         <div class="card-title" >
-          <a href="#" class="toggle-info btn" [ngStyle]="{'background-color':dashboard.color}">
+          <a href="#" class="toggle-info btnn" [ngStyle]="{'background-color':dashboard.color}">
             <span class="left"></span>
             <span class="right"></span>
           </a>
@@ -90,7 +92,7 @@
           </div>
           <div class="card-flap flap2">
             <div class="card-actions">
-              <a  [routerLink]="[dashboard.RouterLink]" routerLinkActive="active"class="btn">{{dashboard.Button_Name}}</a>
+              <a  [routerLink]="[dashboard.RouterLink]" routerLinkActive="active"class="btnn">{{dashboard.Button_Name}}</a>
             </div>
           </div>
         </div>
@@ -101,5 +103,5 @@
 
   </div>
 
-
+  </ng-container>
 

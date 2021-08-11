@@ -110,6 +110,9 @@ export class AuthService {
     return encrypted
   }
 
+  getCountries():Observable<any[]>{
+    return this.http.get<any>(`https://api.printful.com/countries`).pipe(share());;
+  }
 
 
 }
