@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   LoginForm: any
-  Spinner:Boolean;
+  Spinner:boolean =  false;
   constructor(private AuthServe:AuthService,public router:Router) {
 
    }
 
   ngOnInit(): void {
-    this.Spinner = false;
+
   }
 
   onSubmit(user:User){
-    //this.submitted = true;
+    this.Spinner = true;
     if(user.Username=="" || user.Password=="") {
 
       alert('Please fill all the required fields to create a super hero!')
@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
     } else {
 
 
-      let request =  this.AuthServe.Login(user);
+      user.Email_Address =user.Username
+     this.AuthServe.Login(user).subscribe(()=>{
+        this.Spinner = false;
+      });
       // this.Spinner =  this.AuthServe.SetLoadingSpanner(request)
       // this.AuthServe.SeUpLoginData(request)
 

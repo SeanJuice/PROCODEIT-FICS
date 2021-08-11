@@ -62,7 +62,9 @@
 
   </div> -->
 
+<app-pre-loader *ngIf="isLoaded" ></app-pre-loader>
 
+  <ng-container *ngIf="!isLoaded" >
   <h1 class="h1 title">
     <i class="fas fa-home"></i>
     <span>Dashboard</span>
@@ -101,5 +103,5 @@
 
   </div>
 
-
+  </ng-container>
 

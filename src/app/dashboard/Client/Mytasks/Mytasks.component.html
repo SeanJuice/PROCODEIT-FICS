@@ -1,11 +1,14 @@
 <div class="app">
   <h1 class="h1 title">
     <i class="fas fa-home"></i>
-    <span>My Tasks</span>
+    <span>Tasks </span>
   </h1>
 
   <div class="table-card">
-    <h2>Table</h2>
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>My Tasks</span>
+    </h1>
     <table class="table">
       <thead>
         <tr>
@@ -13,6 +16,7 @@
           <td>Due Date</td>
           <td>Practitioner</td>
           <td>Task type</td>
+          <td>Action</td>
         </tr>
       <tbody>
           <tr *ngFor="let Task of Tasks">
@@ -20,7 +24,9 @@
             <td >{{Task.DueDate |date }}</td>
             <td >{{Task.Practitioner  }}</td>
             <td >{{Task.TaskType  }}</td>
-
+            <td>
+              <a href="#" class="btn-gradient blue mini">Complete Task</a>
+            </td>
           </tr>
       </tbody>
     </table>

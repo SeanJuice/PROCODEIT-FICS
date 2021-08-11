@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of} from 'rxjs';
+import { BehaviorSubject, observable, Observable, of} from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 import { Client } from 'src/app/models/Client';
 import { Session } from 'src/app/models/Session';
@@ -123,16 +123,14 @@ export class ClientService {
     return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
   }
 
-  BookSlot(BookingIDs){
+  BookSlot(BookingIDs,availability_id){
     BookingIDs.Package_ID =  Number(this.storage.get("Package"))
     BookingIDs.Client_ID = this.ClientID;
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-     return this.http.post(`${rootURL}/BookSession/1`,BookingIDs,httpOptions).pipe(share());
+     return this.http.post(`${rootURL}/BookSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());
   }
 
-  getDateAvailability(Date:any){
-    return this.http.get(`${rootURL}/GetDateAvailablity
-    /${Date}`,Date).pipe(share());
-
+  getDateAvailability(Date:any):Observable<any[]>{
+    return this.http.get<any[]>(`${rootURL}/GetDateAvailablity/${Date}`).pipe(share());
   }
 }
