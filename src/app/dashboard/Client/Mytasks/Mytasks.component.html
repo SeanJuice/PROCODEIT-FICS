@@ -25,7 +25,7 @@
             <td >{{Task.Practitioner  }}</td>
             <td >{{Task.TaskType  }}</td>
             <td>
-              <a href="#" class="btn-gradient blue mini">Complete Task</a>
+              <a (click)="CompleteTask(Task.TaskType)" class="btn-gradient blue mini">Complete Task</a>
             </td>
           </tr>
       </tbody>

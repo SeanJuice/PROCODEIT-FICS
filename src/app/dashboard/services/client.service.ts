@@ -116,12 +116,21 @@ export class ClientService {
     return this.http.get(`${rootURL}/ViewProgressReport/${this.ClientID}`).pipe(share());
   }
   /**
-   * get Tasks
+   * get Tasks and complete task
    */
 
    ClientQuestionnaire() {
     return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
   }
+
+  CompleteTask(Task:any ,taskID:number){
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}/CompleteTask/${taskID}`,Task,httpOptions).pipe(share());
+  }
+
+  /**
+   * Booking a slot
+   */
 
   BookSlot(BookingIDs,availability_id){
     BookingIDs.Package_ID =  Number(this.storage.get("Package"))
@@ -133,4 +142,7 @@ export class ClientService {
   getDateAvailability(Date:any):Observable<any[]>{
     return this.http.get<any[]>(`${rootURL}/GetDateAvailablity/${Date}`).pipe(share());
   }
+
+
+
 }

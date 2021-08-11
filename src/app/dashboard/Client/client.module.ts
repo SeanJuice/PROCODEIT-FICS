@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { ProgressReportComponent } from './ProgressReport/ProgressReport.component';
 import { BookingComponent } from './Booking/Booking.component';
 import {ClientRoutingModule } from './client-routing.module'
+import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
 
 @NgModule({
   imports: [
@@ -31,9 +32,9 @@ import {ClientRoutingModule } from './client-routing.module'
     ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
     TrialQuestionnaireComponent,ProgressReportComponent,BookingComponent,
     // Dialogs
-    ReviewDialogComponent,ConfirmUpdateDialogComponent
+    ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent
   ]
     ,
-    entryComponents:[ReviewDialogComponent,ConfirmUpdateDialogComponent]
+    entryComponents:[ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent]
 })
 export class ClientModule { }
