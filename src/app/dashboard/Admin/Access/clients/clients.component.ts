@@ -20,14 +20,13 @@ export class ClientsComponent implements OnInit {
   ngOnInit() {
     this.clientsService.getClients().subscribe(res=>{
         this.clients = res
-        console.log(res)
     })
 
   }
 
   DisableClient(ID){
     this.clientsService.DisableClient(ID).subscribe(res=>{
-      console.log("done")
+
     })
   }
 

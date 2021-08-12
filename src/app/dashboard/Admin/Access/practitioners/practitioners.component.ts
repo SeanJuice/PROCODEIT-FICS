@@ -15,14 +15,14 @@ export class PractitionersComponent implements OnInit {
   ngOnInit() {
     this.practitionerService.getPractitioners().subscribe(res=>{
       this.practitioners = res
-      console.log(res)
+
   })
   }
 
 
   DisablePractitioner(ID){
      this.practitionerService.DisablePractitioner(ID).subscribe(res=>{
-       console.log("disabled")
+
      })
   }
 }

@@ -23,13 +23,12 @@ export class ConfirmUpdateDialogComponent implements OnInit {
   }
 
   Update(){
-    console.log(this.data.clientN)
     this.Spinner = true;
     this.clientService.UpdateClient(this.data.clientN).subscribe(()=>{
- 
+
       this.dialogRef.close()
     })
     // this.Spinner =  this.AuthServe.SetLoadingSpanner(request)
-   
+
   }
 }

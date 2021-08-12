@@ -12,7 +12,7 @@ export class MyQuestionnairesComponent implements OnInit {
 
   ngOnInit() {
     this.clientService.ClientQuestionnaire().subscribe(res=>{
-        console.log(res)
+
     })
   }
 

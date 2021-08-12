@@ -14,7 +14,7 @@ export class ClientTypeComponent implements OnInit {
   ngOnInit() {
   //   this.typeservice.getTrainers().subscribe(res=>{
   //     this.trainers = res
-  //     console.log(res)
+  //
   // })
 }
 AddClientType(){

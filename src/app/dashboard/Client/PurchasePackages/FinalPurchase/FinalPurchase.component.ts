@@ -18,7 +18,6 @@ export class FinalPurchaseComponent implements OnInit {
   }
 
   step1Submitted() {
-    console.log(  this.regForm.value)
     let form =  this.regForm.value.PurchaseDetails
     let form2 =  this.regForm.value.ChoosePackageDetails
 
@@ -27,7 +26,7 @@ export class FinalPurchaseComponent implements OnInit {
      let pack = {Package_ID:form2.PackageID,Client_ID: form2.Client_ID,Quantity:form.Quantity}
 
     this.clientService.PurchasePackage(pack).subscribe(res=>{
-      console.log("Purchased -->>",res)
+
     })
 
    }

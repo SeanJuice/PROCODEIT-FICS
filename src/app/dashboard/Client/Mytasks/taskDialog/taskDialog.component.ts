@@ -26,7 +26,6 @@ export class TaskDialogComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.data);
     this.Task_Id = this.data.id;
   }
 

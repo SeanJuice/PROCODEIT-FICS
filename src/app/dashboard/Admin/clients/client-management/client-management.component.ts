@@ -22,7 +22,7 @@ export class ClientManagementComponent implements OnInit {
   ngOnInit() {
     this.clientsService.getClients().subscribe(res=>{
         this.clients = res
-        console.log(res)
+
     })
 
   }

@@ -14,6 +14,7 @@ import { ApplicationRequestsModule } from './application-request-management/appl
 import { ApplicationRequestManagementComponent } from './application-request-management/application-request-management.component';
 import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AccessModule,
     TypeModule,
     ApplicationRequestsModule,
+    MatSnackBarModule
 
 
   ]
