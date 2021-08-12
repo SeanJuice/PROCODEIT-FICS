@@ -12,6 +12,8 @@ import { TypeManagementComponent } from './type-management/type-management.compo
 import { TypeModule } from './type-management/type.module';
 import { ApplicationRequestsModule } from './application-request-management/application-requests.module';
 import { ApplicationRequestManagementComponent } from './application-request-management/application-request-management.component';
+import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -20,10 +22,12 @@ import { ApplicationRequestManagementComponent } from './application-request-man
     ViewClientSessionsComponent,
     AccessComponent,
     TypeManagementComponent,
-    ApplicationRequestManagementComponent
+    ApplicationRequestManagementComponent,
+    AssignQuestionnaireComponent
   ],
   imports: [
     CommonModule,
+    NgMultiSelectDropDownModule.forRoot(),
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -31,7 +35,8 @@ import { ApplicationRequestManagementComponent } from './application-request-man
     RouterModule,
     AccessModule,
     TypeModule,
-    ApplicationRequestsModule
+    ApplicationRequestsModule,
+
 
   ]
 })

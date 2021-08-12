@@ -1,0 +1,115 @@
+
+<app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+<h1 class="h1 title" *ngIf="!isLoaded">
+  <i class="fas fa-home"></i>
+  <span>Assign Questionnaire to a Client</span>
+</h1>
+<div [@myInsertRemoveTrigger]="Steps[0]==true && !isLoaded" *ngIf="Steps[0]==true && !isLoaded">
+<div class="blog-card">
+  <div class="meta">
+    <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+    <ul class="details">
+      <li class="author">step 1 of 4<a href="#"></a></li>
+      <li class="tags">
+        <ul>
+          <li><a href="#">Learn</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="description" >
+    <h1>Choose Assigning Client</h1>
+    <h2>step 1 of 4</h2>
+    <p> </p>
+  <!-- start -->
+  <div style="padding-left:40%">
+    <mat-form-field appearance="fill" style="color: rgb(255, 255, 255);background-color: rgb(11, 157, 255);">
+      <mat-select
+        matNativeControl
+        [(ngModel)]="Client"
+        name="car"
+        (click)="getClients()"
+        panelClass="example-panel-blue"
+      >
+        <mat-option value="" selected></mat-option>
+        <mat-option *ngFor="let client of ClientList" [value]="client.Client_ID"  (click)="NextStep(1)">
+          {{ client.Name }} {{ client.Surname }}
+        </mat-option>
+        <br>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  </div>
+</div>
+</div>
+
+<br>
+
+<div [@myInsertRemoveTrigger]="Steps[1]==true && !isLoaded"  *ngIf="Steps[1]==true && !isLoaded">
+  <div class="blog-card alt">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+      <ul class="details">
+        <li class="author">step 2 of 4<a href="#"></a></li>
+        <li class="tags">
+          <ul>
+
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="description">
+      <h1>Assign Questionnaire bank type</h1>
+      <h2>step 2 of 4</h2>
+      <p>.</p>
+      <mat-radio-group
+        aria-label="Select an option"
+        [(ngModel)]="QuestionnaireType"
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group">
+        <mat-radio-button
+          *ngFor="let type of QuestionnaireTypeList"
+          (click)="RandersQuestionnaireData(type.QuestionBankType_ID)"
+          [value]="type.QuestionBankType_ID"
+          class="example-radio-button" style="background-color: rgb(0, 145, 255); color:white;">
+         {{ type.Description }}</mat-radio-button>
+  </mat-radio-group>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div [@myInsertRemoveTrigger]="Steps[2]==true && !isLoaded" *ngIf="Steps[2]==true && !isLoaded">
+  <div class="blog-card" style="padding-bottom: 38%;z-index: -1">
+    <div class="meta">
+      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+      <ul class="details">
+        <li class="author">step 3 of 4<a href="#"></a></li>
+        <li class="tags">
+          <ul>
+            <li><a href="#">Learn</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="description" >
+      <h1> Choose desired Questionnaire Questions</h1>
+      <h2>step 3 of 4</h2>
+      <p> </p>
+    <!-- start -->
+
+          <ng-multiselect-dropdown
+          style="width: 45%; z-index: +1"
+          [placeholder]="'custom placeholder'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)">
+        </ng-multiselect-dropdown>
+
+    </div>
+  </div>
+  </div>

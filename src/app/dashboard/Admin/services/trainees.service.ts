@@ -1,48 +1,61 @@
 import { Router } from '@angular/router';
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of} from 'rxjs';
-import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-
-const   rootURL = 'https://localhost:44332/api/Admin/'
+const rootURL = 'https://localhost:44332/api/Admin/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TraineesService {
-
-
-  constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService, private auth:AuthService) { }
-
+  constructor(
+    public http: HttpClient,
+    public router: Router,
+    @Inject(SESSION_STORAGE) private storage: StorageService,
+    private auth: AuthService
+  ) {}
 
   /**
    * !  Note: Missing API for getting Trainees
    * @returns
    */
-  getTrainees():Observable<any[]>
-  {
-    return this.http.get<any[]>(`${rootURL}/GetTrainees`).pipe(share());;
+  getTrainees(): Observable<any[]> {
+    return this.http.get<any[]>(`${rootURL}/GetTrainees`).pipe(share());
   }
 
-  DisableTrainee(TraineeID){
+  DisableTrainee(TraineeID) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
 
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-
-    return this.http.post(`${rootURL}/DisableTraineeProfile/${TraineeID}`,httpOptions);
-
+    return this.http.post(
+      `${rootURL}/DisableTraineeProfile/${TraineeID}`,
+      httpOptions
+    );
   }
 
-  AcceptORejectTrainee(trainee:any,decision:number){
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post(`${rootURL}/AcceptorDeclineTraineeRequest/${trainee}/${decision}`,trainee,httpOptions);
-
+  AcceptORejectTrainee(trainee: any, decision: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.post(
+      `${rootURL}/AcceptorDeclineTraineeRequest/${trainee}/${decision}`,
+      trainee,
+      httpOptions
+    );
   }
 
-  getTraineeRegistrations():Observable<any[]>
-  {
-    return this.http.get<any[]>(`${rootURL}/TraineeRegistrationRequest`).pipe(share());;
+  getTraineeRegistrations(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${rootURL}/TraineeRegistrationRequest`)
+      .pipe(share());
   }
 }

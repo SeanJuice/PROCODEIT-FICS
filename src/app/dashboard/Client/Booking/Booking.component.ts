@@ -19,7 +19,7 @@ import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/material/fomart
   ]
 })
 export class BookingComponent implements OnInit {
-  selected: Date | null;
+  selectedDate: any | null;
   AvailableSlots: any =[]
   AvailabilityID:number;
 
@@ -28,7 +28,7 @@ export class BookingComponent implements OnInit {
   constructor(private clientservice:ClientService) { }
 
   ngOnInit() {
-    console.log(this.selected)
+
   }
 
 
@@ -36,13 +36,13 @@ export class BookingComponent implements OnInit {
     /**
      * ?Placeholders
      */
-      const momentDate = new Date(this.selected); // Replace event.value with your date value
-      const formattedDate = moment(momentDate).format("YYYY/MM/DD");
       let book ={
         Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
-        Date: formattedDate,
+        Date: this.selectedDate,
         SessionType_ID: 1,
       }
+
+      console.log(book);
     this.clientservice.BookSlot(book,this.AvailabilityID).subscribe(res=>{
       console.log(res)
     })
@@ -51,6 +51,7 @@ export class BookingComponent implements OnInit {
   ChooseSlot(AvailabilityID,slotInfo){
     this.AvailabilityID = AvailabilityID;
     this.CurrentlyChosen = slotInfo
+    this.selectedDate = slotInfo.Date
   }
 
   getDateAvailability(date){
@@ -60,7 +61,7 @@ export class BookingComponent implements OnInit {
 
     console.log(formattedDate)
     this.clientservice.getDateAvailability(formattedDate.toString()).subscribe(res=>{
-
+        console.log(res)
         res.forEach(dates=>{
           this.AvailableSlots.push(dates)
         })

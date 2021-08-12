@@ -10,6 +10,7 @@ import { ApplicationRequestManagementComponent } from './application-request-man
 import { PractitionerRequestsComponent } from './application-request-management/PractitionerRequests/PractitionerRequests.component';
 import { TraineeRequestsComponent } from './application-request-management/TraineeRequests/TraineeRequests.component';
 import { TrainerRequestsComponent } from './application-request-management/TrainerRequests/TrainerRequests.component';
+import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
 /** type management  */
 import { ClientManagementComponent } from './clients/client-management/client-management.component';
 import { ViewClientSessionsComponent } from './clients/client-management/ViewClientSessions/ViewClientSessions.component';
@@ -112,7 +113,7 @@ const routes: Routes = [
   },
   {
     path: 'assign-questionnaire',
-    component:ClientManagementComponent,
+    component:AssignQuestionnaireComponent,
 
   },
   {
