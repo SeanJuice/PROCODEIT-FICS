@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   isInitialised = false;
   clientID =  Number(this.storage.get("User_ID"));
   formGroup: FormGroup;
+  isLoaded:boolean = true;
   constructor(private formBuilder: FormBuilder,
      private Clientservice: ClientService,@Inject(SESSION_STORAGE)
      private storage: StorageService,
@@ -32,6 +33,7 @@ export class ProfileComponent implements OnInit {
       this.info =res;
 
       this.createForm(this.info)
+      this.isLoaded =false;
     })
 
   }

@@ -1,3 +1,10 @@
+<app-pre-loader *ngIf="isLoaded">
+
+</app-pre-loader>
+
+<ng-container *ngIf="!isLoaded">
+
+
 <head>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://sscol.jebal.comuv.com/css/font.css">
@@ -6,7 +13,7 @@
 
   <div class="ribbon"style="padding-top: 2%;"></div>
   <div class="form">
- 
+
     <div class="form-panel one" >
       <div class="form-header">
         <h1>Join as</h1>
@@ -17,7 +24,7 @@
           <button   [routerLink]="['../register/1']" routerLinkActive="active" >CLIENT</button>
         </div>
 
-        
+
         <div class="form-group">
 
           <button
@@ -26,7 +33,7 @@
           style="background-color: white; color: #297bff;">PRACTITIONER</button>
         </div>
 
-  
+
 
         <div class="form-group">
 
@@ -44,7 +51,7 @@
     </div>
   </div>
 
-  
+
       <div class="form">
         <div class="form-panel one" style="padding-top: 5%;">
           <div class="form-group">
@@ -55,5 +62,7 @@
 
   <br><br>
 </body>
+
+</ng-container>
 
 

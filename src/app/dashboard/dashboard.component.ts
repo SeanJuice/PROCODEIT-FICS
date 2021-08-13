@@ -255,6 +255,16 @@ const Admin = [
   },
   {
     NumberOfObject: 1,
+    Header_Name: 'Assign Users',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'assign',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
     Header_Name: 'Questionnaire Management',
     Button_Name: 'View',
     ImageLink:

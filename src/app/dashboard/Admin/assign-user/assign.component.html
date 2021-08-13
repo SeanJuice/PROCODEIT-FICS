@@ -1,0 +1,35 @@
+
+
+<div class="dashcards">
+  <div class="col">
+    <div class="card" style="background-color: rgb(255, 255, 255)">
+      <i class="fas fa-home"></i>
+      <h2 class="card__title">Assign Questionnaire Users</h2>
+
+    </div>
+  </div>
+
+</div>
+
+
+		<div class="tab_container" style="padding-bottom: 20%;">
+			<input id="tab1" type="radio" name="tabs" checked  routerLinkActive="active" routerLink="./practitioner-to-client">
+			<label for="tab1"><i class="fa fa-code"></i><span>Assign Practitioner</span></label>
+
+			<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainer-to-trainee">
+			<label for="tab2"><i class="fa fa-pencil-square-o"></i><span>Assign Trainer</span></label>
+
+
+			<section id="content1" class="tab-content" style="padding-bottom: 20%;">
+
+        <router-outlet></router-outlet>
+			</section>
+
+			<section id="content2" class="tab-content" style="padding-bottom: 20%;">
+        <h3>Headline 1</h3>
+        <router-outlet></router-outlet>
+			</section>
+
+
+		</div>
+

@@ -1,3 +1,4 @@
+@import '../Access/clients/clients.component.scss';
 .example-radio-group {
     display: flex;
     flex-direction: column;
@@ -183,7 +184,7 @@
     }
 
 
-    @media (min-width: 640px) {
+    @media (min-width: 780px) {
       flex-direction: row;
       max-width: 700px;
       .meta {
@@ -196,7 +197,7 @@
           transform: skewX(-3deg);
           content: "";
           background: #fff;
-          width: 30px;
+          width: 80px;
           position: absolute;
           left: -10px;
           top: 0;

@@ -5,6 +5,7 @@ import { QuestionnaireService } from '../services/Questionnaire.service';
 import { trigger, transition, animate, style } from '@angular/animations';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { forkJoin } from 'rxjs';
+import { TraineesService } from '../services/trainees.service';
 @Component({
   selector: 'app-assign-questionnaire',
   animations: [
@@ -25,6 +26,7 @@ export class AssignQuestionnaireComponent implements OnInit {
   constructor(
     private questionnaireService: QuestionnaireService,
     private Clientservice: ClientsService,private snackbar: SnackbarService,
+    private trainee: TraineesService
   ) {}
 
   dropdownList = [];
@@ -34,15 +36,25 @@ export class AssignQuestionnaireComponent implements OnInit {
   dropdownSettings: IDropdownSettings = {};
   Client: any;
   questionnaireType: number;
-  Steps: boolean[] = [false, false, false, false];
-  isLoaded: boolean = true;
-  allSelected: boolean = false;
-  isLoader: boolean = false;
+  Steps: boolean[] = [false, false, false, false]; //Steps control
+  isLoaded: boolean = true; // pre loader
+  allSelected: boolean = false; //check of all of them are selected
+  isLoader: boolean = false; //submit loader
+
+  isClients: boolean = true; //checks if its clients
+  isTrainee: boolean = false; // checks if its trainee
+  Name: string = "Client"
 
   ngOnInit() {
   this.LoadContents()
   }
 
+
+  Toggle() {
+   this.isClients = !this.isClients;
+   (this.isClients) ? this.Name="Client" : this.Name="Trainee"   //if statement
+   console.log(this.isClients)
+  }
 
   LoadContents(): void {
     this.questionnaireService.GetQuestionnaireType().subscribe((result) => {
@@ -62,12 +74,17 @@ export class AssignQuestionnaireComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true,
     };
+    this.getClients()
   }
 
   getClients() {
-    this.Clientservice.getClients().subscribe(
-      (result: any) => (this.ClientList = result)
-    );
+    if(this.isClients)
+    {
+      this.Clientservice.getClients().subscribe((result: any) => (this.ClientList = result));
+    }
+    else{
+      this.trainee.getTrainees().subscribe((result: any) => (this.ClientList = result));
+    }
   }
 
   RandersQuestionnaireData(QuestionBankType_ID) {
@@ -120,9 +137,14 @@ export class AssignQuestionnaireComponent implements OnInit {
 
   async AssignClient(){
        this.isLoader =true;
+       //Reassigning ID
+       let ID = this.Client.Client_ID
+       if(!this.isClients){
+         ID = this.Client.Trainee_ID
+       }
 
       if(this.allSelected){
-          this.questionnaireService.AssignClientQuestionnaireType(this.questionnaireType,this.Client.Client_ID).subscribe(response =>{
+          this.questionnaireService.AssignClientQuestionnaireType(this.questionnaireType,ID,this.isClients).subscribe(response =>{
             this.Steps =[]= [false, false, false, false];
             this.LoadContents();
             this.isLoader =false;
@@ -130,9 +152,7 @@ export class AssignQuestionnaireComponent implements OnInit {
           })
       }
        else{
-
-
-        this.questionnaireService.AssignClientQuestionnaireBank(this.questionnaireType,this.Client.Client_ID,this.Questions).subscribe(response =>{
+        this.questionnaireService.AssignClientQuestionnaireBank(this.questionnaireType,ID,this.Questions,this.isClients).subscribe(response =>{
           this.Steps =[]= [false, false, false, false];
           this.LoadContents();
           this.isLoader =false;

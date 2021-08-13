@@ -15,6 +15,10 @@ import { ApplicationRequestManagementComponent } from './application-request-man
 import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { QuestionnaireManagementComponent } from './questionnaire-management/questionnaire-mangement.component';
+import { AssignComponent } from './assign-user/assign.component';
+import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
+import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 
 
 @NgModule({
@@ -24,7 +28,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AccessComponent,
     TypeManagementComponent,
     ApplicationRequestManagementComponent,
-    AssignQuestionnaireComponent
+    AssignQuestionnaireComponent,
+    QuestionnaireManagementComponent,
+    AssignComponent,
+    PractitionerToClientComponent,
+    TrainerToTraineeComponent
   ],
   imports: [
     CommonModule,
