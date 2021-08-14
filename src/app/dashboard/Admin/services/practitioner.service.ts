@@ -53,4 +53,12 @@ export class PractitionerService {
       httpOptions
     );
   }
+
+  AssignPractitionerToClient(PractitionerID: number, ClientID: number) {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }),};
+    return this.http.post(
+      `${rootURL}/AssignPractitionertoClient/${ClientID}/${PractitionerID}`,
+      httpOptions
+    );
+  }
 }
