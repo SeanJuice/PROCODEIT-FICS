@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 
@@ -26,8 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     RouterModule,
     BrowserAnimationsModule,
-    
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -99,6 +99,14 @@ export class ClientService {
     return this.http.get(`${rootURL}/TrialQuestionnaire/`).pipe(share());
   }
 
+
+  /**
+   *  get
+   */
+
+   ClientQuestionnaire() {
+    return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
+  }
   /**
    * get Tasks
    */
@@ -119,9 +127,7 @@ export class ClientService {
    * get Tasks and complete task
    */
 
-   ClientQuestionnaire() {
-    return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
-  }
+
 
   CompleteTask(Task:any ,taskID:number){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}

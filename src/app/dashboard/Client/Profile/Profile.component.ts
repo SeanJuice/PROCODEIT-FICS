@@ -11,35 +11,37 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./Profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  
-  info:Client 
+
+  info:Client
   isInitialised = false;
   clientID =  Number(this.storage.get("User_ID"));
   formGroup: FormGroup;
+  isLoaded:boolean = true;
   constructor(private formBuilder: FormBuilder,
-     private Clientservice: ClientService,@Inject(SESSION_STORAGE) 
+     private Clientservice: ClientService,@Inject(SESSION_STORAGE)
      private storage: StorageService,
      public dialog: MatDialog) { }
 
   ngOnInit() {
 
-    this.refetch()    
+    this.refetch()
   }
 
   refetch(){
-  
+
     this.Clientservice.geClientProfile(this.clientID).subscribe((res:any)=>{
       this.info =res;
- 
+
       this.createForm(this.info)
+      this.isLoaded =false;
     })
 
   }
   createForm(info:Client) {
 
-    console.log(info)
+
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    
+
     this.formGroup = this.formBuilder.group({
       'Name': [info.Name, Validators.required],
       'Client_ID': [info.Client_ID, Validators.required],
@@ -54,10 +56,10 @@ export class ProfileComponent implements OnInit {
       'Client_Status': [0],
     });
   }
- 
 
 
-  
+
+
   onSubmit(client: Client): void {
     let dialogRef = this.dialog.open(ConfirmUpdateDialogComponent, {
       width: '500px',
@@ -65,7 +67,7 @@ export class ProfileComponent implements OnInit {
       data: { clientN: client}
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.refetch()   
+      this.refetch()
       console.log('The dialog was closed');
     });
   }

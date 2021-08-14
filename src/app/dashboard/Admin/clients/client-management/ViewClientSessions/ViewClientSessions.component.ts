@@ -24,7 +24,7 @@ export class ViewClientSessionsComponent implements OnInit,OnDestroy  {
     this.ClientID =  Number(this.Arouter.snapshot.params.id);
     this.clientsService.getClientSessions(this.ClientID).subscribe(res=>{
         this.Sessions = res
-        console.log(res)
+
     })
   }
   ngOnDestroy() {

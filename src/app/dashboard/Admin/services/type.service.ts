@@ -138,26 +138,26 @@ export class TypeService {
     );
   }
 
-    /**
+  /**
    * Client Type crud
    */
-     AddClientType(Client: any) {
-      const httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      };
+  AddClientType(Client: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
 
-      return this.http.post(`${rootURL}/AddClientType/`, Client, httpOptions);
-    }
+    return this.http.post(`${rootURL}/AddClientType/`, Client, httpOptions);
+  }
 
-    UpdateClientType(Client, id: number) {
-      const httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      };
+  UpdateClientType(Client, id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
 
-      return this.http.post(
-        `${rootURL}/MaintainClientType/${id}`,
-        Client,
-        httpOptions
-      );
-    }
+    return this.http.post(
+      `${rootURL}/MaintainClientType/${id}`,
+      Client,
+      httpOptions
+    );
+  }
 }

@@ -12,6 +12,13 @@ import { TypeManagementComponent } from './type-management/type-management.compo
 import { TypeModule } from './type-management/type.module';
 import { ApplicationRequestsModule } from './application-request-management/application-requests.module';
 import { ApplicationRequestManagementComponent } from './application-request-management/application-request-management.component';
+import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { QuestionnaireManagementComponent } from './questionnaire-management/questionnaire-mangement.component';
+import { AssignComponent } from './assign-user/assign.component';
+import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
+import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 
 
 @NgModule({
@@ -20,10 +27,16 @@ import { ApplicationRequestManagementComponent } from './application-request-man
     ViewClientSessionsComponent,
     AccessComponent,
     TypeManagementComponent,
-    ApplicationRequestManagementComponent
+    ApplicationRequestManagementComponent,
+    AssignQuestionnaireComponent,
+    QuestionnaireManagementComponent,
+    AssignComponent,
+    PractitionerToClientComponent,
+    TrainerToTraineeComponent
   ],
   imports: [
     CommonModule,
+    NgMultiSelectDropDownModule.forRoot(),
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -31,7 +44,9 @@ import { ApplicationRequestManagementComponent } from './application-request-man
     RouterModule,
     AccessModule,
     TypeModule,
-    ApplicationRequestsModule
+    ApplicationRequestsModule,
+    MatSnackBarModule
+
 
   ]
 })

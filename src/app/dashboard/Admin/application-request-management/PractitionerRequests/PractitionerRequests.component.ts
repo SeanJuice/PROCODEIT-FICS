@@ -25,7 +25,6 @@ export class PractitionerRequestsComponent implements OnInit {
   refreshData(){
     this.practitionerservice.getPractitionerRegistrations().subscribe(res=>{
           this.practitioners =  res;
-          console.log(this.practitioners)
     })
   }
 }

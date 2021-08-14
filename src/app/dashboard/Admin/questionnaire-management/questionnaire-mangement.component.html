@@ -1,0 +1,31 @@
+<div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span>Questionnaire Bank</span>
+  </h1>
+
+  <div class="table-card">
+    <h2>Table</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Question</td>
+          <td>Score</td>
+          <td>Image Name</td>
+          <td>Question Image</td>
+          <td> Question Type</td>
+        </tr>
+      <tbody>
+        <tr *ngFor="let question of QuestionsBank">
+          <td>{{question.Question}}</td>
+          <td>{{question.Score}}</td>
+          <td>{{question.Image_Name}}</td>
+          <td>{{question.Question_Image}}</td>
+          <td></td>
+
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -20,13 +20,19 @@ export class MytasksComponent implements OnInit {
 
 
 
-  CompleteTask(id): void {
+  CompleteTask(Tid,taskType): void {
     let dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '500px',
-      data: { name: id}
+      data: {
+        id: Tid,
+        taskType:taskType
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+
+
+
 }

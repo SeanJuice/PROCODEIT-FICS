@@ -51,7 +51,7 @@ export class AuthService {
         this.storage.set("User_ID", this.encrypt( res.User_ID));
         this.storage.set("liid", this.encrypt( res.LoginID));
 
-        console.log(res)
+
         this.router.navigate(['./dashboard'])
       }
       else{
@@ -69,7 +69,7 @@ export class AuthService {
      this.http.post(rootURL+`/Register/${userID}`,user,httpOptions ).subscribe((res:any)=>{
       if(!res.Error)
       {
-        console.log(res)
+
         this.router.navigate(['./login'])
       }
 

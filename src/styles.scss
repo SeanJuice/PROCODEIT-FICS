@@ -4,9 +4,14 @@ html, body { height: 100%; };
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; };
 @import "./app/shared/layouts/grid.scss";
 @import "./app/shared/layouts/buttons.scss";
-
+@import './app/shared/multi-select.scss';
 
 mat-dialog-container {
     background-color: rgb(255, 255, 255) !important;
 
  }
+
+
+.blue-snackbar {
+    background: #2196F3;
+}

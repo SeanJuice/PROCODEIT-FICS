@@ -15,14 +15,13 @@ export class TraineesComponent implements OnInit {
   ngOnInit() {
     this.TraineesService.getTrainees().subscribe(res=>{
       this.trainees = res
-      console.log(res)
+
   })
   }
 
 
   DisableTrainee(ID){
      this.TraineesService.DisableTrainee(ID).subscribe(res=>{
-       console.log("disabled")
      })
   }
 }

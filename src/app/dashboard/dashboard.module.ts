@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ClientModule } from './Client/client.module';
 import { LazyLoadScriptService } from './services/lazy-load-script.service';
 import { AdminModule } from './Admin/admin.module';
+import { SnackbarService } from '../shared/services/snackbar.service';
 
 
 @NgModule({
@@ -20,6 +21,6 @@ import { AdminModule } from './Admin/admin.module';
 
 
   ],
-  providers:[LazyLoadScriptService]
+  providers:[LazyLoadScriptService,SnackbarService]
 })
 export class DashboardModule { }

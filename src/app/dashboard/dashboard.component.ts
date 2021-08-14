@@ -19,7 +19,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.Role = this.Auth.Role;
-    console.log(this.Auth.decrypt(this.Role));
     this.RoleFilter(this.Role);
     this.lazyLoadService.loadScript('/assets/jquery.min.js').subscribe((_) => {
       console.log('Jquery is loaded!');
@@ -251,6 +250,16 @@ const Admin = [
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'application-requests',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Assign Users',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'assign',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

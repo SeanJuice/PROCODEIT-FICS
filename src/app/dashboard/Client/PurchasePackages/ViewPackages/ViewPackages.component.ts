@@ -35,7 +35,6 @@ export class ViewPackagesComponent implements OnInit {
     this.Packages[index].isChosen = true;
     this.MoveToNext = this.Packages[index].isChosen;
     this.PackageID =  Package_ID
-    console.log(this.MoveToNext)
     this.regForm.patchValue({
       ChoosePackageDetails:{
       PackageID : Package_ID,

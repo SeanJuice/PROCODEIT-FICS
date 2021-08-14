@@ -20,9 +20,8 @@ export class TrialQuestionnaireComponent implements OnInit {
     this.clientService.getTrialQuestionnaire().subscribe(res=>{
 
       let Pack = Object.keys(res).map(index => {this.Questions = res[index];});
-      console.log(this.Questions)
     })
-    console.log(this.Questions)
+
   }
 
 }

@@ -1,43 +1,57 @@
 import { Router } from '@angular/router';
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of} from 'rxjs';
-import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-
-const   rootURL = 'https://localhost:44332/api/Admin/'
+const rootURL = 'https://localhost:44332/api/Admin/';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TrainerService {
+  constructor(
+    public http: HttpClient,
+    public router: Router,
+    @Inject(SESSION_STORAGE) private storage: StorageService,
+    private auth: AuthService
+  ) {}
 
-  constructor(public http : HttpClient,public router:Router,@Inject(SESSION_STORAGE) private storage: StorageService, private auth:AuthService) { }
-
-  getTrainers():Observable<any[]>
-  {
+  getTrainers(): Observable<any[]> {
     return this.http.get<any[]>(`${rootURL}/GetTrainers`).pipe(share());
   }
 
-  DisableTrainer(TrainerID){
+  DisableTrainer(TrainerID) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
 
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-
-    return this.http.post(`${rootURL}/DisableTrainerProfile/${TrainerID}`,httpOptions);
-
+    return this.http.post(
+      `${rootURL}/DisableTrainerProfile/${TrainerID}`,
+      httpOptions
+    );
   }
 
-  AcceptORejectTrainer(trainer:any,decision:number){
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post(`${rootURL}/AcceptorDeclineTrainerRequest/${trainer}/${decision}`,trainer,httpOptions);
-
+  AcceptORejectTrainer(trainer: any, decision: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.post(
+      `${rootURL}/AcceptorDeclineTrainerRequest/${trainer}/${decision}`,
+      trainer,
+      httpOptions
+    );
   }
 
-  getTrainerRegistrations():Observable<any[]>
-  {
-    return this.http.get<any[]>(`${rootURL}/TrainerRegistrationRequest`).pipe(share());;
+  getTrainerRegistrations(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${rootURL}/TrainerRegistrationRequest`)
+      .pipe(share());
   }
-
 }

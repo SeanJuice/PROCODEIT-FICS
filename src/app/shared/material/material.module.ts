@@ -14,21 +14,23 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core'
-
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
   imports: [
     CommonModule,
     MatTabsModule,    MatIconModule,MatCardModule,MatInputModule,
     MatButtonModule,MatFormFieldModule,MatSelectModule,
     MatStepperModule,MatProgressBarModule,MatDialogModule,
-    MatChipsModule,MatDatepickerModule,MatNativeDateModule
+    MatChipsModule,MatDatepickerModule,MatNativeDateModule,
+    MatRadioModule,MatSlideToggleModule
   ],
   exports:[
     MatTabsModule, MatIconModule,MatCardModule,MatInputModule,
     MatButtonModule,MatFormFieldModule,MatSelectModule,
     MatStepperModule,MatProgressBarModule,MatDialogModule,
-    MatChipsModule,MatDatepickerModule,MatNativeDateModule
+    MatChipsModule,MatDatepickerModule,MatNativeDateModule,
+    MatRadioModule,MatSlideToggleModule
   ],
   declarations: [],
   providers: [

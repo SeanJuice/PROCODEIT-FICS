@@ -10,6 +10,7 @@ import { ApplicationRequestManagementComponent } from './application-request-man
 import { PractitionerRequestsComponent } from './application-request-management/PractitionerRequests/PractitionerRequests.component';
 import { TraineeRequestsComponent } from './application-request-management/TraineeRequests/TraineeRequests.component';
 import { TrainerRequestsComponent } from './application-request-management/TrainerRequests/TrainerRequests.component';
+import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
 /** type management  */
 import { ClientManagementComponent } from './clients/client-management/client-management.component';
 import { ViewClientSessionsComponent } from './clients/client-management/ViewClientSessions/ViewClientSessions.component';
@@ -19,6 +20,12 @@ import { EventTypeComponent } from './type-management/event-type/event-type.comp
 import { PackageTypeComponent } from './type-management/package-type/package-type.component';
 import { QuestionnaireTypeComponent } from './type-management/questionnnaire-type/questionnnaire-type.component';
 import { SessionTypeComponent } from './type-management/session-type/session-type.component';
+/**Questionnaire */
+import { QuestionnaireManagementComponent } from './questionnaire-management/questionnaire-mangement.component';
+/**User Assignment  */
+import { AssignComponent } from './assign-user/assign.component';
+import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
+import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 
 const routes: Routes = [
   {
@@ -106,19 +113,34 @@ const routes: Routes = [
   },
   {
     path: 'questionnaire-management',
-    component:ClientManagementComponent,
+    component:QuestionnaireManagementComponent,
     children:[
     ]
   },
   {
     path: 'assign-questionnaire',
-    component:ClientManagementComponent,
+    component:AssignQuestionnaireComponent,
 
   },
   {
     path: 'audit-trail',
     component:ClientManagementComponent,
 
+  },
+  {
+    path: 'assign',
+    component:AssignComponent,
+    children:[
+              { path: '', redirectTo: 'practitioner-to-client', pathMatch: 'full' },
+              {
+                path: 'practitioner-to-client',
+                component:PractitionerToClientComponent
+              },
+              {
+                path: 'trainer-to-trainee',
+                component:TrainerToTraineeComponent
+              }
+    ]
   },
 ];
 

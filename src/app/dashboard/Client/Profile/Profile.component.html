@@ -1,8 +1,8 @@
 
 
 
-
-<ng-container>
+<app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+<ng-container  *ngIf="!isLoaded">
 
 
 <div class="wrapper">

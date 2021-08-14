@@ -17,11 +17,11 @@ export class MySessionsComponent implements OnInit {
   constructor(private Clientservice:ClientService,public dialog: MatDialog) { }
 
   ngOnInit() {
-    
+
    this.ID = this.Clientservice.ClientID
     this.Clientservice.getSessions().subscribe(res =>{
        this.sessions= res;
-       console.log(res)
+
     })
   }
 
