@@ -12,6 +12,7 @@ export class TrainerRequestsComponent implements OnInit {
   constructor(private trainerervice:TrainerService) { }
 
   ngOnInit() {
+    this.refreshData()
   }
 
   AcceptOrReject(trainee, decision){
@@ -22,6 +23,7 @@ export class TrainerRequestsComponent implements OnInit {
 
   refreshData(){
       this.trainerervice.getTrainerRegistrations().subscribe(res=>{
+        console.log(res)
           this.trainers = res;
       })
   }
