@@ -54,4 +54,15 @@ export class TrainerService {
       .get<any[]>(`${rootURL}/TrainerRegistrationRequest`)
       .pipe(share());
   }
+
+
+
+  AssignTrainerToTrainee(TrainerID: number, TraineeID: number) {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }),};
+    return this.http.post(
+      `${rootURL}/AssignTrainertoTrainee/${TraineeID}/${TrainerID}`,
+      httpOptions
+    );
+  }
+
 }

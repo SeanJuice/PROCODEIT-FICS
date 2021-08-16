@@ -12,6 +12,7 @@ export class TraineeRequestsComponent implements OnInit {
   constructor(private traineeservice:TraineesService) { }
 
   ngOnInit() {
+    this.refreshData
   }
 
   AcceptOrReject(trainee, decision){

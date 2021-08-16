@@ -17,22 +17,24 @@
           <td>Name</td>
           <td>Surname</td>
           <td>Email Address</td>
-          <td></td>
-
+          <td>Action</td>
+          <td>Action</td>
         </tr>
+      </thead>
+
       <tbody>
-          <tr *ngFor="let trainee of trainees">
-            <td>{{trainee.Title}}</td>
-            <td>{{trainee.Name}}</td>
-            <td>{{trainee.Surname}}</td>
-            <td>{{trainee.Email_Address}}</td>
-            <td>
-              <button mat-flat-button color="primary" (click)="AcceptOrReject(trainee,1)"  class="btn" >Accept</button>
-            </td>
-            <td>
-              <button mat-flat-button color="primary" (click)="AcceptOrReject(trainee,0)"  class="btn" >Reject</button>
-            </td>
-          </tr>
+        <tr *ngFor="let trainee of trainees">
+          <td>{{ trainee.Title }}</td>
+          <td>{{ trainee.Name }}</td>
+          <td>{{ trainee.Surname }}</td>
+          <td>{{ trainee.Email_Address }}</td>
+          <td>
+            <input type="button" (click)="AcceptOrReject(trainee, 1)" class="btn-gradient blue" value="Accept" />
+          </td>
+          <td>
+            <input type="button" (click)="AcceptOrReject(trainee, 0)" class="btn-gradient red" value="Reject" />
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

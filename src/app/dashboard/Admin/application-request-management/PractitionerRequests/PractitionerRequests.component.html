@@ -17,7 +17,8 @@
           <td>Name</td>
           <td>Surname</td>
           <td>Email Address</td>
-          <td></td>
+          <td>Action</td>
+          <td>Action</td>
 
         </tr>
       <tbody>
@@ -27,10 +28,12 @@
             <td>{{practitioner.Surname}}</td>
             <td>{{practitioner.Email_Address}}</td>
             <td>
-              <button mat-flat-button color="primary" (click)="AcceptOrReject(practitioner,1)"  class="btn" >Accept</button>
+              <input type="button"   (click)="AcceptOrReject(practitioner,1)"  class="btn-gradient blue" value="Accept" >
+
             </td>
             <td>
-              <button mat-flat-button color="primary" (click)="AcceptOrReject(practitioner,0)"  class="btn" >Reject</button>
+              <input type="button"   (click)="AcceptOrReject(practitioner,0)"  class="btn-gradient red" value="Reject" >
+
             </td>
           </tr>
       </tbody>
