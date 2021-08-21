@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ClientService } from 'src/app/dashboard/services/client.service';
+import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { Package } from 'src/app/models/Package';
 import { MatStepper } from '@angular/material/stepper';
 
@@ -16,7 +16,8 @@ export class ViewPackagesComponent implements OnInit {
     Packages : Array<Package>
     Pack:any;
     MoveToNext =  false;
-    PackageID:any
+    PackageID:any;
+    show = 6;
    constructor(private clientServe:ClientService) { }
 
   ngOnInit() {
@@ -61,6 +62,9 @@ export class ViewPackagesComponent implements OnInit {
       alert("Please choose Package before you move to purchase")
     }
 
+  }
+  increaseShow() {
+    this.show += 10;
   }
 
 }

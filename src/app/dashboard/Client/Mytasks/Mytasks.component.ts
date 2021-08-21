@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../services/client.service';
 import { TaskDialogComponent } from './taskDialog/taskDialog.component';
 
 @Component({

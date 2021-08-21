@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../services/client.service';
 import { Session } from 'src/app/models/Session';
 import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
 import { MatDialog } from '@angular/material/dialog';

@@ -8,6 +8,7 @@ import { ClientModule } from './Client/client.module';
 import { LazyLoadScriptService } from './services/lazy-load-script.service';
 import { AdminModule } from './Admin/admin.module';
 import { SnackbarService } from '../shared/services/snackbar.service';
+import { PractitionerModule } from './Practitioner/practitioner.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SnackbarService } from '../shared/services/snackbar.service';
     DashboardRoutingModule,
     SharedModule,
     ClientModule,
-    AdminModule
+    AdminModule,
+    PractitionerModule
 
 
   ],

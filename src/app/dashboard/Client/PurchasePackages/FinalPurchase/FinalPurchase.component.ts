@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ClientService } from 'src/app/dashboard/services/client.service';
+import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { Package } from 'src/app/models/Package';
 
 @Component({

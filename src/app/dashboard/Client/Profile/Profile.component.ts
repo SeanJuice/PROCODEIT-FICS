@@ -1,10 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Client } from 'src/app/models/Client';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../services/client.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 import { ConfirmUpdateDialogComponent } from './ConfirmUpdateDialog/ConfirmUpdateDialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from 'src/app/auth/auth.service';
+import { PractitionerUserService } from '../../Practitioner/services/PractitionerUser.service';
+
 @Component({
   selector: 'app-Profile',
   templateUrl: './Profile.component.html',
@@ -17,24 +20,38 @@ export class ProfileComponent implements OnInit {
   clientID =  Number(this.storage.get("User_ID"));
   formGroup: FormGroup;
   isLoaded:boolean = true;
+  roleId:number;
   constructor(private formBuilder: FormBuilder,
-     private Clientservice: ClientService,@Inject(SESSION_STORAGE)
-     private storage: StorageService,
+     private Clientservice: ClientService,
+     private Practitionerservice: PractitionerUserService,
+     @Inject(SESSION_STORAGE)private storage: StorageService,
+     private auth:AuthService,
      public dialog: MatDialog) { }
 
   ngOnInit() {
-
+    this.roleId = this.auth.Role;
     this.refetch()
   }
 
   refetch(){
 
-    this.Clientservice.geClientProfile(this.clientID).subscribe((res:any)=>{
-      this.info =res;
+    if(this.roleId===2)
+    {
+      this.Clientservice.geClientProfile(this.clientID).subscribe((res:any)=>{
+        this.info =res;
+        this.createForm(this.info)
+        this.isLoaded =false;
+      })
+    }
+    else if (this.roleId===3)
+    {
+      this.Practitionerservice.getPractitionerProfile(this.clientID).subscribe((res:any)=>{
+        this.info =res;
+        this.createForm(this.info)
+        this.isLoaded =false;
+      })
+    }
 
-      this.createForm(this.info)
-      this.isLoaded =false;
-    })
 
   }
   createForm(info:Client) {

@@ -1,7 +1,7 @@
 // font stuff
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
 
-// @import '../shared/layouts/dashboardlayout/dashboardlayout.component.scss';
+@import '../shared/layouts/dashboardlayout/dashboardlayout.component.scss';
 // colour stuff
 $white: #ffffff;
 $lightBG: #dce1df;
@@ -59,6 +59,7 @@ div.cards {
 }
 
 div.card {
+  border-radius: 25px;
   background: $white;
   display: inline-block;
   margin: 8px;
@@ -71,10 +72,13 @@ div.card {
   z-index: 1;
 
   img {
-    max-width: 300px;
+    max-width: 100%;
+    display: inline;
+    border-radius: 25px;
   }
 
   .card__image-holder {
+    border-radius: 25px;
     background: rgba(0,0,0,0.1);
     height: 0;
     padding-bottom: 75%;
