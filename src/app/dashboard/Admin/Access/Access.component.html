@@ -1,31 +1,34 @@
 
-  <h1 class="h1 title">
+<div class="dashcards">
+<div class="col">
+  <div class="card" style="background-color: rgb(255, 255, 255)">
     <i class="fas fa-home"></i>
-    <span>Access management</span>
-  </h1>
-<section class="app-body mat-app-background">
-<nav mat-tab-nav-bar>
+    <h2 class="card__title">ACCESS</h2>
 
-  <a mat-tab-link
-     routerLinkActive="active"
-     routerLink="./clients"  class="txt" >
-    clients
-  </a>
-  <a mat-tab-link
-     routerLinkActive="active"
-     routerLink="./practitioners" class="txt">
-    practitioners
-  </a>
-  <a mat-tab-link
-    routerLinkActive="active"
-    routerLink="./trainers"  class="txt">
-     trainers
-  </a>
-  <a mat-tab-link
-  routerLinkActive="active"
-  routerLink="./trainees"  class="txt">
-   trainees
-</a>
-</nav>
+  </div>
+</div>
+
+</div>
+
+
+<div class="tab_container" style="padding-bottom: 20%;">
+<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./practitioners" (click)="Change(1)">
+<label for="tab1"><i class="fa fa-code"></i><span>Practitioners </span></label>
+
+<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainers" (click)="Change(2)">
+<label for="tab2"><i class="fa fa-pencil-square-o"></i><span> Trainers </span></label>
+
+<input id="tab3" type="radio" name="tabs" routerLinkActive="active"  routerLink="./trainees" (click)="Change(3)">
+<label for="tab3"><i class="fa fa-pencil-square-o"></i><span> Trainees</span></label>
+
+
+
+<section id={{content}} class="tab-content" style="padding-bottom: 20%;">
+
+  <router-outlet></router-outlet>
 </section>
-<router-outlet></router-outlet>
+
+
+
+
+</div>

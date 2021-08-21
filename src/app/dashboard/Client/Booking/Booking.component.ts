@@ -7,7 +7,7 @@ import {
   MAT_DATE_FORMATS,
 } from '@angular/material/core';
 import { formatDate } from '@angular/common';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../services/client.service';
 import {
   AppDateAdapter,
   APP_DATE_FORMATS,

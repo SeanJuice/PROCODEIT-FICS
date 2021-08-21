@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AccessComponent implements OnInit {
 
-
+  content:string = "content1";
   constructor( private router:Router) { }
 
   ngOnInit() {
@@ -17,7 +17,7 @@ export class AccessComponent implements OnInit {
 
   }
 
-  DisableClient(ID){
+  Change(ID){
 
   }
 

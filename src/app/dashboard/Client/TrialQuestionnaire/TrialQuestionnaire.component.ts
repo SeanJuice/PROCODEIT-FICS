@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/models/Question';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-TrialQuestionnaire',

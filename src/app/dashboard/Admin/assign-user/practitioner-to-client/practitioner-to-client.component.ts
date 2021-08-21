@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { ClientService } from 'src/app/dashboard/services/client.service';
+import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { ClientsService } from '../../services/clients.service';
 import { PractitionerService } from '../../services/practitioner.service';

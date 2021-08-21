@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ClientService } from 'src/app/dashboard/services/client.service';
+import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 
 @Component({
   selector: 'app-taskDialog',

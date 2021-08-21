@@ -1,66 +1,3 @@
-<!-- <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>Dashboard</span>
-  </h1>
-
-
-  <div  *ngIf="Role==2">
-
-    <div class="dashcards">
-      <div class="col">
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle"   >Sessions</h5>
-          <h2 class="card__title"><a [routerLink]="['Sessions']" routerLinkActive="active" >Link</a></h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle">Subtitle</h5>
-          <h2 class="card__title">Title</h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" id="tour-card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle">Subtitle</h5>
-          <h2 class="card__title">Title</h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-    </div>
-    <div class="dashcards">
-      <div class="col">
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle">Subtitle</h5>
-          <h2 class="card__title">Title</h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle">Subtitle</h5>
-          <h2 class="card__title">Title</h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" id="tour-card">
-          <i class="fas fa-home"></i>
-          <h5 class="card__subtitle">Subtitle</h5>
-          <h2 class="card__title">Title</h2>
-          <p class="card__extra">Simple Information</p>
-        </div>
-      </div>
-    </div>
-
-
-  </div> -->
 
 <app-pre-loader *ngIf="isLoaded" ></app-pre-loader>
 
@@ -72,8 +9,8 @@
   <div class="cards">
 
     <div *ngFor="let dashboard of DashboardSettings" style="display:inline;">
-      <div class="card">
-        <div class="card__image-holder">
+      <div class="card"  style="position: relative;">
+        <div class="card__image-holder" >
           <img class="card__image" src="{{dashboard.ImageLink}}" alt="wave" />
         </div>
         <div class="card-title" >

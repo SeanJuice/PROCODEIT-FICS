@@ -61,4 +61,10 @@ export class PractitionerService {
       httpOptions
     );
   }
+  getPractitionerProfile(id:number): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${rootURL}/ViewPractitionerProfile`)
+      .pipe(share());
+  }
+
 }

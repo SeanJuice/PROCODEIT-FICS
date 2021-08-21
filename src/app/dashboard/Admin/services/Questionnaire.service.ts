@@ -6,7 +6,7 @@ import {  Observable, Subscription} from 'rxjs';
 import { Client } from 'src/app/models/Client';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
-import { ClientService } from '../../services/client.service';
+import { ClientService } from '../../Client/services/client.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 
 

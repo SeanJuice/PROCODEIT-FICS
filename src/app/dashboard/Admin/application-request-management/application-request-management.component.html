@@ -1,58 +1,4 @@
 
-  <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>Application Requests Management</span>
-  </h1>
-<!-- <section class="app-body mat-app-background">
-<nav mat-tab-nav-bar>
-
-  <a mat-tab-link
-     routerLinkActive="active"
-     routerLink="./practitioner-requests"  class="txt" >
-     practitioner requests
-  </a>
-  <a mat-tab-link
-     routerLinkActive="active"
-     routerLink="./trainee-requests" class="txt">
-     Trainee Requests
-  </a>
-  <a mat-tab-link
-    routerLinkActive="active"
-    routerLink="./trainer-requests"  class="txt">
-    Trainer Requests
-  </a>
-
-</nav>
-</section>
-<router-outlet></router-outlet> -->
-
-
-<!-- <div class="tab_container" style="padding-bottom: 20%;">
-	<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active" routerLink="./practitioner-requests" >
-	<label for="tab1"><i class="fa fa-code"></i><span>Practitioner requests</span></label>
-
-	<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainee-requests">
-	<label for="tab2"><i class="fa fa-pencil-square-o"></i><span>  Trainee Requests </span></label>
-
-  <input id="tab3" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainer-requests">
-	<label for="tab3"><i class="fa fa-pencil-square-o"></i><span>  Trainer Requests </span></label>
-
-
-	<section id="content1" class="tab-content" style="padding-bottom: 20%;">
-
-		<router-outlet></router-outlet>
-	</section>
-
-	<section id="content2" class="tab-content" style="padding-bottom: 20%;">
-		<router-outlet></router-outlet>
-	</section>
-
-
-	<section id="content3" class="tab-content" style="padding-bottom: 20%;">
-		<router-outlet></router-outlet>
-	</section>
-
-</div> -->
 
 <div class="dashcards">
 	<div class="col">
@@ -68,13 +14,13 @@
 
 <div class="tab_container" style="padding-bottom: 20%;">
 	<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./practitioner-requests" (click)="Change(1)">
-	<label for="tab1"><i class="fa fa-code"></i><span>Assign Practitioner</span></label>
+	<label for="tab1"><i class="fa fa-code"></i><span>Practitioner Requests</span></label>
 
 	<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainee-requests" (click)="Change(2)">
-	<label for="tab2"><i class="fa fa-pencil-square-o"></i><span>Assign Trainer</span></label>
+	<label for="tab2"><i class="fa fa-pencil-square-o"></i><span> Trainee Requests</span></label>
 
   <input id="tab3" type="radio" name="tabs" routerLinkActive="active"  routerLink="./trainer-requests" (click)="Change(3)">
-	<label for="tab3"><i class="fa fa-pencil-square-o"></i><span>Assign Trainer</span></label>
+	<label for="tab3"><i class="fa fa-pencil-square-o"></i><span> Trainer Requests</span></label>
 
 
 
@@ -83,13 +29,7 @@
 		<router-outlet></router-outlet>
 	</section>
 
-	<!-- <section id="content2" class="tab-content" style="padding-bottom: 20%;">
-		<router-outlet></router-outlet>
-	</section>
 
-  <section id="content3" class="tab-content" style="padding-bottom: 20%;">
-		<router-outlet></router-outlet>
-	</section> -->
 
 
 </div>
