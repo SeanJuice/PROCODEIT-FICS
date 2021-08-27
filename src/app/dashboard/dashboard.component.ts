@@ -179,16 +179,6 @@ const dashboards_settings_client = [
 const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
-    Header_Name: 'Client Requests',
-    Button_Name: 'View',
-    ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'client-requests',
-    icon: 'library_add',
-    color: 'rgb(15, 147, 255);',
-  },
-  {
-    NumberOfObject: 1,
     Header_Name: 'Purchase Questionnaire',
     Button_Name: 'purchase',
     ImageLink:
@@ -213,10 +203,20 @@ const dashboards_settings_practitioner = [
     Button_Name: 'View',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'set-availability',
+    RouterLink: 'send-client-task',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'View My Profile',
+    ImageLink:
+      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'Profile',
+    icon: 'face',
+    color: '#F68C81',
+  }
 ];
 /**
  * ? Trainer dashboard

@@ -17,7 +17,7 @@ export class ClientManagementComponent implements OnInit {
   message:string;
   subscription: Subscription;
 
-  constructor(private clientsService:ClientsService, private router:Router, private Arouter:ActivatedRoute,private data: DataService) { }
+  constructor(private clientsService:ClientsService,private data: DataService) { }
 
   ngOnInit() {
     this.clientsService.getClients().subscribe(res=>{
@@ -31,8 +31,6 @@ export class ClientManagementComponent implements OnInit {
   this.clicked = false;
   let NameSurname =  Name +" "+ Surname
   this.data.changeMessage( NameSurname)
-    //this.router.navigate(["./ViewClientSession",clientID])
-    // this.router.navigateByUrl(`../ViewClientSession/${clientID}`)
   }
 
 }

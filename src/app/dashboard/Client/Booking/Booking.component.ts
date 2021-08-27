@@ -12,6 +12,7 @@ import {
   AppDateAdapter,
   APP_DATE_FORMATS,
 } from 'src/app/shared/material/fomart-datepicker';
+import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-Booking',
@@ -26,12 +27,14 @@ export class BookingComponent implements OnInit {
   selectedDate: any | null;
   AvailableSlots: any = [];
   AvailabilityID: number;
-
+  datesToHighlight:any = [];
   CurrentlyChosen: any;
 
   constructor(private clientservice: ClientService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAvailableDates();
+  }
 
   BookSlot() {
     /**
@@ -66,4 +69,24 @@ export class BookingComponent implements OnInit {
         });
       });
   }
+
+  getAvailableDates() {
+    this.clientservice.getAvailableDates().subscribe((res) => {
+      res.forEach((dates) => {
+        this.datesToHighlight.push(dates.Date);
+      });
+    });
+    console.log(this.datesToHighlight)
+  }
+
+  dateClass() {
+    return (date: Date): MatCalendarCellCssClasses => {
+      const highlightDate = this.datesToHighlight
+        .map(strDate => new Date(strDate))
+        .some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear());
+
+      return highlightDate ? 'special-date' : '';
+    };
+  }
+
 }

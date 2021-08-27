@@ -1,0 +1,119 @@
+<header class="container" style="width: 100%;max-width:100%">
+  <h1 style="color:blue">Assign Task to {{message}}</h1>
+  <hr class="my-4">
+  <div class="alert alert-danger" role="alert">
+    [NB] You are only allowed to send one task at a time
+  </div>
+
+<br>
+
+<main>
+  <div class="col">
+    <a class="card card-5 stacked--up-left">
+      <code class="title">PDF/Picture Task</code>
+      <div class="content">
+        <h4> Select a PDF/Picture</h4>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+          </div>
+
+        </div>
+      </div>
+      <br><br><br><br>
+    </a>
+  </div>
+  <div class="col">
+    <a class="card card-6 stacked--up-right">
+      <code class="title">Written Task</code>
+      <div class="content">
+        <h4> Please type the task below</h4>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="Task.Description" rows="3"></textarea>
+
+        </div>
+      </div>
+    </a>
+  </div>
+</main>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Due Date</h2>
+        <mat-form-field appearance="fill"  style="background-color:  rgb(1, 153, 255);">
+          <mat-label>Choose a date</mat-label>
+          <input matInput  (dateInput)="getDate($event)" (dateChange)="getDate($event)" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix  [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker  > </mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+
+
+  <button type="button" (click)="Submit()" class="btn  length-increase btn-primary btn-lg btn-block" style="width: 100%;max-width:100%">Submit</button>
+
+<!-- Cards  -->
+<hr class="my-4">
+<div class="container jumbotron jumbotron-fluid" style="width: 100%;max-width:100%">
+
+
+  <div class="row">
+    <h1 style=" font-family: 'Montserrat', sans-serif; color:cornflowerblue">Tasks already assigned to {{message}}</h1>
+    <div class="col-md-9">
+      <div class="CriticalActions">
+          <div class="d-flex"> <!--CardGroup -->
+            <div class="commitment-task-card" *ngFor="let task of Tasks">
+              <div class="commitment-task-card-header">
+                <h4 class="commitment-task-card-title">
+                  <span class="commitment-task-type">Task Type {{task.TaskType}}</span>
+                  {{task.Description}}
+                </h4>
+                <p class="commitment-task-due-date">Start: {{task.StartDate}}</p>
+                <p class="commitment-task-due-date">Due: {{task.DueDate}}</p>
+              </div>
+              <div class="commitment-task-card-body">Feedback: {{task.Feedback}}</div>
+              <div class="commitment-task-card-footer">
+                <a href="#" class="btn btn-link commitment-help-link">Need help?</a>
+                <a href="#" class="btn btn-default btn-xs">Give feedback</a>
+              </div>
+            </div>
+            <div class="commitment-task-card complete">
+              <div class="commitment-task-card-header">
+                <h4 class="commitment-task-card-title">
+                  <span class="commitment-task-type">Critical task</span>
+                  Review your results
+                </h4>
+                <p class="commitment-task-due-date">Due: 9/17/2018</p>
+              </div>
+              <div class="commitment-task-card-body">Communicate results and work with your team to decide where to focus.</div>
+              <div class="commitment-task-card-footer">
+                <a href="#" class="btn btn-link commitment-help-link">Need help?</a>
+                <a href="#" class="btn btn-default btn-xs">Complete</a>
+              </div>
+            </div>
+            <div class="commitment-task-card">
+              <div class="commitment-task-card-header">
+                <h4 class="commitment-task-card-title">
+                  <span class="commitment-task-type">Critical task</span>
+                  Review your results
+                </h4>
+                <p class="commitment-task-due-date">Due: 9/17/2018</p>
+              </div>
+              <div class="commitment-task-card-body">Start making work awesome! Set commitments and take action.</div>
+              <div class="commitment-task-card-footer">
+                <a href="#" class="btn btn-link commitment-help-link">Need help?</a>
+                <a href="#" class="btn btn-default btn-xs">Mark Complete</a>
+              </div>
+            </div>
+          </div> <!--CardGroup -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</header>

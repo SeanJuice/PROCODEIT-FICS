@@ -16,154 +16,147 @@ import { TraineesService } from '../services/trainees.service';
       ]),
       transition(':leave', [animate('100ms', style({ opacity: 0 }))]),
     ]),
-
   ],
   templateUrl: './assign-questionnaire.component.html',
   styleUrls: ['./assign-questionnaire.component.scss'],
-  providers: [SnackbarService]
+  providers: [SnackbarService],
 })
 export class AssignQuestionnaireComponent implements OnInit {
   constructor(
     private questionnaireService: QuestionnaireService,
-    private Clientservice: ClientsService,private snackbar: SnackbarService,
+    private Clientservice: ClientsService,
+    private snackbar: SnackbarService,
     private trainee: TraineesService
   ) {}
 
   dropdownList = [];
+  previewListonQuestions = [];
   ClientList = [];
-  QuestionnaireTypeList = [];
-  Questions:Array<any> = [];
+  Questions: Array<any> = [];
   dropdownSettings: IDropdownSettings = {};
   Client: any;
-  questionnaireType: number;
+  QuestionsSelected: boolean=false;
   Steps: boolean[] = [false, false, false, false]; //Steps control
-  isLoaded: boolean = true; // pre loader
+  isLoaded: boolean = false; // pre loader
   allSelected: boolean = false; //check of all of them are selected
-  isLoader: boolean = false; //submit loader
-
+  isLoader: boolean = false; //?submit loader
   isClients: boolean = true; //checks if its clients
   isTrainee: boolean = false; // checks if its trainee
-  Name: string = "Client"
+  show = 4; //Number of shown sample questions
+  Name: string = 'Client';
 
   ngOnInit() {
-  this.LoadContents()
+    this.getClients();
+    this.getAllQuestions();
   }
-
 
   Toggle() {
-   this.isClients = !this.isClients;
-   (this.isClients) ? this.Name="Client" : this.Name="Trainee"   //if statement
-   console.log(this.isClients)
+    this.isClients = !this.isClients;
+    this.isClients ? (this.Name = 'Client') : (this.Name = 'Trainee'); //if statement
+    this.getClients()
   }
 
-  LoadContents(): void {
-    this.questionnaireService.GetQuestionnaireType().subscribe((result) => {
-      result.forEach((element) => {
-        this.QuestionnaireTypeList.push(element);
-      });
-      console.log(this.QuestionnaireTypeList);
-      this.Steps[0] = true;
-      this.isLoaded = false;
+  getAllQuestions() {
+    this.questionnaireService.GetAllQuestions().subscribe((res) => {
+      this.dropdownList = res;
+      console.log(res);
     });
+
     this.dropdownSettings = {
       singleSelection: false,
-      idField: 'QuestionBank_ID',
-      textField: 'Question',
+      idField: 'QuestionTitle_ID',
+      textField: 'QuestionTitle',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 3,
       allowSearchFilter: true,
     };
-    this.getClients()
   }
 
   getClients() {
-    if(this.isClients)
-    {
-      this.Clientservice.getClients().subscribe((result: any) => (this.ClientList = result));
-    }
-    else{
-      this.trainee.getTrainees().subscribe((result: any) => (this.ClientList = result));
+    if (this.isClients) {
+      this.ClientList =[]
+      this.Clientservice.getClients().subscribe((result) => {
+        (this.ClientList = result), (this.Steps[0] = true);
+        this.isLoaded = false;
+      });
+    } else {
+      this.ClientList =[]
+      this.trainee.getTrainees().subscribe((result) => {
+        (this.ClientList = result), (this.Steps[0] = true);
+        this.isLoaded = false;
+      });
     }
   }
 
-  RandersQuestionnaireData(QuestionBankType_ID) {
-    this.questionnaireService
-      .GetQuestionsPerType(QuestionBankType_ID)
-      .subscribe((result: any) => {
-        this.dropdownList = result;
-        this.NextStep(2);
-      });
-  }
   /**
    * Properties for the select
    */
   onItemSelect(item: any) {
-    this.Questions.push(item.QuestionBank_ID);
+    let obj = this.dropdownList.find(
+      (x) => x.QuestionTitle_ID === item.QuestionTitle_ID
+    );
+    console.log(obj);
+    this.previewListonQuestions.push(obj);
+    this.QuestionsSelected=true; // show example questions
+    this.Questions.push(item.QuestionTitle_ID);
   }
   onSelectAll(items: any) {
-    this.Questions =  items;
-    this.allSelected =true;
+    this.Questions = items;
+    this.allSelected = true;
   }
-      /*** Removes element from array */
+  /*** Removes element from array */
   onDeSelect(items: any) {
-    const index = this.Questions.indexOf(items.QuestionBank_ID);
+    const index = this.Questions.indexOf(items.QuestionTitle_ID);
     if (index > -1) {
       this.Questions.splice(index, 1);
-      this.allSelected =false;
+      this.previewListonQuestions.splice(index, 1);
+      this.allSelected = false // checks if all of options are selected
     }
   }
-  onDropDownClose(){
-    this.NextStep(3);
+  onDropDownClose() {
+    this.NextStep(2);
   }
 
-
-
-
-
-  NextStep(step,client?) {
-
-
+  NextStep(step, client?) {
     if (step == 1) {
-      this.Client =client;
+      this.Client = client;
       this.Steps[1] = true;
     } else if (step == 2) {
       this.Steps[2] = true;
     } else if (step == 3) {
       this.Steps[3] = true;
     }
-
   }
 
-  async AssignClient(){
-       this.isLoader =true;
-       //Reassigning ID
-       let ID = this.Client.Client_ID
-       if(!this.isClients){
-         ID = this.Client.Trainee_ID
-       }
+  async AssignClient() {
+    this.isLoader = true;
+    //Reassigning ID
+    let ID = this.Client.Client_ID;
+    if (!this.isClients) {
+      ID = this.Client.Trainee_ID;
+    }
 
-      if(this.allSelected){
-          this.questionnaireService.AssignClientQuestionnaireType(this.questionnaireType,ID,this.isClients).subscribe(response =>{
-            this.Steps =[]= [false, false, false, false];
-            this.LoadContents();
-            this.isLoader =false;
-            this.snackbar.openSnackBar("Questionnaire successfully loaded")
-          })
-      }
-       else{
-        this.questionnaireService.AssignClientQuestionnaireBank(this.questionnaireType,ID,this.Questions,this.isClients).subscribe(response =>{
-          this.Steps =[]= [false, false, false, false];
-          this.LoadContents();
-          this.isLoader =false;
-          this.snackbar.openSnackBar("Questionnaire successfully loaded")
-        })
-      }
+
+      this.questionnaireService
+        .AssignTraineeQuestionnaires(
+          ID,
+          this.Questions,
+          this.isClients
+        )
+        .subscribe((response) => {
+          this.Steps = [] = [false, false, false, false];
+          this.getClients();
+          this.isLoader = false;
+          this.QuestionsSelected=false;
+          this.snackbar.openSnackBar('Questionnaire successfully loaded');
+        });
 
   }
 
   async delay(ms: number) {
-    await new Promise<void>(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
-}
-
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), ms)).then(
+      () => console.log('fired')
+    );
+  }
 }

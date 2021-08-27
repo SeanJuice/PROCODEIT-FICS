@@ -32,7 +32,8 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
     QuestionnaireManagementComponent,
     AssignComponent,
     PractitionerToClientComponent,
-    TrainerToTraineeComponent
+    TrainerToTraineeComponent,
+    AssignQuestionnaireComponent
   ],
   imports: [
     CommonModule,

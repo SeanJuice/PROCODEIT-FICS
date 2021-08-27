@@ -10,12 +10,12 @@
 .example-full-width {
     width: 100%;
     color: black;
-    
+
   }
   .example-card {
     max-width: 400px;
   }
-  
+
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
@@ -25,3 +25,8 @@
       padding-top: 5%;
       width: 90%;
   }
+  body {
+    background-color: green;
+  }
+
+
