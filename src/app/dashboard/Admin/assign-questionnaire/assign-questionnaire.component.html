@@ -6,7 +6,9 @@
 </h1>
 
 
+<!-- <div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded"> -->
 <div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded">
+
   <div class="col">
     <div class="card" style="background-color: rgb(255, 255, 255);">
       <i class="fas fa-home"></i>
@@ -58,7 +60,6 @@
         matNativeControl
         [(ngModel)]="Client"
         name="car"
-        (click)="getClients()"
         panelClass="example-panel-blue"
       >
         <mat-option value="" selected></mat-option>
@@ -75,43 +76,9 @@
 
 <br>
 
-<div [@myInsertRemoveTrigger]="Steps[1]===true && !isLoaded"  *ngIf="Steps[1]===true && !isLoaded">
-  <div class="blog-card alt">
-    <div class="meta">
-      <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
-      <ul class="details">
-        <li class="author">step 2 of 4<a href="#"></a></li>
-        <li class="tags">
-          <ul>
-
-
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="description">
-      <h1>Assign Questionnaire bank type</h1>
-      <h2>step 2 of 4</h2>
-      <p>.</p>
-      <mat-radio-group
-        aria-label="Select an option"
-        [(ngModel)]="questionnaireType"
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group">
-        <mat-radio-button
-          *ngFor="let type of QuestionnaireTypeList"
-          (click)="RandersQuestionnaireData(type.QuestionBankType_ID)"
-          [value]="type.QuestionBankType_ID"
-          class="example-radio-button" style="background-color: rgb(0, 145, 255); color:white;">
-         {{ type.Description }}</mat-radio-button>
-  </mat-radio-group>
-    </div>
-  </div>
-</div>
-
 <br>
 
-<div [@myInsertRemoveTrigger]="Steps[2]===true && !isLoaded" *ngIf="Steps[2]===true && !isLoaded">
+<div [@myInsertRemoveTrigger]="Steps[1]===true && !isLoaded" *ngIf="Steps[1]===true && !isLoaded">
   <div class="blog-card" style="padding-bottom: 33%;z-index: -1">
 
     <div class="description" >
@@ -133,11 +100,33 @@
 
         </ng-multiselect-dropdown>
 
+
+
     </div>
+
+  >
+
   </div>
+  </div>
+  <br>
+  <div class="card" style="width:100%; background-color:white; color:blue" *ngIf="QuestionsSelected">
+    <div class="card-header">
+
+      <li class="author">sample questions</li>
+    </div>
+
+    <mat-tab-group  style="background-color:rgb(75, 183, 255);color:white">
+      <mat-tab    *ngFor="let question of previewListonQuestions" label={{question.QuestionTitle}}>
+        <div class="alert alert-primary"  *ngFor="let preview of question.Questions">
+          {{preview.Question}}
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
   </div>
 <br>
-  <mat-card *ngIf="Steps[3]===true && !isLoaded" style="background-color:  rgb(0, 145, 255); align-content: center">
+  <mat-card *ngIf="Steps[2]===true && !isLoaded" style="background-color:  rgb(0, 145, 255); align-content: center">
     <mat-progress-bar mode="buffer" *ngIf="isLoader" style="background-color: aliceblue;"></mat-progress-bar>
     <div class="blog-card" style="padding-bottom:30%;z-index: -1">
       <div class="meta">

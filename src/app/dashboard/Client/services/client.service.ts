@@ -107,12 +107,25 @@ export class ClientService {
    ClientQuestionnaire() {
     return this.http.get(`${rootURL}/ViewClientQuestionnares/${this.ClientID}`).pipe(share());
   }
+
+  CompleteQuestionnaire(questions:Array<Array<any>>){
+    console.log(questions)
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}CompleteQuestionnare`,questions,httpOptions).pipe(share())
+  }
   /**
-   * get Tasks
+   *
+   * @param _ClientID
+   * @returns
    */
 
-   getTasks() {
-    return this.http.get(`${rootURL}/GetTasks/${this.ClientID}`).pipe(share());
+   getTasks(_ClientID?:number) {
+     let Id:number = this.ClientID
+     if(_ClientID!=null)
+        {
+          Id =_ClientID
+        }
+    return this.http.get(`${rootURL}/GetTasks/${Id}`).pipe(share());
   }
 
 
@@ -146,7 +159,12 @@ export class ClientService {
   }
 
   getDateAvailability(Date:any):Observable<any[]>{
-    return this.http.get<any[]>(`${rootURL}/GetDateAvailablity/${Date}`).pipe(share());
+    return this.http.get<any[]>(`${rootURL}GetDateAvailability/${Date}`).pipe(share());
+  }
+
+  // ?\https://stackblitz.com/edit/am-all-imports-7gm3wt?file=app%2Fapp.component.ts
+  getAvailableDates():Observable<any[]>{
+    return this.http.get<any[]>(`${rootURL}GetAvailableDates/`).pipe(share());
   }
 
 

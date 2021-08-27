@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from 'src/app/models/Client';
+import { ClientsService } from '../../Admin/services/clients.service';
+import { DataService } from '../../Admin/services/DataService.service';
 
 @Component({
   selector: 'app-send-client-task',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendClientTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService,private clientsService:ClientsService) { }
+  clients:Array<Client>;
 
   ngOnInit() {
+    this.clientsService.getClients().subscribe(res=>{
+        this.clients = res
+    })
+
+  }
+
+  Transfer(Name,Surname){
+  let NameSurname =  Name +" "+ Surname
+  this.data.changeMessage( NameSurname)
   }
 
 }
+
+
+
+

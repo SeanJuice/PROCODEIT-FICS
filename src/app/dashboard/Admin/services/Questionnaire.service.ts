@@ -19,32 +19,25 @@ export class QuestionnaireService {
 
   constructor(public http: HttpClient, private auth: AuthService) {}
 
-  GetQuestionnaireType(): Observable<any[]> {
-    return this.http.get<any[]>(`${rootURL}/GetQuestionnaireType`).pipe(share());
+  GetAllQuestions(): Observable<any[]> {
+    return this.http.get<any[]>(`${rootURL}/GetAllQuestions`).pipe(share());
   }
-
-  GetQuestionsPerType(questionnaireid: Number): Observable<any[]> {
-    return this.http
-      .get<any[]>(`${rootURL}/GetQuestionsPerType/${questionnaireid}`)
-      .pipe(share());
-  }
-
 
 
   /***
    *? assigns a single question to a client (do a for loop to hit this with different question bank ids)
    */
-  AssignClientQuestionnaireBank(questionnaireid: number,ID:number,Questions:Array<any>,userType:boolean) {
+   AssignTraineeQuestionnaires(userID: number,Questions:Array<any>,userType:boolean) {
     let requests:Observable<any>
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
     if(userType)
     {
-      requests =  this.http.post(`${rootURL}/AssignClientQuestionnaireBank/${questionnaireid}/${ID}`,Questions, httpOptions).pipe(share())
+      requests =  this.http.post(`${rootURL}/AssignClientQuestionnaires/${userID}/`,Questions, httpOptions).pipe(share())
     }
     else{
-      requests =  this.http.post(`${rootURL}/AssignTraineeQuestionnaireBank/${questionnaireid}/${ID}`,Questions, httpOptions).pipe(share())
+      requests =  this.http.post(`${rootURL}/AssignTraineeQuestionnaires/${userID}/`,Questions, httpOptions).pipe(share())
     }
 
     return requests
@@ -53,17 +46,17 @@ export class QuestionnaireService {
     /***
    *? assign all questions in a specific category  (so this is if they select the whole question bank)
    */
-   AssignClientQuestionnaireType(questionnaireid: number,ClientID:number,userType:boolean) {
+   AssignClientQuestionnaireType(ClientID:number,userType:boolean) {
     let requests:Observable<any>
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
     if(userType)
     {
-      requests =  this.http.get(`${rootURL}AssignClientQuestionnaireType/${questionnaireid}/${ClientID}`, httpOptions).pipe(share())
+      requests =  this.http.get(`${rootURL}AssignClientQuestionnaireType/${ClientID}`, httpOptions).pipe(share())
     }
     else{
-      requests =  this.http.get(`${rootURL}AssignTraineeQuestionnaireType/${questionnaireid}/${ClientID}`, httpOptions).pipe(share())
+      requests =  this.http.get(`${rootURL}AssignTraineeQuestionnaireType/${ClientID}`, httpOptions).pipe(share())
     }
 
     return requests
