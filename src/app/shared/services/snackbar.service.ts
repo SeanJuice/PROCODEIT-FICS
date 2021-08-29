@@ -14,7 +14,7 @@ openSnackBar(message: string) {
 
 openSnackBarWithAction(message: string, action: string) {
   this.snackBar.open(message, action, {
-    duration: 150000,
+    duration: 2000,
     verticalPosition: 'bottom',
     panelClass: ['blue-snackbar']
   });

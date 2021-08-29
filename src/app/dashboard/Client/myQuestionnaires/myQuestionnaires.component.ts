@@ -12,6 +12,7 @@ export class MyQuestionnairesComponent implements OnInit {
   constructor(private clientService: ClientService,private auth:AuthService) { }
  myQuestionnaires=[];
  questionContainer = [];
+ arrayLengthCheck:any;
  ArrayOfQuestions = Array.from(Array(null,null), () => new Array(null,null))
   ngOnInit() {
 
@@ -38,7 +39,9 @@ export class MyQuestionnairesComponent implements OnInit {
   }
 
    filterById(id) {
-    return this.myQuestionnaires.filter( x => x.QuestionTitle_ID === id);
+
+    this.arrayLengthCheck = this.myQuestionnaires.filter( x => x.QuestionTitle_ID === id);
+    return this.arrayLengthCheck;
   }
 
   CreateTwoDimensionalQuestionsArray() {
@@ -85,13 +88,13 @@ export class MyQuestionnairesComponent implements OnInit {
     let canSubmit= true
     this.ArrayOfQuestions.forEach(array=>{
       let index =this.questionContainer.findIndex(x => x.id === array[1]);
-      if(array.length != 6)
+      if(array.length == 6 || array.length == 3)
       {
-        canSubmit=false;
-        this.questionContainer[index].isNotCompleted=true;
+        this.questionContainer[index].isNotCompleted=false;
       }
       else{
-        this.questionContainer[index].isNotCompleted=false;
+        canSubmit=false;
+        this.questionContainer[index].isNotCompleted=true;
       }
     })
      if(canSubmit) this.clientService.CompleteQuestionnaire(this.ArrayOfQuestions).subscribe(response =>{

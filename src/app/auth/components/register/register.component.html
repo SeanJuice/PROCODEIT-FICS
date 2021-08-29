@@ -25,7 +25,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Contact Number</mat-label>
-                    <input type="tel" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <input type="number" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroup.controls['Contact_Number'].valid && formGroup.controls['Contact_Number'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>
@@ -205,7 +205,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Contact Number</mat-label>
-                    <input type="tel" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <input type="number" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroupOthers.controls['Contact_Number'].valid && formGroupOthers.controls['Contact_Number'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>

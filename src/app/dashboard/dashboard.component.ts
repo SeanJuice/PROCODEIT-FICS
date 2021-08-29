@@ -213,7 +213,17 @@ const dashboards_settings_practitioner = [
     Button_Name: 'View My Profile',
     ImageLink:
       'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
-    RouterLink: 'Profile',
+    RouterLink: 'Profile-Practitioner',
+    icon: 'face',
+    color: '#F68C81',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Send Feedbacks',
+    Button_Name: 'View Tasks',
+    ImageLink:
+      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'feedbacks',
     icon: 'face',
     color: '#F68C81',
   }
@@ -225,11 +235,29 @@ const dashboards_settings_practitioner = [
 const dashboards_settings_trainer = [
   {
     NumberOfObject: 1,
-    Header_Name: 'Book Sessions',
-    Button_Name: 'Book',
+    Header_Name: 'Send Feedback',
+    Button_Name: 'View',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: '',
+    RouterLink: 'send-feedback',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },{
+    NumberOfObject: 1,
+    Header_Name: 'send task to trainee',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'send-task-trainee',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },{
+    NumberOfObject: 1,
+    Header_Name: 'Set Availability',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'set-availability',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

@@ -66,22 +66,35 @@
     <div class="col-md-9">
       <div class="CriticalActions">
           <div class="d-flex"> <!--CardGroup -->
-            <div class="commitment-task-card" *ngFor="let task of Tasks">
+            <div class="commitment-task-card" *ngFor="let task of Tasks"  [ngClass]="task.Status=='Completed' ? 'commitment-task-card complete' : 'commitment-task-card'" >
               <div class="commitment-task-card-header">
                 <h4 class="commitment-task-card-title">
                   <span class="commitment-task-type">Task Type {{task.TaskType}}</span>
-                  {{task.Description}}
+
                 </h4>
-                <p class="commitment-task-due-date">Start: {{task.StartDate}}</p>
-                <p class="commitment-task-due-date">Due: {{task.DueDate}}</p>
+                <h4 class="commitment-task-due-date">Start: {{task.StartDate}}</h4>
+                <h4 class="commitment-task-due-date">Due: {{task.DueDate| date}}</h4>
               </div>
-              <div class="commitment-task-card-body">Feedback: {{task.Feedback}}</div>
+              <div class="commitment-task-card-body">
+                <div class="alert alert-success" role="alert">
+                  <span class="badge badge-warning" style="color:blue">Feedback From User:</span>
+                  {{task.Feedback}}
+                </div>
+              </div>
+              <div class="commitment-task-card-body">
+
+                <div class="alert alert-success" role="alert">
+                  <span class="badge badge-warning" style="color:blue">Description:</span>
+                  {{task.Description}}
+                </div>
+              </div>
               <div class="commitment-task-card-footer">
                 <a href="#" class="btn btn-link commitment-help-link">Need help?</a>
-                <a href="#" class="btn btn-default btn-xs">Give feedback</a>
+                <button href="#" class="btn btn-default btn-primary btn-xs">Give feedback</button>
+                <a href="#" *ngIf="task.Status=='Completed'" class="btn btn-default btn-xs">Complete</a>
               </div>
             </div>
-            <div class="commitment-task-card complete">
+            <!-- <div class="commitment-task-card complete">
               <div class="commitment-task-card-header">
                 <h4 class="commitment-task-card-title">
                   <span class="commitment-task-type">Critical task</span>
@@ -108,7 +121,7 @@
                 <a href="#" class="btn btn-link commitment-help-link">Need help?</a>
                 <a href="#" class="btn btn-default btn-xs">Mark Complete</a>
               </div>
-            </div>
+            </div> -->
           </div> <!--CardGroup -->
       </div>
     </div>

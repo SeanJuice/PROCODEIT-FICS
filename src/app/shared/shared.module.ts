@@ -7,18 +7,23 @@ import { AuthlayoutComponent } from './layouts/authlayout/authlayout.component';
 import { DashboardlayoutComponent } from './layouts/dashboardlayout/dashboardlayout.component';
 import { MaterialModule } from './material/material.module';
 import { PreLoaderComponent } from './components/pre-loader/pre-loader.component';
+import { ProfileComponent } from '../dashboard/Client/Profile/Profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, Error404Component, AuthlayoutComponent, DashboardlayoutComponent,PreLoaderComponent],
+  declarations: [HeaderComponent, Error404Component,
+    AuthlayoutComponent, DashboardlayoutComponent,
+    PreLoaderComponent,ProfileComponent],
   imports: [
-    CommonModule,RouterModule,MaterialModule
+    CommonModule,RouterModule,MaterialModule,ReactiveFormsModule
   ],
   exports:[
     HeaderComponent,
     MaterialModule,
-    PreLoaderComponent
+    PreLoaderComponent,
+    ProfileComponent
   ],
 
 

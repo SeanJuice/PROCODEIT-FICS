@@ -3,7 +3,7 @@
     <i class="fas fa-home"></i>
     <span>My Questionnaires</span>
   </h1>
-  <div class="jumbotron jumbotron-fluid ">
+  <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0">
     <div class="container ">
       <br>
   <div class="table-card card" *ngFor="let category of questionContainer; let i=index" >
@@ -25,15 +25,22 @@
                 {{q.Question}}
 
             </td>
-            <td>
+            <td *ngIf='arrayLengthCheck.length > 2'>
 
-                <select matNativeControl #sel  required (change)="assignAnswerToArray(sel.value,i,position)">
+                <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
             </td>
+            <td *ngIf='arrayLengthCheck.length < 2'>
+            <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
+              <option value="6">Yes</option>
+              <option value="5">No</option>
+
+            </select>
+        </td>
 
           </tr>
       </tbody>
@@ -44,7 +51,11 @@
   </div>
 </div>
 
-<div class="d-grid gap-2 card">
+<div class="d-grid gap-2 card" *ngIf="ArrayOfQuestions.length !=0">
   <button class="btn btn-primary" type="button" (click)="submitQuestionnaire()">Complete Questionnaire</button>
 </div>
 
+<div class="container p-3 my-3 bg-primary text-white" *ngIf="ArrayOfQuestions.length ==0">
+  <h1>NB</h1>
+  <p>No has been Questionnaire Assigned to you</p>
+</div>
