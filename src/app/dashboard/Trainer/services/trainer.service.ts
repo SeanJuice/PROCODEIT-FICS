@@ -29,4 +29,31 @@ export class TrainerService {
     };
     return this.http.post(`${rootURL}/SendFeedback/${taskid}/${feedback}`, httpOptions);
   }
+
+  TraineesForPractitioner(id:any):Observable<Task[]> {
+    return this.http
+    .get<any[]>(`${rootURL}/TraineesFPractitioner/${id}`)
+    .pipe(share());
+  }
+
+  getTasks(id:any):Observable<Task[]> {
+    return this.http
+    .get<any[]>(`${rootURL}/TasksForEachTrainee/${id}`)
+    .pipe(share());
+  }
+
+  AssignTask(trainee_ID: Number, Task: any) {
+    let Trainerid= Number(this.auth.loginId)
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/SendTasks/${Trainerid}/${trainee_ID}`,Task, httpOptions);
+  }
+
+  ClientsAssignedToTrainer():Observable<any[]> {
+    return this.http
+    .get<any[]>(`${rootURL}/ClientsAssignedToTrainer/${this.auth.loginId}`)
+    .pipe(share());
+  }
 }

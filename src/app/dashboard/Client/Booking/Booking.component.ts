@@ -64,6 +64,7 @@ export class BookingComponent implements OnInit {
     this.clientservice
       .getDateAvailability(formattedDate.toString())
       .subscribe((res) => {
+        console.log(res)
         res.forEach((dates) => {
           this.AvailableSlots.push(dates);
         });
@@ -72,7 +73,9 @@ export class BookingComponent implements OnInit {
 
   getAvailableDates() {
     this.clientservice.getAvailableDates().subscribe((res) => {
+      console.log(res)
       res.forEach((dates) => {
+
         this.datesToHighlight.push(dates.Date);
       });
     });

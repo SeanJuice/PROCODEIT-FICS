@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 
 
@@ -9,7 +8,9 @@
         <div class="icon">
           <div class="logo" id="tour-logo">
             <i class="fas fa-bus"></i>
-            FICS
+            FICS <b class="red">| {{RoleName}}</b>
+
+            <a></a>
           </div>
         </div>
       </div>
@@ -21,9 +22,9 @@
           <button class="icon">
             <i class="fas fa-bell"></i>
           </button>
-          <button  [routerLink]="['Profile']" routerLinkActive="active"class="user-profile" id="tour-user">
-            Sami Smith
-            <img src="https://randomuser.me/api/portraits/women/17.jpg"/>
+          <button [routerLink]="['Profile']" routerLinkActive="active" class="user-profile" id="tour-user">
+            User
+            <img src="https://randomuser.me/api/portraits/women/17.jpg" />
           </button>
         </div>
       </div>
@@ -32,45 +33,54 @@
   <div class="body">
     <div class="sidebar">
       <ul class="sidebar-nav">
-        <li>
-          <button [routerLink]="['../dashboard']" routerLinkActive="active"class="user-profile" id="tour-user" >
-            <span>Dashboard</span>
-            <i class="fas fa-home">	<mat-icon>dashboard</mat-icon></i>
-          </button>
-        </li>
-        <li>
-          <button [routerLink]="['Profile']" routerLinkActive="active" id="tour-elements">
-            <span>Profile</span>
-            <i class="fas fa-basketball-ball"><mat-icon> person_pin</mat-icon></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <span>Forms</span>
-            <i class="fas fa-car"></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <span>Icons</span>
-            <i class="fas fa-cloud"></i>
-          </button>
-        </li>
-        <li>
-          <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" id="tour-elements" style="color: rgb(3, 63, 173);">
-            <span> Trial Questionnaire</span>
-            <mat-icon> present_to_all</mat-icon>
-          </button>
-        </li>
         <li class="cta">
-          <button class="primary" id="start-tour">
-            View My Progress report
+          <button [routerLink]="['../dashboard']" routerLinkActive="active" class="user-profile" class="warning" id="tour-user" >
+            <span>Dashboard</span>
+            <i class="fas fa-home">
+              <mat-icon>dashboard</mat-icon>
+            </i>
+          </button>
+        </li>
+        <li  class="cta">
+          <button [routerLink]="['Profile']" routerLinkActive="active" id="tour-elements"  style="color: rgb(255, 255, 255);"
+            *ngIf="RoleName!='Administrator'" class="primary" id="start-tour">
+            <span>Profile</span>
+            <i class="fas fa-basketball-ball">
+              <mat-icon> person_pin</mat-icon>
+            </i>
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName=='Administrator'">
+          <button class="primary" id="start-tour" style="color: rgb(255, 255, 255);" (click)="Timer()">
+            <span> Set Timer  </span>
+            <i class="fas fa-basketball-ball">
+              <mat-icon>av_timer</mat-icon>
+            </i>
+          </button>
+        </li>
+        <li  class="cta" *ngIf="RoleName!='Administrator'">
+          <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" class="primary" id="start-tour"
+          style="color: rgb(255, 255, 255);">
+            <span> Trial Questionnaire</span>
+            <i class="fas fa-basketball-ball">
+            <mat-icon> present_to_all</mat-icon>
+            </i>
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName!='Administrator'">
+          <button class="primary" id="start-tour"  style="color: rgb(255, 255, 255);">
+            <span> View My Progress report</span>
+            <i class="fas fa-basketball-ball">
+              <mat-icon>library_books</mat-icon>
+            </i>
           </button>
         </li>
         <li class="cta">
           <button class="primary" style="background-color: red; color: white;" (click)="Logout()">
-            <span>   Log Out </span>
-            <i class="fas fa-basketball-ball"><mat-icon>power_settings_new</mat-icon></i>
+            <span> Log Out </span>
+            <i class="fas fa-basketball-ball">
+              <mat-icon>power_settings_new</mat-icon>
+            </i>
 
           </button>
         </li>
@@ -78,9 +88,8 @@
     </div>
     <div class="main">
       <div class="main__content">
- <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
 </div>
-

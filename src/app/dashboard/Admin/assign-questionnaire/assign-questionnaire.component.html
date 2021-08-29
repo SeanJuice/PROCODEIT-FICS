@@ -5,15 +5,18 @@
   <span>Assign Questionnaire to a Client</span>
 </h1>
 
+<div style="width: 90%; align-self: center; text-align: center; ">
+
+
 
 <!-- <div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded"> -->
 <div class="dashcards" [@myInsertRemoveTrigger]="Steps[0]===true && !isLoaded" *ngIf="Steps[0]===true && !isLoaded">
 
-  <div class="col">
-    <div class="card" style="background-color: rgb(255, 255, 255);">
+  <div class="col" [ngClass]="isClients? 'blue' : 'white'">
+    <div class="card" style="background-color: rgb(255, 255, 255);"  >
       <i class="fas fa-home"></i>
       <h2 class="card__title">Client</h2>
-      <section class="card__extra">
+      <section class="card__extra"  >
         <mat-slide-toggle
             class="example-margin"
             [checked]="isClients" color="Primary" (change)="Toggle()"></mat-slide-toggle>
@@ -21,12 +24,12 @@
 
     </div>
   </div>
-  <div class="col">
-    <div class="card" style="background-color: rgb(255, 255, 255);">
+  <div class="col" [ngClass]="!isClients? 'blue' : 'white'">
+    <div class="card" style="background-color: rgb(255, 255, 255);" >
       <i class="fas fa-home"></i>
 
       <h2 class="card__title">Trainee</h2>
-      <section class="card__extra">
+      <section class="card__extra"  >
         <mat-slide-toggle
             class="example-margin"
             [checked]="!isClients" color="Primary" (change)="Toggle()"></mat-slide-toggle>
@@ -149,3 +152,5 @@
       </div>
 
     </mat-card>
+
+  </div>

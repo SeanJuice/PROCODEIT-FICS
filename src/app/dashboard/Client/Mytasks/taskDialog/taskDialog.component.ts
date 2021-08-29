@@ -22,10 +22,11 @@ export class TaskDialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+
   }
 
   ngOnInit() {
-
+    this.createForm()
     this.Task_Id = this.data.id;
   }
 
@@ -40,6 +41,7 @@ export class TaskDialogComponent implements OnInit {
 
   onSubmitUpload() {
     let Task;
+     Task = {Description: "null" ,Image: null, PDF: null ,TaskDocument_ID: null};
     if (this.data.taskType == 'Photo Upload') {
       Task = {Description: null ,Image: this.selectedFile, PDF: null,TaskDocument_ID: null};
     } else {

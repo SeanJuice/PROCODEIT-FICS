@@ -24,14 +24,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatButtonModule,MatFormFieldModule,MatSelectModule,
     MatStepperModule,MatProgressBarModule,MatDialogModule,
     MatChipsModule,MatDatepickerModule,MatNativeDateModule,
-    MatRadioModule,MatSlideToggleModule,MatExpansionModule
+    MatRadioModule,MatSlideToggleModule,MatExpansionModule,
+    MatInputModule
   ],
   exports:[
     MatTabsModule, MatIconModule,MatCardModule,MatInputModule,
     MatButtonModule,MatFormFieldModule,MatSelectModule,
     MatStepperModule,MatProgressBarModule,MatDialogModule,
     MatChipsModule,MatDatepickerModule,MatNativeDateModule,
-    MatRadioModule,MatSlideToggleModule,MatExpansionModule
+    MatRadioModule,MatSlideToggleModule,MatExpansionModule,
+
+
   ],
   declarations: [],
   providers: [

@@ -257,7 +257,7 @@ const dashboards_settings_trainer = [
     Button_Name: 'View',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'set-availability',
+    RouterLink: 'set-practitioner-availability',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

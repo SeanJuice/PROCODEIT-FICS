@@ -23,6 +23,7 @@ export class MytasksComponent implements OnInit {
   CompleteTask(Tid,taskType): void {
     let dialogRef = this.dialog.open(TaskDialogComponent, {
       width: '500px',
+      height: '500px',
       data: {
         id: Tid,
         taskType:taskType
