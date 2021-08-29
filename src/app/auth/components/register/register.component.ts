@@ -38,12 +38,14 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit(client: Client, role: number) {
-    client.Username = client.Email_Address;
-    let Role = Number(role) + Number(1);
-    client.UserRole_ID = Role;
-    this.submitted = false;
 
-    this.Authservice.Register(client, client.UserRole_ID);
+
+
+    let Role = Number(role) + Number(1);
+
+    this.submitted = false;
+    console.log(client)
+    this.Authservice.Register(client, Role);
   }
   createOtherForm() {
     let emailregex: RegExp =

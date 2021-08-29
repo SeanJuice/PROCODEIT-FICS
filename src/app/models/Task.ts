@@ -4,6 +4,7 @@ export interface Task {
     Feedback: string;
     StartDate?:any;
     DueDate:any;
+    Status:any
     TaskType?: string;
     TaskStatus_ID?: number;
     TaskType_ID?: number;
@@ -12,4 +13,13 @@ export interface Task {
     Practitioner_ID?: number;
     Trainer_ID?: number;
 
+}
+
+
+export interface Timeslot {
+    TimeSlot_ID:number;
+    TimeSlot1:any;
+    StartTime:any;
+    EndTime:any;
+    isChosen?:boolean;
 }

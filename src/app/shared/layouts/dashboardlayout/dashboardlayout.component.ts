@@ -10,6 +10,7 @@ export class DashboardlayoutComponent implements OnInit {
 
   constructor(private Auth:AuthService) { }
 
+  Prac
   ngOnInit(): void {
   }
 

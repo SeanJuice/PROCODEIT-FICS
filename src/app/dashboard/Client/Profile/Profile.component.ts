@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit {
     {
       this.Practitionerservice.getPractitionerProfile(this.clientID).subscribe((res:any)=>{
         this.info =res;
+        console.log(res)
         this.createForm(this.info)
         this.isLoaded =false;
       })
@@ -81,7 +82,7 @@ export class ProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(ConfirmUpdateDialogComponent, {
       width: '500px',
       height: '200px',
-      data: { clientN: client}
+      data: { clientN: client, role:this.roleId}
     });
     dialogRef.afterClosed().subscribe(result => {
       this.refetch()

@@ -64,5 +64,11 @@ export class TrainerService {
       httpOptions
     );
   }
+  MaintainTrainer(user:any): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.post(`${rootURL}/MaintainTrainer/${this.auth.loginId}`,user, httpOptions);
+  }
 
 }

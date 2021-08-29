@@ -2,6 +2,7 @@ import { DashboardComponent } from './dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardRoleGuard } from '../auth/dashboard-role.guard';
+import { ProfileComponent } from './Client/Profile/Profile.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,14 @@ const routes: Routes = [
     canActivate: [DashboardRoleGuard],
     data: { roles: [3] },
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./Trainer/trainer-routing.module').then((m) => m.TrainerRoutingModule),
+    canActivate: [DashboardRoleGuard],
+    data: { roles: [4] },
+  },
+
 ];
 
 @NgModule({

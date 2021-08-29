@@ -28,9 +28,11 @@ import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
 
   ],
   declarations: [
-    MyQuestionnairesComponent,MySessionsComponent,MytasksComponent,
-    ProfileComponent,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
+    MyQuestionnairesComponent,MySessionsComponent,MytasksComponent
+    ,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
     TrialQuestionnaireComponent,ProgressReportComponent,BookingComponent,
+
+    // ProfileComponent
     // Dialogs
     ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent
   ]

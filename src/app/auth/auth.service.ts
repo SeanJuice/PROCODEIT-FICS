@@ -65,6 +65,9 @@ export class AuthService {
 
 
   Register(user:any,userID:Number){
+    user.Username = user.Email_Address;
+    delete user.Confirm_Password;
+    user.Profile_Picture = "https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg"
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
      this.http.post(rootURL+`/Register/${userID}`,user,httpOptions ).subscribe((res:any)=>{
       if(!res.Error)

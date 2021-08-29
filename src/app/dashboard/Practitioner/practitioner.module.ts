@@ -7,12 +7,15 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SendClientTaskComponent } from './send-client-task/send-client-task.component';
 import { AssignClientTaskComponent } from './send-client-task/AssignClientTask/AssignClientTask.component';
-
+import { SendFeedbackDialogComponent } from './send-feedbacks/sendFeedbackDialog/sendFeedbackDialog.component';
+import { SendFeedbacksComponent } from './send-feedbacks/send-feedbacks.component';
+import { PractitionerProfileComponent}  from './PractitonerProfile/PractitonerProfile.component';
 
 
 
 @NgModule({
 
+  entryComponents:[SendFeedbackDialogComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -22,6 +25,9 @@ import { AssignClientTaskComponent } from './send-client-task/AssignClientTask/A
     PractitionerRoutingModule,
 
   ],
-  declarations: [SetAvailabilityComponent,SendClientTaskComponent,AssignClientTaskComponent],
+  declarations: [SetAvailabilityComponent,
+    SendClientTaskComponent,AssignClientTaskComponent
+    ,SendFeedbackDialogComponent,SendFeedbacksComponent,
+    PractitionerProfileComponent],
 })
 export class PractitionerModule { }

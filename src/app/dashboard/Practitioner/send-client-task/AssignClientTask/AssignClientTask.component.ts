@@ -7,6 +7,7 @@ import { DataService } from 'src/app/dashboard/Admin/services/DataService.servic
 import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { Task } from 'src/app/models/Task';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { PractitionerUserService } from '../../services/PractitionerUser.service';
 
 @Component({
@@ -26,13 +27,14 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
     StartDate: null,
     DueDate: null,
     Task_ID: null,
+    Status:null
   };
   constructor(
-    private clientsService: ClientService,
     private Arouter: ActivatedRoute,
     private data: DataService,
     private sharedService:SharedService,
-    private practitionerservice:PractitionerUserService
+    private practitionerService:PractitionerUserService,
+    private snackbar: SnackbarService
   ) {}
 
   ngOnInit() {
@@ -40,26 +42,30 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
       (message) => (this.message = message)
     );
 
-    this.ClientID = Number(this.Arouter.snapshot.params.id);
-    this.clientsService.getTasks(this.ClientID).subscribe((res) => {
-      let Pack = Object.keys(res).map((index) => {
-        this.Tasks = res[index];
-      });
-    });
+      this.getTasksAssigned();
   }
 
+  getTasksAssigned(){
+    this.ClientID = Number(this.Arouter.snapshot.params.id);
+    this.practitionerService.getTasks(this.ClientID).subscribe((res) => {
+      console.log(res);
+
+      this.Tasks =res;
+      console.log(this.Tasks)
+    });
+
+  }
   getDate(date:any){
     this.Task.DueDate =  date.value;
   }
 
   Submit() {
-  //  // this.Task.DueDate = this.sharedService.reFormatDate( Date(this.Task.DueDate));
-  //   this.Task.StartDate = this.sharedService.reFormatDate(moment());
-  //   if(this.sharedService.compare(this.Task.DueDate, this.Task.StartDate)==1)
-  //   {
+
       console.log(this.Task);
-      this.practitionerservice.AssignTask(this.ClientID, this.Task).subscribe(res => {
+      this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
         console.log(res);
+        this.getTasksAssigned();
+        this.snackbar.openSnackBar("Successfully Assigned tasks")
       })
 
   }

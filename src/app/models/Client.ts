@@ -9,10 +9,11 @@ export class Client {
     Gender:String;
     Country:String;
     Password?:String;
+    Confirm_Password?:String;
     Username?:String;
     UserRole_ID?:Number
     Client_ID?:Number
     Physical_Address?:String
-
+    Profile_Picture:any
 
 }

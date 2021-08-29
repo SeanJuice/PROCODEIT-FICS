@@ -16,7 +16,6 @@ const routes: Routes = [
   {path: 'tasks', component: MytasksComponent},
   {path: 'Profile', component: ProfileComponent},
   {path: 'PurchasePackage', component: PurchasePackagesComponent},
-  {path: 'Profile', component: ProfileComponent},
   {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
   {path:  'ProgressReport', component:ProgressReportComponent},
   {path: 'Booking',component:BookingComponent}
