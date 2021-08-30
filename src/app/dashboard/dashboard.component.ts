@@ -323,7 +323,7 @@ const Admin = [
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'Questionnaire Management',
+    Header_Name: 'Manage Questionnaires ',
     Button_Name: 'View',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
@@ -348,6 +348,26 @@ const Admin = [
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'audit-trail',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Reports',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'Reports',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Administration',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'Administrations',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

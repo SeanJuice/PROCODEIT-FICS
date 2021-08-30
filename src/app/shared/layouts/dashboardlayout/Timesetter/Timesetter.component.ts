@@ -21,5 +21,5 @@ export class TimesetterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+// https://stackblitz.com/edit/idle-timer?file=app%2Fidle.service.ts
 }
