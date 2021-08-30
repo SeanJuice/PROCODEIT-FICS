@@ -1,3 +1,35 @@
-<p>
-  send-trainee-task works!
-</p>
+
+<div class="app">
+
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span> Your Trainees</span>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Contact Number</td>
+          <td>Email Address</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let client of trainees">
+            <td>{{client.Title}}</td>
+            <td>{{client.Name}}</td>
+            <td>{{client.Surname}}</td>
+            <td>{{client.Contact_Number}}</td>
+            <td>{{client.Email_Address}}</td>
+            <td>
+              <button mat-flat-button color="primary" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../Assign-client-task/',client.Client_ID]" routerLinkActive="active"class="btn" >Assign Task</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

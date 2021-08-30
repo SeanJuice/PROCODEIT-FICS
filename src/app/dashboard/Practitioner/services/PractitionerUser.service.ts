@@ -67,6 +67,13 @@ export class PractitionerUserService {
     .get<any[]>(`${rootURL}/getTimeSlots`)
     .pipe(share());
   }
+  ClientsAssignedToPractitoner():Observable<any[]> {
+    return this.http
+    .get<any[]>(`${rootURL}/ClientsAssignedToPractitoner/${this.auth.loginId}`)
+    .pipe(share());
+  }
+
+
 
   SetPractitionerAvailability(dates:any): Observable<any>{
     const httpOptions = {

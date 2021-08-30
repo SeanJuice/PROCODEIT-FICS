@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SendTraineefeedbackComponent } from './send-feedback/sendTraineefeedback/sendTraineefeedback.component';
+import { AssignTraineeTaskComponent } from './send-trainee-task/AssignTraineeTask/AssignTraineeTask.component';
 
 
 
 
 @NgModule({
-  declarations: [SetAvailabilityComponent,SendTraineeTaskComponent,SendFeedbackComponent,SendTraineefeedbackComponent],
+  declarations: [SetAvailabilityComponent,SendTraineeTaskComponent,SendFeedbackComponent,SendTraineefeedbackComponent,
+    AssignTraineeTaskComponent],
   imports: [
     CommonModule,
     SharedModule,

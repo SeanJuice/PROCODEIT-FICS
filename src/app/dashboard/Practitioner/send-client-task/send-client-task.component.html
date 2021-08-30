@@ -25,7 +25,7 @@
             <td>{{client.Contact_Number}}</td>
             <td>{{client.Email_Address}}</td>
             <td>
-              <button mat-flat-button color="primary" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../Assign-client-task/',client.Client_ID]" routerLinkActive="active"class="btn" >Assign Task</button>
+              <a class="btn-gradient red small" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../Assign-client-task/',client.Client_ID]" routerLinkActive="active" >Assign Task</a>
             </td>
           </tr>
       </tbody>

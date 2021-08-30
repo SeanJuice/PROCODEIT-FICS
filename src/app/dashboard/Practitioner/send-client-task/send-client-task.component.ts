@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/models/Client';
 import { ClientsService } from '../../Admin/services/clients.service';
 import { DataService } from '../../Admin/services/DataService.service';
+import { PractitionerUserService } from '../services/PractitionerUser.service';
 
 @Component({
   selector: 'app-send-client-task',
@@ -10,11 +11,11 @@ import { DataService } from '../../Admin/services/DataService.service';
 })
 export class SendClientTaskComponent implements OnInit {
 
-  constructor(private data: DataService,private clientsService:ClientsService) { }
+  constructor(private data: DataService,private PractitionerUserservice:PractitionerUserService) { }
   clients:Array<Client>;
 
   ngOnInit() {
-    this.clientsService.getClients().subscribe(res=>{
+    this.PractitionerUserservice.ClientsAssignedToPractitoner().subscribe(res=>{
         this.clients = res
     })
 

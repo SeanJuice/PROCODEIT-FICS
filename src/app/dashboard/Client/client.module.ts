@@ -6,7 +6,7 @@ import { MytasksComponent } from './Mytasks/Mytasks.component';
 import { ProfileComponent } from './Profile/Profile.component';
 import { PurchasePackagesComponent } from './PurchasePackages/PurchasePackages.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewPackagesComponent } from './PurchasePackages/ViewPackages/ViewPackages.component';
 import { FinalPurchaseComponent } from './PurchasePackages/FinalPurchase/FinalPurchase.component';
 import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.component';
@@ -17,6 +17,7 @@ import { ProgressReportComponent } from './ProgressReport/ProgressReport.compone
 import { BookingComponent } from './Booking/Booking.component';
 import {ClientRoutingModule } from './client-routing.module'
 import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
     ReactiveFormsModule,
     RouterModule,
     ClientRoutingModule,
-
+    FormsModule,
+    MatFormFieldModule
   ],
   declarations: [
     MyQuestionnairesComponent,MySessionsComponent,MytasksComponent

@@ -8,24 +8,39 @@ import { DashboardlayoutComponent } from './layouts/dashboardlayout/dashboardlay
 import { MaterialModule } from './material/material.module';
 import { PreLoaderComponent } from './components/pre-loader/pre-loader.component';
 import { ProfileComponent } from '../dashboard/Client/Profile/Profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgIdleModule } from '@ng-idle/core';
+import { MatSliderModule } from '@angular/material/slider';
+import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timesetter.component';
 
 @NgModule({
-  declarations: [HeaderComponent, Error404Component,
-    AuthlayoutComponent, DashboardlayoutComponent,
-    PreLoaderComponent,ProfileComponent],
-  imports: [
-    CommonModule,RouterModule,MaterialModule,ReactiveFormsModule
+  declarations: [
+    HeaderComponent,
+    Error404Component,
+    AuthlayoutComponent,
+    DashboardlayoutComponent,
+    PreLoaderComponent,
+    ProfileComponent,
+    TimesetterComponent,
   ],
-  exports:[
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    NgIdleModule.forRoot(),
+    MatSliderModule,
+    FormsModule,
+    MaterialModule,
+  ],
+  exports: [
     HeaderComponent,
     MaterialModule,
+    FormsModule,
     PreLoaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    MatSliderModule,
   ],
-
-
+  entryComponents: [TimesetterComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

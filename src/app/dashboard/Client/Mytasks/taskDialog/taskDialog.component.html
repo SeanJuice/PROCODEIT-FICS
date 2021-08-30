@@ -22,21 +22,22 @@
 </ng-container>
 
 <!-- Daily activity and general activity -->
-<ng-container *ngIf="data.taskType == 'General Activity'">
+<!-- <ng-container *ngIf="data.taskType == 'General Activity'"> -->
+
+<ng-container >
+  <mat-card style="background-color: beige;">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
     <!-- First Row -->
     <div class="Grid Grid--gutters Grid--cols-1 u-textCenter">
       <div class="Grid-cell">
-        <div class="Demo content-1of1">
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label style="color: black">Name</mat-label>
-            <mat-textarea
-              type="text"
-              matInput
-              formControlName="Description"
-              placeholder="Ex. pat@example.com"
-            >
-            </mat-textarea>
+        <div >
+
+          <mat-form-field id="with-errors" appearance="fill">
+            <span class="custom-control">Custom control harness</span>
+            <input matInput formControlName="Description">
+
+            <mat-error>Error</mat-error>
+            <mat-hint align="start">Hint</mat-hint>
           </mat-form-field>
         </div>
       </div>
@@ -44,4 +45,5 @@
 
     <a type="submit" class="btn-gradient blue">Button</a>
   </form>
+</mat-card>
 </ng-container>

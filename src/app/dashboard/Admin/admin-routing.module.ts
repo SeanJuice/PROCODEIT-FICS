@@ -26,126 +26,135 @@ import { QuestionnaireManagementComponent } from './questionnaire-management/que
 import { AssignComponent } from './assign-user/assign.component';
 import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
+import { ReportsComponent } from './Reports/Reports.component';
 
 const routes: Routes = [
   {
     path: 'client-management',
-    component:ClientManagementComponent,
-    children:[
-    ]
+    component: ClientManagementComponent,
+    children: [],
   },
-   {
-      path: 'ViewClientSession/:id',
-      component:ViewClientSessionsComponent
+  {
+    path: 'ViewClientSession/:id',
+    component: ViewClientSessionsComponent,
   },
   {
     path: 'access',
-    component:AccessComponent,
-    children:[
-              { path: '', redirectTo: 'clients', pathMatch: 'full' },
-              {
-                path: 'clients',
-                component:ClientsComponent
-              },
-              {
-                path: 'practitioners',
-                component:PractitionersComponent
-              },
-              {
-                path: 'trainees',
-                component:TraineesComponent
-              },
-              {
-                path:'trainers',
-                component:TrainersComponent
-              }
-    ]
+    component: AccessComponent,
+    children: [
+      { path: '', redirectTo: 'clients', pathMatch: 'full' },
+      {
+        path: 'clients',
+        component: ClientsComponent,
+      },
+      {
+        path: 'practitioners',
+        component: PractitionersComponent,
+      },
+      {
+        path: 'trainees',
+        component: TraineesComponent,
+      },
+      {
+        path: 'trainers',
+        component: TrainersComponent,
+      },
+    ],
   },
   {
     path: 'type',
-    component:AccessComponent,
-    children:[
-              { path: '', redirectTo: 'client-type', pathMatch: 'full' },
-              {
-                path: 'client-type',
-                component:ClientTypeComponent
-              },
-              {
-                path: 'document-type',
-                component:DocumentTypeComponent
-              },
-              {
-                path: 'event-type',
-                component:EventTypeComponent
-              },
-              {
-                path:'package-type',
-                component:PackageTypeComponent
-              },
-              {
-                path:'questionnaire-type',
-                component:QuestionnaireTypeComponent
-              },
-              {
-                path:'session-type',
-                component:SessionTypeComponent
-              }
-    ]
+    component: AccessComponent,
+    children: [
+      { path: '', redirectTo: 'client-type', pathMatch: 'full' },
+      {
+        path: 'client-type',
+        component: ClientTypeComponent,
+      },
+      {
+        path: 'document-type',
+        component: DocumentTypeComponent,
+      },
+      {
+        path: 'event-type',
+        component: EventTypeComponent,
+      },
+      {
+        path: 'package-type',
+        component: PackageTypeComponent,
+      },
+      {
+        path: 'questionnaire-type',
+        component: QuestionnaireTypeComponent,
+      },
+      {
+        path: 'session-type',
+        component: SessionTypeComponent,
+      },
+    ],
   },
   {
     path: 'application-requests',
-    component:ApplicationRequestManagementComponent,
-    children:[
-              { path: '', redirectTo: 'practitioner-requests', pathMatch: 'full' },
-              {
-                path: 'practitioner-requests',
-                component:PractitionerRequestsComponent
-              },
-              {
-                path: 'trainee-requests',
-                component:TraineeRequestsComponent
-              },
-              {
-                path: 'trainer-requests',
-                component:TrainerRequestsComponent
-              }
-    ]
+    component: ApplicationRequestManagementComponent,
+    children: [
+      { path: '', redirectTo: 'practitioner-requests', pathMatch: 'full' },
+      {
+        path: 'practitioner-requests',
+        component: PractitionerRequestsComponent,
+      },
+      {
+        path: 'trainee-requests',
+        component: TraineeRequestsComponent,
+      },
+      {
+        path: 'trainer-requests',
+        component: TrainerRequestsComponent,
+      },
+    ],
   },
   {
     path: 'questionnaire-management',
-    component:QuestionnaireManagementComponent,
-    children:[
-    ]
+    component: QuestionnaireManagementComponent,
+    children: [],
   },
   {
     path: 'assign-questionnaire',
-    component:AssignQuestionnaireComponent,
-
+    component: AssignQuestionnaireComponent,
   },
   {
     path: 'audit-trail',
-    component:ClientManagementComponent,
-
+    component: ClientManagementComponent,
   },
   {
     path: 'assign',
-    component:AssignComponent,
-    children:[
-              { path: '', redirectTo: 'practitioner-to-client', pathMatch: 'full' },
-              {
-                path: 'practitioner-to-client',
-                component:PractitionerToClientComponent
-              },
-              {
-                path: 'trainer-to-trainee',
-                component:TrainerToTraineeComponent
-              }
-    ]
+    component: AssignComponent,
+    children: [
+      { path: '', redirectTo: 'practitioner-to-client', pathMatch: 'full' },
+      {
+        path: 'practitioner-to-client',
+        component: PractitionerToClientComponent,
+      },
+      {
+        path: 'trainer-to-trainee',
+        component: TrainerToTraineeComponent,
+      },
+    ],
+  },
+  {
+    path: 'Reports',
+    component: ReportsComponent,
+    loadChildren: () =>
+      import('./Reports/Reports.module').then((m) => m.ReportsModule),
+  },
+  {
+    path: 'Administrations',
+    component: ReportsComponent,
+    loadChildren: () =>
+      import('./administrations/administrations.module').then((m) => m.AdministrationsModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

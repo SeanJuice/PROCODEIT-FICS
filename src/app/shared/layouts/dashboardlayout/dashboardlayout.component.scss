@@ -17,6 +17,11 @@
   left: 0;
 }
 
+
+.red{
+  color:#f31f1f;
+  underline: none;
+}
 .tour-stop {
   position: relative;
   z-index: 9998;
@@ -174,7 +179,7 @@ button {
 }
 
 .sidebar-nav button:hover {
-  color: #fdd75a;
+  color: #e3f3fa;
 }
 
 .sidebar-nav button span {
@@ -203,6 +208,20 @@ button.primary:hover {
   background: #297bff;
 }
 
+
+button.warning {
+  display: block;
+  padding: 20px;
+  background: #ffe864;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: center;
+}
+
+button.warning:hover {
+  color: rgb(80, 106, 255);
+  background: #ffd83d;
+}
 /*
 
  Main View
