@@ -34,7 +34,7 @@
                   <option value="4">4</option>
                 </select>
             </td>
-            <td *ngIf='arrayLengthCheck.length < 2'>
+            <td *ngIf='arrayLengthCheck.length ==1'>
             <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
               <option value="6">Yes</option>
               <option value="5">No</option>
@@ -57,5 +57,5 @@
 
 <div class="container p-3 my-3 bg-primary text-white" *ngIf="ArrayOfQuestions.length ==0">
   <h1>NB</h1>
-  <p>No has been Questionnaire Assigned to you</p>
+  <p>No Questionnaire Assigned Yet</p>
 </div>

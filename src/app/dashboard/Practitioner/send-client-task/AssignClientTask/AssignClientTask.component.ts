@@ -62,11 +62,11 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
   Submit() {
 
       console.log(this.Task);
-      this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
-        console.log(res);
-        this.getTasksAssigned();
-        this.snackbar.openSnackBar("Successfully Assigned tasks")
-      })
+      // this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
+      //   console.log(res);
+      //   this.getTasksAssigned();
+      //   this.snackbar.openSnackBar("Successfully Assigned tasks")
+      // })
 
   }
 

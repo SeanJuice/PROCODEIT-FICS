@@ -1,4 +1,5 @@
 <div class="app">
+
   <div class="table-card">
     <h1 class="h1 title">
       <i class="fas fa-home"></i>
@@ -26,4 +27,31 @@
       </tbody>
     </table>
   </div>
+
+  <br>
+  <br>
+  <div class="table-card FeedbackTable" style="padding-top: 5%;" *ngIf="this.isExisting">
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span> Feedback From Practitioner</span>
+    </h1>
+    <table class="table FeedbackTable">
+      <thead>
+        <tr>
+          <td id="tour-table"> Task Description</td>
+          <td>Practitioner</td>
+          <td>Client Task</td>
+          <td>Feedback</td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let Task of Feedbacks">
+            <td >{{Task.Description}}</td>
+            <td >{{Task.Practitioner  }}</td>
+            <td >{{Task.TaskDescription  }}</td>
+            <td >{{Task.Feedback  }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>

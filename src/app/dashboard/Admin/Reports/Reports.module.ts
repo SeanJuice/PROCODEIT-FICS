@@ -8,6 +8,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReportscardsComponent } from './Reportscards_landing/Reportscards.component';
 import { RouterModule } from '@angular/router';
+import { ClientAuditReportComponent } from './client-audit-report/client-audit-report.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { RouterModule } from '@angular/router';
     }),
 
   ],
-  declarations: [ReportsComponent,PackageSalesReportComponent,ReportscardsComponent]
+  declarations: [ReportsComponent,PackageSalesReportComponent,ReportscardsComponent,ClientAuditReportComponent]
 })
 export class ReportsModule { }

@@ -14,7 +14,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Name</mat-label>
-                    <input type="text" matInput  formControlName="Name" placeholder="Ex. pat@example.com">
+                    <input type="text" matInput  formControlName="Name" maxLength="20" placeholder="Ex. pat">
                     <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>
@@ -25,7 +25,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Contact Number</mat-label>
-                    <input type="number" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <input type="text" matInput formControlName="Contact_Number" maxlength="10"  placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroup.controls['Contact_Number'].valid && formGroup.controls['Contact_Number'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>
@@ -39,7 +39,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Surname</mat-label>
-                    <input type="text" matInput formControlName="Surname" placeholder="Ex. pat@example.com">
+                    <input type="text" matInput formControlName="Surname" maxLength="20"placeholder="Ex. xample">
                     <mat-hint *ngIf="!formGroup.controls['Surname'].valid && formGroup.controls['Surname'].touched">
                         Surname cannot be left empty
                       </mat-hint>
@@ -50,7 +50,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Email Address</mat-label>
-                    <input type="email" matInput formControlName="Email_Address"  placeholder="Ex. 0735346222">
+                    <input type="email" matInput formControlName="Email_Address" maxLength="50"  placeholder="Ex. test@gmail.com ">
                     <mat-hint *ngIf="!formGroup.controls['Email_Address'].valid && formGroup.controls['Email_Address'].touched">
                        Enter valid email
                       </mat-hint>
@@ -81,7 +81,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">ID Number</mat-label>
-                    <input type="number" matInput formControlName="ID_Number" placeholder="Ex. 194735346222">
+                    <input type="text" matInput formControlName="ID_Number" maxLength="13" placeholder="Ex. 194735346222">
                     <mat-hint *ngIf="!formGroup.controls['ID_Number'].valid && formGroup.controls['ID_Number'].touched">
                         ID Number Cannot be left Empty
                       </mat-hint>
@@ -108,7 +108,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Passport Number</mat-label>
-                    <input type="number" matInput  formControlName="Passport_Number" placeholder="Ex. 0735346222">
+                    <input type="text" matInput  formControlName="Passport_Number" maxLength="10" placeholder="Ex. 12735346222">
                 </mat-form-field>
               </div>
             </div>
@@ -194,7 +194,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Name</mat-label>
-                    <input type="text" matInput  formControlName="Name" placeholder="Ex. pat@example.com">
+                    <input type="text" matInput  formControlName="Name" maxLength="20" placeholder="Ex. pat">
                     <mat-hint *ngIf="!formGroupOthers.controls['Name'].valid && formGroupOthers.controls['Name'].touched">
                         Name cannot be left empty
                       </mat-hint>
@@ -205,7 +205,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Contact Number</mat-label>
-                    <input type="number" matInput formControlName="Contact_Number" placeholder="Ex. 0735346222">
+                    <input type="text" matInput formControlName="Contact_Number" maxLength="10" placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroupOthers.controls['Contact_Number'].valid && formGroupOthers.controls['Contact_Number'].touched">
                         Contact Number cannot be left empty
                       </mat-hint>
@@ -219,7 +219,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Surname</mat-label>
-                    <input type="text" matInput formControlName="Surname" placeholder="Ex. pat@example.com">
+                    <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. hlangs">
                     <mat-hint *ngIf="!formGroupOthers.controls['Surname'].valid && formGroupOthers.controls['Surname'].touched">
                         Surname cannot be left empty
                       </mat-hint>
@@ -230,7 +230,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Email Address</mat-label>
-                    <input type="email" matInput formControlName="Email_Address"  placeholder="Ex. 0735346222">
+                    <input type="email" matInput formControlName="Email_Address" maxLength="50" placeholder="Ex. test@gmail.com">
                     <mat-hint *ngIf="!formGroupOthers.controls['Email_Address'].valid && formGroupOthers.controls['Email_Address'].touched">
                        Enter valid email
                       </mat-hint>
@@ -261,7 +261,7 @@
               <div class="Demo content-1of2">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">ID Number</mat-label>
-                    <input type="number" matInput formControlName="ID_Number" placeholder="Ex. 194735346222">
+                    <input type="text" matInput formControlName="ID_Number" minLength="13" maxLength="13" placeholder="Ex. 194735346222">
                     <mat-hint *ngIf="!formGroupOthers.controls['ID_Number'].valid && formGroupOthers.controls['ID_Number'].touched">
                         ID Number Cannot be left Empty
                       </mat-hint>

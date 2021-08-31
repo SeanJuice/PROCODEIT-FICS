@@ -25,25 +25,27 @@
 <!-- <ng-container *ngIf="data.taskType == 'General Activity'"> -->
 
 <ng-container >
-  <mat-card style="background-color: beige;">
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
-    <!-- First Row -->
-    <div class="Grid Grid--gutters Grid--cols-1 u-textCenter">
-      <div class="Grid-cell">
-        <div >
 
-          <mat-form-field id="with-errors" appearance="fill">
-            <span class="custom-control">Custom control harness</span>
-            <input matInput formControlName="Description">
 
-            <mat-error>Error</mat-error>
-            <mat-hint align="start">Hint</mat-hint>
-          </mat-form-field>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  <!-- First Row -->
+  <div class="Grid Grid--gutters Grid--cols-1 u-textCenter">
+    <div class="Grid-cell">
+      <div >
+        <div class="card">
+          <h1 class="card-title" style="font-size:20px">Complete your task</h1>
+          <div class="card-body">
+            <div class="input-group">
+              <textarea class="form-control"  formControlName="Description"
+              placeholder="Ex. pat ssss dd" aria-label="With textarea"></textarea>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
+  </div>
 
-    <a type="submit" class="btn-gradient blue">Button</a>
-  </form>
-</mat-card>
+  <button type="submit" class="btn-gradient blue">Submit</button>
+</form>
 </ng-container>

@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIdleModule } from '@ng-idle/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timesetter.component';
+import { ClientAuditReportComponent } from './components/client-audit-report/client-audit-report.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timese
     PreLoaderComponent,
     ProfileComponent,
     TimesetterComponent,
+    ClientAuditReportComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timese
     PreLoaderComponent,
     ProfileComponent,
     MatSliderModule,
+    ClientAuditReportComponent
   ],
   entryComponents: [TimesetterComponent],
 })

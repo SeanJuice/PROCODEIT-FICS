@@ -41,6 +41,7 @@ export class MyQuestionnairesComponent implements OnInit {
    filterById(id) {
 
     this.arrayLengthCheck = this.myQuestionnaires.filter( x => x.QuestionTitle_ID === id);
+    console.log( this.arrayLengthCheck)
     return this.arrayLengthCheck;
   }
 
