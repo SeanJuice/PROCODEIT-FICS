@@ -38,16 +38,18 @@
       <h2 style="color: #030303">Practitioner: <strong>{{ReportData.Practitioner}}</strong></h2>
 
       <h2 style="color: #000000">
-        Date Registered: <strong>{{ReportData.Practitioner | date}}</strong>
+        Date Registered: <strong>{{ReportData.DateRegistered | date}}</strong>
       </h2>
-
+      <h2 style="color: #000000">
+        You are a  {{ReportData.Result}}
+      </h2>
       <p>.</p>
     </div>
     <div class="card fill" style="background-color: #d6d6d6; margin-top: 15px" *ngIf='isSelected' >
       <h2 style="color: #000000">
         <strong>Visual result</strong>
       </h2>
-      <img [src]=IMAGE alt="Cinque Terre" width="1000" height="500">
+      <img src={{IMAGE}} alt="Cinque Terre" width="1000" height="500">
       <div class="overlay">
         <div class="text"> You are a  {{ReportData.Result}}</div>
       </div>

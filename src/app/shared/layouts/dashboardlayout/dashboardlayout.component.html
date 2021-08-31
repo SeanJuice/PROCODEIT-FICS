@@ -67,9 +67,9 @@
             </i>
           </button>
         </li>
-        <li class="cta" *ngIf="RoleName!='Administrator'">
-          <button class="primary" id="start-tour"  style="color: rgb(255, 255, 255);">
-            <span> View My Progress report</span>
+        <li class="cta" *ngIf="RoleName=='Client'">
+          <button class="primary" [routerLink]="['Client_Audit_Report']" id="start-tour"  style="color: rgb(255, 255, 255);">
+            <span> View My Audit Report</span>
             <i class="fas fa-basketball-ball">
               <mat-icon>library_books</mat-icon>
             </i>

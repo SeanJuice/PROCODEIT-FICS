@@ -38,9 +38,9 @@ export class ClientAuditReportComponent implements OnInit {
 
   getReport(id?) {
     this.sharedService.ClientAudit(Number(id)).subscribe((res) => {
-      this.ReportData = res;
+      this.ReportData = res[0];
       console.log(this.ReportData)
-      if(this.ReportData.Result =='SunFlower')
+      if(this.ReportData.Result =='Sunflower')
       {
         this.IMAGE = image.SUNFLOWER
       }
@@ -50,6 +50,9 @@ export class ClientAuditReportComponent implements OnInit {
       }
       else if(this.ReportData.Result == 'Impatients'){
         this.IMAGE = image.IMPATIENTS
+      }
+      else if(this.ReportData.Result == 'Fern'){
+        this.IMAGE = image.FERN
       }
       this.isSelected =true;
     });

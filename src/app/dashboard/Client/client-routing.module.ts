@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingComponent } from './Booking/Booking.component';
+import { ClientAuditReportComponent } from './clientAuditReport/clientAuditReport.component';
 import { MyQuestionnairesComponent } from './myQuestionnaires/myQuestionnaires.component';
 import { MySessionsComponent } from './MySessions/MySessions.component';
 import { MytasksComponent } from './Mytasks/Mytasks.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'PurchasePackage', component: PurchasePackagesComponent},
   {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
   {path:  'ProgressReport', component:ProgressReportComponent},
-  {path: 'Booking',component:BookingComponent}
+  {path: 'Booking',component:BookingComponent},
+  {path: 'Client_Audit_Report', component: ClientAuditReportComponent}
 
 ];
 

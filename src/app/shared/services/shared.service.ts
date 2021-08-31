@@ -29,8 +29,9 @@ export class SharedService {
 
   ClientAudit(clientId?:number){
       let id =clientId;
-      if(clientId==null){
+      if(isNaN(clientId)){
         id =  this.auth.loginId
+        console.log( this.auth.loginId)
       }
       const httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

@@ -9,7 +9,6 @@ import { MustMatch } from './must-match.validator';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-
 })
 export class RegisterComponent implements OnInit {
   formGroup: FormGroup;
@@ -21,7 +20,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private Authservice: AuthService,
+    private Authservice: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -36,15 +35,11 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-
   onSubmit(client: Client, role: number) {
-
-
-
     let Role = Number(role) + Number(1);
 
     this.submitted = false;
-    console.log(client)
+    console.log(client);
     this.Authservice.Register(client, Role);
   }
   createOtherForm() {
