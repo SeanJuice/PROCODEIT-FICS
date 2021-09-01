@@ -10,7 +10,6 @@ import { TraineeProfileComponent } from './trainee-profile/trainee-profile.compo
 import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
-
   {path: 'book', component: BookingComponent},
   {path: 'make-fee', component: MakeRegistrationFeeComponent},
   {path: 'sessions', component: MySessionsComponent},
@@ -18,9 +17,7 @@ const routes: Routes = [
   {path: 'trainee-profile', component: TraineeProfileComponent},
   {path: 'upload-case-study', component: UploadComponent},
   {path: 'questionnaire', component: ViewQuestionnaireComponent},
-  {path: 'tasks', component: MytasksComponent},
-
-
+  {path: 'trainee-tasks', component: MytasksComponent},
 ];
 
 @NgModule({

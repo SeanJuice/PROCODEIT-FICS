@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Feedback</h1>
+<div mat-dialog-content>
+  <div style="color: deepskyblue;">
+    {{ReviewMessage}}
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <!-- <button mat-button  color="primary">No Thanks</button> -->
+  <button mat-button  color="warn"[mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>
