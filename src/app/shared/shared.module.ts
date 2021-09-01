@@ -1,5 +1,5 @@
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { Error404Component } from './components/error404/error404.component';
@@ -12,6 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIdleModule } from '@ng-idle/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timesetter.component';
+import { ClientAuditReportComponent } from './components/client-audit-report/client-audit-report.component';
+import { AlertComponent } from './utils/modals/alert/alert.component';
+import { ConfirmComponent } from './utils/modals/confirm/confirm.component';
+import { ParentDialogModalComponent } from './utils/modals/parent-dialog/parent-dialog.component';
+import { PromptComponent } from './utils/modals/prompt/prompt.component';
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { CustomErrorHandler } from './utils/modals/custom-error/custom-error-handler';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,12 @@ import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timese
     PreLoaderComponent,
     ProfileComponent,
     TimesetterComponent,
+    ClientAuditReportComponent,
+    //Modals
+    AlertComponent,
+    ConfirmComponent,
+    PromptComponent,
+    ParentDialogModalComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +46,7 @@ import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timese
     MatSliderModule,
     FormsModule,
     MaterialModule,
+    SimpleModalModule.forRoot({container: "modal-container"})
   ],
   exports: [
     HeaderComponent,
@@ -40,7 +55,20 @@ import { TimesetterComponent } from './layouts/dashboardlayout/Timesetter/Timese
     PreLoaderComponent,
     ProfileComponent,
     MatSliderModule,
+    ClientAuditReportComponent
   ],
-  entryComponents: [TimesetterComponent],
+  entryComponents: [
+    TimesetterComponent,
+    AlertComponent,
+    ConfirmComponent,
+    PromptComponent,
+    ParentDialogModalComponent,
+  ],
+  providers: [{
+    provide: ErrorHandler,
+    useClass: CustomErrorHandler
+  }],
+
+
 })
 export class SharedModule {}

@@ -18,6 +18,8 @@
 
     </mat-card-content>
   </mat-card>
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)='checkout(amount)'>Block level button</button>
+
 </div>
 <br/>
 <button type="button" [disabled]="!regForm.valid"  mat-flat-button color="primary" matStepperNext (click)="step1Submitted()">Next</button>

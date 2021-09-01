@@ -41,6 +41,13 @@ const routes: Routes = [
     canActivate: [DashboardRoleGuard],
     data: { roles: [4] },
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./Trainee/trainee-routing.module').then((m) => m.TraineeRoutingModule),
+    canActivate: [DashboardRoleGuard],
+    data: { roles: [5] },
+  },
 
 ];
 

@@ -261,6 +261,16 @@ const dashboards_settings_trainer = [
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'View',
+    ImageLink:
+    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'trainer-profile',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
 ];
 /**
  * ? Trainee dashboard
@@ -272,7 +282,67 @@ const dashboards_settings_trainee = [
     Button_Name: 'Book',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: '',
+    RouterLink: 'booking',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Sessions',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'sessions',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Upload Case Study',
+    Button_Name: 'Upload',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'upload-case-study',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Performance Report',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'performance',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'My Questionnaires',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'questionnaire',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'My Tasks',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'tasks',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'View',
+    ImageLink:
+    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'trainee-profile',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
@@ -286,7 +356,7 @@ const Admin = [
     Header_Name: 'Client Management',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://img.favpng.com/8/24/20/customer-client-clip-art-png-favpng-6F0gdttFJuRTZPvQC2HbnCxQf.jpg',
     RouterLink: 'client-management',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -296,7 +366,7 @@ const Admin = [
     Header_Name: 'Access Management',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://www.clipartbest.com/cliparts/9T4/L6z/9T4L6zMrc.png',
     RouterLink: 'access',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -306,7 +376,7 @@ const Admin = [
     Header_Name: 'Application Requests ',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.netclipart.com/pp/m/9-93978_chapter-questions-for-interviewer-to-ask-during-.png',
     RouterLink: 'application-requests',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -316,7 +386,7 @@ const Admin = [
     Header_Name: 'Assign Users',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://photos1.fotosearch.com/bthumb/CSP/CSP207/k2074736.jpg',
     RouterLink: 'assign',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -326,7 +396,7 @@ const Admin = [
     Header_Name: 'Manage Questionnaires ',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://image.freepik.com/free-vector/business-background-design_1167-77.jpg',
     RouterLink: 'questionnaire-management',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -336,7 +406,7 @@ const Admin = [
     Header_Name: 'Assign Questionnaire',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://thumbs.dreamstime.com/b/question-mark-character-notepad-cartoon-42449414.jpg',
     RouterLink: 'assign-questionnaire',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -346,7 +416,7 @@ const Admin = [
     Header_Name: 'Audit Trail',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://images.clipartpanda.com/surtax-clipart-60496-design-mascot-paper-trail.jpg',
     RouterLink: 'audit-trail',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -356,7 +426,7 @@ const Admin = [
     Header_Name: 'Reports',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://3.bp.blogspot.com/_O0OyyjHaqpo/SwISTQXBJ5I/AAAAAAAAAA8/5RPLkthofZY/s1600/report.jpg',
     RouterLink: 'Reports',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -366,7 +436,7 @@ const Admin = [
     Header_Name: 'Administration',
     Button_Name: 'View',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.netclipart.com/pp/m/91-911062_receptionist-clipart-admin-assistant-cartoon.png',
     RouterLink: 'Administrations',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',

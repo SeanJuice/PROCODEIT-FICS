@@ -69,7 +69,7 @@ export class SetAvailabilityComponent implements OnInit {
           if(result.Availability_ID ! = null){
             this.snackbarService.openSnackBar("Times have successfully added")
           }else{
-            this.snackbarService.openSnackBar("Times/Time has already been booked")
+           // this.snackbarService.openSnackBar("Times/Time has already been booked")
           }
           this.getTimesSlots();
       })

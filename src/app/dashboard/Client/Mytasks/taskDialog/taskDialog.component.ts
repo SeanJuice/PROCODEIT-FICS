@@ -57,6 +57,8 @@ export class TaskDialogComponent implements OnInit {
   }
 
   onSubmit(task){
+
+    console.log(task)
     this.clientService
     .CompleteTask(task, this.Task_Id)
     .subscribe((res) => {});

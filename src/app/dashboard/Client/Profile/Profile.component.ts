@@ -7,6 +7,8 @@ import { ConfirmUpdateDialogComponent } from './ConfirmUpdateDialog/ConfirmUpdat
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
 import { PractitionerUserService } from '../../Practitioner/services/PractitionerUser.service';
+import { TrainerService } from '../../Admin/services/trainer.service';
+import { TraineesService } from '../../Admin/services/trainees.service';
 
 @Component({
   selector: 'app-Profile',
@@ -24,6 +26,9 @@ export class ProfileComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
      private Clientservice: ClientService,
      private Practitionerservice: PractitionerUserService,
+     private trainerService: TrainerService,
+     private traineeService: TraineesService,
+
      @Inject(SESSION_STORAGE)private storage: StorageService,
      private auth:AuthService,
      public dialog: MatDialog) { }
@@ -46,6 +51,24 @@ export class ProfileComponent implements OnInit {
     else if (this.roleId===3)
     {
       this.Practitionerservice.getPractitionerProfile(this.clientID).subscribe((res:any)=>{
+        this.info =res;
+        console.log(res)
+        this.createForm(this.info)
+        this.isLoaded =false;
+      })
+    }
+    else if (this.roleId===4)
+    {
+      this.trainerService.getTrainerProfile(this.clientID).subscribe((res:any)=>{
+        this.info =res;
+        console.log(res)
+        this.createForm(this.info)
+        this.isLoaded =false;
+      })
+    }
+    else if (this.roleId===5)
+    {
+      this.traineeService.getTraineeProfile(this.clientID).subscribe((res:any)=>{
         this.info =res;
         console.log(res)
         this.createForm(this.info)

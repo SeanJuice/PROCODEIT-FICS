@@ -8,8 +8,6 @@ import { RouterModule } from '@angular/router';
 import { ViewClientSessionsComponent } from './clients/client-management/ViewClientSessions/ViewClientSessions.component';
 import { AccessComponent } from './Access/Access.component';
 import { AccessModule } from './Access/access.module';
-import { TypeManagementComponent } from './type-management/type-management.component';
-import { TypeModule } from './type-management/type.module';
 import { ApplicationRequestsModule } from './application-request-management/application-requests.module';
 import { ApplicationRequestManagementComponent } from './application-request-management/application-request-management.component';
 import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-questionnaire.component';
@@ -19,6 +17,7 @@ import { QuestionnaireManagementComponent } from './questionnaire-management/que
 import { AssignComponent } from './assign-user/assign.component';
 import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
+import { AdministrationsModule } from './administrations/administrations.module';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
     ClientManagementComponent,
     ViewClientSessionsComponent,
     AccessComponent,
-    TypeManagementComponent,
     ApplicationRequestManagementComponent,
     AssignQuestionnaireComponent,
     QuestionnaireManagementComponent,
@@ -44,9 +42,9 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
     SharedModule,
     RouterModule,
     AccessModule,
-    TypeModule,
     ApplicationRequestsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
 
 
   ]

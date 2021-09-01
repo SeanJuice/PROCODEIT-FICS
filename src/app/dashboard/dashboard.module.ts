@@ -12,6 +12,7 @@ import { PractitionerModule } from './Practitioner/practitioner.module';
 import { TrainerModule } from './Trainer/trainer.module';
 import { ProfileComponent } from './Client/Profile/Profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TraineeModule } from './Trainee/trainee.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientModule,
     AdminModule,
     PractitionerModule,
-    TrainerModule
+    TrainerModule,
+    TraineeModule
 
 
   ],

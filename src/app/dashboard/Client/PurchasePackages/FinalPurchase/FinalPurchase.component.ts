@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ClientService } from 'src/app/dashboard/Client/services/client.service';
-import { Package } from 'src/app/models/Package';
-
+import { AlertComponent } from 'src/app/shared/utils/modals/alert/alert.component';
+import { SimpleModalService } from 'ngx-simple-modal';
 @Component({
   selector: 'app-FinalPurchase',
   templateUrl: './FinalPurchase.component.html',
@@ -11,21 +11,70 @@ import { Package } from 'src/app/models/Package';
 export class FinalPurchaseComponent implements OnInit {
 
   @Input() regForm: FormGroup;
-  constructor(private clientService:ClientService) { }
+  constructor(private clientService:ClientService,
+    private SimpleModalService: SimpleModalService) { }
 
+    amount = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
   ngOnInit() {
+    this.stripePaymentGateway();
+  }
 
+
+
+  strikeCheckout:any = null;
+
+
+  checkout(amount) {
+    const strikeCheckout = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51JUghHBHH2M1dTncWJ2ml3WFgELSn75lagjL3xyUMxu1fM1D2heIw3ZF42P0JKweXie7mz8umfaod0wsFarkQdfj00FNxHtaqg',
+      locale: 'auto',
+      token: function (stripeToken: any) {
+        console.log(stripeToken)
+        alert('Stripe token generated!');
+      }
+    });
+
+    strikeCheckout.open({
+      name: 'RemoteStack',
+      description: 'Payment widgets',
+      amount: amount * 100
+    });
+  }
+
+  stripePaymentGateway() {
+    if(!window.document.getElementById('stripe-script')) {
+      const scr = window.document.createElement("script");
+      scr.id = "stripe-script";
+      scr.type = "text/javascript";
+      scr.src = "https://checkout.stripe.com/checkout.js";
+
+      scr.onload = () => {
+        this.strikeCheckout = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51JUghHBHH2M1dTncWJ2ml3WFgELSn75lagjL3xyUMxu1fM1D2heIw3ZF42P0JKweXie7mz8umfaod0wsFarkQdfj00FNxHtaqg',
+          locale: 'auto',
+          token: function (token: any) {
+            console.log(token)
+            this.step1Submitted()
+
+          }
+        });
+      }
+
+      window.document.body.appendChild(scr);
+    }
   }
 
   step1Submitted() {
     let form =  this.regForm.value.PurchaseDetails
     let form2 =  this.regForm.value.ChoosePackageDetails
 
-   if(form.Confirmation == "true" && form.Quantity != null)
+   if( form.Quantity != null)
    {
      let pack = {Package_ID:form2.PackageID,Client_ID: form2.Client_ID,Quantity:form.Quantity}
 
     this.clientService.PurchasePackage(pack).subscribe(res=>{
+
+        this.SimpleModalService.addModal(AlertComponent, { message: 'Payment via stripe successfull!' }, { closeOnEscape: true});
 
     })
 

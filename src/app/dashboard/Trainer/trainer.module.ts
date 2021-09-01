@@ -9,13 +9,14 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SendTraineefeedbackComponent } from './send-feedback/sendTraineefeedback/sendTraineefeedback.component';
 import { AssignTraineeTaskComponent } from './send-trainee-task/AssignTraineeTask/AssignTraineeTask.component';
+import { TrainerProfileComponent } from './trainer-profile/trainer-profile.component';
 
 
 
 
 @NgModule({
   declarations: [SetAvailabilityComponent,SendTraineeTaskComponent,SendFeedbackComponent,SendTraineefeedbackComponent,
-    AssignTraineeTaskComponent],
+    AssignTraineeTaskComponent,TrainerProfileComponent],
   imports: [
     CommonModule,
     SharedModule,

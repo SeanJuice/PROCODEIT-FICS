@@ -18,6 +18,7 @@ import { BookingComponent } from './Booking/Booking.component';
 import {ClientRoutingModule } from './client-routing.module'
 import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ClientAuditReportComponent } from './clientAuditReport/clientAuditReport.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MyQuestionnairesComponent,MySessionsComponent,MytasksComponent
     ,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
     TrialQuestionnaireComponent,ProgressReportComponent,BookingComponent,
+    ClientAuditReportComponent,
 
     // ProfileComponent
     // Dialogs

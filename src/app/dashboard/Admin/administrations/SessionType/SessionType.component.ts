@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeService } from '../../services/type.service';
 
 @Component({
   selector: 'app-SessionType',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionTypeComponent implements OnInit {
 
-  constructor() { }
+  SessionTypeTypes: Array<any>;
+  public query: any = '';
+
+  constructor(private typeService: TypeService) {}
 
   ngOnInit() {
+    this.typeService.GetTypes(2).subscribe((res) => {
+      this.SessionTypeTypes = res;
+      console.log(res)
+    });
   }
+  AddType() {}
 
+  Maintain(clientType) {}
 }

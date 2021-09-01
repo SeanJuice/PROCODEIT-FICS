@@ -17,6 +17,25 @@ const rootURL = 'https://localhost:44332/api/Admin/';
 export class TypeService {
   constructor(public http: HttpClient, private auth: AuthService) {}
 
+
+
+    /**
+   * Questionnaire Type crud
+   * ? 1:questionBank
+   * ? 2: SessionType
+   * ? 3: DocumentType
+   * ? 4: PackageType
+   * ? 5: EventType
+   * ? 6: ClientType
+   */
+     GetTypes(id: number): Observable<any[]> {
+      const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      };
+
+      return this.http.get<any[]>(`${rootURL}/GetTypes/${id}`);
+    }
+
   /**
    * Questionnaire Type crud
    */

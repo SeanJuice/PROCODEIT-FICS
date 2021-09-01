@@ -14,12 +14,7 @@ import { AssignQuestionnaireComponent } from './assign-questionnaire/assign-ques
 /** type management  */
 import { ClientManagementComponent } from './clients/client-management/client-management.component';
 import { ViewClientSessionsComponent } from './clients/client-management/ViewClientSessions/ViewClientSessions.component';
-import { ClientTypeComponent } from './type-management/client-type/client-type.component';
-import { DocumentTypeComponent } from './type-management/document-type/document-type.component';
-import { EventTypeComponent } from './type-management/event-type/event-type.component';
-import { PackageTypeComponent } from './type-management/package-type/package-type.component';
-import { QuestionnaireTypeComponent } from './type-management/questionnnaire-type/questionnnaire-type.component';
-import { SessionTypeComponent } from './type-management/session-type/session-type.component';
+
 /**Questionnaire */
 import { QuestionnaireManagementComponent } from './questionnaire-management/questionnaire-mangement.component';
 /**User Assignment  */
@@ -27,6 +22,7 @@ import { AssignComponent } from './assign-user/assign.component';
 import { PractitionerToClientComponent } from './assign-user/practitioner-to-client/practitioner-to-client.component';
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 import { ReportsComponent } from './Reports/Reports.component';
+import { AdministrationsComponent } from './administrations/administrations.component';
 
 const routes: Routes = [
   {
@@ -58,37 +54,6 @@ const routes: Routes = [
       {
         path: 'trainers',
         component: TrainersComponent,
-      },
-    ],
-  },
-  {
-    path: 'type',
-    component: AccessComponent,
-    children: [
-      { path: '', redirectTo: 'client-type', pathMatch: 'full' },
-      {
-        path: 'client-type',
-        component: ClientTypeComponent,
-      },
-      {
-        path: 'document-type',
-        component: DocumentTypeComponent,
-      },
-      {
-        path: 'event-type',
-        component: EventTypeComponent,
-      },
-      {
-        path: 'package-type',
-        component: PackageTypeComponent,
-      },
-      {
-        path: 'questionnaire-type',
-        component: QuestionnaireTypeComponent,
-      },
-      {
-        path: 'session-type',
-        component: SessionTypeComponent,
       },
     ],
   },
@@ -147,9 +112,8 @@ const routes: Routes = [
   },
   {
     path: 'Administrations',
-    component: ReportsComponent,
-    loadChildren: () =>
-      import('./administrations/administrations.module').then((m) => m.AdministrationsModule),
+    component: AdministrationsComponent,
+    loadChildren: () =>import('./administrations/administrations.module').then((m) => m.AdministrationsModule),
   },
 ];
 

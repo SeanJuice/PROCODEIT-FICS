@@ -6,7 +6,6 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 import { Client } from 'src/app/models/Client';
 import { Session } from 'src/app/models/Session';
 import { share } from 'rxjs/operators';
-import { Package } from 'src/app/models/Package';
 import { AuthService } from 'src/app/auth/auth.service';
 
 
@@ -52,7 +51,6 @@ export class ClientService {
   // Get Sessions
   getSessions(id?: number):Observable<Session[]>
   {
-
     return this.http.get<Session[]>(`${rootURL}/ViewSchedule/${this.ClientID}`).pipe(share());
   }
 
@@ -146,6 +144,12 @@ export class ClientService {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
      return this.http.post(`${rootURL}/CompleteTask/${taskID}`,Task,httpOptions).pipe(share());
   }
+
+  getFeedbacks():Observable<any[]>{
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.get<any[]>(`${rootURL}/ViewFeedbackNotes/${this.ClientID}`).pipe(share());
+  }
+
 
   /**
    * Booking a slot

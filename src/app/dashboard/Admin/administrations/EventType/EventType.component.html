@@ -1,3 +1,35 @@
-<p>
-  EventType works!
-</p>
+
+<div class="app">
+
+  <div class="table-card">
+
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>Event Types</span>
+    </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <div>
+      <button  (click)="AddType()"  class="btn btn-primary" >Add Event Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Event Type Name</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of EventTypes | filter: query">
+            <td>{{type.Name}}</td>
+
+            <td>
+              <button mat-flat-button color="primary" (click)="Maintain(type.EventType_ID)"  class="btn" >Maintain</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

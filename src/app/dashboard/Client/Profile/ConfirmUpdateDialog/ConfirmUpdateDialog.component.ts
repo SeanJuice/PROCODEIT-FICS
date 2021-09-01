@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
+import { TraineesService } from 'src/app/dashboard/Admin/services/trainees.service';
 import { TrainerService } from 'src/app/dashboard/Admin/services/trainer.service';
 import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { PractitionerUserService } from 'src/app/dashboard/Practitioner/services/PractitionerUser.service';
@@ -17,7 +18,7 @@ export class ConfirmUpdateDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private clientService: ClientService,
     private trainerService: TrainerService,
-    //private trainee: TraineeService,
+    private traineeService: TraineesService,
     private practitionerService: PractitionerUserService,
 
     private AuthServe: AuthService
@@ -48,7 +49,7 @@ export class ConfirmUpdateDialogComponent implements OnInit {
       });
     } else if (this.data.role === 5) {
       //!Trainee
-      this.clientService.UpdateClient(this.data.clientN).subscribe(() => {
+      this.traineeService.MaintainTrainee(this.data.clientN).subscribe(() => {
         this.dialogRef.close();
       });
     }
