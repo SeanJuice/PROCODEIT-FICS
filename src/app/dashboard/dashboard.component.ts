@@ -261,6 +261,16 @@ const dashboards_settings_trainer = [
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'View',
+    ImageLink:
+    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'trainer-profile',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
 ];
 /**
  * ? Trainee dashboard
@@ -272,7 +282,47 @@ const dashboards_settings_trainee = [
     Button_Name: 'Book',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'booking',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Sessions',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'sessions',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Upload Case Study',
+    Button_Name: 'Upload',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'upload-case-study',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Performance Report',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: '',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'View',
+    ImageLink:
+    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    RouterLink: 'trainee-profile',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

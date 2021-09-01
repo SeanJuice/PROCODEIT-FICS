@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { SharedService } from './shared/services/shared.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,15 +13,17 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class AppComponent implements OnInit {
   isLoggedIn$: Observable<boolean> | undefined;
 
-  constructor(private authService: AuthService, private idle:Idle) { }
+  constructor(private authService: AuthService, private idle:Idle, private sharedService: SharedService,
+   ) { }
   idleState = 'Not started.';
   timedOut = false;
   RoleName:string
 
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    //this.sharedService.getTime().subscribe(result => {console.log(result)})
+    if(this.isLoggedIn$ && this.authService.Role != null && this.authService.loginId !=null) {
 
-    if(this.isLoggedIn$ && this.authService.Role != null) {
       this.Timer();
     }
   }
@@ -31,7 +35,7 @@ export class AppComponent implements OnInit {
 
 
     // sets an idle timeout of 5 seconds, for testing purposes.
-    this.idle.setIdle(5);
+    this.idle.setIdle(40);
     // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
     this.idle.setTimeout(10);
     // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document

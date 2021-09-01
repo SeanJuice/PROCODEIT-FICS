@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
+import { TypeService } from '../../services/type.service';
+import { SimpleModalService } from 'ngx-simple-modal';
 @Component({
   selector: 'app-PackageType',
   templateUrl: './PackageType.component.html',
@@ -7,9 +9,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackageTypeComponent implements OnInit {
 
-  constructor() { }
+  PackageTypes: Array<any>;
+  public query: any = '';
 
+  constructor(private typeService: TypeService,private SimpleModalService: SimpleModalService) {}
   ngOnInit() {
+
+    this.getPackagesTypes();
+  }
+  getPackagesTypes() {
+    this.typeService.GetTypes(4).subscribe((res) => {
+      this.PackageTypes = res;
+      console.log(this.PackageTypes)
+    });
+  }
+  AddType() {
+
+    this.SimpleModalService.addModal(PromptComponent, {
+      title: 'Name dialog',
+      question: 'Add your Client type?: ',
+        message: ''
+      })
+      .subscribe((message) => {
+        // We get modal result
+          console.log(message);
+          let pack = {Name:message }
+          this.typeService.AddPackageType(pack).subscribe(response=>{
+            this.getPackagesTypes()
+
+          },
+          error => {throw new Error('Client not added')})
+      });
   }
 
+  Maintain(PackageType,Id) {
+    this.SimpleModalService.addModal(PromptComponent, {
+      title: 'Package Type',
+      question: 'Update Package type: ',
+      message: PackageType.toString()
+    })
+      .subscribe((message) => {
+        // We get modal result
+          console.log(message);
+          let pack = {Name:message, PackageType_ID: Id }
+          this.typeService.UpdatePackageType(pack,Id).subscribe(response=>{
+            this.getPackagesTypes()
+            console.log(response);
+          }
+          ,error => {throw new Error('Client not added '); console.log(error)})
+      });
+  }
 }

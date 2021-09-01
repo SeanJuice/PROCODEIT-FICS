@@ -51,9 +51,9 @@ export class TrainerService {
     return this.http.post(`${rootURL}/SendTasks/${Trainerid}/${trainee_ID}`,Task, httpOptions);
   }
 
-  ClientsAssignedToTrainer():Observable<any[]> {
+  TraineesAssignedToTrainer():Observable<any[]> {
     return this.http
-    .get<any[]>(`${rootURL}/ClientsAssignedToTrainer/${this.auth.loginId}`)
+    .get<any[]>(`${rootURL}TraineesAssignedToTrainer/${this.auth.loginId}`)
     .pipe(share());
   }
 }

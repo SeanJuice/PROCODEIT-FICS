@@ -1,3 +1,35 @@
-<p>
-  DocumentType works!
-</p>
+
+<div class="app">
+
+  <div class="table-card">
+
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>Document Types</span>
+    </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <div>
+      <button  (click)="AddType()"  class="btn btn-primary" >Add Document Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Title</td>
+          <td>Document Type Name</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of DocumentTypes | filter: query">
+            <td>{{type.Description}}</td>
+
+            <td>
+              <button mat-flat-button color="primary" (click)="Maintain(type.DocumentType_ID)"  class="btn" >Maintain</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

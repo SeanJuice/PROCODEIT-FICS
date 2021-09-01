@@ -11,6 +11,8 @@ import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
 const rootURL = 'https://localhost:44332/api/Admin/';
+const TrainerrootURL = 'https://localhost:44332/api/Trainer/';
+
 
 @Injectable({
   providedIn: 'root',
@@ -64,11 +66,17 @@ export class TrainerService {
       httpOptions
     );
   }
+  getTrainerProfile(id: number): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${TrainerrootURL}ViewTrainerProfile/${id}`)
+      .pipe(share());
+  }
+
   MaintainTrainer(user:any): Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.post(`${rootURL}/MaintainTrainer/${this.auth.loginId}`,user, httpOptions);
+    return this.http.post(`${TrainerrootURL}/MaintainTrainer/${this.auth.loginId}`,user, httpOptions);
   }
 
 }

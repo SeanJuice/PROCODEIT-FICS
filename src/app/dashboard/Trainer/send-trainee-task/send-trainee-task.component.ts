@@ -14,7 +14,7 @@ export class SendTraineeTaskComponent implements OnInit {
 
   ngOnInit() {
     let id
-    this.trainerservice.ClientsAssignedToTrainer().subscribe(res=>{  //needs a function
+    this.trainerservice.TraineesAssignedToTrainer().subscribe(res=>{  //needs a function
         this.trainees = res
     })
 

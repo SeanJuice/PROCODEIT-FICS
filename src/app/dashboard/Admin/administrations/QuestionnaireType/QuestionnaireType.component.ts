@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeService } from '../../services/type.service';
 
 @Component({
   selector: 'app-QuestionnaireType',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionnaireTypeComponent implements OnInit {
 
-  constructor() { }
+  QuestionnaireTypes: Array<any>;
+  public query: any = '';
+
+  constructor(private typeService: TypeService) {}
 
   ngOnInit() {
+    this.typeService.GetTypes(1).subscribe((res) => {
+      this.QuestionnaireTypes = res;
+    });
   }
+  AddType() {}
 
+  Maintain(clientType) {}
 }

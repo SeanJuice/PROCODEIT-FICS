@@ -1,3 +1,36 @@
-<p>
-  PackageType works!
-</p>
+
+<div class="app">
+
+  <div class="table-card">
+
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>Package Types</span>
+    </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
+    <div class="btn-group" >
+      <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini">Add Package Type</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+
+          <td>Package Type Description</td>
+          <td></td>
+
+        </tr>
+      <tbody>
+          <tr *ngFor="let type of PackageTypes | filter: query">
+            <td>{{type.Name}}</td>
+
+            <td>
+
+              <button  (click)="Maintain(type.Name,type.PackageType_ID)"  class="btn-gradient blue mini" style="color:white">Maintain</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

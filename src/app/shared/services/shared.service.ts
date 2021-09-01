@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 const   rootURL = 'https://localhost:44332/api/Report/'
+const   AdrootURL = 'https://localhost:44332/api/Admin/'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -46,4 +48,20 @@ export class SharedService {
     };
     return this.http.get<any[]>(`${rootURL}ViewClients`).pipe(share());
   }
+
+  UpdateTimer(time){
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+  return this.http.post(`${AdrootURL}UpdateTimer/${time}`,httpOptions).pipe(share());
+
+}
+
+getTime() {
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+  return this.http.get<any[]>(`${AdrootURL}getTimer`).pipe(share());
+}
+
 }
