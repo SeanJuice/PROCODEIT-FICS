@@ -312,7 +312,27 @@ const dashboards_settings_trainee = [
     Button_Name: 'Book',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: '',
+    RouterLink: 'performance',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'My Questionnaires',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'questionnaire',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'My Tasks',
+    Button_Name: 'Book',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'tasks',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
