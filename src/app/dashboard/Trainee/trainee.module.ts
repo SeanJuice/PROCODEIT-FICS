@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TaskDialogComponent } from './mytasks/taskDialog/taskDialog.component';
+import { MytasksComponent } from './mytasks/mytasks.component';
+import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.component';
 
 
 
 
 @NgModule({
   declarations: [BookingComponent,MySessionsComponent,PerformanceComponent,TraineeProfileComponent,
-  ViewQuestionnaireComponent,UploadComponent,TaskDialogComponent],
+  ViewQuestionnaireComponent,UploadComponent,MytasksComponent,TaskDialogComponent,ReviewDialogComponent],
   imports: [
     CommonModule,
     TraineeRoutingModule,
@@ -27,6 +29,6 @@ import { TaskDialogComponent } from './mytasks/taskDialog/taskDialog.component';
     RouterModule,
     FormsModule,
   ],
-  entryComponents: [TaskDialogComponent]
+  entryComponents: [TaskDialogComponent,ReviewDialogComponent]
 })
 export class TraineeModule { }

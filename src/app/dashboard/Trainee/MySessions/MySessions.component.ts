@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Session } from 'src/app/models/Session';
+import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { TraineeService } from '../services/trainee.service';
 @Component({
   selector: 'app-MySessions',
   templateUrl: './MySessions.component.html',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MySessionsComponent implements OnInit {
 
-  constructor() { }
+     sessions:Array<Session> = [];
+     ID:Number
 
-  ngOnInit() {
+    constructor(private traineeService:TraineeService,public dialog: MatDialog) { }
+
+    ngOnInit() {
+
+      this.traineeService.getSessions().subscribe(res =>{
+         this.sessions= res;
+
+      })
+    }
+
+    openReviewDialog(id): void {
+      let dialogRef = this.dialog.open(ReviewDialogComponent, {
+        width: '500px',
+        data: { name: id}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    }
+
   }
-
-}

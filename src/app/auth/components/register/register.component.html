@@ -148,10 +148,10 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Confirm password</mat-label>
                     <input type="password" matInput  formControlName="Confirm_Password" placeholder="Ex. **********">
-                    <mat-hint *ngIf=" f.Confirm_Password.errors" class="invalid-feedback">
+                    <label *ngIf=" f.Confirm_Password.errors" class="invalid-feedback">
                         <a *ngIf="f.Confirm_Password.errors.required">Confirm Password is required</a>
                         <a *ngIf="f.Confirm_Password.errors.mustMatch">Passwords must match</a>
-                    </mat-hint>
+                    </label>
                 </mat-form-field>
               </div>
             </div>
