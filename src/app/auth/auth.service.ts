@@ -31,11 +31,11 @@ export class AuthService {
    * Ger Role
    */
   get Role() {
-    return  this.storage.get("rle")
+    return  Number(sessionStorage.getItem("rle"))
   }
 
   get loginId() {
-    return  this.decrypt(this.storage.get("liid"))
+    return  sessionStorage.getItem("liid")
   }
   /*
   Login
@@ -46,10 +46,10 @@ export class AuthService {
       if(!res.Error)
       {
         this.loggedIn.next(true)
-        this.storage.set("IULI", this.encrypt("true")); //is user logged in
-        this.storage.set("rle",  this.encrypt(res.UserRole_ID));
-        this.storage.set("User_ID", this.encrypt( res.User_ID));
-        this.storage.set("liid", this.encrypt( res.LoginID));
+        sessionStorage.setItem("IULI", this.encrypt("true")); //is user logged in
+       sessionStorage.setItem("rle",  this.encrypt(res.UserRole_ID));
+       sessionStorage.setItem("User_ID", this.encrypt( res.User_ID));
+       sessionStorage.setItem("liid", this.encrypt( res.LoginID));
 
 
         this.router.navigate(['./dashboard'])
@@ -90,12 +90,10 @@ export class AuthService {
   logout() {
     this.loggedIn.next(false);
     this.router.navigate(['Welcome']);
-    this.storage.remove("rle")
-    this.storage.remove("IULI");
-    this.storage.remove("User_ID");
-    this.storage.remove("liid");
-
-
+    sessionStorage.removeItem("rle")
+    sessionStorage.removeItem("IULI");
+    sessionStorage.removeItem("User_ID");
+    sessionStorage.removeItem("liid");
   }
 
   SetLoadingSpanner(observable: Observable<any>): Boolean{
