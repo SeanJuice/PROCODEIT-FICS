@@ -136,7 +136,7 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Password</mat-label>
                     <input type="password" matInput formControlName="Password" placeholder="Ex. pat@example.com">
-                    <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+
                     <mat-hint *ngIf="!formGroup.controls['Password'].valid && formGroup.controls['Password'].touched">
                       {{ getErrorPassword() }}
                     </mat-hint>

@@ -282,7 +282,7 @@ const dashboards_settings_trainee = [
     Button_Name: 'Book',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'booking',
+    RouterLink: 'book',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },

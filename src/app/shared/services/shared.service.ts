@@ -32,7 +32,7 @@ export class SharedService {
   ClientAudit(clientId?:number){
       let id =clientId;
       if(isNaN(clientId)){
-        id =  this.auth.loginId
+        id =  Number(this.auth.loginId)
         console.log( this.auth.loginId)
       }
       const httpOptions = {
