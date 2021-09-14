@@ -3,6 +3,7 @@ import { AuthService } from './../../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.Spinner = true;
     if(user.Username=="" || user.Password=="") {
 
-      alert('Please fill all the required fields to create a super hero!')
+      swal.fire('Please fill all the required fields to create a super hero!')
 
     } else {
 

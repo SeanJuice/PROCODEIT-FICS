@@ -5,6 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { BehaviorSubject, Observable} from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service'
 import { share } from 'rxjs/operators';
+import swal from 'sweetalert2';
 
 const KEY = "FICSINF"
 
@@ -55,7 +56,11 @@ export class AuthService {
         this.router.navigate(['./dashboard'])
       }
       else{
-         alert("Wrong Password or Username please try again. :)")
+         swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!, Please check if the details provided are correct',
+        });
         }
     })
     return this.http.post(rootURL+'/Login',user,httpOptions )
@@ -77,10 +82,20 @@ export class AuthService {
       }
 
       else{
-         alert("Wrong Password or Username please try again. :)")
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!, Please check if the email or password provided is correct',
+        });
         }
     })
     return "True"
+
+  }
+
+  ForgotPassword(Email){
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+   return  this.http.post(rootURL+`/ForgotPassword/`,Email,httpOptions )
 
   }
 

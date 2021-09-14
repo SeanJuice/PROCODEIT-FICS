@@ -19,7 +19,7 @@ import { ParentDialogModalComponent } from './utils/modals/parent-dialog/parent-
 import { PromptComponent } from './utils/modals/prompt/prompt.component';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { CustomErrorHandler } from './utils/modals/custom-error/custom-error-handler';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   ],
   imports: [
     CommonModule,
+    SweetAlert2Module.forRoot(),
     RouterModule,
     MaterialModule,
     ReactiveFormsModule,
@@ -55,7 +56,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     PreLoaderComponent,
     ProfileComponent,
     MatSliderModule,
-    ClientAuditReportComponent
+    ClientAuditReportComponent,
+    SweetAlert2Module
   ],
   entryComponents: [
     TimesetterComponent,
@@ -64,10 +66,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     PromptComponent,
     ParentDialogModalComponent,
   ],
-  providers: [{
-    provide: ErrorHandler,
-    useClass: CustomErrorHandler
-  }],
+  // providers: [{
+  //   provide: ErrorHandler,
+  //   useClass: CustomErrorHandler
+  // }],
 
 
 })

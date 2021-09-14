@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeGuard } from './components/landing-page/home.guard';
 import { SharedModule } from '../shared/shared.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -26,7 +27,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     BrowserModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+
   ],
   exports:[
     LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent
