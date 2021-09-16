@@ -20,6 +20,7 @@ import { PromptComponent } from './utils/modals/prompt/prompt.component';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { CustomErrorHandler } from './utils/modals/custom-error/custom-error-handler';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ProfileComponent,
     TimesetterComponent,
     ClientAuditReportComponent,
+    ResetPasswordComponent,
     //Modals
     AlertComponent,
     ConfirmComponent,

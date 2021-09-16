@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SharedModule,
     RouterModule,
     BrowserAnimationsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    FontAwesomeModule
 
   ],
   providers: [],

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardRoleGuard } from '../auth/dashboard-role.guard';
 import { ProfileComponent } from './Client/Profile/Profile.component';
+import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     pathMatch: 'full',
     children: [{ path: 'Dashboard', component: DashboardComponent }],
   },
+  {path:'reset-password', component: ResetPasswordComponent},
   {
     path: '',
     loadChildren: () =>

@@ -50,7 +50,8 @@ export class ClientTypeComponent implements OnInit {
           let client = {ClientType_Name:message, ClientType_ID: Id }
           this.typeService.UpdateClientType(client,Id).subscribe(response=>{
             this.getClientTypes()
-            console.log(response);
+            this.typeService.success('client')
+
           }
           ,error => {throw new Error('Client not added '); console.log(error)})
       });

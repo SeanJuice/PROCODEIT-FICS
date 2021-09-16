@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   get loginId() {
-    return  sessionStorage.getItem("liid")
+    return  Number(sessionStorage.getItem("liid"))
   }
   /*
   Login
@@ -99,6 +99,13 @@ export class AuthService {
 
   }
 
+
+  ResetPassword(PasswordUSer){
+    console.log(PasswordUSer)
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+   return  this.http.post(rootURL+`/ResetPassword/${Number(sessionStorage.getItem("User_ID"))}/${PasswordUSer.old_password}/${PasswordUSer.password}`,httpOptions )
+
+  }
 
 
   //Used for logging out

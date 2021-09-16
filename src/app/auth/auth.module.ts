@@ -19,7 +19,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
-  declarations: [ LoginComponent, RegisterComponent, ResetPasswordComponent, ForgotPasswordComponent,LandingPageComponent],
+  declarations: [ LoginComponent, RegisterComponent, ForgotPasswordComponent,LandingPageComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -31,7 +31,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
   ],
   exports:[
-    LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent
+    LoginComponent, RegisterComponent,ForgotPasswordComponent,LandingPageComponent
 
   ],
   providers: [AuthService, AuthGuard,HomeGuard],

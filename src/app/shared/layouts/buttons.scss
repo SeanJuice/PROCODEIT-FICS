@@ -80,6 +80,7 @@ button[class*="btn"] {border: 0;}
 .btn-gradient.small,
 .btn-effect.small {
   padding: 8px 18px;
+  color:white;
   font-size: 14px;
 }
 .btn.mini,
@@ -279,7 +280,7 @@ button[class*="btn"] {border: 0;}
 /* Gradient buttons */
 .btn-gradient {
 	text-decoration: none;
-	color: white;
+	color: rgb(255, 255, 255);
 	padding: 10px 30px;
 	display: inline-block;
 	position: relative;
