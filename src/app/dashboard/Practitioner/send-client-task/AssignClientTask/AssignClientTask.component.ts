@@ -21,6 +21,8 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   Tasks: Array<Task>;
   dueDate:any;
+  minDate = new Date();
+
   Task: Task = {
     Description: null,
     Feedback: null,
@@ -38,6 +40,7 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+
     this.subscription = this.data.currentMessage.subscribe(
       (message) => (this.message = message)
     );

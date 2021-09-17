@@ -19,6 +19,7 @@ export class AssignTraineeTaskComponent implements OnInit ,OnDestroy{
     subscription: Subscription;
     Tasks: Array<any>;
     dueDate:any;
+    minDate = new Date();
     Task: Task = {
       Description: null,
       Feedback: null,

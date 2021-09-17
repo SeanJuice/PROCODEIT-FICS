@@ -5,7 +5,7 @@ export class Client {
     ID_Number:Number =0;
     Passport_Number:Number;
     Email_Address:String;
-    Contact_Number:Number;
+    Contact_Number:any;
     Gender:String;
     Country:String;
     Password?:String;
