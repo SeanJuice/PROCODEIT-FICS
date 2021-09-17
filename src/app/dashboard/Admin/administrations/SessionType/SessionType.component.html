@@ -5,11 +5,11 @@
 
     <h1 class="h1 title">
       <i class="fas fa-home"></i>
-      <span>SessionType Types</span>
+      <span>Session Types</span>
     </h1>
 
     <div>
-      <button  (click)="AddType()"  class="btn btn-primary" >Add SessionType Type</button>
+      <button  (click)="AddType()"  class="btn-gradient blue mini"  >Add SessionType Type</button>
     </div>
     <table class="table">
       <thead>
@@ -25,7 +25,7 @@
             <td>{{type.Description}}</td>
 
             <td>
-              <button mat-flat-button color="primary" (click)="Maintain(type.SessionTypeType_ID)"  class="btn" >Maintain</button>
+              <button class="btn-gradient blue mini" (click)="Maintain(type,type.SessionType_ID)"  >Maintain</button>
             </td>
           </tr>
       </tbody>

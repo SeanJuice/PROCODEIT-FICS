@@ -76,6 +76,9 @@ export class ClientService {
     return this.http.get(`${rootURL}/ViewPackages/`).pipe(share());
   }
 
+  getClientPurchasedPackages() {
+    return this.http.get(`${rootURL}/GetClientPackages/${this.ClientID}`).pipe(share());
+  }
   /**
    * ?Purchase Package
    *

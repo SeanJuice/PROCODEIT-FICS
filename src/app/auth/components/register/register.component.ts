@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
     let Role = Number(role) + Number(1);
-
+    client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
     this.submitted = false;
     console.log(client);
     this.Authservice.Register(client, Role);

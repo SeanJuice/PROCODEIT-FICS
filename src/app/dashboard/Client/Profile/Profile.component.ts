@@ -18,11 +18,12 @@ import { TraineesService } from '../../Admin/services/trainees.service';
 export class ProfileComponent implements OnInit {
 
   info:Client
-  isInitialised = false;
-  clientID =  Number(this.storage.get("User_ID"));
+  clientID =  Number(sessionStorage.getItem("User_ID"));
   formGroup: FormGroup;
-  isLoaded:boolean = true;
+  isLoaded:boolean = false;
   roleId:number;
+  MissingData:any;
+  showExtra = false;
   constructor(private formBuilder: FormBuilder,
      private Clientservice: ClientService,
      private Practitionerservice: PractitionerUserService,
@@ -42,6 +43,7 @@ export class ProfileComponent implements OnInit {
 
     if(this.roleId===2)
     {
+      this.showExtra = true;
       this.Clientservice.geClientProfile(this.clientID).subscribe((res:any)=>{
         this.info =res;
         this.createForm(this.info)
@@ -52,6 +54,7 @@ export class ProfileComponent implements OnInit {
     {
       this.Practitionerservice.getPractitionerProfile(this.clientID).subscribe((res:any)=>{
         this.info =res;
+        this.MissingData =  res
         console.log(res)
         this.createForm(this.info)
         this.isLoaded =false;
@@ -101,16 +104,36 @@ export class ProfileComponent implements OnInit {
 
 
 
-  onSubmit(client: Client): void {
+  async onSubmit(data): Promise<void> {
+    data = await this.patch(data);
+    console.log("here>>>",data);
     let dialogRef = this.dialog.open(ConfirmUpdateDialogComponent, {
       width: '500px',
       height: '200px',
-      data: { clientN: client, role:this.roleId}
+      data: { clientN: data, role:this.roleId}
     });
     dialogRef.afterClosed().subscribe(result => {
       this.refetch()
       console.log('The dialog was closed');
     });
+  }
+
+  patch(data) {
+    if(this.roleId===2)
+    {
+      this.MissingData =data
+    }
+    else
+    {
+      this.MissingData.Name=data.Name
+      this.MissingData.Contact_Number=data.Contact_Number
+      this.MissingData.Surname=data.Surname
+      this.MissingData.Email_Address=data.Email_Address
+      this.MissingData.Gender=data.Gender
+
+      delete data.Client_ID;   delete data.Client_Status;  delete data.Passport_Number
+    }
+    return       this.MissingData;
   }
 
 }

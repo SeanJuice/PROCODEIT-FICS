@@ -12,7 +12,7 @@
     </div>
 
     <div>
-      <button  (click)="AddType()"  class="btn btn-primary" >Add  Questionnaire Type</button>
+      <button  (click)="AddType()"   class="btn-gradient blue mini">Add  Questionnaire Type</button>
     </div>
     <table class="table">
       <thead>
@@ -26,7 +26,7 @@
             <td>{{type.Description}}</td>
 
             <td>
-              <button mat-flat-button color="primary" (click)="Maintain(type. QuestionnaireType_ID)"  class="btn" >Maintain</button>
+              <button  class="btn-gradient blue mini" (click)="Maintain(type.Description, type.QuestionnaireType_ID)"  >Maintain</button>
             </td>
           </tr>
       </tbody>

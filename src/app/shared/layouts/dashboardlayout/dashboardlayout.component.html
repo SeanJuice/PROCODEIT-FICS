@@ -36,51 +36,59 @@
         <li class="cta">
           <button [routerLink]="['../dashboard']" routerLinkActive="active" class="user-profile" class="warning" id="tour-user" >
             <span>Dashboard</span>
-            <i class="fas fa-home">
+
               <mat-icon>dashboard</mat-icon>
-            </i>
+
           </button>
         </li>
         <li  class="cta">
           <button [routerLink]="['Profile']" routerLinkActive="active" id="tour-elements"  style="color: rgb(255, 255, 255);"
             *ngIf="RoleName!='Administrator'" class="primary" id="start-tour">
             <span>Profile</span>
-            <i class="fas fa-basketball-ball">
+
               <mat-icon> person_pin</mat-icon>
-            </i>
+
           </button>
         </li>
         <li class="cta" *ngIf="RoleName=='Administrator'">
           <button class="primary" id="start-tour" style="color: rgb(255, 255, 255);" (click)="Timer()">
             <span> Set Timer  </span>
-            <i class="fas fa-basketball-ball">
+
               <mat-icon>av_timer</mat-icon>
-            </i>
+
           </button>
         </li>
         <li  class="cta" *ngIf="RoleName!='Administrator'">
           <button [routerLink]="['Trial_Questionnaire']" routerLinkActive="active" class="primary" id="start-tour"
           style="color: rgb(255, 255, 255);">
             <span> Trial Questionnaire</span>
-            <i class="fas fa-basketball-ball">
+
             <mat-icon> present_to_all</mat-icon>
-            </i>
+
           </button>
         </li>
         <li class="cta" *ngIf="RoleName=='Client'">
           <button class="primary" [routerLink]="['Client_Audit_Report']" id="start-tour"  style="color: rgb(255, 255, 255);">
             <span> View My Audit Report</span>
-            <i class="fas fa-basketball-ball">
+
               <mat-icon>library_books</mat-icon>
-            </i>
+
+          </button>
+        </li>
+        <li class="cta">
+          <button class="primary" [routerLink]="['reset-password']" id="start-tour"  style="color: rgb(255, 255, 255);">
+            <span> Reset Password</span>
+
+              <mat-icon>library_books</mat-icon>
+
           </button>
         </li>
         <li class="cta">
           <button class="primary" style="background-color: red; color: white;" (click)="Logout()">
             <span> Log Out </span>
-            <i class="fas fa-basketball-ball">
+
               <mat-icon>power_settings_new</mat-icon>
-            </i>
+
 
           </button>
         </li>

@@ -17,8 +17,8 @@ export class AccessComponent implements OnInit {
 
   }
 
-  Change(ID){
-
+  Change(num:number){
+    this.content = "content"+num.toString();
   }
 
 }

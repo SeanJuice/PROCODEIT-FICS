@@ -1,10 +1,9 @@
 <div  id="personal-details" [formGroup]="regForm">
 
   <mat-card formGroupName="PurchaseDetails">
-    <label>    Payment Card </label>
-    <mat-form-field class="example-full-width" appearance="fill">
-    <input type="text" matInput formControlName="Confirmation">
-  </mat-form-field>
+
+
+
 
   </mat-card>
 
@@ -18,7 +17,7 @@
 
     </mat-card-content>
   </mat-card>
-  <button type="button" class="btn btn-primary btn-lg btn-block" (click)='checkout(amount)'>Block level button</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)='checkout(amount)'>Pay <i class="fa fa-money" aria-hidden="true"></i></button>
 
 </div>
 <br/>

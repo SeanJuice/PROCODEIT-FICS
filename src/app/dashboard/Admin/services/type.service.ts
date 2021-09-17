@@ -10,6 +10,7 @@ import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
 const rootURL = 'https://localhost:44332/api/Admin/';
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -96,7 +97,7 @@ export class TypeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post(`${rootURL}/AddDocumentType/`, doc, httpOptions);
+    return this.http.post(`${rootURL}/AddDocumentype/`, doc, httpOptions);
   }
 
   UpdateDocumentType(doc, id: number) {
@@ -178,5 +179,15 @@ export class TypeService {
       Client,
       httpOptions
     );
+  }
+
+  success(type) {
+    swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: `successfully updated ${type} type!`,
+              showConfirmButton: false,
+              timer: 2000,
+            })
   }
 }

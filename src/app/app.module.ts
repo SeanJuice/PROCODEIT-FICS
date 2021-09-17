@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     SharedModule,
     RouterModule,
     BrowserAnimationsModule,
-
+    SweetAlert2Module.forRoot(),
+    FontAwesomeModule
 
   ],
   providers: [],

@@ -356,7 +356,7 @@ const Admin = [
     Header_Name: 'Client Management',
     Button_Name: 'View',
     ImageLink:
-      'https://img.favpng.com/8/24/20/customer-client-clip-art-png-favpng-6F0gdttFJuRTZPvQC2HbnCxQf.jpg',
+      'https://cdn.contactcenterworld.com/imagestemp/422019135223_shutterstock_186060851.jpg',
     RouterLink: 'client-management',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -366,7 +366,7 @@ const Admin = [
     Header_Name: 'Access Management',
     Button_Name: 'View',
     ImageLink:
-      'http://www.clipartbest.com/cliparts/9T4/L6z/9T4L6zMrc.png',
+      'https://www.calgary.ca/content/dam/www/ca/city-clerks/publishingimages/information-access-privacy/foip.jpg',
     RouterLink: 'access',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',

@@ -14,11 +14,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeGuard } from './components/landing-page/home.guard';
 import { SharedModule } from '../shared/shared.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
 @NgModule({
-  declarations: [ LoginComponent, RegisterComponent, ResetPasswordComponent, ForgotPasswordComponent,LandingPageComponent],
+  declarations: [ LoginComponent, RegisterComponent, ForgotPasswordComponent,LandingPageComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -26,10 +27,11 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     BrowserModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+
   ],
   exports:[
-    LoginComponent, RegisterComponent, ResetPasswordComponent,ForgotPasswordComponent,LandingPageComponent
+    LoginComponent, RegisterComponent,ForgotPasswordComponent,LandingPageComponent
 
   ],
   providers: [AuthService, AuthGuard,HomeGuard],

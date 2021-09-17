@@ -76,12 +76,17 @@
         <div class="Grid-cell">
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label style="color: black;">Gender</mat-label>
-                <input type="text" matInput formControlName="Gender" placeholder="Ex. pat@example.com">
-            </mat-form-field>
+              <mat-label style="color: black;">Gender</mat-label>
+              <mat-select  matInput formControlName="Gender" >
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value="Female">Female</mat-option>
+                  <mat-option value="Other">Other</mat-option>
+                  <mat-option value="Not Say">Prefer not say</mat-option>
+                </mat-select>
+          </mat-form-field>
           </div>
         </div>
-        <div class="Grid-cell">
+      <div class="Grid-cell" *ngIf="showExtra">
           <div class="Demo content-1of2">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label style="color: black;">Passport Number</mat-label>
@@ -92,7 +97,7 @@
       </div>
       <!-- fifth Row -->
       <div class="Grid Grid--gutters Grid--cols-3 u-textCenter">
-        <div class="Grid-cell">
+        <div class="Grid-cell"  *ngIf="showExtra">
           <div class="Demo content-1of3">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label style="color: black;">Country</mat-label>

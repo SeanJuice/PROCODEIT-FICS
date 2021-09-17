@@ -5,6 +5,7 @@ import { TraineesService } from 'src/app/dashboard/Admin/services/trainees.servi
 import { TrainerService } from 'src/app/dashboard/Admin/services/trainer.service';
 import { ClientService } from 'src/app/dashboard/Client/services/client.service';
 import { PractitionerUserService } from 'src/app/dashboard/Practitioner/services/PractitionerUser.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ConfirmUpdateDialog',
@@ -36,22 +37,40 @@ export class ConfirmUpdateDialogComponent implements OnInit {
     if (this.data.role === 2) {
       this.clientService.UpdateClient(this.data.clientN).subscribe(() => {
         this.dialogRef.close();
+        this.success();
       });
     } else if (this.data.role === 3) {
       //!practitoner
-      this.practitionerService.MaintainPractitioner(this.data.clientN).subscribe(() => {
+      this.practitionerService.MaintainPractitioner(this.data.clientN).subscribe(res => {
+        console.log(res)
         this.dialogRef.close();
+        this.success();
+
       });
     } else if (this.data.role === 4) {
       //!Trainer
       this.trainerService.MaintainTrainer(this.data.clientN).subscribe(() => {
         this.dialogRef.close();
+        this.success();
+
       });
     } else if (this.data.role === 5) {
       //!Trainee
       this.traineeService.MaintainTrainee(this.data.clientN).subscribe(() => {
         this.dialogRef.close();
+        this.success();
       });
     }
   }
+
+  success() {
+    swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Successfully updated, profile!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
 }

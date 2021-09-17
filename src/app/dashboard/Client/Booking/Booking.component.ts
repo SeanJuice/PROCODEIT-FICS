@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import Swal from 'sweetalert2';
 
 import {
   NativeDateAdapter,
@@ -27,28 +28,47 @@ export class BookingComponent implements OnInit {
   selectedDate: any | null;
   AvailableSlots: any = [];
   AvailabilityID: number;
-  datesToHighlight:any = [];
+  datesToHighlight: any = [];
   CurrentlyChosen: any;
-
+  Packages: any = [];
+  package
   constructor(private clientservice: ClientService) {}
 
   ngOnInit() {
     this.getAvailableDates();
+    this.getUSerPaidPackages();
   }
 
   BookSlot() {
     /**
      * ?Placeholders
      */
-    let book = {
-      Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
-      Date: this.selectedDate,
-      SessionType_ID: 1,
-    };
 
-    this.clientservice
-      .BookSlot(book, this.AvailabilityID)
-      .subscribe((res) => {});
+    Swal.fire({
+      title: 'Are you sure you want to make this booking?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed && this.validate()) {
+        let book = {
+          Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
+          Date: this.selectedDate,
+          SessionType_ID: 1,
+          Package_ID:  this.package
+        };
+
+        this.clientservice
+          .BookSlot(book, this.AvailabilityID)
+          .subscribe((res) => {
+            Swal.fire('succesfully booked!', '', 'success');
+          });
+      } else if (result.isDenied) {
+        // Swal.fire('Changes are not saved', '', 'info')
+      }
+    });
   }
 
   ChooseSlot(AvailabilityID, slotInfo) {
@@ -57,6 +77,7 @@ export class BookingComponent implements OnInit {
     this.selectedDate = slotInfo.Date;
   }
 
+
   getDateAvailability(date) {
     const momentDate = new Date(date); // Replace event.value with your date value
     const formattedDate = moment(momentDate).format('YYYY-MM-DD');
@@ -64,7 +85,7 @@ export class BookingComponent implements OnInit {
     this.clientservice
       .getDateAvailability(formattedDate.toString())
       .subscribe((res) => {
-        console.log(res)
+        console.log(res);
         res.forEach((dates) => {
           this.AvailableSlots.push(dates);
         });
@@ -73,23 +94,82 @@ export class BookingComponent implements OnInit {
 
   getAvailableDates() {
     this.clientservice.getAvailableDates().subscribe((res) => {
-      console.log(res)
+      console.log(res);
       res.forEach((dates) => {
-
         this.datesToHighlight.push(dates.Date);
       });
     });
-    console.log(this.datesToHighlight)
+    console.log(this.datesToHighlight);
   }
 
   dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
       const highlightDate = this.datesToHighlight
-        .map(strDate => new Date(strDate))
-        .some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear());
+        .map((strDate) => new Date(strDate))
+        .some(
+          (d) =>
+            d.getDate() === date.getDate() &&
+            d.getMonth() === date.getMonth() &&
+            d.getFullYear() === date.getFullYear()
+        );
 
       return highlightDate ? 'special-date' : '';
     };
   }
 
+
+  getUSerPaidPackages() {
+    this.clientservice.getClientPurchasedPackages().subscribe((res) => {
+      if (null) {
+        this.timerNoPackageModal()
+      }
+      else{
+
+         this.Packages = res;
+         console.log(res)
+      }
+    });
+  }
+  timerNoPackageModal() {
+    let timerInterval;
+    Swal.fire({
+      title: 'You do not have  a package!',
+      html: 'The page will redierct you to the purchase page in <b></b> minutes.',
+      timer: 10000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const b: any = Swal.getHtmlContainer().querySelector('b');
+        timerInterval = setInterval(() => {
+          let v
+          b.textContent = ((Swal.getTimerLeft() /1000)%60).toFixed(0);
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log('I was closed by the timer');
+      }
+    });
+  }
+
+  // validate
+  validate() {
+    let book = {
+      Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
+      Date: this.selectedDate,
+      SessionType_ID: 1,
+      Package_ID:  this.package
+    };
+    if(book.Date != null && book.SessionType_ID != null && book.Package_ID != null)
+    {
+      return true
+    }
+    else{
+      return false;
+    }
+  }
 }

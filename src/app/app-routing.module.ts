@@ -18,7 +18,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'Welcome',
     pathMatch: 'full',
-  
+
   },
   //Dash Route
   {
@@ -32,7 +32,6 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register/:ApplicationTypeId', component: RegisterComponent},
     {path:'forgot-password', component: ForgotPasswordComponent},
-    {path:'reset-password', component: ResetPasswordComponent},
     {
       path: "**",
       component:Error404Component
