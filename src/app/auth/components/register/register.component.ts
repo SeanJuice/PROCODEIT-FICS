@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/models/Client';
+import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
 
@@ -16,14 +17,16 @@ export class RegisterComponent implements OnInit {
   ApplicationType: number;
   isClient: boolean;
   submitted = false;
-
+  countries =[]
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private Authservice: AuthService
+    private Authservice: AuthService,
+    private external: ExternalService
   ) {}
 
   ngOnInit(): void {
+    this.getCountries();
     this.ApplicationType = Number(
       this.activatedRoute.snapshot.params.ApplicationTypeId
     );
@@ -93,6 +96,11 @@ export class RegisterComponent implements OnInit {
     );
   }
 
+  getCountries() {
+    this.external.getCountries().subscribe(countries => {
+      this.countries = countries;
+    })
+  }
   public checkPassword(control) {
     let enteredPassword = control.value;
     let passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;

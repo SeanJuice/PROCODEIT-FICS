@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { PractitionerUserService } from '../../Practitioner/services/PractitionerUser.service';
 import { TrainerService } from '../../Admin/services/trainer.service';
 import { TraineesService } from '../../Admin/services/trainees.service';
+import { ExternalService } from 'src/app/shared/services/external.service';
 
 @Component({
   selector: 'app-Profile',
@@ -24,11 +25,13 @@ export class ProfileComponent implements OnInit {
   roleId:number;
   MissingData:any;
   showExtra = false;
+  countries =[]
   constructor(private formBuilder: FormBuilder,
      private Clientservice: ClientService,
      private Practitionerservice: PractitionerUserService,
      private trainerService: TrainerService,
      private traineeService: TraineesService,
+     private external: ExternalService,
 
      @Inject(SESSION_STORAGE)private storage: StorageService,
      private auth:AuthService,
@@ -36,6 +39,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.roleId = this.auth.Role;
+    this.getCountries();
     this.refetch()
   }
 
@@ -134,6 +138,11 @@ export class ProfileComponent implements OnInit {
       delete data.Client_ID;   delete data.Client_Status;  delete data.Passport_Number
     }
     return       this.MissingData;
+  }
+  getCountries() {
+    this.external.getCountries().subscribe(countries => {
+      this.countries = countries;
+    })
   }
 
 }

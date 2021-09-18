@@ -64,4 +64,6 @@ getTime() {
   return this.http.get<any[]>(`${AdrootURL}getTimer`).pipe(share());
 }
 
+
+
 }
