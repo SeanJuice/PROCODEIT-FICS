@@ -7,6 +7,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; };
 @import './app/shared/layouts/multi-select.scss';
 @import './app/shared/layouts/modal.scss';
 
+.not-empty-select.mat-selected {
+    color: green !important;
+
+    background-color: azure;
+  }
+  .mat-select-value{
+    color: rgb(0, 208, 255);
+ }
+
+.mat-select-panel {
+    background-color: rgb(95, 173, 255);
+    color: #2196F3;
+}
 
 mat-dialog-container {
     background-color: rgb(255, 255, 255) !important;

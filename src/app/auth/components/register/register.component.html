@@ -62,19 +62,19 @@
           <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
             <div class="Grid-cell">
               <div class="Demo content-1of2">
-                <mat-form-field class="example-full-width" appearance="fill">
+                <div class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Title</mat-label>
 
-                    <mat-select  matInput formControlName="Title" >
-                        <mat-option value="Mr">Mr</mat-option>
-                        <mat-option value="Ms">Ms</mat-option>
-                        <mat-option value="Mrs">Mrs</mat-option>
-                        <mat-option value="Dr">Dr</mat-option>
-                        <mat-option value="Prof">Prof</mat-option>
+                    <select  class="select-css" matInput formControlName="Title" class="select-css">
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Prof">Prof</option>
 
-                      </mat-select>
+                      </select>
 
-                </mat-form-field>
+                </div>
               </div>
             </div>
             <div class="Grid-cell">
@@ -93,15 +93,15 @@
           <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
             <div class="Grid-cell">
               <div class="Demo content-1of2">
-                <mat-form-field class="example-full-width" appearance="fill">
+                <div class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Gender</mat-label>
-                    <mat-select  matInput formControlName="Gender" >
-                        <mat-option value="Male">Male</mat-option>
-                        <mat-option value="Female">Female</mat-option>
-                        <mat-option value="Other">Other</mat-option>
-                        <mat-option value="Not Say">Prefer not say</mat-option>
-                      </mat-select>
-                </mat-form-field>
+                    <select  class="select-css"  formControlName="Gender"  class="select-css" >
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Not Say">Prefer not say</option>
+                      </select>
+                </div>
               </div>
             </div>
             <div class="Grid-cell">
@@ -117,15 +117,12 @@
            <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
             <div class="Grid-cell">
               <div class="Demo content-1of2">
-                    <mat-form-field class="example-full-width" appearance="fill">
+                    <div class="example-full-width" appearance="fill">
                       <mat-label style="color: black;">Country</mat-label>
-                      <mat-select  matInput formControlName="Country" >
-                          <mat-option value="South Africa">South Africa</mat-option>
-                          <mat-option value="Zimbabwe">Zimbabwe</mat-option>
-                          <mat-option value="Australia">Australia</mat-option>
-                          <mat-option value="Not Say">Prefer not say</mat-option>
-                        </mat-select>
-                  </mat-form-field>
+                      <select  class="select-css" class="select-css"formControlName="Country" >
+                        <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                        </select>
+                  </div>
                   </div>
                 </div>
            </div>
@@ -242,19 +239,19 @@
           <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
             <div class="Grid-cell">
               <div class="Demo content-1of2">
-                <mat-form-field class="example-full-width" appearance="fill">
+                <div class="example-full-width" appearance="fill">
                     <mat-label style="color: black;">Title</mat-label>
 
-                    <mat-select  matInput formControlName="Title" >
-                        <mat-option value="Mr">Mr</mat-option>
-                        <mat-option value="Ms">Ms</mat-option>
-                        <mat-option value="Mrs">Mrs</mat-option>
-                        <mat-option value="Dr">Dr</mat-option>
-                        <mat-option value="Prof">Prof</mat-option>
+                    <select  class="select-css" formControlName="Title" >
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Prof">Prof</option>
 
-                      </mat-select>
+                      </select>
 
-                </mat-form-field>
+                </div>
               </div>
             </div>
             <div class="Grid-cell">
@@ -284,18 +281,18 @@
             </div>
             <div class="Grid-cell">
               <div class="Demo content-1of2">
-                <mat-form-field class="example-full-width" appearance="fill">
+                <div class="example-full-width" appearance="fill">
                   <mat-label style="color: black;">Gender</mat-label>
-                  <mat-select  matInput formControlName="Gender" >
-                      <mat-option value="Male">Male</mat-option>
-                      <mat-option value="Female">Female</mat-option>
-                      <mat-option value="Other">Other</mat-option>
-                      <mat-option value="Not Say">Prefer not say</mat-option>
-                    </mat-select>
+                  <select  class="select-css" formControlName="Gender" >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                      <option value="Not Say">Prefer not say</option>
+                    </select>
                     <mat-hint *ngIf="!formGroupOthers.controls['Gender'].valid && formGroupOthers.controls['Gender'].touched">
                       Gender Cannot be left Empty
                     </mat-hint>
-                </mat-form-field>
+                </div>
               </div>
             </div>
           </div>
@@ -308,7 +305,7 @@
                     <input type="password"  matInput formControlName="Password" placeholder="Ex. pat@example.com">
 
                     <mat-hint *ngIf="!formGroupOthers.controls['Password'].valid && formGroupOthers.controls['Password'].touched">
-                      <h4>Choose a password of at least eight characters, one uppercase letter and one number</h4>
+
                     </mat-hint>
                 </mat-form-field>
               </div>

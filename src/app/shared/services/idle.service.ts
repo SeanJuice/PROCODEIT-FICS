@@ -26,39 +26,39 @@ export class IdleService {
      }
      title = 'PROCODEIT-FICS';
      Timer(idletime?) {
-      if(sessionStorage.getItem("User_ID") != null)
-      {
-        let time = 10000;
-        let idle = Number( sessionStorage.getItem('time'))
-        if(idletime != null)
-        {
-          idle = idletime;
-        }
-        console.log(idle);
-         // sets an idle timeout of 5 seconds, for testing purposes.
-         this.idle.setIdle(idle);
-         // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
-         this.idle.setTimeout(time);
-         // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
-         this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+      // if(sessionStorage.getItem("User_ID") != null)
+      // {
+      //   let time = 10000;
+      //   let idle = Number( sessionStorage.getItem('time'))
+      //   if(idletime != null)
+      //   {
+      //     idle = idletime;
+      //   }
+      //   console.log(idle);
+      //    // sets an idle timeout of 5 seconds, for testing purposes.
+      //    this.idle.setIdle(idle);
+      //    // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
+      //    this.idle.setTimeout(time);
+      //    // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
+      //    this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
-         this.idle.onIdleEnd.subscribe(() => (""));
-         this.idle.onTimeout.subscribe(() => {
-           //alert( this.idleState);
-           this.idleState = 'Timed out!';
+      //    this.idle.onIdleEnd.subscribe(() => (""));
+      //    this.idle.onTimeout.subscribe(() => {
+      //      //alert( this.idleState);
+      //      this.idleState = 'Timed out!';
 
-           this.timedOut = true;
-         });
-         this.idle.onIdleStart.subscribe(
-           () => (this.idlePopUp(Number(time)))
-         );
-        //  this.idle.onTimeoutWarning.subscribe(
-        //    countdown =>
-        //      (console.log(this.idleState = 'You will time out in ' + countdown + ' seconds!'))
-        //  );
-         this.reset();
+      //      this.timedOut = true;
+      //    });
+      //    this.idle.onIdleStart.subscribe(
+      //      () => (this.idlePopUp(Number(time)))
+      //    );
+      //   //  this.idle.onTimeoutWarning.subscribe(
+      //   //    countdown =>
+      //   //      (console.log(this.idleState = 'You will time out in ' + countdown + ' seconds!'))
+      //   //  );
+      //    this.reset();
 
-      }
+      // }
 
      }
 

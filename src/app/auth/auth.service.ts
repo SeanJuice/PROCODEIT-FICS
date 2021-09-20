@@ -90,7 +90,17 @@ export class AuthService {
       .post(rootURL + `/Register/${userID}`, user, httpOptions)
       .subscribe((res: any) => {
         if (!res.Error) {
-          this.router.navigate(['./login']);
+
+          swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Successfully registration! Expect communication from the administrator',
+            showConfirmButton: false,
+            timer: 2500
+          }).then(() => {
+            this.router.navigate(['./login']);
+          })
+
         } else {
           swal.fire({
             icon: 'error',

@@ -14,6 +14,7 @@ import {
   APP_DATE_FORMATS,
 } from 'src/app/shared/material/fomart-datepicker';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Booking',
@@ -31,8 +32,9 @@ export class BookingComponent implements OnInit {
   datesToHighlight: any = [];
   CurrentlyChosen: any;
   Packages: any = [];
+  minDate = new Date();
   package
-  constructor(private clientservice: ClientService) {}
+  constructor(private clientservice: ClientService, private router: Router) {}
 
   ngOnInit() {
     this.getAvailableDates();
@@ -57,16 +59,16 @@ export class BookingComponent implements OnInit {
           Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
           Date: this.selectedDate,
           SessionType_ID: 1,
-          Package_ID:  this.package
+          Package_ID: Number(this.package)
         };
-
+        console.log(book)
         this.clientservice
           .BookSlot(book, this.AvailabilityID)
           .subscribe((res) => {
-            Swal.fire('succesfully booked!', '', 'success');
+            Swal.fire('successfully booked!', '', 'success');
           });
       } else if (result.isDenied) {
-        // Swal.fire('Changes are not saved', '', 'info')
+
       }
     });
   }
@@ -76,12 +78,15 @@ export class BookingComponent implements OnInit {
     this.CurrentlyChosen = slotInfo;
     this.selectedDate = slotInfo.Date;
   }
+  ChoosePackage(Id) {
+      this.package = Number(Id)
+  }
 
 
   getDateAvailability(date) {
     const momentDate = new Date(date); // Replace event.value with your date value
     const formattedDate = moment(momentDate).format('YYYY-MM-DD');
-
+    this.AvailableSlots = [];
     this.clientservice
       .getDateAvailability(formattedDate.toString())
       .subscribe((res) => {
@@ -98,8 +103,9 @@ export class BookingComponent implements OnInit {
       res.forEach((dates) => {
         this.datesToHighlight.push(dates.Date);
       });
+
     });
-    console.log(this.datesToHighlight);
+
   }
 
   dateClass() {
@@ -120,11 +126,10 @@ export class BookingComponent implements OnInit {
 
   getUSerPaidPackages() {
     this.clientservice.getClientPurchasedPackages().subscribe((res) => {
-      if (null) {
+      if (res===null || res.length ===  0) {
         this.timerNoPackageModal()
       }
       else{
-
          this.Packages = res;
          console.log(res)
       }
@@ -151,7 +156,7 @@ export class BookingComponent implements OnInit {
     }).then((result) => {
       /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('I was closed by the timer');
+       this.router.navigate(['PurchasePackage'])
       }
     });
   }
@@ -171,5 +176,12 @@ export class BookingComponent implements OnInit {
     else{
       return false;
     }
+  }
+  //ChangeTime
+
+  TimeChange(time) {
+    let times = time.split('-');
+    let timeArray = [times[0], times[1]];
+    return timeArray;
   }
 }

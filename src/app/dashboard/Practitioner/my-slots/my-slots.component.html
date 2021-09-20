@@ -1,0 +1,31 @@
+<div class="app">
+
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <i class="far fa-calendar-alt"></i>
+      <span> Your Available TimeSlots</span>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>Start Time</td>
+          <td>End Time</td>
+          <td>Client booked</td>
+          <td></td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let slot of MySlots">
+            <td>{{slot.Date }}</td>
+            <td>{{slot.StartTime}}</td>
+            <td>{{slot.EndTime}}</td>
+            <td>{{slot.Client}}</td>
+            <td><a class="btn-gradient red small" (click)="Transfer(slot)">Reschedule Availability</a></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

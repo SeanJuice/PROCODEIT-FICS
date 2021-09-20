@@ -76,8 +76,8 @@ export class ClientService {
     return this.http.get(`${rootURL}/ViewPackages/`).pipe(share());
   }
 
-  getClientPurchasedPackages() {
-    return this.http.get(`${rootURL}/GetClientPackages/${this.ClientID}`).pipe(share());
+  getClientPurchasedPackages(): Observable<any[]> {
+    return this.http.get<any[]>(`${rootURL}/GetClientPackages/${this.ClientID}`).pipe(share());
   }
   /**
    * ?Purchase Package
@@ -159,7 +159,6 @@ export class ClientService {
    */
 
   BookSlot(BookingIDs,availability_id){
-    BookingIDs.Package_ID =  Number(this.storage.get("Package"))
     BookingIDs.Client_ID = this.ClientID;
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
      return this.http.post(`${rootURL}/BookSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());

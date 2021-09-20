@@ -9,25 +9,28 @@ import { SendClientTaskComponent } from './send-client-task/send-client-task.com
 import { AssignClientTaskComponent } from './send-client-task/AssignClientTask/AssignClientTask.component';
 import { SendFeedbackDialogComponent } from './send-feedbacks/sendFeedbackDialog/sendFeedbackDialog.component';
 import { SendFeedbacksComponent } from './send-feedbacks/send-feedbacks.component';
-import { PractitionerProfileComponent}  from './PractitonerProfile/PractitonerProfile.component';
-
-
+import { PractitionerProfileComponent } from './PractitonerProfile/PractitonerProfile.component';
+import { MySlotsComponent } from './my-slots/my-slots.component';
 
 @NgModule({
-
-  entryComponents:[SendFeedbackDialogComponent],
+  entryComponents: [SendFeedbackDialogComponent],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-     FormsModule,
+    FormsModule,
     RouterModule,
     PractitionerRoutingModule,
 
   ],
-  declarations: [SetAvailabilityComponent,
-    SendClientTaskComponent,AssignClientTaskComponent
-    ,SendFeedbackDialogComponent,SendFeedbacksComponent,
-    PractitionerProfileComponent],
+  declarations: [
+    SetAvailabilityComponent,
+    SendClientTaskComponent,
+    AssignClientTaskComponent,
+    SendFeedbackDialogComponent,
+    SendFeedbacksComponent,
+    PractitionerProfileComponent,
+    MySlotsComponent
+  ],
 })
-export class PractitionerModule { }
+export class PractitionerModule {}

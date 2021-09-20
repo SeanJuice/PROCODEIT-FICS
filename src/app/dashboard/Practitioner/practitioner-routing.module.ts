@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from '../Client/Profile/Profile.component';
 import { ClientRequestsComponent } from './client-requests/client-requests.component';
+import { MySlotsComponent } from './my-slots/my-slots.component';
 import { PractitionerProfileComponent  } from './PractitonerProfile/PractitonerProfile.component';
 import { PurchaseQuestionnaireComponent } from './purchase-questionnaire/purchase-questionnaire.component';
 import { AssignClientTaskComponent } from './send-client-task/AssignClientTask/AssignClientTask.component';
@@ -16,8 +17,7 @@ const routes: Routes = [
   { path: 'set-availability', component: SetAvailabilityComponent },
   { path: 'send-client-task', component: SendClientTaskComponent },
   { path: 'feedbacks', component: SendFeedbacksComponent },
-
-
+  {path:'my-slots', component:MySlotsComponent},
   {
     path: 'Assign-client-task/:id',
     component: AssignClientTaskComponent,

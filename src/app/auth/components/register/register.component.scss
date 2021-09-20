@@ -1,4 +1,6 @@
-.mat-card {
+
+  @import 'src/app/shared/layouts/dropdown.scss';
+  .mat-card {
     background: rgba(196, 196, 196, 0.568);
 }
 .mat-hint {
