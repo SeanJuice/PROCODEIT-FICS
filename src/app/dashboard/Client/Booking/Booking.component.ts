@@ -62,11 +62,11 @@ export class BookingComponent implements OnInit {
           Package_ID: Number(this.package)
         };
         console.log(book)
-        // this.clientservice
-        //   .BookSlot(book, this.AvailabilityID)
-        //   .subscribe((res) => {
-        //     Swal.fire('succesfully booked!', '', 'success');
-        //   });
+        this.clientservice
+          .BookSlot(book, this.AvailabilityID)
+          .subscribe((res) => {
+            Swal.fire('successfully booked!', '', 'success');
+          });
       } else if (result.isDenied) {
 
       }
@@ -176,5 +176,12 @@ export class BookingComponent implements OnInit {
     else{
       return false;
     }
+  }
+  //ChangeTime
+
+  TimeChange(time) {
+    let times = time.split('-');
+    let timeArray = [times[0], times[1]];
+    return timeArray;
   }
 }

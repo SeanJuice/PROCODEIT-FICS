@@ -145,7 +145,7 @@ const dashboards_settings_client = [
   {
     NumberOfObject: 1,
     Header_Name: 'Profile',
-    Button_Name: 'View My Profile',
+    Button_Name: 'Maintain Profile',
     ImageLink:
       'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'Profile',
@@ -199,6 +199,16 @@ const dashboards_settings_practitioner = [
   },
   {
     NumberOfObject: 1,
+    Header_Name: 'My Availability Slots',
+    Button_Name: 'View',
+    ImageLink:
+      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+    RouterLink: 'my-slots',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
     Header_Name: 'Send Client Task',
     Button_Name: 'View',
     ImageLink:
@@ -210,7 +220,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'Profile',
-    Button_Name: 'View My Profile',
+    Button_Name: 'Maintain Profile',
     ImageLink:
       'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'Profile-Practitioner',
@@ -264,7 +274,7 @@ const dashboards_settings_trainer = [
   {
     NumberOfObject: 1,
     Header_Name: 'Profile',
-    Button_Name: 'View',
+    Button_Name: 'Maintain Profile',
     ImageLink:
     'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'trainer-profile',
@@ -339,7 +349,7 @@ const dashboards_settings_trainee = [
   {
     NumberOfObject: 1,
     Header_Name: 'Profile',
-    Button_Name: 'View',
+    Button_Name: 'Maintain Profile',
     ImageLink:
     'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'trainee-profile',

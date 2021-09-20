@@ -75,11 +75,20 @@ export class PractitionerUserService {
 
 
 
-  SetPractitionerAvailability(dates:any): Observable<any>{
+  SetPractitionerAvailability(dates:any,details?): Observable<any>{
+    let subscription : Observable<any>
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.post(`${rootURL}/SetPractitionerAvailability/`,dates, httpOptions);
+    if(details==null)
+    {
+      subscription = this.http.post(`${rootURL}/SetPractitionerAvailability/`,dates, httpOptions);
+    } else {
+
+
+      subscription = this.http.post(`${rootURL}/ReschedulePractitionerAvailability/`,dates[0], httpOptions);
+    }
+    return subscription;
   }
 
 
@@ -89,5 +98,11 @@ export class PractitionerUserService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
     return this.http.post(`${rootURL}/MaintainPractitioner/${this.auth.loginId}`,user, httpOptions);
+  }
+
+  getMyAvailability():Observable<any[]> {
+    return this.http
+    .get<any[]>(`${rootURL}/getMyAvailability/${this.auth.loginId}`)
+    .pipe(share());
   }
 }

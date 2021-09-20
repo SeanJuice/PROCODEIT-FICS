@@ -21,7 +21,8 @@ import { SimpleModalModule } from 'ngx-simple-modal';
 import { CustomErrorHandler } from './utils/modals/custom-error/custom-error-handler';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
-
+import { TimePipe } from './utils/time.pipe';
+import {MatChipsModule} from '@angular/material/chips'
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -37,7 +38,8 @@ import { ResetPasswordComponent } from '../auth/components/reset-password/reset-
     AlertComponent,
     ConfirmComponent,
     PromptComponent,
-    ParentDialogModalComponent
+    ParentDialogModalComponent,
+    TimePipe
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { ResetPasswordComponent } from '../auth/components/reset-password/reset-
     MatSliderModule,
     FormsModule,
     MaterialModule,
-    SimpleModalModule.forRoot({container: "modal-container"})
+    SimpleModalModule.forRoot({container: "modal-container"}),
+    MatChipsModule
   ],
   exports: [
     HeaderComponent,
@@ -59,7 +62,9 @@ import { ResetPasswordComponent } from '../auth/components/reset-password/reset-
     ProfileComponent,
     MatSliderModule,
     ClientAuditReportComponent,
-    SweetAlert2Module
+    SweetAlert2Module,
+    TimePipe,
+    MatChipsModule
   ],
   entryComponents: [
     TimesetterComponent,

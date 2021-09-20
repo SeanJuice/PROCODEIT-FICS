@@ -110,9 +110,9 @@ export class RegisterComponent implements OnInit {
   }
   getErrorPassword() {
     return this.formGroup.get('Password').hasError('required')
-      ? 'Field is required (at least eight characters, one uppercase letter and one number)'
+      ? ''
       : this.formGroup.get('Password').hasError('requirements')
-      ? 'Password needs to be at least eight characters, one uppercase letter and one number'
+      ? ''
       : '';
   }
   get f() {

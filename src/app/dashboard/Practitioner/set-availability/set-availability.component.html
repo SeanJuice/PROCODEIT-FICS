@@ -1,7 +1,11 @@
 <div class="wrapper">
   <div class="Grid Grid--full u-textCenter">
 
-    <div class="Grid-cell">     <mat-card><h1>SET AVAILABILITY TIME</h1></mat-card> </div>
+    <div class="Grid-cell">
+       <mat-card   *ngIf="!isReschedule"><h1>SET AVAILABILITY TIME</h1></mat-card>
+       <mat-card  *ngIf="isReschedule"><h1>RESCHEDULE AVAILABILITY TIME</h1></mat-card>
+     </div>
+
   </div>
 
 </div>
@@ -30,17 +34,34 @@
             Choose your availability  Time
           </mat-card-title>
 
-          <div *ngIf="isDateChosen">
-          <div  *ngFor="let slots of TimeSlots | slice:0:show; let i = index" >
-                <mat-card  [ngClass]="slots.isChosen? 'blue' : 'white'" (click)="ChooseSession(slots.TimeSlot_ID,i)" >
-                  {{slots.StartTime}} - {{slots.EndTime}}
+        <div *ngIf="isDateChosen && !isReschedule">
+                  <div  *ngFor="let slots of TimeSlots | slice:0:show; let i = index" >
+                    <mat-card  [ngClass]="slots.isChosen? 'blue' : 'white'" (click)="ChooseSession(slots.TimeSlot_ID,i)" >
+                      {{slots.StartTime}} - {{slots.EndTime}}
 
-              </mat-card>
-              <br>
-          </div>
-          <button type="button" class="btn btn-warning" *ngIf="show < TimeSlots.length" (click)="increaseShow()">View More... </button>
+                  </mat-card>
+                  <br>
+              </div>
+
+
+          <button type="button"   class="btn btn-warning" *ngIf="show < TimeSlots.length && !isReschedule" (click)="increaseShow()">View More... </button>
         </div>
+        <mat-card *ngIf="isDateChosen && isReschedule">
 
+              <mat-form-field appearance="fill" style="color: rgb(255, 255, 255);background-color: rgb(11, 157, 255); width: 100%">
+                <mat-select
+
+                  panelClass="select-css"
+                >
+                  <mat-option value="" selected></mat-option>
+                  <mat-option *ngFor="let slots of TimeSlots; let i = index" (click)="ChooseSession(slots.TimeSlot_ID,i)">
+                    {{slots.StartTime}} - {{slots.EndTime}}
+                  </mat-option>
+                  <br>
+                </mat-select>
+              </mat-form-field>
+
+        </mat-card>
         </mat-card>
       </div>
     </div>
