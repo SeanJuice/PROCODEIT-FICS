@@ -124,6 +124,16 @@ const dashboards_settings_client = [
   },
   {
     NumberOfObject: 1,
+    Header_Name: ' My Packages',
+    Button_Name: 'View Packages',
+    ImageLink:
+      'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
+    RouterLink: 'MyPackages',
+    icon: 'receipt',
+    color: '',
+  },
+  {
+    NumberOfObject: 1,
     Header_Name: 'My Questionnaires',
     Button_Name: 'View Questionnaires',
     ImageLink:

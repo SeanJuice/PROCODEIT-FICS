@@ -9,7 +9,7 @@ import { Task } from 'src/app/models/Task';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { PractitionerUserService } from '../../services/PractitionerUser.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-AssignClientTask',
   templateUrl: './AssignClientTask.component.html',
@@ -64,12 +64,29 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
 
   Submit() {
 
+
+    Swal.fire({
+      title: 'are you sure you want to send this task?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
+          console.log(res);
+          this.getTasksAssigned();
+          this.snackbar.openSnackBar("Successfully Assigned tasks")
+        })
+      }
+      else {
+
+      }
+    })
+
       console.log(this.Task);
-      this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
-        console.log(res);
-        this.getTasksAssigned();
-        this.snackbar.openSnackBar("Successfully Assigned tasks")
-      })
+
 
   }
 

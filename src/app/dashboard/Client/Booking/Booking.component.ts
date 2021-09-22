@@ -34,6 +34,8 @@ export class BookingComponent implements OnInit {
   Packages: any = [];
   minDate = new Date();
   package
+
+
   constructor(private clientservice: ClientService, private router: Router) {}
 
   ngOnInit() {
@@ -90,17 +92,21 @@ export class BookingComponent implements OnInit {
     this.clientservice
       .getDateAvailability(formattedDate.toString())
       .subscribe((res) => {
-        console.log(res);
         res.forEach((dates) => {
+          console.log(dates);
           this.AvailableSlots.push(dates);
+          if(dates.Practitioner_ID === Number( sessionStorage.getItem('Practitioner_ID')))
+            {
+              this.AvailableSlots.push(dates);
+            }
         });
       });
   }
 
   getAvailableDates() {
     this.clientservice.getAvailableDates().subscribe((res) => {
-      console.log(res);
       res.forEach((dates) => {
+        console.log(dates);
         this.datesToHighlight.push(dates.Date);
       });
 
