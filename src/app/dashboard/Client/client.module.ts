@@ -19,6 +19,18 @@ import {ClientRoutingModule } from './client-routing.module'
 import { TaskDialogComponent } from './Mytasks/taskDialog/taskDialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ClientAuditReportComponent } from './clientAuditReport/clientAuditReport.component';
+import { MyPackagesComponent } from './MyPackages/MyPackages.component';
+//calender
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import bootstrapPlugin from '@fullcalendar/bootstrap';
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+  bootstrapPlugin,
+
+]);
 
 @NgModule({
   imports: [
@@ -28,13 +40,14 @@ import { ClientAuditReportComponent } from './clientAuditReport/clientAuditRepor
     RouterModule,
     ClientRoutingModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FullCalendarModule // register FullCalendar with you app
   ],
   declarations: [
     MyQuestionnairesComponent,MySessionsComponent,MytasksComponent
     ,PurchasePackagesComponent,ViewPackagesComponent,FinalPurchaseComponent,
     TrialQuestionnaireComponent,ProgressReportComponent,BookingComponent,
-    ClientAuditReportComponent,
+    ClientAuditReportComponent,MyPackagesComponent,
 
     // ProfileComponent
     // Dialogs

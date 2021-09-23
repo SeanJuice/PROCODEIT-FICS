@@ -64,6 +64,8 @@ export class AuthService {
           sessionStorage.setItem('rle', this.encrypt(res.UserRole_ID));
           sessionStorage.setItem('User_ID', this.encrypt(res.User_ID));
           sessionStorage.setItem('liid', this.encrypt(res.LoginID));
+          sessionStorage.setItem('Practitioner_ID', this.encrypt(res.Practitioner_ID));
+
 
           this.router.navigate(['./dashboard']);
 

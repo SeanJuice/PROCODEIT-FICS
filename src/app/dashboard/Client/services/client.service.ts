@@ -76,6 +76,12 @@ export class ClientService {
     return this.http.get(`${rootURL}/ViewPackages/`).pipe(share());
   }
 
+    // Get Packages
+
+    getMyPackages() {
+      return this.http.get(`${rootURL}/GetClientPackages/${this.ClientID}`).pipe(share());
+    }
+
   getClientPurchasedPackages(): Observable<any[]> {
     return this.http.get<any[]>(`${rootURL}/GetClientPackages/${this.ClientID}`).pipe(share());
   }

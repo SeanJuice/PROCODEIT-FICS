@@ -1,1 +1,14 @@
 @import '../../../shared/layouts/dashboardlayout/dashboardlayout.component.scss';
+
+
+  .fc-event-container {
+    position: relative;
+    z-index: -1;
+    text-align: center;
+}
+.fc-event {
+    border-radius: 0;
+}
+.fc-day-grid-event {
+    margin: 0;
+}
