@@ -13,7 +13,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { GoogleChartsModule } from 'angular-google-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

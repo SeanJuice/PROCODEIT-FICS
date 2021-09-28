@@ -1,0 +1,22 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <form [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <div class="form-group">
+      <label for="role">User Roles</label>
+    <select  class="select-css"  #mySelect formControlName="role"  (change)="submit(mySelect.value)"> >
+      <option  *ngFor="let roles of UserRoles" [value]=roles.UserRole_ID>{{roles.Name}}</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Date</label>
+      <input   type="date" formControlName="date"   #date class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" (change)="getReportResults(date.value)" placeholder="Enter email">
+
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+
+
+  <echarts [initOpts]="initOpts" [options]="option"></echarts>
+  </div>
+</div>
