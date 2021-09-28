@@ -12,6 +12,7 @@ export class InactiveUsersReportComponent implements OnInit {
     UserRoles: Array<any>;
     option
     initOpts
+    dropdown = false;
     form = new FormGroup({
       role: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required)
@@ -24,7 +25,6 @@ export class InactiveUsersReportComponent implements OnInit {
 
   ngOnInit() {
     this. getUserRoles();
-    this.buildGraph();
   }
 
 
@@ -36,26 +36,34 @@ export class InactiveUsersReportComponent implements OnInit {
     })
   }
   getReportResults(date) {
-    console.log(date);
-    this.reportService.InactiveUsersReport(Number(this.form.controls.role.value),date).subscribe(res=>{
-      console.log(res);
-      let Data = [];
-      res.forEach(element => {
-        Data.push([element.Month, element.UsersInactiveSince])
-      });
+    if(Number(this.form.controls.role.value) != undefined && Number(this.form.controls.role.value) != null && Number(this.form.controls.role.value) != 0)
+    {
+      console.log(Number(this.form.controls.role.value));
+      this.reportService.InactiveUsersReport(Number(this.form.controls.role.value),date).subscribe((res:any)=>{
+        console.log(res);
+        let Months = [];
+        let numbers = [];
+        res.Results.forEach(element => {
+          Months.push(element.Month)
+          numbers.push(element.UsersInactiveSince)
+        });
+        this.buildGraph(numbers,Months)
+      })
+    }
 
-    })
   }
-  submit(form){
-    console.log(form.role);
+  touched(){
+    this.dropdown = !this.dropdown
   }
 
-  buildGraph()
+  buildGraph(data: Array<number>,months: Array<string>)
+
   {
+    console.log(data, ">>", months);
     this.initOpts = {
       renderer: 'svg',
-      width: 300,
-      height: 300
+      width: 900,
+      height: 500
     };
 
     this.option = {
@@ -75,20 +83,22 @@ export class InactiveUsersReportComponent implements OnInit {
       xAxis: [
         {
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: months,
           axisTick: {
             alignWithLabel: true
-          }
+          },
+          z: 10,
         }
       ],
       yAxis: [{
         type: 'value'
       }],
       series: [{
-        name: 'Counters',
+        name: 'UsersInactiveSince',
+        barCategoryGap: '40%',
+        barGap: '-100%',
         type: 'bar',
-        barWidth: '60%',
-        data: [10, 52, 200, 334, 390, 330, 220]
+        data: data
       }]
     };
   }

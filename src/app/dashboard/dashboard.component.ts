@@ -371,6 +371,7 @@ const dashboards_settings_trainee = [
  * ? Admin dashboard
  */
 const Admin = [
+
   {
     NumberOfObject: 1,
     Header_Name: 'Client Management',
@@ -461,4 +462,5 @@ const Admin = [
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+
 ];

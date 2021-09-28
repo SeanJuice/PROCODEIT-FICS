@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ClientAuditReportComponent } from './client-audit-report/client-audit-report.component';
 import { InactiveUsersReportComponent } from './inactiveUsersReport/inactiveUsersReport.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-
+import { RegisteredUserReportComponent } from './RegisteredUserReport/RegisteredUserReport.component';
 
 @NgModule({
   imports: [
@@ -24,10 +24,16 @@ import { GoogleChartsModule } from 'angular-google-charts';
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),
-    GoogleChartsModule
-
+    GoogleChartsModule,
   ],
-  declarations: [ReportsComponent,PackageSalesReportComponent,ReportscardsComponent,ClientAuditReportComponent,InactiveUsersReportComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  declarations: [
+    ReportsComponent,
+    PackageSalesReportComponent,
+    ReportscardsComponent,
+    ClientAuditReportComponent,
+    InactiveUsersReportComponent,
+    RegisteredUserReportComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ReportsModule { }
+export class ReportsModule {}
