@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { HomeGuard } from './components/landing-page/home.guard';
 import { SharedModule } from '../shared/shared.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LazyLoadScriptService } from '../dashboard/services/lazy-load-script.service';
 
 
 
@@ -34,6 +35,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     LoginComponent, RegisterComponent,ForgotPasswordComponent,LandingPageComponent
 
   ],
-  providers: [AuthService, AuthGuard,HomeGuard],
+  providers: [AuthService, AuthGuard,HomeGuard, LazyLoadScriptService],
 })
 export class AuthModule { }

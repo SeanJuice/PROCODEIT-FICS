@@ -14,6 +14,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { LazyLoadScriptService } from './dashboard/services/lazy-load-script.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { GoogleChartsModule } from 'angular-google-charts';
     FontAwesomeModule,
     GoogleChartsModule
   ],
-  providers: [],
+  providers: [LazyLoadScriptService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
