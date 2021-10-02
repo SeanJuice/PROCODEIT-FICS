@@ -6,6 +6,7 @@ import { ClientAuditReportComponent } from './client-audit-report/client-audit-r
 import { ReportscardsComponent } from './Reportscards_landing/Reportscards.component';
 import { InactiveUsersReportComponent } from './inactiveUsersReport/inactiveUsersReport.component';
 import { RegisteredUserReportComponent } from './RegisteredUserReport/RegisteredUserReport.component';
+import { TraineePerformanceReportComponent } from './TraineePerformanceReport/TraineePerformanceReport.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'registered-users-report',
     component: RegisteredUserReportComponent
+  },
+  {
+    path: 'trainee-performance',
+    component: TraineePerformanceReportComponent
   }
 ];
 @NgModule({

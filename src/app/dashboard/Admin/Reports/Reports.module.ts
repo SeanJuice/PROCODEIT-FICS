@@ -13,6 +13,7 @@ import { InactiveUsersReportComponent } from './inactiveUsersReport/inactiveUser
 import { GoogleChartsModule } from 'angular-google-charts';
 import { RegisteredUserReportComponent } from './RegisteredUserReport/RegisteredUserReport.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { TraineePerformanceReportComponent } from './TraineePerformanceReport/TraineePerformanceReport.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ClientAuditReportComponent,
     InactiveUsersReportComponent,
     RegisteredUserReportComponent,
+    TraineePerformanceReportComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
