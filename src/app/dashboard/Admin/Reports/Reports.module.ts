@@ -12,6 +12,7 @@ import { ClientAuditReportComponent } from './client-audit-report/client-audit-r
 import { InactiveUsersReportComponent } from './inactiveUsersReport/inactiveUsersReport.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { RegisteredUserReportComponent } from './RegisteredUserReport/RegisteredUserReport.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { RegisteredUserReportComponent } from './RegisteredUserReport/Registered
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'),
     }),
-    GoogleChartsModule,
+    NgxChartsModule,
   ],
   declarations: [
     ReportsComponent,

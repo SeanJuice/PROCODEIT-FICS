@@ -1,0 +1,49 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container"></div>
+</div>
+
+<div class="card container" style="width: 100%">
+  <div class="card-body">
+    <h1 class="display-4">The FICS Corp Presents:</h1>
+    <h3>Bookings Per Package Report</h3>
+
+    <div class="d-flex justify-content-center" style="padding-bottom:25px;">
+    <form [formGroup]="form" (ngSubmit)="touched()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Date</label>
+        <input
+          type="date"
+          formControlName="date"
+          #date
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          (change)="getReportResults(date.value)"
+          placeholder="Enter email"
+          [disabled]="dropdown"/>
+      </div>
+    </form>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="isClicked">
+      ...
+      <ngx-charts-bar-vertical
+
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="UserRoles"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legendPosition]="legendPosition"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)"
+        class="mx-auto"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+  </div>
+</div>
