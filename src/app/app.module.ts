@@ -13,6 +13,13 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { LazyLoadScriptService } from './dashboard/services/lazy-load-script.service';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -29,10 +36,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule,
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    GoogleChartsModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [LazyLoadScriptService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

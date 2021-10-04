@@ -1,4 +1,6 @@
 @import '../Access/clients/clients.component.scss';
+@import 'src/app/shared/layouts/dropdown.scss';
+
 .example-radio-group {
     display: flex;
     flex-direction: column;
@@ -49,7 +51,7 @@
     }
     &:hover {
       .photo {
-        transform: scale(1.3) rotate(3deg);
+        // transform: scale(1.3) rotate(3deg);
       }
     }
     .meta {
@@ -65,7 +67,6 @@
       left: 0;
       background-size: cover;
       background-position: center;
-      transition: transform .2s;
     }
     .details,
     .details ul {
@@ -80,7 +81,7 @@
       bottom: 0;
       left: -100%;
       margin: auto;
-      transition: left .2s;
+
       background: rgba(#000, .6);
       color: $color_white;
       padding: 10px;

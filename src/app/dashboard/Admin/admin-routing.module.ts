@@ -23,6 +23,7 @@ import { PractitionerToClientComponent } from './assign-user/practitioner-to-cli
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 import { ReportsComponent } from './Reports/Reports.component';
 import { AdministrationsComponent } from './administrations/administrations.component';
+import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 
 const routes: Routes = [
   {
@@ -87,7 +88,7 @@ const routes: Routes = [
   },
   {
     path: 'audit-trail',
-    component: ClientManagementComponent,
+    component: AuditTrailComponent,
   },
   {
     path: 'assign',
@@ -115,6 +116,7 @@ const routes: Routes = [
     component: AdministrationsComponent,
     loadChildren: () =>import('./administrations/administrations.module').then((m) => m.AdministrationsModule),
   },
+
 ];
 
 @NgModule({

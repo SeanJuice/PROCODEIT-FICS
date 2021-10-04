@@ -105,7 +105,7 @@ const dashboards_settings_client = [
   {
     NumberOfObject: 2,
     Header_Name: 'My Sessions',
-    Button_Name: 'View Sessions',
+    Button_Name: 'Sessions',
     ImageLink:
       'https://kgdshgoixg1vrh3sdpjwgidf-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/first-therapy-session-sunday-edit-scaled.jpg',
     RouterLink: 'Sessions',
@@ -125,7 +125,7 @@ const dashboards_settings_client = [
   {
     NumberOfObject: 1,
     Header_Name: ' My Packages',
-    Button_Name: 'View Packages',
+    Button_Name: 'Packages',
     ImageLink:
       'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
     RouterLink: 'MyPackages',
@@ -135,7 +135,7 @@ const dashboards_settings_client = [
   {
     NumberOfObject: 1,
     Header_Name: 'My Questionnaires',
-    Button_Name: 'View Questionnaires',
+    Button_Name: 'Questionnaires',
     ImageLink:
       'https://cdn.paperpile.com/guides/img/research-paper-types-illustr-400x400.png',
     RouterLink: 'My_Questionnaires',
@@ -145,7 +145,7 @@ const dashboards_settings_client = [
   {
     NumberOfObject: 1,
     Header_Name: 'My Tasks',
-    Button_Name: 'View Tasks',
+    Button_Name: 'Tasks',
     ImageLink:
       'https://blog.gainapp.com/wp-content/uploads/2019/12/Blog-PrioritizeWork-2.jpg',
     RouterLink: 'tasks',
@@ -190,7 +190,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'Purchase Questionnaire',
-    Button_Name: 'purchase',
+    Button_Name: 'Purchase',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'purchase-questionnaire',
@@ -200,7 +200,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'Set Availability',
-    Button_Name: 'View',
+    Button_Name: 'Availability',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'set-availability',
@@ -210,7 +210,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'My Availability Slots',
-    Button_Name: 'View',
+    Button_Name: 'Slots',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'my-slots',
@@ -220,7 +220,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'Send Client Task',
-    Button_Name: 'View',
+    Button_Name: 'Send',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'send-client-task',
@@ -240,7 +240,7 @@ const dashboards_settings_practitioner = [
   {
     NumberOfObject: 1,
     Header_Name: 'Send Feedbacks',
-    Button_Name: 'View Tasks',
+    Button_Name: 'Feedback',
     ImageLink:
       'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'feedbacks',
@@ -256,7 +256,7 @@ const dashboards_settings_trainer = [
   {
     NumberOfObject: 1,
     Header_Name: 'Send Feedback',
-    Button_Name: 'View',
+    Button_Name: 'Feedback',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'send-feedback',
@@ -265,7 +265,7 @@ const dashboards_settings_trainer = [
   },{
     NumberOfObject: 1,
     Header_Name: 'send task to trainee',
-    Button_Name: 'View',
+    Button_Name: 'Task',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'send-task-trainee',
@@ -274,7 +274,7 @@ const dashboards_settings_trainer = [
   },{
     NumberOfObject: 1,
     Header_Name: 'Set Availability',
-    Button_Name: 'View',
+    Button_Name: 'Set',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'set-practitioner-availability',
@@ -309,7 +309,7 @@ const dashboards_settings_trainee = [
   {
     NumberOfObject: 1,
     Header_Name: 'Sessions',
-    Button_Name: 'Book',
+    Button_Name: 'Sessions',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'sessions',
@@ -329,7 +329,7 @@ const dashboards_settings_trainee = [
   {
     NumberOfObject: 1,
     Header_Name: 'Performance Report',
-    Button_Name: 'Book',
+    Button_Name: 'Performance',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'performance',
@@ -339,7 +339,7 @@ const dashboards_settings_trainee = [
   {
     NumberOfObject: 1,
     Header_Name: 'My Questionnaires',
-    Button_Name: 'Book',
+    Button_Name: 'Questionnaires',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'questionnaire',
@@ -349,7 +349,7 @@ const dashboards_settings_trainee = [
   {
     NumberOfObject: 1,
     Header_Name: 'My Tasks',
-    Button_Name: 'Book',
+    Button_Name: 'Tasks',
     ImageLink:
       'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
     RouterLink: 'trainee-tasks',
@@ -371,6 +371,7 @@ const dashboards_settings_trainee = [
  * ? Admin dashboard
  */
 const Admin = [
+
   {
     NumberOfObject: 1,
     Header_Name: 'Client Management',
@@ -384,7 +385,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Access Management',
-    Button_Name: 'View',
+    Button_Name: 'Access',
     ImageLink:
       'https://www.calgary.ca/content/dam/www/ca/city-clerks/publishingimages/information-access-privacy/foip.jpg',
     RouterLink: 'access',
@@ -394,7 +395,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Application Requests ',
-    Button_Name: 'View',
+    Button_Name: 'Requests',
     ImageLink:
       'https://www.netclipart.com/pp/m/9-93978_chapter-questions-for-interviewer-to-ask-during-.png',
     RouterLink: 'application-requests',
@@ -404,7 +405,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Assign Users',
-    Button_Name: 'View',
+    Button_Name: 'Assign',
     ImageLink:
       'http://photos1.fotosearch.com/bthumb/CSP/CSP207/k2074736.jpg',
     RouterLink: 'assign',
@@ -414,7 +415,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Manage Questionnaires ',
-    Button_Name: 'View',
+    Button_Name: 'Manage',
     ImageLink:
       'https://image.freepik.com/free-vector/business-background-design_1167-77.jpg',
     RouterLink: 'questionnaire-management',
@@ -424,7 +425,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Assign Questionnaire',
-    Button_Name: 'View',
+    Button_Name: 'Assign',
     ImageLink:
       'https://thumbs.dreamstime.com/b/question-mark-character-notepad-cartoon-42449414.jpg',
     RouterLink: 'assign-questionnaire',
@@ -434,7 +435,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Audit Trail',
-    Button_Name: 'View',
+    Button_Name: 'Audit',
     ImageLink:
       'http://images.clipartpanda.com/surtax-clipart-60496-design-mascot-paper-trail.jpg',
     RouterLink: 'audit-trail',
@@ -444,7 +445,7 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Reports',
-    Button_Name: 'View',
+    Button_Name: 'Reports',
     ImageLink:
       'http://3.bp.blogspot.com/_O0OyyjHaqpo/SwISTQXBJ5I/AAAAAAAAAA8/5RPLkthofZY/s1600/report.jpg',
     RouterLink: 'Reports',
@@ -454,11 +455,12 @@ const Admin = [
   {
     NumberOfObject: 1,
     Header_Name: 'Administration',
-    Button_Name: 'View',
+    Button_Name: 'Administration',
     ImageLink:
       'https://www.netclipart.com/pp/m/91-911062_receptionist-clipart-admin-assistant-cartoon.png',
     RouterLink: 'Administrations',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+
 ];

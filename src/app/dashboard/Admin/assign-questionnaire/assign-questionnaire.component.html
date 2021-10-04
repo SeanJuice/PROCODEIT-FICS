@@ -1,5 +1,10 @@
 
 <app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+
+<div class="container Grid Grid--full u" style="padding-top: 3%; background-color:transparent">
+
+
+
 <h1 class="h1 title" *ngIf="!isLoaded">
   <i class="fas fa-home"></i>
   <span>Assign Questionnaire to a Client</span>
@@ -43,14 +48,7 @@
 <div class="blog-card">
   <div class="meta">
     <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-    <ul class="details">
-      <li class="author">step 1 of 4<a href="#"></a></li>
-      <li class="tags">
-        <ul>
-          <li><a href="#">Learn</a></li>
-        </ul>
-      </li>
-    </ul>
+
   </div>
   <div class="description" >
     <h1>Choose Assigning {{Name}}</h1>
@@ -58,20 +56,14 @@
     <p> </p>
   <!-- start -->
   <div style="padding-left:40%">
-    <mat-form-field appearance="fill" style="color: rgb(255, 255, 255);background-color: rgb(11, 157, 255);">
-      <mat-select
-        matNativeControl
-        [(ngModel)]="Client"
-        name="car"
-        panelClass="example-panel-blue"
-      >
-        <mat-option value="" selected></mat-option>
-        <mat-option *ngFor="let client of ClientList" [value]="client.Client_ID"  (click)="NextStep(1,client)">
+    <div appearance="fill">
+      <select  class="select-css" #t  [(ngModel)]="Client" (change)="NextStep(1,$event)" >
+        <option *ngFor="let client of ClientList" [ngValue]="client"  >
           {{ client.Name }} {{ client.Surname }}
-        </mat-option>
-        <br>
-      </mat-select>
-    </mat-form-field>
+        </option>
+        </select>
+
+    </div>
   </div>
   </div>
 </div>
@@ -154,3 +146,5 @@
     </mat-card>
 
   </div>
+
+</div>

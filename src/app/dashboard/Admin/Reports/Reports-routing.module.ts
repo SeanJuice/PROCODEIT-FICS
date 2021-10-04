@@ -4,6 +4,9 @@ import { PackageSalesReportComponent } from './package-sales-report/package-sale
 import { ClientAuditReportComponent } from './client-audit-report/client-audit-report.component';
 
 import { ReportscardsComponent } from './Reportscards_landing/Reportscards.component';
+import { InactiveUsersReportComponent } from './inactiveUsersReport/inactiveUsersReport.component';
+import { RegisteredUserReportComponent } from './RegisteredUserReport/RegisteredUserReport.component';
+import { TraineePerformanceReportComponent } from './TraineePerformanceReport/TraineePerformanceReport.component';
 
 const routes: Routes = [
   {
@@ -21,6 +24,18 @@ const routes: Routes = [
     path: 'client-audit',
     component: ClientAuditReportComponent,
   },
+  {
+    path: 'inactive-users-report',
+    component: InactiveUsersReportComponent,
+  },
+  {
+    path: 'registered-users-report',
+    component: RegisteredUserReportComponent
+  },
+  {
+    path: 'trainee-performance',
+    component: TraineePerformanceReportComponent
+  }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

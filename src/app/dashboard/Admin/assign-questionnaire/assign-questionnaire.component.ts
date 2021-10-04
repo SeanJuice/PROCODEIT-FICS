@@ -119,8 +119,9 @@ export class AssignQuestionnaireComponent implements OnInit {
   }
 
   NextStep(step, client?) {
+    console.log(this.Client)
     if (step == 1) {
-      this.Client = client;
+      this.Client;
       this.Steps[1] = true;
     } else if (step == 2) {
       this.Steps[2] = true;
