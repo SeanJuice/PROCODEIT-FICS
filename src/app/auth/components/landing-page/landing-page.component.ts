@@ -11,7 +11,7 @@ declare var $;
 })
 export class LandingPageComponent implements OnInit {
   name = 'Video events';
-  videoSource = "https://vimeo.com/616460114/1ddc7de038";
+  videoSource = "https://firebasestorage.googleapis.com/v0/b/fics-7cfbb.appspot.com/o/FICS.mp4.mp4?alt=media&token=fb869c81-e43d-44e6-910c-c7c4da979768";
 
 @ViewChild('videoPlayer') videoplayer: any;
 public startedPlay:boolean = false;
