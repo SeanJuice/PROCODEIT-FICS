@@ -24,6 +24,7 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
 import { ReportsComponent } from './Reports/Reports.component';
 import { AdministrationsComponent } from './administrations/administrations.component';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
+import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
     path: 'questionnaire-management',
     component: QuestionnaireManagementComponent,
     children: [],
+  },
+  {
+    path: 'questionnaire-management/:id',
+    component: TitleDetailsComponent,
   },
   {
     path: 'assign-questionnaire',

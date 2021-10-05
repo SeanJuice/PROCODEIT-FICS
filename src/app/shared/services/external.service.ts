@@ -12,6 +12,6 @@ export class ExternalService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.get<any[]>(`https://restcountries.eu/rest/v2/all`).pipe(share());
+    return this.http.get<any[]>(`https://countriesnow.space/api/v0.1/countries `).pipe(share());
   }
 }

@@ -28,6 +28,7 @@ export class ResetPasswordComponent implements OnInit {
 
     // convenience getter for easy access to form fields
     get f() { return this.ResetForm.controls; }
+
     onSubmit() {
       this.submitted = true;
       console.log(this.ResetForm.value)

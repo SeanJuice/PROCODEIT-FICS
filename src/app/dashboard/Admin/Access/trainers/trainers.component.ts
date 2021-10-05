@@ -15,7 +15,6 @@ export class TrainersComponent implements OnInit {
   ngOnInit() {
     this.TrainersService.getTrainers().subscribe(res=>{
       this.trainers = res
-
   })
   }
 

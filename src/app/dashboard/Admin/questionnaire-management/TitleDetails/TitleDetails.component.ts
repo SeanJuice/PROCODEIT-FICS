@@ -1,16 +1,23 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { QuestionnaireService } from '../services/Questionnaire.service';
+import { ActivatedRoute } from '@angular/router';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
-@Component({
-  selector: 'app-questionnaire-mangement',
-  templateUrl: './questionnaire-mangement.component.html',
-  styleUrls: ['./questionnaire-mangement.component.scss']
-})
-export class QuestionnaireManagementComponent implements OnInit {
+import { QuestionnaireService } from '../../services/Questionnaire.service';
 
-  QuestionsBank:Array<any> = []
-  constructor(private questionnaireService: QuestionnaireService, private SimpleModalService: SimpleModalService) { }
+@Component({
+  selector: 'app-TitleDetails',
+  templateUrl: './TitleDetails.component.html',
+  styleUrls: ['./TitleDetails.component.scss']
+})
+export class TitleDetailsComponent implements OnInit {
+
+    title_id:number
+    QuestionsBank: Array<any>
+  constructor(private SimpleModalService: SimpleModalService, private questionnaireService: QuestionnaireService, private Arouter: ActivatedRoute,
+    private location: Location
+   ) {   this.title_id = Number(this.Arouter.snapshot.params.id); }
+
 
   ngOnInit() {
     this.getTitles();
@@ -55,11 +62,14 @@ export class QuestionnaireManagementComponent implements OnInit {
   }
 
   getTitles() {
-    this.questionnaireService.ViewQuestionnaireTitles().subscribe((res:any) => {
+    this.questionnaireService.ViewQuestionnaireDetails(this.title_id).subscribe((res:any) => {
       this.QuestionsBank = res
     })
   }
 
 
+  goBack(): void {
+    this.location.back();
+  }
 
 }

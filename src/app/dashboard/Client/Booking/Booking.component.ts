@@ -39,8 +39,7 @@ export class BookingComponent implements OnInit {
   constructor(private clientservice: ClientService, private router: Router) {}
 
   ngOnInit() {
-    this.getAvailableDates();
-    this.getUSerPaidPackages();
+    this.PractitionerExists()
   }
 
   BookSlot() {
@@ -129,7 +128,35 @@ export class BookingComponent implements OnInit {
     };
   }
 
+  // Check if theres a practitioner
 
+  PractitionerExists()
+  {
+    if(sessionStorage.getItem('Practitioner_ID') != 'null' )
+    {
+      this.getAvailableDates();
+      this.getUSerPaidPackages();
+    }
+    else
+    {
+      Swal.fire({
+        icon: 'error',
+        title: 'Booking cannot be made.',
+        text: 'Theres no practitioners assigned to you, a practitionerer will assigned to you soon!,Thank You',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/dashboard'])
+        }
+        this.router.navigate(['/dashboard'])
+      })
+    }
+  }
+
+//Package checking
   getUSerPaidPackages() {
     this.clientservice.getClientPurchasedPackages().subscribe((res) => {
       if (res===null || res.length ===  0) {
@@ -162,7 +189,7 @@ export class BookingComponent implements OnInit {
     }).then((result) => {
       /* Read more about handling dismissals below */
       if (result.dismiss === Swal.DismissReason.timer) {
-       this.router.navigate(['PurchasePackage'])
+       this.router.navigate(['/dashboard/PurchasePackage'])
       }
     });
   }

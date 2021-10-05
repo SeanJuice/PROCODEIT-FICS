@@ -46,7 +46,9 @@ export class ViewPackagesComponent implements OnInit {
   }
   loadData(){
     this.clientServe.getPackages().subscribe(res=>{
+
       this.Pack = Object.keys(res).map(index => {this.Packages = res[index];});
+      console.log( this.Packages)
     })
   }
   step2Submitted() {
