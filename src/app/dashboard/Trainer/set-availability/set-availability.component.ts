@@ -18,6 +18,7 @@ export class SetAvailabilityComponent implements OnInit {
   isDateChosen:boolean;
   chosenDate:any;
   show:number = 7;
+  minDate = new Date();
   constructor(private practitionerService:PractitionerUserService, private snackbarService:SnackbarService,private authService:AuthService) { }
 
   ngOnInit() {
