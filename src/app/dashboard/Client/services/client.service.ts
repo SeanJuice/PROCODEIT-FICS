@@ -178,7 +178,4 @@ export class ClientService {
   getAvailableDates():Observable<any[]>{
     return this.http.get<any[]>(`${rootURL}GetAvailableDates/`).pipe(share());
   }
-
-
-
 }

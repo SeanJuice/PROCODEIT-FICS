@@ -20,6 +20,7 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
 import { AdministrationsModule } from './administrations/administrations.module';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 
 @NgModule({
@@ -48,8 +49,7 @@ import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/T
     AccessModule,
     ApplicationRequestsModule,
     MatSnackBarModule,
-
-
+    UiSwitchModule
 
   ]
 })

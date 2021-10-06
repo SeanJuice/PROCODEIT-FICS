@@ -1,8 +1,16 @@
 <h1 mat-dialog-title>Feedback</h1>
 <div mat-dialog-content>
-  <div style="color: deepskyblue;">
+  <!-- <div style="color: deepskyblue;">
     {{ReviewMessage}}
-  </div>
+  </div> -->
+
+  <select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option   *ngFor="let slot of AvailableSlots" value="1">  Time: {{ TimeChange(slot.Time)[0] | slice:0:5 }} - {{ TimeChange(slot.Time)[1] | slice:0:6 }}</option>
+
+  </select>
+
+
 </div>
 
 <div mat-dialog-actions>
