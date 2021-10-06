@@ -31,7 +31,7 @@
 
         <mat-card class="demo-inline-calendar-card" >
           <mat-card-title>
-            Choose your availability  Time
+            Choose Your Availability  Time
           </mat-card-title>
 
         <div *ngIf="isDateChosen && !isReschedule">
@@ -72,11 +72,11 @@
   <mat-card class="example-full-width" style="background-color: white; width: 100%;">
     <div class="alert alert-danger" role="alert" *ngIf="!isComplete">
       <kbd>Error!</kbd>
-          <samp> Please assign time for the date</samp>
+          <samp> Please Assign Time For The Date</samp>
     </div>
     <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
       <div class="Grid-cell">
-        <button mat-flat-button color="primary" (click)="SetTimes()">Confirm</button>
+        <button mat-flat-button color="primary" (click)="SetTimes()">Confirm Your Availibility</button>
       </div>
       <div class="Grid-cell">
          <button mat-flat-button color="warn"  [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
