@@ -88,7 +88,7 @@ export class SetAvailabilityComponent implements OnInit {
 
   SetTimes() {
     Swal.fire({
-      title: !this.isReschedule ? 'are you sure your availability is correct!' : 'are you sure you want to reschedule?',
+      title: !this.isReschedule ? 'Are you sure your availability is correct!' : 'Are you sure you want to reschedule?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
