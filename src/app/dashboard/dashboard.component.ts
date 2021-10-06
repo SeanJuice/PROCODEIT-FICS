@@ -117,7 +117,7 @@ const dashboards_settings_client = [
     Header_Name: ' Purchase Package',
     Button_Name: 'Purchase',
     ImageLink:
-      'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
+      'https://www.bellwethercorp.com/wp-content/uploads/2015/11/Depositphotos_11044948_s-2015.jpg',
     RouterLink: 'PurchasePackage',
     icon: 'receipt',
     color: '',
@@ -258,7 +258,7 @@ const dashboards_settings_trainer = [
     Header_Name: 'Send Feedback',
     Button_Name: 'Feedback',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.seekpng.com/png/detail/83-839679_submit-feedback-feedback-png-transparent.png',
     RouterLink: 'send-feedback',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -267,7 +267,7 @@ const dashboards_settings_trainer = [
     Header_Name: 'send task to trainee',
     Button_Name: 'Task',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn1.vectorstock.com/i/1000x1000/24/05/send-button-and-hand-icon-flat-style-vector-13902405.jpg',
     RouterLink: 'send-task-trainee',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -276,7 +276,7 @@ const dashboards_settings_trainer = [
     Header_Name: 'Set Availability',
     Button_Name: 'Set',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://play-lh.googleusercontent.com/WLAw5a143EIbRfvqtgCx-OxVDn4kuHVBZDaxTYeRUF616ua3Y-G14GeHGrsNoio_e7ii=h200',
     RouterLink: 'set-practitioner-availability',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
