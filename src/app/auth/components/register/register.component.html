@@ -16,7 +16,7 @@
                     <mat-label style="color: black;">Name</mat-label>
                     <input type="text" matInput  formControlName="Name" maxLength="20" placeholder="Ex. pat">
                     <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
-                        Contact Number cannot be left empty
+                        Name Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -27,7 +27,7 @@
                     <mat-label style="color: black;">Contact Number</mat-label>
                     <input type="text" matInput formControlName="Contact_Number" maxlength="10"  placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroup.controls['Contact_Number'].valid && formGroup.controls['Contact_Number'].touched">
-                        Contact Number cannot be left empty
+                      Contact Number Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -41,7 +41,7 @@
                     <mat-label style="color: black;">Surname</mat-label>
                     <input type="text" matInput formControlName="Surname" maxLength="20"placeholder="Ex. xample">
                     <mat-hint *ngIf="!formGroup.controls['Surname'].valid && formGroup.controls['Surname'].touched">
-                        Surname cannot be left empty
+                        Surname Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -52,7 +52,7 @@
                     <mat-label style="color: black;">Email Address</mat-label>
                     <input type="email" matInput formControlName="Email_Address" maxLength="50"  placeholder="Ex. test@gmail.com ">
                     <mat-hint *ngIf="!formGroup.controls['Email_Address'].valid && formGroup.controls['Email_Address'].touched">
-                       Enter valid email
+                       Enter A Valid Email
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -83,7 +83,7 @@
                     <mat-label style="color: black;">ID Number</mat-label>
                     <input type="text" matInput formControlName="ID_Number" maxLength="13" placeholder="Ex. 194735346222">
                     <mat-hint *ngIf="!formGroup.controls['ID_Number'].valid && formGroup.controls['ID_Number'].touched">
-                        ID Number Cannot be left Empty
+                        ID Number Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -99,7 +99,7 @@
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
-                        <option value="Not Say">Prefer not say</option>
+                        <option value="Not Say">Prefer To Not Say</option>
                       </select>
                 </div>
               </div>
@@ -143,11 +143,11 @@
             <div class="Grid-cell">
               <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label style="color: black;">Confirm password</mat-label>
+                    <mat-label style="color: black;">Confirm Password</mat-label>
                     <input type="password" matInput  formControlName="Confirm_Password" placeholder="Ex. **********">
                     <label *ngIf=" f.Confirm_Password.errors" class="invalid-feedback">
-                        <a *ngIf="f.Confirm_Password.errors.required">Confirm Password is required</a>
-                        <a *ngIf="f.Confirm_Password.errors.mustMatch">Passwords must match</a>
+                        <a *ngIf="f.Confirm_Password.errors.required">Confirm Password Is Required</a>
+                        <a *ngIf="f.Confirm_Password.errors.mustMatch">Passwords Must Match</a>
                     </label>
                 </mat-form-field>
               </div>
@@ -193,7 +193,7 @@
                     <mat-label style="color: black;">Name</mat-label>
                     <input type="text" matInput  formControlName="Name" maxLength="20" placeholder="Ex. pat">
                     <mat-hint *ngIf="!formGroupOthers.controls['Name'].valid && formGroupOthers.controls['Name'].touched">
-                        Name cannot be left empty
+                        Name Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -204,7 +204,7 @@
                     <mat-label style="color: black;">Contact Number</mat-label>
                     <input type="text" matInput formControlName="Contact_Number" maxLength="10" placeholder="Ex. 0735346222">
                     <mat-hint *ngIf="!formGroupOthers.controls['Contact_Number'].valid && formGroupOthers.controls['Contact_Number'].touched">
-                        Contact Number cannot be left empty
+                        Contact Number Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -218,7 +218,7 @@
                     <mat-label style="color: black;">Surname</mat-label>
                     <input type="text" matInput formControlName="Surname" maxLength="20" placeholder="Ex. hlangs">
                     <mat-hint *ngIf="!formGroupOthers.controls['Surname'].valid && formGroupOthers.controls['Surname'].touched">
-                        Surname cannot be left empty
+                        Surname Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -229,7 +229,7 @@
                     <mat-label style="color: black;">Email Address</mat-label>
                     <input type="email" matInput formControlName="Email_Address" maxLength="50" placeholder="Ex. test@gmail.com">
                     <mat-hint *ngIf="!formGroupOthers.controls['Email_Address'].valid && formGroupOthers.controls['Email_Address'].touched">
-                       Enter valid email
+                       Enter A Valid Email
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -260,7 +260,7 @@
                     <mat-label style="color: black;">ID Number</mat-label>
                     <input type="text" matInput formControlName="ID_Number" minLength="13" maxLength="13" placeholder="Ex. 194735346222">
                     <mat-hint *ngIf="!formGroupOthers.controls['ID_Number'].valid && formGroupOthers.controls['ID_Number'].touched">
-                        ID Number Cannot be left Empty
+                        ID Number Cannot Be Left Empty
                       </mat-hint>
                 </mat-form-field>
               </div>
@@ -274,7 +274,7 @@
                     <mat-label style="color: black;">Physical Address</mat-label>
                     <textarea matInput type="Text" matInput  formControlName="Physical_Address"></textarea>
                     <mat-hint *ngIf="!formGroupOthers.controls['Physical_Address'].valid && formGroupOthers.controls['Physical_Address'].touched">
-                      Address Cannot be left Empty
+                      Address Cannot Be Left Empty
                     </mat-hint>
                 </mat-form-field>
               </div>
@@ -287,10 +287,10 @@
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
-                      <option value="Not Say">Prefer not say</option>
+                      <option value="Not Say">Prefer TO Not Say</option>
                     </select>
                     <mat-hint *ngIf="!formGroupOthers.controls['Gender'].valid && formGroupOthers.controls['Gender'].touched">
-                      Gender Cannot be left Empty
+                      Gender Cannot Be Left Empty
                     </mat-hint>
                 </div>
               </div>
@@ -313,11 +313,11 @@
             <div class="Grid-cell">
               <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label style="color: black;">Confirm password</mat-label>
+                    <mat-label style="color: black;">Confirm Password</mat-label>
                     <input type="password" matInput  formControlName="Confirm_Password" placeholder="Ex. **********">
                     <mat-hint *ngIf=" g.Confirm_Password.errors" class="invalid-feedback">
-                        <a *ngIf="g.Confirm_Password.errors.required">Confirm Password is required</a>
-                        <a *ngIf="g.Confirm_Password.errors.mustMatch">Passwords must match</a>
+                        <a *ngIf="g.Confirm_Password.errors.required">Confirm Password Is Required</a>
+                        <a *ngIf="g.Confirm_Password.errors.mustMatch">Passwords Must Match</a>
                     </mat-hint>
                 </mat-form-field>
               </div>
