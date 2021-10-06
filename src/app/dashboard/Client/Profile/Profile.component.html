@@ -28,11 +28,11 @@
 
         <div class="email">
 
-          <h2> Change your email</h2>
+          <h2> Change Your Email</h2>
           <small>Name</small>
           <BR>
             {{info.Name}}<br><br>
-          <label> Your new email address</label>
+          <label> Your New Email Address</label>
           <input type="email" hidden name="EmailAddress" id="EmailAddress" formControlName="Email_Address" class="cat_textbox"
             maxlength="255" />
           <!-- <input class="cat_button" type="submit" value="Save Email" id="catupdatedetailsformbutton" /> -->
@@ -41,11 +41,11 @@
 
         <div class="email" hidden>
 
-          <h2> Change your password</h2>
-          <small>YOUR CURRENT password:</small> <BR>
+          <h2> Change Your Password</h2>
+          <small>YOUR CURRENT Password:</small> <BR>
           <input type="password" name="Password" id="Password" value="" class="cat_textbox" maxlength="255"
             autocomplete="off" /><br>
-          <label> Your new password:</label>
+          <label> Your New Password:</label>
           <input type="password" name="PasswordConfirm" id="PasswordConfirm" value="" class="cat_textbox"
             maxlength="255" autocomplete="off" />
           <input class="cat_button" type="submit" value="Save Password" id="catupdatedetailsformbutton" />
@@ -126,7 +126,7 @@
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
-                  <option value="Not Say">Prefer not say</option>
+                  <option value="Not Say">Prefer TO Not Say</option>
                 </select>
               </td>
             </tr>
@@ -138,7 +138,7 @@
             </tr>
 
             <tr>
-              <td class="heading">country:</td>
+              <td class="heading">Country:</td>
               <td class="info">
                 <select class="select-css cat_textbox" formControlName="Country">
                   <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
