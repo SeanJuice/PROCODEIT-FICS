@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainerService } from '../../services/trainer.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-TrainerRequests',
   templateUrl: './TrainerRequests.component.html',
@@ -16,6 +16,8 @@ export class TrainerRequestsComponent implements OnInit {
   }
 
   AcceptOrReject(trainee, decision){
+
+
     this.trainerervice.AcceptORejectTrainer(trainee,decision).subscribe(()=>{
       this.refreshData()
     })

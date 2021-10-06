@@ -64,10 +64,49 @@ export class QuestionnaireService {
 
 
 
-  ViewQuestionnaireBanks(): Observable<any[]> {
+  ViewQuestionnaireTitles(): Observable<any[]> {
     return this.http
-      .get<any[]>(`${rootURL}/ViewQuestionnaireBanks/`)
+      .get<any[]>(`${rootURL}/ViewQuestionnaireTitles/`)
       .pipe(share());
   }
+      /***
+   *? Add Questionnaire Title
+   */
+   AddQuestionnaireTitle(Questions: any) {
+    let requests:Observable<any>
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    requests =  this.http.post(`${rootURL}/MaintainQuestionnaireTitleDetails/`,Questions, httpOptions).pipe(share())
+    return requests
+  }
 
+        /***
+   *? Maintain Questionnaire Title
+   */
+   MaintainQuestionnaireTitle(id:Number, Questions: any) {
+    let requests:Observable<any>
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    requests =  this.http.post(`${rootURL}/MaintainQuestionnaireTitle/${id}/`,Questions, httpOptions).pipe(share())
+    return requests
+  }
+
+  ViewQuestionnaireDetails(id:number): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${rootURL}/ViewQuestionnaireDetails/`+id)
+      .pipe(share());
+  }
+      /*** ViewQuestionnaireDetails
+   *? Maintain Questionnaire Title Details
+   */
+   MaintainQuestionnaireTitleDetails(userID: number,Questions: any) {
+    let requests:Observable<any>
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    requests =  this.http.post(`${rootURL}/MaintainQuestionnaireTitleDetails/${userID}/`,Questions, httpOptions).pipe(share())
+    return requests
+  }
 }

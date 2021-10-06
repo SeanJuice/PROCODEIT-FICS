@@ -2,28 +2,7 @@
   <i class="fas fa-home"></i>
   <span>SELECT A PACKAGE</span>
 </h1>
-<div class="cards">
-  <div class="card" hidden *ngFor="let package of Packages; let i = index"
-    (click)="ChoosePackage(package.Package_ID, i)">
-    <div class="card__image-holder">
-      <img class="card__image" src="http://waterbearlearning.com/wp-content/uploads/2019/04/water_bear_learning_instructional_design1.jpg"
-        alt="mountain" />
-    </div>
-    <div class="card-title" [ngStyle]="{ color: PackageID == package.Package_ID ? 'green' : 'white' }">
-      <a class="toggle-info btn">
-        <span class="left"></span>
-        <span class="right"></span>
-      </a>
-      <h2>
-        {{ package.Name }}
-        <small>
-          <mat-icon>receipt</mat-icon>Price: R{{ package.Price }}
-        </small>
 
-      </h2>
-    </div>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-6 col-md-4" *ngFor="let package of Packages | slice:0:show; let i = index" style="padding-bottom: 2%;">
@@ -36,9 +15,11 @@
           <div class="card__content">
             <h1 class="card__header" [ngStyle]="{ color: PackageID == package.Package_ID ? 'green' : 'blue' }">{{ package.Name }}</h1>
             <mat-icon>receipt</mat-icon>
-            <p class="card__text">
-                    <strong>Price: R{{ package.Price }} </strong>
-            </p>
+            <div>
+                    <p class="card__text">Price: R{{ package.Price }} </p>
+                    <p class="card__text">Quantity: {{ package.Quantity }} </p>
+                    <p class="card__text">Purchase date: {{ package.Purchase_Date | date }} </p>
+            </div>
             <button class="card__btn" (click)="ChoosePackage(package.Package_ID, i)" >Purchase <span>&rarr;</span></button>
             <br>
             <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection"

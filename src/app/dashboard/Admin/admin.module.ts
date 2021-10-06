@@ -19,6 +19,7 @@ import { PractitionerToClientComponent } from './assign-user/practitioner-to-cli
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 import { AdministrationsModule } from './administrations/administrations.module';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
+import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AuditTrailComponent } from './audit-trail/audit-trail.component';
     TrainerToTraineeComponent,
     AssignQuestionnaireComponent,
     AuditTrailComponent,
+    TitleDetailsComponent
   ],
   imports: [
     CommonModule,

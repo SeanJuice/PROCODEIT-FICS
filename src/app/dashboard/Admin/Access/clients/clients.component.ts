@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/Client';
 import { ClientsService } from '../../services/clients.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
@@ -18,16 +18,53 @@ export class ClientsComponent implements OnInit {
   constructor(private clientsService:ClientsService, private router:Router) { }
 
   ngOnInit() {
-    this.clientsService.getClients().subscribe(res=>{
-        this.clients = res
-    })
+   this.getList();
 
   }
 
+  getList(){
+    this.clientsService.getClients().subscribe(res=>{
+      this.clients = res
+  })
+  }
   DisableClient(ID){
-    this.clientsService.DisableClient(ID).subscribe(res=>{
 
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
     })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Are you want to disable this client?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes!',
+      cancelButtonText: 'Cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.clientsService.DisableClient(ID).subscribe(res=>{
+          swalWithBootstrapButtons.fire(
+            'Disabled!',
+            'User has been successfully disabled.',
+            'success'
+          )
+        }, err => { })
+
+        this.getList();
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+
+      }
+    })
+
   }
 
 }

@@ -15,5 +15,6 @@ export class Client {
     Client_ID?:Number
     Physical_Address?:String
     Profile_Picture:any
+    ClientStatus_ID?:any
 
 }

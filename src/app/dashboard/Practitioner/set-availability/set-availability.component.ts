@@ -25,7 +25,7 @@ export class SetAvailabilityComponent implements OnInit {
   subscription: Subscription;
   SlotDetails:any =null;
   isReschedule: boolean;
-
+  minDate = new Date();
   constructor(
     private practitionerService: PractitionerUserService,
     private snackbarService: SnackbarService,

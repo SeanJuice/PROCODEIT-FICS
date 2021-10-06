@@ -97,8 +97,9 @@ export class RegisterComponent implements OnInit {
   }
 
   getCountries() {
-    this.external.getCountries().subscribe(countries => {
-      this.countries = countries;
+    this.external.getCountries().subscribe((countries:any) => {
+      console.log(countries);
+      this.countries = countries.data;
     })
   }
   public checkPassword(control) {

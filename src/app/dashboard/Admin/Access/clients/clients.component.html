@@ -27,7 +27,10 @@
             <td>{{client.Surname}}</td>
             <td>{{client.Email_Address}}</td>
             <td>
-              <input type="button"   (click)="DisableClient(client.Client_ID)" class="btn-gradient red" value="Disable" >
+              <input type="button"  *ngIf="client.ClientStatus_ID==1;else second"  (click)="DisableClient(client.Client_ID)" class="btn-gradient red" value="Disable" >
+              <ng-template #second>
+              <input type="button"    class="btn-gradient blue" value="Disabled" >
+              </ng-template>
             </td>
           </tr>
       </tbody>
