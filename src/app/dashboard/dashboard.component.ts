@@ -192,7 +192,7 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Purchase Questionnaire',
     Button_Name: 'Purchase',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.bellwethercorp.com/wp-content/uploads/2015/11/Depositphotos_11044948_s-2015.jpg',
     RouterLink: 'purchase-questionnaire',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -202,7 +202,7 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Set Availability',
     Button_Name: 'Availability',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://play-lh.googleusercontent.com/WLAw5a143EIbRfvqtgCx-OxVDn4kuHVBZDaxTYeRUF616ua3Y-G14GeHGrsNoio_e7ii=h200',
     RouterLink: 'set-availability',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -212,7 +212,7 @@ const dashboards_settings_practitioner = [
     Header_Name: 'My Availability Slots',
     Button_Name: 'Slots',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn3.vectorstock.com/i/1000x1000/22/47/full-day-availability-icon-vector-29962247.jpg',
     RouterLink: 'my-slots',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -222,9 +222,19 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Send Client Task',
     Button_Name: 'Send',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn1.vectorstock.com/i/1000x1000/24/05/send-button-and-hand-icon-flat-style-vector-13902405.jpg',
     RouterLink: 'send-client-task',
     icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Send Feedbacks',
+    Button_Name: 'Feedback',
+    ImageLink:
+      'https://www.seekpng.com/png/detail/83-839679_submit-feedback-feedback-png-transparent.png',
+    RouterLink: 'feedbacks',
+    icon: 'face',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -235,17 +245,7 @@ const dashboards_settings_practitioner = [
       'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
     RouterLink: 'Profile-Practitioner',
     icon: 'face',
-    color: '#F68C81',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: 'Send Feedbacks',
-    Button_Name: 'Feedback',
-    ImageLink:
-      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
-    RouterLink: 'feedbacks',
-    icon: 'face',
-    color: '#F68C81',
+    color: 'rgb(15, 147, 255);',
   }
 ];
 /**
