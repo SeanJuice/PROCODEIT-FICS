@@ -242,7 +242,7 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Profile',
     Button_Name: 'Maintain Profile',
     ImageLink:
-      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+      'https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png',
     RouterLink: 'Profile-Practitioner',
     icon: 'face',
     color: 'rgb(15, 147, 255);',
