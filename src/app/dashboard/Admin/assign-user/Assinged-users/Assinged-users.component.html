@@ -1,0 +1,40 @@
+<div class="app">
+  <h1 class="h1 title">
+    <i class="fas fa-home"></i>
+    <span></span>
+  </h1>
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>Assgined Users</span>
+    </h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Client Name</td>
+          <td>Practitioner Name</td>
+          <td>Action</td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let user of Users">
+            <td>{{user.ClientName}} {{user.ClientSurname}}</td>
+            <td>{{user.PractitionerName}} {{user.PractitionerSurname}}</td>
+            <td>
+              <!-- <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'practitioners'"
+              [settings]="dropdownSettingsPractitioner" [data]="PractitionerList" (onSelect)="AssignPractitioner(user.Practitioner_ID,user.Client_ID)"
+              (onDropDownClose)="onDropDownClose()">
+
+            </ng-multiselect-dropdown> -->
+
+            <select  class="select-css"  (Change)="AssignPractitioner($event, user.Client_ID)">
+              <option value="Male" *ngFor="let prac of PractitionerList"  [ngValue]="prac" >{{prac.Name}} {{prac.Surname}}</option>
+            </select>
+
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

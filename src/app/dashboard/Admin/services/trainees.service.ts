@@ -73,4 +73,6 @@ export class TraineesService {
     };
     return this.http.post(`${TraineerootURL}/MaintainTrainee/${this.auth.loginId}`,user, httpOptions);
   }
+
+
 }

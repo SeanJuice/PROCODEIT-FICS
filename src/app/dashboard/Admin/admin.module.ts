@@ -21,6 +21,7 @@ import { AdministrationsModule } from './administrations/administrations.module'
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { assignModule } from './assign-user/assign.module';
 
 
 @NgModule({
@@ -32,8 +33,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     AssignQuestionnaireComponent,
     QuestionnaireManagementComponent,
     AssignComponent,
-    PractitionerToClientComponent,
-    TrainerToTraineeComponent,
+
     AssignQuestionnaireComponent,
     AuditTrailComponent,
     TitleDetailsComponent
@@ -48,6 +48,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     RouterModule,
     AccessModule,
     ApplicationRequestsModule,
+    assignModule,
     MatSnackBarModule,
     UiSwitchModule
 
