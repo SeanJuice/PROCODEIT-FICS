@@ -65,7 +65,8 @@ export class MySessionsComponent implements OnInit {
   openReviewDialog(arg): void {
     console.log(arg.event._def)
     let dialogRef = this.dialog.open(ReviewDialogComponent, {
-      width: '500px',
+      width: '800px',
+      height: '600px',
       data: { data: arg.event._def.extendedProps.session}
     });
     dialogRef.afterClosed().subscribe(result => {

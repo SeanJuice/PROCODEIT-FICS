@@ -30,7 +30,6 @@ export class QuestionnaireManagementComponent implements OnInit {
           this.questionnaireService.AddQuestionnaireTitle(pack).subscribe(response=>{
             this.getTitles();
 
-
           },
           error => {throw new Error('Client not added')})
       });

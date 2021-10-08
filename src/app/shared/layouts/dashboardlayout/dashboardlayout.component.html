@@ -69,12 +69,13 @@
         </li>
         <li class="cta" *ngIf="RoleName=='Client'">
           <button class="primary" [routerLink]="['Client_Audit_Report']" id="start-tour"  style="color: rgb(255, 255, 255);">
-            <span> View My Audit Report</span>
+            <span>  My Audit Report</span>
 
               <mat-icon>library_books</mat-icon>
 
           </button>
         </li>
+
         <li class="cta">
           <button class="primary" [routerLink]="['reset-password']" id="start-tour"  style="color: rgb(255, 255, 255);">
             <span> Reset Password</span>
@@ -84,11 +85,19 @@
           </button>
         </li>
         <li class="cta">
-          <button class="primary" style="background-color: red; color: white;" (click)="Logout()">
+          <button class="primary" style="background-color: rgb(255, 149, 149); color: white;" (click)="Logout()">
             <span> Log Out </span>
 
               <mat-icon>power_settings_new</mat-icon>
 
+
+          </button>
+        </li>
+        <li class="cta" *ngIf="RoleName=='Client'">
+          <button class="primary" [routerLink]="['Exit-wavier']" id="start-tour"   style="background-color: rgb(255, 0, 0); color: white;">
+            <span> Exit Wavier</span>
+
+              <mat-icon>library_books</mat-icon>
 
           </button>
         </li>

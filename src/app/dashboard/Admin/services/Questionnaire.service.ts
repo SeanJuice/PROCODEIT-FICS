@@ -77,7 +77,7 @@ export class QuestionnaireService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    requests =  this.http.post(`${rootURL}/MaintainQuestionnaireTitleDetails/`,Questions, httpOptions).pipe(share())
+    requests =  this.http.post(`${rootURL}/AddQuestionnaireTitle/`,Questions, httpOptions).pipe(share())
     return requests
   }
 
