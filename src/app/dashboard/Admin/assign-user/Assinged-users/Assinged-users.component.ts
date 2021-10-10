@@ -16,6 +16,7 @@ export class AssingedUsersComponent implements OnInit {
   selectedValue:any;
   isClosed = false;
   dropdownSettings: IDropdownSettings = {};
+  showBranch:boolean
   dropdownSettingsPractitioner: IDropdownSettings = {};
   Users:Array<any> = [];
   constructor(
@@ -60,6 +61,9 @@ export class AssingedUsersComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true,
     };
+  }
+  changeBranchToggle() {
+    this.showBranch = !this.showBranch;
   }
 
   AssignPractitioner(Practitioner,Client_ID) {

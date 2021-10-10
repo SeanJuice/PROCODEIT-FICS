@@ -22,6 +22,7 @@ import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { assignModule } from './assign-user/assign.module';
+import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { assignModule } from './assign-user/assign.module';
     AssignQuestionnaireComponent,
     QuestionnaireManagementComponent,
     AssignComponent,
-
+    ExitWaversComponent,
     AssignQuestionnaireComponent,
     AuditTrailComponent,
     TitleDetailsComponent

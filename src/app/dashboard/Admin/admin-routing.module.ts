@@ -26,6 +26,7 @@ import { AdministrationsComponent } from './administrations/administrations.comp
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
 import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
 import { AssingedUsersComponent } from './assign-user/Assinged-users/Assinged-users.component';
+import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'ViewClientSession/:id',
     component: ViewClientSessionsComponent,
+  },
+  {
+    path: 'Exit-Wavers',
+    component: ExitWaversComponent
   },
   {
     path: 'access',

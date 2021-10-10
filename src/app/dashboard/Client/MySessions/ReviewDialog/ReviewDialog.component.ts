@@ -30,6 +30,8 @@ export class ReviewDialogComponent implements OnInit {
   selectedLevel:any;
   AvailableSlots: any = [];
   session:any=this.data.data;
+  date:any;
+  AVSL_OBJ:any
 
   form = new FormGroup({
     date: new FormControl('', Validators.required),
@@ -37,7 +39,7 @@ export class ReviewDialogComponent implements OnInit {
   });
   constructor(
     public dialogRef: MatDialogRef<ReviewDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private clientService: ClientService,private clientservice: ClientService,) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,private clientservice: ClientService,) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -49,6 +51,7 @@ export class ReviewDialogComponent implements OnInit {
 
 
   }
+
 
   getDateAvailability(date) {
     const momentDate = new Date(date); // Replace event.value with your date value
@@ -71,6 +74,7 @@ export class ReviewDialogComponent implements OnInit {
 
   getAvailableDates() {
     this.clientservice.getAvailableDates().subscribe((res) => {
+      console.log(res);
       res.forEach((dates) => {
         console.log(dates);
         this.datesToHighlight.push(dates.Date);
@@ -85,45 +89,54 @@ export class ReviewDialogComponent implements OnInit {
     return timeArray;
   }
 
-  selected(e){
-     console.log()
+  selected(data){
+    console.log(data)
 
-     this.getDateAvailability(e)
   }
 
-  BookSlot() {
+  RescheduleSession() {
     /**
      * ?Placeholders
      */
 
     Swal.fire({
-      title: 'Are you sure you want to make this booking?',
+      title: 'Are you sure you want to reschedule this booking?',
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Yes',
       denyButtonText: `No`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
         let book = {
-          Slot_ID: this.session.TimeSlot_ID,
-          Date: this.selectedDate,
-          SessionType_ID: 1,
+          Slot_ID: this.AVSL_OBJ.TimeSlot_ID,
+          Date: this.date,
           Package_ID: this.session.Package_ID,
+          Booking_ID: this.session.Booking_ID,
+          Client_ID: this.clientservice.ClientID,
         };
         console.log(book)
-        // this.clientservice
-        //   .BookSlot(book, this.AvailabilityID)
-        //   .subscribe((res) => {
-        //     Swal.fire('successfully booked!', '', 'success');
-        //   });
+        this.clientservice
+          .RescheduleSession(book, this.AVSL_OBJ.Availability_ID)
+          .subscribe((res) => {
+            if(res==null) {
+              console.log(res)
+            }
+            else {
+              console.log(res)
+              Swal.fire('successfully booked!', '', 'success');
+              this.onNoClick()
+              this.getAvailableDates();
+
+            }
+
+          }, err => {
+            console.log(err)
+          });
+        }
 
     });
 
 
   }
-
-  onsubmit(){
-    console.log(this.form.value);
-  }
-
 }

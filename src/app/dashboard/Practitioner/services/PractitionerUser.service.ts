@@ -75,12 +75,12 @@ export class PractitionerUserService {
 
 
 
-  SetPractitionerAvailability(dates:any,details?): Observable<any>{
+  SetPractitionerAvailability(dates:any,_checker,details?): Observable<any>{
     let subscription : Observable<any>
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    if(details==null)
+    if(!_checker)
     {
       subscription = this.http.post(`${rootURL}/SetPractitionerAvailability/`,dates, httpOptions);
     } else {

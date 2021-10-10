@@ -22,14 +22,9 @@
             <td>{{user.ClientName}} {{user.ClientSurname}}</td>
             <td>{{user.PractitionerName}} {{user.PractitionerSurname}}</td>
             <td>
-              <!-- <ng-multiselect-dropdown style="width: 40%; z-index: +1" [placeholder]="'practitioners'"
-              [settings]="dropdownSettingsPractitioner" [data]="PractitionerList" (onSelect)="AssignPractitioner(user.Practitioner_ID,user.Client_ID)"
-              (onDropDownClose)="onDropDownClose()">
-
-            </ng-multiselect-dropdown> -->
-
-            <select  class="select-css"  (Change)="AssignPractitioner($event, user.Client_ID)">
-              <option value="Male" *ngFor="let prac of PractitionerList"  [ngValue]="prac" >{{prac.Name}} {{prac.Surname}}</option>
+            <button class="btn-gradient red small" (click)="changeBranchToggle()" tooltip="Transfer to another Branch.">Edit</button>
+            <select class="form-control"  *ngIf="showBranch"  #mySelect (Change)="AssignPractitioner(mySelect.value, user.Client_ID)">
+              <option *ngFor="let prac of PractitionerList"  [value]="prac.Practitioner_ID" >{{prac.Name}} {{prac.Surname}}</option>
             </select>
 
             </td>

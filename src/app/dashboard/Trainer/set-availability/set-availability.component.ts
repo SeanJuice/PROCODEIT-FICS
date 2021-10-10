@@ -65,7 +65,7 @@ export class SetAvailabilityComponent implements OnInit {
     this.ChosenTimesList = this.ChosenTimesList.filter(function () { return true }); //Removes empty positions;
     if(this.checkCompleteness()){
       console.log(this.ChosenTimesList);
-      this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList).subscribe(result=>{
+      this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,"chekcer","details").subscribe(result=>{
         console.log(result);
           if(result.Availability_ID ! = null){
             this.snackbarService.openSnackBar("Times have successfully added")

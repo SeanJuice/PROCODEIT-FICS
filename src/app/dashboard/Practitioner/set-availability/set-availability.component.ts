@@ -101,7 +101,7 @@ export class SetAvailabilityComponent implements OnInit {
         this.ChosenTimesList = this.ChosenTimesList.filter(function () { return true }); //Removes empty positions;
         if (this.checkCompleteness()) {
           console.log(this.ChosenTimesList); //?console
-          this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,this.SlotDetails).subscribe(result => {
+          this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,this.isReschedule,this.SlotDetails,).subscribe(result => {
             console.log(result); //?console
             if (result.Availability_ID! = null) {
               Swal.fire(

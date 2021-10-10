@@ -11,7 +11,7 @@ export class ExitWavierComponent implements OnInit {
   selectedFiles?: FileList;
   currentFileUpload?: FileUpload;
   percentage = 0;
-
+  fileName =  '';
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
@@ -19,6 +19,7 @@ export class ExitWavierComponent implements OnInit {
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
+    this.fileName = event.target.files[0].name
   }
 
   upload(): void {
