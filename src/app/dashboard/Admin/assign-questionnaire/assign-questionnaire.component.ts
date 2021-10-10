@@ -77,13 +77,13 @@ export class AssignQuestionnaireComponent implements OnInit {
     if (this.isClients) {
       this.ClientList =[]
       this.Clientservice.getClients().subscribe((result) => {
-        (this.ClientList = result), (this.Steps[0] = true);
+        (this.ClientList =  result.filter(cl => cl.ClientStatus_ID != 2)), (this.Steps[0] = true);
         this.isLoaded = false;
       });
     } else {
       this.ClientList =[]
       this.trainee.getTrainees().subscribe((result) => {
-        (this.ClientList = result), (this.Steps[0] = true);
+        (this.ClientList = result.filter(trainee => trainee.TraineeStatus_ID == 1)), (this.Steps[0] = true);
         this.isLoaded = false;
       });
     }

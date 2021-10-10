@@ -18,12 +18,25 @@ import { ExternalService } from 'src/app/shared/services/external.service';
 })
 export class ProfileComponent implements OnInit {
 
-  info:Client
+  info:any
   clientID =  Number(sessionStorage.getItem("User_ID"));
   formGroup: FormGroup;
   isLoaded:boolean = false;
   roleId:number;
-  MissingData:any;
+  showOthers:boolean = false;
+  MissingData = {
+     Name: null,
+     Surname: null,
+     Contact_Number:null,
+     Email_Address:null,
+     Gender:null,
+     Client_ID: null,
+     Client_Status:null,
+     Passport_Number: null,
+     Title:null,
+     ID_Number:null,
+     User_ID:null
+  };
   showExtra = false;
   countries =[]
   constructor(private formBuilder: FormBuilder,
@@ -38,6 +51,20 @@ export class ProfileComponent implements OnInit {
      public dialog: MatDialog) { }
 
   ngOnInit() {
+    // this.info.Name =''
+    this.formGroup = this.formBuilder.group({
+      'Name': ['', Validators.required],
+      'Client_ID': ['', Validators.required],
+      'Title': ['', Validators.required],
+      'Surname': ['', Validators.required],
+      'Email_Address': ['', [Validators.required]],
+      'Passport_Number': ['', Validators.required],
+      'ID_Number': ['', Validators.required],
+      'Contact_Number': ['', [Validators.required]],
+      'Gender': ['', [Validators.required]],
+      'Country': ['', [Validators.required]],
+      'Client_Status': [0],
+    });
     this.roleId = this.auth.Role;
     this.getCountries();
     this.refetch()
@@ -85,8 +112,8 @@ export class ProfileComponent implements OnInit {
 
 
   }
-  createForm(info:Client) {
-
+  createForm(info) {
+    console.log(info)
 
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -103,14 +130,17 @@ export class ProfileComponent implements OnInit {
       'Country': [info.Country, [Validators.required]],
       'Client_Status': [0],
     });
+
+
   }
 
 
 
 
   async onSubmit(data): Promise<void> {
-    data = await this.patch(data);
     console.log("here>>>",data);
+    data = await this.patch(data);
+
     let dialogRef = this.dialog.open(ConfirmUpdateDialogComponent, {
       width: '500px',
       height: '200px',
@@ -125,23 +155,27 @@ export class ProfileComponent implements OnInit {
   patch(data) {
     if(this.roleId===2)
     {
+     this.showOthers=true;
       this.MissingData =data
     }
     else
     {
+      console.log(data.Name, this.MissingData.User_ID)
       this.MissingData.Name=data.Name
       this.MissingData.Contact_Number=data.Contact_Number
       this.MissingData.Surname=data.Surname
       this.MissingData.Email_Address=data.Email_Address
       this.MissingData.Gender=data.Gender
+      this.MissingData.Title=data.Title
+
 
       delete data.Client_ID;   delete data.Client_Status;  delete data.Passport_Number
     }
     return       this.MissingData;
   }
   getCountries() {
-    this.external.getCountries().subscribe(countries => {
-      this.countries = countries;
+    this.external.getCountries().subscribe((countries:any )=> {
+      this.countries = countries.data;
     })
   }
 

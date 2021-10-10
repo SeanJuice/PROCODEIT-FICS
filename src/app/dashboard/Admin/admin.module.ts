@@ -23,6 +23,8 @@ import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/T
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { assignModule } from './assign-user/assign.module';
 import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
+import { CpDocFilterPipe } from './Exit-wavers/cp-doc-filter.pipe';
+import { SearchAuditFilterPipe } from './audit-trail/pipe';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
     ExitWaversComponent,
     AssignQuestionnaireComponent,
     AuditTrailComponent,
-    TitleDetailsComponent
+    TitleDetailsComponent,
+    CpDocFilterPipe,
+
   ],
   imports: [
     CommonModule,

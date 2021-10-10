@@ -11,23 +11,20 @@
     <table class="table">
       <thead>
         <tr>
-          <td id="tour-table">Title</td>
+          <td id="tour-table">Practitioner</td>
           <td>Session</td>
           <td>Date</td>
           <td>Time</td>
           <td>Client</td>
-          <td></td>
 
         </tr>
       <tbody>
           <tr *ngFor="let client of Sessions">
+            <td>{{client.Practitionerr}}</td>
             <td>{{client.Session}}</td>
             <td>{{client.Date | date}}</td>
             <td>{{client.Time}}</td>
             <td>{{client.Client}}</td>
-            <td>
-              <button mat-flat-button color="primary"  routerLinkActive="active"class="btn" >View</button>
-            </td>
           </tr>
       </tbody>
     </table>
