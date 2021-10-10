@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { FileUpload } from 'src/app/models/fileupload';
 import { AuthService } from 'src/app/auth/auth.service';
-
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -67,4 +68,34 @@ export class FileUploadService {
     const storageRef = this.storage.ref(this.basePath);
     storageRef.child(name).delete();
   }
+
+  pushFileToStoragePP(fileUpload: FileUpload,id:number,DocumentsName:string): Observable<number | undefined> {
+    const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    const storageRef = this.storage.ref(filePath);
+    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+
+    uploadTask.snapshotChanges().pipe(
+      finalize(() => {
+        storageRef.getDownloadURL().subscribe(downloadURL => {
+          fileUpload.url = downloadURL;
+          fileUpload.name = fileUpload.file.name;
+          this.saveFileData(fileUpload);
+
+          return this.firestore.collection(DocumentsName).add({
+                Name: fileUpload.file.name,
+                Url: downloadURL,
+                userId: Number(id) ,
+                type: "Profile Picture",
+                Date: Date.now()
+              })
+        });
+      })
+    ).subscribe();
+
+    return uploadTask.percentageChanges();
+  }
+    // this declares the path per user  userId/TypeOfdocument/TheDocument /${TypeOFDoc}
+
+
+
 }

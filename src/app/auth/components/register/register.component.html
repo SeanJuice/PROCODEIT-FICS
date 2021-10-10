@@ -4,7 +4,19 @@
 
       <div class="Grid-cell">     <mat-card><h1>Client Application</h1></mat-card> </div>
     </div>
+    <div class="group-gap">
 
+      <!-- Upload image -->
+      <div class="avatar-upload">
+        <div class="avatar-edit">
+          <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="selectFilePP($event)" />
+        </div>
+        <div class="avatar-preview">
+          <div id="imagePreview" [style.backgroundImage]="'url('+ url +')'">
+          </div>
+        </div>
+      </div>
+    </div>
 
   <br>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value,this.ApplicationType)">

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/models/Client';
+import { FileUpload } from 'src/app/models/fileupload';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
@@ -17,7 +18,12 @@ export class RegisterComponent implements OnInit {
   ApplicationType: number;
   isClient: boolean;
   submitted = false;
-  countries =[]
+  countries =[];
+  progress: { percentage: number } = { percentage: 0 };
+  url = '';
+    // ProfilePictureUpload
+    currentPPUpload: FileUpload;
+    selectedPPFiles: FileList;
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -43,7 +49,10 @@ export class RegisterComponent implements OnInit {
     client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
     this.submitted = false;
     console.log(client);
-    this.Authservice.Register(client, Role);
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.Authservice.Register(client, Role, this.currentPPUpload);
+    this.selectedPPFiles = undefined;
   }
   createOtherForm() {
     let emailregex: RegExp =
@@ -130,4 +139,18 @@ export class RegisterComponent implements OnInit {
       ? 'Not a valid emailaddress'
       : '';
   }
+  /// ProfilePicture
+  selectFilePP(event) {
+    this.selectFilePP = event.target.files;
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result as string;
+      };
+    }
+  }
+
 }

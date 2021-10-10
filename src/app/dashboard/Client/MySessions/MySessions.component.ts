@@ -21,8 +21,11 @@ export class MySessionsComponent implements OnInit {
   displayEvent: any;
 
   constructor(private Clientservice:ClientService,public dialog: MatDialog) { }
-
   ngOnInit() {
+    this.getDates();
+  }
+
+  getDates() {
 
    this.ID = this.Clientservice.ClientID
     this.Clientservice.getSessions().subscribe(res =>{
@@ -70,10 +73,7 @@ export class MySessionsComponent implements OnInit {
       data: { data: arg.event._def.extendedProps.session}
     });
     dialogRef.afterClosed().subscribe(result => {
-      // swal.fire({
-      //   text: 'Event Title! ' + arg.event._def.Package,
-      //   icon: 'success'
-      // });
+      this.getDates();
     });
   }
 
