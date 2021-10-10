@@ -45,14 +45,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
     let Role = Number(role) + Number(1);
     client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
     this.submitted = false;
     console.log(client);
-    const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
+
     this.Authservice.Register(client, Role, this.currentPPUpload);
-    this.selectedPPFiles = undefined;
+
   }
   createOtherForm() {
     let emailregex: RegExp =
@@ -141,7 +143,8 @@ export class RegisterComponent implements OnInit {
   }
   /// ProfilePicture
   selectFilePP(event) {
-    this.selectFilePP = event.target.files;
+    this.selectedPPFiles = event.target.files;
+    console.log(this.selectFilePP)
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
 
@@ -151,6 +154,7 @@ export class RegisterComponent implements OnInit {
         this.url = event.target.result as string;
       };
     }
+
   }
 
 }

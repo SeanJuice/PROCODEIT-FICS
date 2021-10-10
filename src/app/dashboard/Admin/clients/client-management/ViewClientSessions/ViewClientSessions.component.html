@@ -15,16 +15,14 @@
           <td>Session</td>
           <td>Date</td>
           <td>Time</td>
-          <td>Client</td>
 
         </tr>
       <tbody>
           <tr *ngFor="let client of Sessions">
-            <td>{{client.Practitionerr}}</td>
+            <td>{{client.Practitioner}}</td>
             <td>{{client.Session}}</td>
             <td>{{client.Date | date}}</td>
             <td>{{client.Time}}</td>
-            <td>{{client.Client}}</td>
           </tr>
       </tbody>
     </table>

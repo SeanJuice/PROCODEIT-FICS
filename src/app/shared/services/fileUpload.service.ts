@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { FileUpload } from 'src/app/models/fileupload';
-import { AuthService } from 'src/app/auth/auth.service';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 
@@ -15,7 +14,7 @@ import 'firebase/storage';
 export class FileUploadService {
   private basePath = '/uploads';
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private auth:AuthService, private firestore: AngularFirestore,) { }
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage,private firestore: AngularFirestore,) { }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
@@ -32,7 +31,7 @@ export class FileUploadService {
           return this.firestore.collection('Documents').add({
                 Name: fileUpload.file.name,
                 Url: downloadURL,
-                userId: Number(this.auth.loginId) ,
+                userId: Number(sessionStorage.getItem('liid')),
                 type: "depends",
                 Date: Date.now()
               })
@@ -94,8 +93,5 @@ export class FileUploadService {
 
     return uploadTask.percentageChanges();
   }
-    // this declares the path per user  userId/TypeOfdocument/TheDocument /${TypeOFDoc}
-
-
 
 }
