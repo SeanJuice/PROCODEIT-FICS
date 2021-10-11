@@ -19,7 +19,7 @@
             Select A Date
           </mat-card-title>
           <br>
-          <mat-calendar (selectedChange)="getDateAvailableDate($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
+          <mat-calendar   [minDate]="minDate"  (selectedChange)="getDateAvailableDate($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
         </mat-card>
       </div>
 

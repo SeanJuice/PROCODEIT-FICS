@@ -19,6 +19,12 @@ import { PractitionerToClientComponent } from './assign-user/practitioner-to-cli
 import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trainer-to-trainee.component';
 import { AdministrationsModule } from './administrations/administrations.module';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
+import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
+import { assignModule } from './assign-user/assign.module';
+import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
+import { CpDocFilterPipe } from './Exit-wavers/cp-doc-filter.pipe';
+import { SearchAuditFilterPipe } from './audit-trail/pipe';
 
 
 @NgModule({
@@ -30,10 +36,12 @@ import { AuditTrailComponent } from './audit-trail/audit-trail.component';
     AssignQuestionnaireComponent,
     QuestionnaireManagementComponent,
     AssignComponent,
-    PractitionerToClientComponent,
-    TrainerToTraineeComponent,
+    ExitWaversComponent,
     AssignQuestionnaireComponent,
     AuditTrailComponent,
+    TitleDetailsComponent,
+    CpDocFilterPipe,
+
   ],
   imports: [
     CommonModule,
@@ -45,9 +53,9 @@ import { AuditTrailComponent } from './audit-trail/audit-trail.component';
     RouterModule,
     AccessModule,
     ApplicationRequestsModule,
+    assignModule,
     MatSnackBarModule,
-
-
+    UiSwitchModule
 
   ]
 })

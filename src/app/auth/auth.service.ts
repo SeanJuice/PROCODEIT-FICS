@@ -10,6 +10,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import swal from 'sweetalert2';
+import { FileUpload } from '../models/fileupload';
+import { FileUploadService } from '../shared/services/fileUpload.service';
 
 
 const KEY = 'FICSINF';
@@ -30,6 +32,7 @@ export class AuthService {
     public http: HttpClient,
     public router: Router,
     @Inject(SESSION_STORAGE) private storage: StorageService,
+    private file:FileUploadService
   ) {}
 
   //returns the state of login
@@ -80,7 +83,7 @@ export class AuthService {
     return this.http.post(rootURL + '/Login', user, httpOptions);
   }
 
-  Register(user: any, userID: Number) {
+  Register(user: any, userID: Number, file: any) {
     user.Username = user.Email_Address;
     delete user.Confirm_Password;
     user.Profile_Picture =
@@ -92,7 +95,7 @@ export class AuthService {
       .post(rootURL + `/Register/${userID}`, user, httpOptions)
       .subscribe((res: any) => {
         if (!res.Error) {
-
+          this.file.pushFileToStoragePP(file,res.User_ID, "ProfilePictures");
           swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -112,6 +115,10 @@ export class AuthService {
         }
       });
     return 'True';
+  }
+
+  uploadPP(id: string) {
+
   }
 
   ForgotPassword(Email) {

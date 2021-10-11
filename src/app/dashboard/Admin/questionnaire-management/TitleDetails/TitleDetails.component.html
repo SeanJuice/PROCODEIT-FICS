@@ -1,0 +1,30 @@
+<div class="app top">
+
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <div class="btn-group"  (click)=" goBack()">
+           <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+      </div>
+      <span> "Questions" </span>
+    </h1>
+    <div>
+      <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini" >Add Question</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Question Description</td>
+          <td></td>
+        </tr>
+      <tbody>
+        <tr *ngFor="let question of QuestionsBank">
+          <td>{{question.Question_ID}}</td>
+          <td>{{question.Question}}</td>
+          <td><button (click)="Maintain(question.Question_ID,question.Question)"  class="btn-gradient blue mini" style="color:white" >Maintain</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

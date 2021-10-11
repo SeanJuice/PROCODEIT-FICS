@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExitWavierComponent } from 'src/app/shared/components/exit-wavier/exit-wavier.component';
 import { BookingComponent } from './Booking/Booking.component';
 import { ClientAuditReportComponent } from './clientAuditReport/clientAuditReport.component';
 import { MyPackagesComponent } from './MyPackages/MyPackages.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:  'ProgressReport', component:ProgressReportComponent},
   {path: 'Booking',component:BookingComponent},
   {path: 'Client_Audit_Report', component: ClientAuditReportComponent},
+  {path: 'Exit-wavier', component: ExitWavierComponent},
+
   {path: 'MyPackages',component:MyPackagesComponent}
 
 ];

@@ -18,6 +18,7 @@ export class SetAvailabilityComponent implements OnInit {
   isDateChosen:boolean;
   chosenDate:any;
   show:number = 7;
+  minDate = new Date();
   constructor(private practitionerService:PractitionerUserService, private snackbarService:SnackbarService,private authService:AuthService) { }
 
   ngOnInit() {
@@ -64,7 +65,7 @@ export class SetAvailabilityComponent implements OnInit {
     this.ChosenTimesList = this.ChosenTimesList.filter(function () { return true }); //Removes empty positions;
     if(this.checkCompleteness()){
       console.log(this.ChosenTimesList);
-      this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList).subscribe(result=>{
+      this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,"chekcer","details").subscribe(result=>{
         console.log(result);
           if(result.Availability_ID ! = null){
             this.snackbarService.openSnackBar("Times have successfully added")

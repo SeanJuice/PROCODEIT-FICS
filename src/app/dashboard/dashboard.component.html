@@ -1,46 +1,7 @@
 
 <app-pre-loader *ngIf="isLoaded" ></app-pre-loader>
 
-  <!-- <ng-container *ngIf="!isLoaded" >
-  <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>Dashboard</span>
-  </h1>
-  <div class="cards">
 
-    <div *ngFor="let dashboard of DashboardSettings" style="display:inline;">
-      <div class="card"  style="position: relative;">
-        <div class="card__image-holder" >
-          <img class="card__image" src="{{dashboard.ImageLink}}" alt="wave" />
-        </div>
-        <div class="card-title" >
-          <a href="#" class="toggle-info btnn" [ngStyle]="{'background-color':dashboard.color}">
-            <span class="left"></span>
-            <span class="right"></span>
-          </a>
-          <h2>
-            {{dashboard.Header_Name}}
-              <small><mat-icon>{{dashboard.icon}}</mat-icon></small>
-          </h2>
-        </div>
-        <div class="card-flap flap1">
-          <div class="card-description">
-
-          </div>
-          <div class="card-flap flap2">
-            <div class="card-actions">
-              <a  [routerLink]="[dashboard.RouterLink]" routerLinkActive="active"class="btnn">{{dashboard.Button_Name}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-  </div>
-
-  </ng-container> -->
 
   <div class="cards   no-gutters">
 

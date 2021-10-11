@@ -1,29 +1,28 @@
-<div class="app">
-  <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>Questionnaire Bank</span>
-  </h1>
+<div class="app top">
+
 
   <div class="table-card">
-    <h2>Table</h2>
-    <table class="table">
+    <h1 class="h1 title">
+      <span>Questionnaire Bank</span>
+    </h1>
+    <div>
+      <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini" >Add Question Title</button>
+    </div>
+    <table class="table ">
+
       <thead>
         <tr>
-          <td>Question</td>
-          <td>Score</td>
-          <td>Image Name</td>
-          <td>Question Image</td>
-          <td> Question Type</td>
+          <td></td>
+          <td>Question Description</td>
+          <td></td>
+          <td></td>
         </tr>
       <tbody>
         <tr *ngFor="let question of QuestionsBank">
-          <td>{{question.Question}}</td>
-          <td>{{question.Score}}</td>
-          <td>{{question.Image_Name}}</td>
-          <td>{{question.Question_Image}}</td>
-          <td></td>
-
-          <td></td>
+          <td>{{question.QuestionTitle_ID}}</td>
+          <td>{{question.Description}}</td>
+          <td><button (click)="Maintain(question.QuestionTitle_ID,question.Description)"  class="btn-gradient blue mini" style="color:white" >Maintain</button></td>
+          <td><button   class="btn-gradient red mini"  style="color:white" [routerLink]="['../questionnaire-management/', question.QuestionTitle_ID]">View Details</button></td>
         </tr>
       </tbody>
     </table>

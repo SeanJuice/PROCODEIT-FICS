@@ -24,6 +24,9 @@ import { TrainerToTraineeComponent } from './assign-user/trainer-to-trainee/trai
 import { ReportsComponent } from './Reports/Reports.component';
 import { AdministrationsComponent } from './administrations/administrations.component';
 import { AuditTrailComponent } from './audit-trail/audit-trail.component';
+import { TitleDetailsComponent } from './questionnaire-management/TitleDetails/TitleDetails.component';
+import { AssingedUsersComponent } from './assign-user/Assinged-users/Assinged-users.component';
+import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
 
 const routes: Routes = [
   {
@@ -34,6 +37,10 @@ const routes: Routes = [
   {
     path: 'ViewClientSession/:id',
     component: ViewClientSessionsComponent,
+  },
+  {
+    path: 'Exit-Wavers',
+    component: ExitWaversComponent
   },
   {
     path: 'access',
@@ -83,6 +90,10 @@ const routes: Routes = [
     children: [],
   },
   {
+    path: 'questionnaire-management/:id',
+    component: TitleDetailsComponent,
+  },
+  {
     path: 'assign-questionnaire',
     component: AssignQuestionnaireComponent,
   },
@@ -94,7 +105,11 @@ const routes: Routes = [
     path: 'assign',
     component: AssignComponent,
     children: [
-      { path: '', redirectTo: 'practitioner-to-client', pathMatch: 'full' },
+      { path: '', redirectTo: 'assigned-users', pathMatch: 'full' },
+      {
+        path: 'assigned-users',
+        component: AssingedUsersComponent,
+      },
       {
         path: 'practitioner-to-client',
         component: PractitionerToClientComponent,

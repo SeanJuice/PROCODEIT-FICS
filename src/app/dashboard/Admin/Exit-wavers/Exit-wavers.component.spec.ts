@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { EventTypeComponent } from './EventType.component';
+import { ExitWaversComponent } from './Exit-wavers.component';
 
-describe('EventTypeComponent', () => {
-  let component: EventTypeComponent;
-  let fixture: ComponentFixture<EventTypeComponent>;
+describe('ExitWaversComponent', () => {
+  let component: ExitWaversComponent;
+  let fixture: ComponentFixture<ExitWaversComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventTypeComponent ]
+      declarations: [ ExitWaversComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventTypeComponent);
+    fixture = TestBed.createComponent(ExitWaversComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

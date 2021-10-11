@@ -50,9 +50,11 @@ export class ForgotPasswordComponent implements OnInit {
 
   error() {
     swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong!, Please check if the email provided is correct',
+      title: 'Redirect',
+      text: 'Please use your OTP as a temporary password',
+      timer: 7000,
+    }).then(res=>{
+       this.router.navigate(['login'])
     });
   }
 

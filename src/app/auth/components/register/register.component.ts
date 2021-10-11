@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Client } from 'src/app/models/Client';
+import { FileUpload } from 'src/app/models/fileupload';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
@@ -17,7 +18,12 @@ export class RegisterComponent implements OnInit {
   ApplicationType: number;
   isClient: boolean;
   submitted = false;
-  countries =[]
+  countries =[];
+  progress: { percentage: number } = { percentage: 0 };
+  url = '';
+    // ProfilePictureUpload
+    currentPPUpload: FileUpload;
+    selectedPPFiles: FileList;
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -39,11 +45,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
     let Role = Number(role) + Number(1);
     client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
     this.submitted = false;
     console.log(client);
-    this.Authservice.Register(client, Role);
+
+    this.Authservice.Register(client, Role, this.currentPPUpload);
+
   }
   createOtherForm() {
     let emailregex: RegExp =
@@ -97,8 +108,9 @@ export class RegisterComponent implements OnInit {
   }
 
   getCountries() {
-    this.external.getCountries().subscribe(countries => {
-      this.countries = countries;
+    this.external.getCountries().subscribe((countries:any) => {
+      console.log(countries);
+      this.countries = countries.data;
     })
   }
   public checkPassword(control) {
@@ -129,4 +141,20 @@ export class RegisterComponent implements OnInit {
       ? 'Not a valid emailaddress'
       : '';
   }
+  /// ProfilePicture
+  selectFilePP(event) {
+    this.selectedPPFiles = event.target.files;
+    console.log(this.selectFilePP)
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result as string;
+      };
+    }
+
+  }
+
 }

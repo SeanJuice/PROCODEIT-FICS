@@ -15,8 +15,7 @@
   </div>
   <br>
 
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
-
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" >
     <div class="detail-update">
 
       <div class="left">
@@ -49,6 +48,10 @@
           <input type="password" name="PasswordConfirm" id="PasswordConfirm" value="" class="cat_textbox"
             maxlength="255" autocomplete="off" />
           <input class="cat_button" type="submit" value="Save Password" id="catupdatedetailsformbutton" />
+            <!-- {{info.Name}}<br><br> -->
+          <label> Your new email address</label>
+
+          <!-- <input class="cat_button" type="submit" value="Save Email" id="catupdatedetailsformbutton" /> -->
 
         </div>
 
@@ -63,23 +66,19 @@
           Out
 
 
-          <input type="hidden" name="FormID" id="FormID"
-            value="287665,289272,297548,435178,459983,484894,541523,599485,603205,724071" />
+
 
           <input class="cat_button" type="submit" value="Save Marketing Preferences" id="catupdatedetailsformbutton" />
         </div>
 
       </div>
 
+
       <div class="right">
         <div class="details">
           <h2> Your Details</h2>
           <table>
-            <tr hidden>
-              <td class="heading">Title:</td>
-              <td class="info"><input type="text" name="LastName" id="LastName" formControlName="Title"
-                  class="cat_textbox" maxlength="255" /></td>
-            </tr>
+
             <tr>
               <td class="heading">Title:</td>
               <td class="info"><input type="text" name="LastName" id="LastName" formControlName="Title"
@@ -87,7 +86,7 @@
             </tr>
             <tr>
               <td class="heading">First Name:</td>
-              <td class="info"><input type="text" name="FirstName" id="FirstName" [value]='info.Name'
+              <td class="info"><input type="text" name="FirstName" id="FirstName"
                   formControlName="Name" class="cat_textbox" maxlength="255" /></td>
             </tr>
             <tr>
@@ -109,8 +108,7 @@
             <tr>
               <td class="heading">ID Number:</td>
               <td class="info"><input type="text" id="DOB" name="DOB" formControlName="ID_Number" class="cat_textbox"
-                  readonly="readonly" style="background-color: #f0f0f0;"
-                  onfocus="displayDatePicker('DOB');return false;" /></td>
+                /></td>
             </tr>
           </table>
         </div>
@@ -131,17 +129,17 @@
               </td>
             </tr>
 
-            <tr>
+            <tr *ngIf="showOthers">
               <td class="heading">Passport Number</td>
               <td class="info"><input type="text" name="HomeAddress" id="HomeAddress" formControlName="Passport_Number"
                   class="cat_textbox" maxlength="500" /></td>
             </tr>
 
-            <tr>
-              <td class="heading">Country:</td>
+            <tr *ngIf="showOthers" >
+              <td class="heading">country:</td>
               <td class="info">
                 <select class="select-css cat_textbox" formControlName="Country">
-                  <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                  <option *ngFor="let country of countries" [value]="country.country">{{country.country}}</option>
                 </select>
               </td>
             </tr>
@@ -153,7 +151,7 @@
 
     </div>
 
-
   </form>
+
 
 </ng-container>

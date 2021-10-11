@@ -14,7 +14,7 @@ export class TraineesComponent implements OnInit {
 
   ngOnInit() {
     this.TraineesService.getTrainees().subscribe(res=>{
-      this.trainees = res
+      this.trainees = res.filter(trainee => trainee.TraineeStatus_ID ==1)
 
   })
   }

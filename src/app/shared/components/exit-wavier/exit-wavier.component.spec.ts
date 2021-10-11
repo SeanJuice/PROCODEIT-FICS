@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SessionTypeComponent } from './SessionType.component';
+import { ExitWavierComponent } from './exit-wavier.component';
 
-describe('SessionTypeComponent', () => {
-  let component: SessionTypeComponent;
-  let fixture: ComponentFixture<SessionTypeComponent>;
+describe('ExitWavierComponent', () => {
+  let component: ExitWavierComponent;
+  let fixture: ComponentFixture<ExitWavierComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SessionTypeComponent ]
+      declarations: [ ExitWavierComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SessionTypeComponent);
+    fixture = TestBed.createComponent(ExitWavierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
