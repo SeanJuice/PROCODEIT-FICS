@@ -10,7 +10,7 @@ import { PractitionerUserService } from '../../Practitioner/services/Practitione
 import { TrainerService } from '../../Admin/services/trainer.service';
 import { TraineesService } from '../../Admin/services/trainees.service';
 import { ExternalService } from 'src/app/shared/services/external.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-Profile',
   templateUrl: './Profile.component.html',
@@ -45,6 +45,7 @@ export class ProfileComponent implements OnInit {
      private trainerService: TrainerService,
      private traineeService: TraineesService,
      private external: ExternalService,
+     private location: Location,
 
      @Inject(SESSION_STORAGE)private storage: StorageService,
      private auth:AuthService,
@@ -177,6 +178,9 @@ export class ProfileComponent implements OnInit {
     this.external.getCountries().subscribe((countries:any )=> {
       this.countries = countries.data;
     })
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }

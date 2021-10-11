@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/models/Question';
 import { ClientService } from '../services/client.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-TrialQuestionnaire',
   templateUrl: './TrialQuestionnaire.component.html',
@@ -10,7 +10,7 @@ import { ClientService } from '../services/client.service';
 export class TrialQuestionnaireComponent implements OnInit {
 
   Questions: Array<Question>
-   constructor(private clientService: ClientService) { }
+   constructor(private clientService: ClientService,private location: Location) { }
 
   ngOnInit() {
     this.getQuestionsTrialQuestions()
@@ -24,5 +24,7 @@ export class TrialQuestionnaireComponent implements OnInit {
     })
 
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from '../services/client.service';
 import { TaskDialogComponent } from './taskDialog/taskDialog.component';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-Mytasks',
   templateUrl: './Mytasks.component.html',
@@ -13,7 +13,7 @@ export class MytasksComponent implements OnInit {
   Feedbacks:Array<any>
   isExisting:boolean = false;
 
-  constructor(private clientservice: ClientService, public dialog: MatDialog) {}
+  constructor(private clientservice: ClientService, public dialog: MatDialog, private location: Location) {}
 
   ngOnInit() {
       this.refresh();
@@ -49,7 +49,10 @@ refresh(){
       }
     });
   }
-
+  
+goBack(): void {
+  this.location.back();
+}
 
 
 }

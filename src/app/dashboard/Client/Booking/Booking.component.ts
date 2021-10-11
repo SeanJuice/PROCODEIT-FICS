@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
-
+import { Location } from '@angular/common'
 import {
   NativeDateAdapter,
   DateAdapter,
@@ -36,7 +36,7 @@ export class BookingComponent implements OnInit {
   package
 
 
-  constructor(private clientservice: ClientService, private router: Router) {}
+  constructor(private clientservice: ClientService, private router: Router, private location: Location) {}
 
   ngOnInit() {
     this.PractitionerExists()
@@ -217,4 +217,8 @@ export class BookingComponent implements OnInit {
     let timeArray = [times[0], times[1]];
     return timeArray;
   }
+  goBack(): void {
+    this.location.back();
+  }
+
 }
