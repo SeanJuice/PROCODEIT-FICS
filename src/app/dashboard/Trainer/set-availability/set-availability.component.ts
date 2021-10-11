@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { Timeslot } from 'src/app/models/Task';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { PractitionerUserService } from '../../Practitioner/services/PractitionerUser.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-set-availability',
   templateUrl: './set-availability.component.html',
@@ -19,7 +19,7 @@ export class SetAvailabilityComponent implements OnInit {
   chosenDate:any;
   show:number = 7;
   minDate = new Date();
-  constructor(private practitionerService:PractitionerUserService, private snackbarService:SnackbarService,private authService:AuthService) { }
+  constructor(private location: Location,private practitionerService:PractitionerUserService, private snackbarService:SnackbarService,private authService:AuthService) { }
 
   ngOnInit() {
     this.getTimesSlots();
@@ -89,4 +89,8 @@ export class SetAvailabilityComponent implements OnInit {
         this.isComplete = false;
     return this.isComplete
   }
+  goBack(): void {
+    this.location.back();
+  }
+
 }
