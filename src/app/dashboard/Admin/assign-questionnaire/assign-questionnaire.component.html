@@ -6,9 +6,12 @@
 
 
 <h1 class="h1 title" *ngIf="!isLoaded">
-  <i class="fas fa-home"></i>
-  <span>Assign Questionnaire to a Client or Trainer</span>
+  <div class="btn-group"  (click)=" goBack()">
+    <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+  </div>
+<span> Assign Questionnaire to a Client or Trainer </span>
 </h1>
+
 
 <div style="width: 90%; align-self: center; text-align: center; ">
 

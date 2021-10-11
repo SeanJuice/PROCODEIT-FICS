@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-Exit-wavers',
   templateUrl: './Exit-wavers.component.html',
@@ -10,7 +10,7 @@ export class ExitWaversComponent implements OnInit {
   fileUploads=[];
   searchText = '';
 toggleSearch = false;
-  constructor(private firestore: AngularFirestore, ) { }
+  constructor(private firestore: AngularFirestore,private location: Location ) { }
 
   ngOnInit() {
 
@@ -29,6 +29,9 @@ toggleSearch = false;
       });
       console.log(this.fileUploads);
     });
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 
