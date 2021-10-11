@@ -1,5 +1,5 @@
 
-
+import { Location } from '@angular/common'
 
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
@@ -34,7 +34,7 @@ export class BookingComponent implements OnInit {
   datesToHighlight:any = [];
   CurrentlyChosen: any;
 
-  constructor(private traineeservice: TraineeService) {}
+  constructor(private traineeservice: TraineeService, private location: Location) {}
 
   ngOnInit() {
     this.getAvailableDates();
@@ -95,5 +95,7 @@ export class BookingComponent implements OnInit {
       return highlightDate ? 'special-date' : '';
     };
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }
