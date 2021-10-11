@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import { DataService } from '../../Admin/services/DataService.service';
 import { Subscription } from 'rxjs';
 
+import { Location } from '@angular/common'
+
 @Component({
   selector: 'app-set-availability',
   templateUrl: './set-availability.component.html',
@@ -30,7 +32,8 @@ export class SetAvailabilityComponent implements OnInit {
     private practitionerService: PractitionerUserService,
     private snackbarService: SnackbarService,
     private authService: AuthService,
-    private data: DataService,) { }
+    private data: DataService,
+    private location: Location) { }
 
   ngOnInit() {
     this.subscription = this.data.currentMessage.subscribe(
@@ -136,5 +139,8 @@ export class SetAvailabilityComponent implements OnInit {
       this.isComplete = false;
 
          return this.isReschedule ? true : this.isComplete
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

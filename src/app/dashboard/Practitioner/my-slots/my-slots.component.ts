@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../Admin/services/DataService.service';
 import { PractitionerUserService } from '../services/PractitionerUser.service';
 import { RescheduleDialogComponent } from './rescheduleDialog/rescheduleDialog.component';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-my-slots',
   templateUrl: './my-slots.component.html',
@@ -17,7 +17,8 @@ export class MySlotsComponent implements OnInit {
     private practitionerService:PractitionerUserService,
     public dialog: MatDialog,
     private data: DataService,
-    private router: Router) { }
+    private router: Router,
+    private location: Location) { }
 
   ngOnInit() {
     this.getMySlots();
@@ -36,5 +37,9 @@ export class MySlotsComponent implements OnInit {
 
     this.data.changeMessage(Timeslot);
     this.router.navigate(['/dashboard/set-availability'])
+    }
+
+    goBack(): void {
+      this.location.back();
     }
 }
