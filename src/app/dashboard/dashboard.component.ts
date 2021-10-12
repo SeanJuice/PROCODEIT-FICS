@@ -209,8 +209,8 @@ const dashboards_settings_practitioner = [
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'My Availability Slots',
-    Button_Name: 'Slots',
+    Header_Name: 'My Schedule',
+    Button_Name: 'Schedule',
     ImageLink:
       'https://cdn3.vectorstock.com/i/1000x1000/22/47/full-day-availability-icon-vector-29962247.jpg',
     RouterLink: 'my-slots',

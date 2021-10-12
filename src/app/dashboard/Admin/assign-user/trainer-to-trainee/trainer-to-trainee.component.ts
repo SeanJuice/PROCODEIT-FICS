@@ -122,7 +122,7 @@ export class TrainerToTraineeComponent implements OnInit {
       )
       .subscribe((res) => {
         console.log(res);
-        this.snackbar.openSnackBar('Successfully Assigned Practitioner');
+        this.snackbar.openSnackBar('Successfully Assigned Trainer to Trainee');
       });
   }
 
