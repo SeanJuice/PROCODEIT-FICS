@@ -61,7 +61,7 @@ export class ViewPackagesComponent implements OnInit {
       this.regForm.get('ChoosePackageDetails').get('Client_ID').updateValueAndValidity();
     }
     else{
-      alert("Please choose Package before you move to purchase")
+      alert("Please Choose A Package Before You Move To Purchase")
     }
 
   }
