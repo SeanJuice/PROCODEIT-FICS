@@ -66,18 +66,18 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
 
 
     Swal.fire({
-      title: 'are you sure you want to send this task?',
+      title: 'Are You sure You Want To Send This Task?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes!'
+      confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
         this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
           console.log(res);
           this.getTasksAssigned();
-          this.snackbar.openSnackBar("Successfully Assigned tasks")
+          this.snackbar.openSnackBar("Successfully Assigned Tasks")
         })
       }
       else {
