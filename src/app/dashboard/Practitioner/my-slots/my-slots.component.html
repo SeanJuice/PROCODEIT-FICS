@@ -2,7 +2,7 @@
   <div class="btn-group"  (click)=" goBack()">
        <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
   </div>
-  <span> Available TimeSlots </span>
+  <span> Back </span>
 </h1>
 <div class="app">
 
@@ -27,7 +27,7 @@
             <td>{{slot.StartTime}}</td>
             <td>{{slot.EndTime}}</td>
             <td>{{slot.Client}}</td>
-            <td><a class="btn-gradient red small" (click)="Transfer(slot)">Reschedule Availability</a></td>
+            <td><a class="btn-gradient red small" (click)="Transfer(slot)">Reschedule</a></td>
           </tr>
       </tbody>
     </table>
