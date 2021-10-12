@@ -29,7 +29,7 @@ refresh(){
 
   CompleteTask(Tid,taskType): void {
     Swal.fire({
-      title: 'Are You Sure You Want To Submit Your Task?',
+      title: 'By Selecting Yes Below You Are Ready To Send Your Task.',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
