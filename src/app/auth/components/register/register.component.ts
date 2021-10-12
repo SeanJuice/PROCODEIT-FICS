@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
     this.submitted = false;
     console.log(client);
-
+ 
     this.Authservice.Register(client, Role, this.currentPPUpload);
 
   }
