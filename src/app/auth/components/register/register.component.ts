@@ -7,6 +7,7 @@ import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,8 @@ export class RegisterComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private Authservice: AuthService,
-    private external: ExternalService
+    private external: ExternalService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -171,6 +173,10 @@ export class RegisterComponent implements OnInit {
       };
     }
 
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

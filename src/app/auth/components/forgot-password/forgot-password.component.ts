@@ -3,6 +3,7 @@ import { AuthService } from '../../auth.service';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -11,7 +12,7 @@ import { User } from 'src/app/models/user.model';
 export class ForgotPasswordComponent implements OnInit {
   Spinner= false;
   emailaddress:string
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {}
 
@@ -80,5 +81,9 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(user)
       this.auth.Login(user)
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
