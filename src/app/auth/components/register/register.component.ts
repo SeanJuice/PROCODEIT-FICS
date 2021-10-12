@@ -6,6 +6,7 @@ import { FileUpload } from 'src/app/models/fileupload';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -45,7 +46,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
-    const file = this.selectedPPFiles.item(0);
+    Swal.fire({
+      title: "Please Note Practitioners,Trainers And Trainee's Will Be Sent An Email Once They Have Been Accepted!",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Apply Now'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const file = this.selectedPPFiles.item(0);
     this.currentPPUpload = new FileUpload(file);
     this.selectedPPFiles = undefined;
     let Role = Number(role) + Number(1);
@@ -54,6 +64,12 @@ export class RegisterComponent implements OnInit {
     console.log(client);
  
     this.Authservice.Register(client, Role, this.currentPPUpload);
+      }
+      else {
+
+      }
+    })
+    
 
   }
   createOtherForm() {
