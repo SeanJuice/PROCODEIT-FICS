@@ -38,12 +38,12 @@ export class ClientsComponent implements OnInit {
     })
 
     swalWithBootstrapButtons.fire({
-      title: 'Are you want to disable this client?',
-      text: "You won't be able to revert this!",
+      title: 'Are You Sure Want To Disable This Client?',
+      text: "You Won't Be Able To Revert This!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes!',
-      cancelButtonText: 'Cancel!',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'Cancel',
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
@@ -51,7 +51,7 @@ export class ClientsComponent implements OnInit {
         this.clientsService.DisableClient(ID).subscribe(res=>{
           swalWithBootstrapButtons.fire(
             'Disabled!',
-            'User has been successfully disabled.',
+            'User Has Been Successfully Disabled.',
             'success'
           )
         }, err => { })
