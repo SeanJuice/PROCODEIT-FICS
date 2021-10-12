@@ -174,9 +174,4 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-
-  goBack(): void {
-    this.location.back();
-  }
-
 }
