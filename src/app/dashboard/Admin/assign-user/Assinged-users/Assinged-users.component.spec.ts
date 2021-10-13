@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { EventTypeComponent } from './EventType.component';
+import { AssingedUsersComponent } from './Assinged-users.component';
 
-describe('EventTypeComponent', () => {
-  let component: EventTypeComponent;
-  let fixture: ComponentFixture<EventTypeComponent>;
+describe('AssingedUsersComponent', () => {
+  let component: AssingedUsersComponent;
+  let fixture: ComponentFixture<AssingedUsersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventTypeComponent ]
+      declarations: [ AssingedUsersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventTypeComponent);
+    fixture = TestBed.createComponent(AssingedUsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

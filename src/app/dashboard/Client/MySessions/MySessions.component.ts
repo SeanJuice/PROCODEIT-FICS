@@ -21,22 +21,25 @@ export class MySessionsComponent implements OnInit {
   displayEvent: any;
 
   constructor(private Clientservice:ClientService,public dialog: MatDialog) { }
-
   ngOnInit() {
+    this.getDates();
+  }
+
+  getDates() {
 
    this.ID = this.Clientservice.ClientID
     this.Clientservice.getSessions().subscribe(res =>{
+      console.log(res)
       let data = []
       res.forEach(session =>{
+        console.log(session)
           data.push({
               id:session.Session_ID,
               title: session.PackageName,
               start: session.Date,
               end: session.Date,
               extendedProps: {
-                StartTime:session.Start_Time,
-                EndTime: session.End_Time,
-                Package:session.PackageName
+                session: session
               },
 
           })
@@ -63,15 +66,14 @@ export class MySessionsComponent implements OnInit {
   }
 
   openReviewDialog(arg): void {
+    console.log(arg.event._def)
     let dialogRef = this.dialog.open(ReviewDialogComponent, {
-      width: '500px',
-      data: { name: arg.event._def.id}
+      width: '1000px',
+      height: '550px',
+      data: { data: arg.event._def.extendedProps.session}
     });
     dialogRef.afterClosed().subscribe(result => {
-      swal.fire({
-        text: 'Event Title! ' + arg.event._def.Package,
-        icon: 'success'
-      });
+      this.getDates();
     });
   }
 
@@ -96,10 +98,11 @@ export class MySessionsComponent implements OnInit {
   }
 
   handleEventClick(arg) {
-    swal.fire({
-        text: 'Event Title! ' + arg.event._def.title,
-        icon: 'success'
-      });
+    console.log(arg)
+    // swal.fire({
+    //     text: 'Event Title! ' + arg.event._def.title,
+    //     icon: 'success'
+    //   });
   }
 
   updateEvent(model: any) {

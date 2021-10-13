@@ -22,7 +22,7 @@
         <tr *ngFor="let question of QuestionsBank">
           <td>{{question.Question_ID}}</td>
           <td>{{question.Question}}</td>
-          <td><button (click)="Maintain(question.QuestionTitle_ID,question.Description)"  class="btn-gradient blue mini" style="color:white" >Maintain</button></td>
+          <td><button (click)="Maintain(question.Question_ID,question.Question)"  class="btn-gradient blue mini" style="color:white" >Maintain</button></td>
         </tr>
       </tbody>
     </table>

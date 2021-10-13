@@ -58,15 +58,15 @@ export class ClientService {
   //Get session feedback
   getReviewSessionFeedback(SessionID:Number){
     let request:any;
-
+    console.log(SessionID)
     if(SessionID == null)
     {
-      request = "SessionID is Null"
+      request = of("SessionID is Null")
     }
     else{
       request =this.http.get(`${rootURL}/ReviewSessionFeedback/${SessionID}`);
     }
-    return of(request)
+    return request
   }
 
 
@@ -170,15 +170,18 @@ export class ClientService {
      return this.http.post(`${rootURL}/BookSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());
   }
 
+  RescheduleSession(BookingIDs,availability_id){
+    BookingIDs.Client_ID = this.ClientID;
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}/RescheduleSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());
+  }
+
   getDateAvailability(Date:any):Observable<any[]>{
     return this.http.get<any[]>(`${rootURL}GetDateAvailability/${Date}`).pipe(share());
   }
 
   // ?\https://stackblitz.com/edit/am-all-imports-7gm3wt?file=app%2Fapp.component.ts
   getAvailableDates():Observable<any[]>{
-    return this.http.get<any[]>(`${rootURL}GetAvailableDates/`).pipe(share());
+    return this.http.get<any[]>(`${rootURL}GetPractitionerAvailableDates/${Number( sessionStorage.getItem('Practitioner_ID'))}`).pipe(share());
   }
-
-
-
 }

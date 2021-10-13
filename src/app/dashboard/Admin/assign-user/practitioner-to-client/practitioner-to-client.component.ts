@@ -107,16 +107,6 @@ export class PractitionerToClientComponent implements OnInit {
   }
 
   AssignPractitioner() {
-    let client = this.ClientList.find(
-      (obj) => obj.Client_ID == this.SelectedClient.Client_ID
-    );
-    console.log(
-      this.SelectedPractitioner,
-      ' ',
-      this.SelectedClient,
-      '>',
-      client
-    );
 
     this.practitionerservice.AssignPractitionerToClient(this.SelectedPractitioner.Practitioner_ID, this.SelectedClient.Client_ID).subscribe(res=>{
       console.log(res);

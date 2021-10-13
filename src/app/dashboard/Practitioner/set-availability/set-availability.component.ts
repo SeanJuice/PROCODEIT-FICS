@@ -21,6 +21,7 @@ export class SetAvailabilityComponent implements OnInit {
   isDateChosen: boolean;
   chosenDate: any;
   show: number = 7;
+  selectedDate:any
   // For Reschedule
   subscription: Subscription;
   SlotDetails:any =null;
@@ -49,7 +50,7 @@ export class SetAvailabilityComponent implements OnInit {
     this.show += 10;
   }
   getDateAvailableDate(date: any) {
-
+    this.selectedDate =date;
     const momentDate = new Date(date); // Replace event.value with your date value
     const formattedDate = moment(momentDate).format('YYYY-MM-DD')
     console.log(formattedDate)
@@ -101,7 +102,7 @@ export class SetAvailabilityComponent implements OnInit {
         this.ChosenTimesList = this.ChosenTimesList.filter(function () { return true }); //Removes empty positions;
         if (this.checkCompleteness()) {
           console.log(this.ChosenTimesList); //?console
-          this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,this.SlotDetails).subscribe(result => {
+          this.practitionerService.SetPractitionerAvailability(this.ChosenTimesList,this.isReschedule,this.SlotDetails,).subscribe(result => {
             console.log(result); //?console
             if (result.Availability_ID! = null) {
               Swal.fire(

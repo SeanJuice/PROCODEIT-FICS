@@ -71,6 +71,8 @@ export class TraineesService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.post(`${TraineerootURL}/MaintainTrainee/${this.auth.loginId}`,user, httpOptions);
+    return this.http.post(`https://localhost:44332/api/Trainee/MantainTrainee/${this.auth.loginId}`,user, httpOptions);
   }
+
+
 }

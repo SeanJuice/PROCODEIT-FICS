@@ -8,8 +8,15 @@ import swal from 'sweetalert2';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-    ResetForm: FormGroup;
+    // ResetForm: FormGroup;
     submitted = false;
+    ResetForm: FormGroup = this.formBuilder.group({
+      old_password: ['',Validators.required,],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirm_password: ['', Validators.required]
+  }, {
+    validators: ConfirmedValidator('password', 'confirm_password'), asyncValidators: passwordMatchValidator('password', 'old_password')
+  });
   constructor( private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -17,13 +24,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   formInit() {
-    this.ResetForm = this.formBuilder.group({
-      old_password: ['',Validators.required,],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-  }, {
-      validator: MustMatch('password', 'confirmPassword')
-  });
+
   }
 
     // convenience getter for easy access to form fields
@@ -51,21 +52,19 @@ export class ResetPasswordComponent implements OnInit {
 }
 
 
-
-// ?validation function
-export function MustMatch(controlName: string, matchingControlName: string) {
+export function passwordMatchValidator(value1,value2) {
+  return value1 != value2
+     ? null : {'mismatch': true};
+}
+export function ConfirmedValidator(controlName: string, matchingControlName: string){
   return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
-
-      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-          // return if another validator has already found an error on the matchingControl
+      if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
           return;
       }
-
-      // set error on matchingControl if validation fails
       if (control.value !== matchingControl.value) {
-          matchingControl.setErrors({ mustMatch: true });
+          matchingControl.setErrors({ confirmedValidator: true });
       } else {
           matchingControl.setErrors(null);
       }

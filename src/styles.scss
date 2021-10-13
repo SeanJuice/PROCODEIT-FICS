@@ -10,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; };
 /* Add application styles & imports to this file! */
 @import "../src/app/shared/layouts/main.min.css";
 
-
+@import '~ngx-ui-switch/ui-switch.component.scss';
 .not-empty-select.mat-selected {
     color: green !important;
 

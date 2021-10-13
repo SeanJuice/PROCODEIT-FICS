@@ -462,5 +462,15 @@ const Admin = [
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Exit Wavers',
+    Button_Name: 'Exit Wavers',
+    ImageLink:
+      'https://www.netclipart.com/pp/m/91-911062_receptionist-clipart-admin-assistant-cartoon.png',
+    RouterLink: 'Exit-Wavers',
+    icon: 'library_add',
+    color: 'rgb(15, 147, 255);',
+  },
 
 ];

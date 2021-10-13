@@ -19,6 +19,7 @@ export class TrialQuestionnaireComponent implements OnInit {
   getQuestionsTrialQuestions(){
     this.clientService.getTrialQuestionnaire().subscribe(res=>{
 
+      console.log(res)
       let Pack = Object.keys(res).map(index => {this.Questions = res[index];});
     })
 

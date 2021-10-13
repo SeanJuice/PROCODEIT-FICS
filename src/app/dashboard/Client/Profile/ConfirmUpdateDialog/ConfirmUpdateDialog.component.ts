@@ -55,6 +55,7 @@ export class ConfirmUpdateDialogComponent implements OnInit {
 
       });
     } else if (this.data.role === 5) {
+      this.data.clientN.Trainee_ID = Number(this.AuthServe.loginId)
       //!Trainee
       this.traineeService.MaintainTrainee(this.data.clientN).subscribe(() => {
         this.dialogRef.close();

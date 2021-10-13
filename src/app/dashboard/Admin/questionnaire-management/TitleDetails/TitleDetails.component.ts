@@ -45,15 +45,15 @@ export class TitleDetailsComponent implements OnInit {
 
   Maintain(Id,Title) {
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Document Type',
-      question: 'Update Document type: ',
-      message: Title.toString()
+      title: 'Question Details',
+      question: 'Update Question Details',
+      message: Title
     })
       .subscribe((message) => {
         // We get modal result
           console.log(message);
-          let pack = {Description:message, DocumentType_ID: Id }
-          this.questionnaireService.MaintainQuestionnaireTitle(Id, pack).subscribe(response=>{
+          let pack = {Question:message, Question_ID: Id }
+          this.questionnaireService.MaintainQuestionnaireTitleDetails(Id, pack).subscribe(response=>{
             this.getTitles();
 
           }

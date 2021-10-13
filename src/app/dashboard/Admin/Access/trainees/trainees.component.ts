@@ -8,13 +8,13 @@ import { TraineesService } from '../../services/trainees.service';
   styleUrls: ['./trainees.component.scss']
 })
 export class TraineesComponent implements OnInit {
-
+  public query: any = ''
   trainees:Array<Trainee>
   constructor( private TraineesService:TraineesService) { }
 
   ngOnInit() {
     this.TraineesService.getTrainees().subscribe(res=>{
-      this.trainees = res
+      this.trainees = res.filter(trainee => trainee.TraineeStatus_ID ==1)
 
   })
   }

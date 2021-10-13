@@ -23,6 +23,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
 import { TimePipe } from './utils/time.pipe';
 import {MatChipsModule} from '@angular/material/chips'
+import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -34,6 +36,7 @@ import {MatChipsModule} from '@angular/material/chips'
     TimesetterComponent,
     ClientAuditReportComponent,
     ResetPasswordComponent,
+    ExitWavierComponent,
     //Modals
     AlertComponent,
     ConfirmComponent,

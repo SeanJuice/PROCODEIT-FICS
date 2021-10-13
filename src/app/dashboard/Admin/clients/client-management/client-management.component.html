@@ -6,6 +6,9 @@
       <i class="material-icons">arrow_back_ios</i>
       <span> Clients</span>
     </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -18,14 +21,14 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let client of clients">
+          <tr *ngFor="let client of clients   | Gfilter: query">
             <td>{{client.Title}}</td>
             <td>{{client.Name}}</td>
             <td>{{client.Surname}}</td>
             <td>{{client.Contact_Number}}</td>
             <td>{{client.Email_Address}}</td>
             <td>
-              <button class="btn-two red small" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../ViewClientSession/',client.Client_ID]" routerLinkActive="active" routerLinkActive="active"  >Client Sessions</button>
+              <button class="btn-two blue small" (click)="Transfer(client.Name,client.Surname)"  [routerLink]="['../ViewClientSession/',client.Client_ID]" routerLinkActive="active" routerLinkActive="active"  >Client Sessions</button>
             </td>
           </tr>
       </tbody>

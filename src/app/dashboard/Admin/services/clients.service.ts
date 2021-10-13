@@ -31,4 +31,10 @@ export class ClientsService {
 
     return this.http.post(`${rootURL}/DisableClientProfile/${ID}`, httpOptions);
   }
+
+  ViewClientsWithPractitioner(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${rootURL}ViewClientsWithPractitioner/`)
+      .pipe(share());
+  }
 }
