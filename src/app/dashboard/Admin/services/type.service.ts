@@ -185,7 +185,7 @@ export class TypeService {
     swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: `successfully updated ${type} type!`,
+              title: `Successfully Updated ${type} Type!`,
               showConfirmButton: false,
               timer: 2000,
             })
