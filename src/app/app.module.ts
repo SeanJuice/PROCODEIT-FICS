@@ -20,6 +20,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     SweetAlert2Module.forRoot(),
     FontAwesomeModule,
     GoogleChartsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    NgxPaginationModule
   ],
   providers: [LazyLoadScriptService],
   bootstrap: [AppComponent]

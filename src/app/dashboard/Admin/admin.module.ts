@@ -26,6 +26,7 @@ import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
 import { CpDocFilterPipe } from './Exit-wavers/cp-doc-filter.pipe';
 import { SearchAuditFilterPipe } from './audit-trail/pipe';
 import { SearchPipe } from './pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { SearchPipe } from './pipe';
     AuditTrailComponent,
     TitleDetailsComponent,
     CpDocFilterPipe,
-    SearchPipe
+    SearchPipe,
+    SearchAuditFilterPipe
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { SearchPipe } from './pipe';
     ApplicationRequestsModule,
     assignModule,
     MatSnackBarModule,
-    UiSwitchModule
+    UiSwitchModule,
+
 
   ]
 })
