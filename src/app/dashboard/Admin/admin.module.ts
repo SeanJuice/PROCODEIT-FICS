@@ -25,6 +25,9 @@ import { assignModule } from './assign-user/assign.module';
 import { ExitWaversComponent } from './Exit-wavers/Exit-wavers.component';
 import { CpDocFilterPipe } from './Exit-wavers/cp-doc-filter.pipe';
 import { SearchAuditFilterPipe } from './audit-trail/pipe';
+import { SearchPipe } from './pipe';
+
+
 
 
 @NgModule({
@@ -41,7 +44,7 @@ import { SearchAuditFilterPipe } from './audit-trail/pipe';
     AuditTrailComponent,
     TitleDetailsComponent,
     CpDocFilterPipe,
-
+    SearchPipe,
   ],
   imports: [
     CommonModule,

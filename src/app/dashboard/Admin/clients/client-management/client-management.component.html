@@ -1,6 +1,4 @@
 <div class="app">
-
-
   <div class="table-card">
     <h1 class="h1 title">
       <div class="btn-group"  (click)=" goBack()">
@@ -8,6 +6,9 @@
       </div>
       <span> Clients </span>
     </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -20,7 +21,7 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let client of clients">
+          <tr *ngFor="let client of clients | Gfilter: query">
             <td>{{client.Title}}</td>
             <td>{{client.Name}}</td>
             <td>{{client.Surname}}</td>

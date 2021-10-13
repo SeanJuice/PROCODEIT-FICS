@@ -9,10 +9,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
-
   clients: Array<Client>;
   clicked = true;
   message:string;
+  
+  public query: any = '';
 
 
   constructor(private clientsService:ClientsService, private router:Router) { }

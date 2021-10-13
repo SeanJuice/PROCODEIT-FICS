@@ -4,12 +4,14 @@ import { TraineesComponent } from './trainees/trainees.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { PractitionersComponent } from './practitioners/practitioners.component';
 import { ClientsComponent } from './clients/clients.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchAccessPipe } from './pipe';
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,FormsModule, ReactiveFormsModule
   ],
-  declarations: [TraineesComponent,TrainersComponent,PractitionersComponent,ClientsComponent]
+  declarations: [TraineesComponent,TrainersComponent,PractitionersComponent,ClientsComponent,SearchAccessPipe,SearchAccessPipe]
 })
-export class AccessModule { }
+export class AccessModule {}
