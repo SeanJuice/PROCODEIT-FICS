@@ -17,20 +17,20 @@
       <tr>
         <td>User Name</td>
         <td>Date</td>
+        <td>Time</td>
         <td>Description</td>
         <td>history</td>
 
       </tr>
     <tbody>
-        <tr *ngFor="let audit of AuditLog">
+        <tr *ngFor="let audit of AuditLog | filterAudit: query">
           <td>{{audit.User_ID}}</td>
           <td>{{audit.Date_Log |date}}</td>
+          <td>{{audit.time}}</td>
           <td>{{audit.Description}}</td>
           <td>{{audit.Log_History}}</td>
-
-
-
         </tr>
     </tbody>
   </table>
+  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 </div>

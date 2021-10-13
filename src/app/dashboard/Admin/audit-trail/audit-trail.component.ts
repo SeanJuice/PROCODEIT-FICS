@@ -11,7 +11,7 @@ export class AuditTrailComponent implements OnInit {
   public query: any = '';
   AuditLog: Array<any>
    constructor(private admin: AdminService) { }
-
+   p: number = 1;
   ngOnInit() {
     this.GetAuditTrail()
   }
@@ -19,7 +19,8 @@ export class AuditTrailComponent implements OnInit {
   GetAuditTrail() {
 
     this.admin.GetAuditTrail().subscribe(res =>{
-       this.AuditLog =res;
+      console.log(res)
+          this.AuditLog =res;
     })
   }
   Export()
