@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
     Swal.fire({
-      title: "Please Note Practitioners,Trainers And Trainee's Will Be Sent An Email Once They Have Been Accepted!",
+      title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
