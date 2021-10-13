@@ -8,7 +8,7 @@ import { PractitionerService } from '../../services/practitioner.service';
   styleUrls: ['./practitioners.component.scss']
 })
 export class PractitionersComponent implements OnInit {
-
+  public query: any = '';
   practitioners:Array<Practitioner>
   constructor( private practitionerService:PractitionerService) { }
 

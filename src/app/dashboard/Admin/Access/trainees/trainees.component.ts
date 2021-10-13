@@ -8,7 +8,7 @@ import { TraineesService } from '../../services/trainees.service';
   styleUrls: ['./trainees.component.scss']
 })
 export class TraineesComponent implements OnInit {
-
+  public query: any = ''
   trainees:Array<Trainee>
   constructor( private TraineesService:TraineesService) { }
 

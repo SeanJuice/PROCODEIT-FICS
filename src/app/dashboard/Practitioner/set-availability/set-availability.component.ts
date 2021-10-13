@@ -21,6 +21,7 @@ export class SetAvailabilityComponent implements OnInit {
   isDateChosen: boolean;
   chosenDate: any;
   show: number = 7;
+  selectedDate:any
   // For Reschedule
   subscription: Subscription;
   SlotDetails:any =null;
@@ -49,7 +50,7 @@ export class SetAvailabilityComponent implements OnInit {
     this.show += 10;
   }
   getDateAvailableDate(date: any) {
-
+    this.selectedDate =date;
     const momentDate = new Date(date); // Replace event.value with your date value
     const formattedDate = moment(momentDate).format('YYYY-MM-DD')
     console.log(formattedDate)
