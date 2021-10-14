@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TimesetterComponent } from './Timesetter/Timesetter.component';
 
+
 @Component({
   selector: 'app-dashboardlayout',
   templateUrl: './dashboardlayout.component.html',
@@ -57,7 +58,7 @@ Role(id: number): string {
   else if(id===4){
     role='Trainer'
   }
-  else if(id===4){
+  else if(id===5){
     role='Trainee'
   }
   return role
