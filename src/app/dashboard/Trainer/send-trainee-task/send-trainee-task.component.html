@@ -1,15 +1,35 @@
-<h1 class="h1 title">
-  <div class="btn-group"  (click)=" goBack()">
-       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          Send Tasks
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Click assign buttons to allocate homework</div>
+      
+          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
   </div>
-  <span> Back</span>
-</h1>
+
 <div class="app">
 
 
   <div class="table-card">
     <h1 class="h1 title">
-      <i class="fas fa-home"></i>
       <span> Your Trainees</span>
     </h1>
     <table class="table">

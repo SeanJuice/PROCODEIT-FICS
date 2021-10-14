@@ -144,7 +144,6 @@ export class BookingComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-=======
 
    // validate
    validate() {
