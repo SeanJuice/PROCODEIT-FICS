@@ -10,8 +10,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import swal from 'sweetalert2';
-import { FileUpload } from '../models/fileupload';
 import { FileUploadService } from '../shared/services/fileUpload.service';
+
 
 
 const KEY = 'FICSINF';
@@ -68,6 +68,7 @@ export class AuthService {
           sessionStorage.setItem('User_ID', this.encrypt(res.User_ID));
           sessionStorage.setItem('liid', this.encrypt(res.LoginID));
           sessionStorage.setItem('Practitioner_ID', this.encrypt(res.Practitioner_ID));
+          sessionStorage.setItem('Trainer_ID', this.encrypt(res.Trainer_ID));
 
 
           this.router.navigate(['./dashboard']);

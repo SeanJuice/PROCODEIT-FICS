@@ -30,11 +30,15 @@ import Swal from 'sweetalert2';
   ],
 })
 export class BookingComponent implements OnInit {
+
   selectedDate: any | null;
   AvailableSlots: any = [];
   AvailabilityID: number;
-  datesToHighlight:any = [];
+  datesToHighlight: any = [];
   CurrentlyChosen: any;
+  Packages: any = [];
+  minDate = new Date();
+  package
 
   constructor(private traineeservice: TraineeService) {}
 
