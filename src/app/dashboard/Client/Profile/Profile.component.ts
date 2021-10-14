@@ -64,6 +64,7 @@ export class ProfileComponent implements OnInit {
       'Contact_Number': ['', [Validators.required]],
       'Gender': ['', [Validators.required]],
       'Country': ['', [Validators.required]],
+      //'ClientType_ID': ['', [Validators.required]],
       'Client_Status': [0],
     });
     this.roleId = this.auth.Role;
@@ -129,6 +130,7 @@ export class ProfileComponent implements OnInit {
       'Contact_Number': [Number(info.Contact_Number), [Validators.required]],
       'Gender': [info.Gender, [Validators.required]],
       'Country': [info.Country, [Validators.required]],
+      'ClientType_ID': [info.ClientType_ID, [Validators.required]],
       'Client_Status': [0],
     });
 

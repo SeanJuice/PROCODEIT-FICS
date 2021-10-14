@@ -149,6 +149,16 @@
                 </select>
               </td>
             </tr>
+
+            <!--<tr *ngIf="showOthers" >
+              <td class="heading">Client Type:</td>
+              <td class="info">
+                <select class="select-css cat_textbox" formControlName="Client Type">
+                  <option *ngFor="let clientType of clientTypes" [value]="clientType.clientType">{{clientType.clientType}}</option>
+                </select>
+              </td>
+            </tr>-->
+
           </table>
           <input class="cat_button" type="submit" value="Save Changes" id="catupdatedetailsformbutton" />
         </div>

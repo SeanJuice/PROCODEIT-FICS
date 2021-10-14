@@ -10,8 +10,8 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
-const TraineerootURL = 'https://localhost:44332/api/Trainee/';
+const rootURL = 'https://localhost:44389/api/Admin/';
+const TraineerootURL = 'https://localhost:44389/api/Trainee/';
 
 
 @Injectable({
@@ -71,7 +71,7 @@ export class TraineesService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.post(`https://localhost:44332/api/Trainee/MantainTrainee/${this.auth.loginId}`,user, httpOptions);
+    return this.http.post(`https://localhost:44389/api/Trainee/MantainTrainee/${this.auth.loginId}`,user, httpOptions);
   }
 
 

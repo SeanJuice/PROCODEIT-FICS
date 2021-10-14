@@ -115,6 +115,7 @@ export class RegisterComponent implements OnInit {
         Contact_Number: [null, [Validators.required, Validators.maxLength(10)]],
         Gender: [null, [Validators.required]],
         Country: [null, [Validators.required]],
+        //Client_Type: [null, [Validators.required]],
         Client_Status: [null],
         Password: [null, [Validators.required, this.checkPassword]],
         Confirm_Password: ['', Validators.required],
