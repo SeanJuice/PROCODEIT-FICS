@@ -76,7 +76,7 @@ export class AuthService {
           swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Something went wrong!, Please check if the details provided are correct',
+            text: 'Something Went Wrong! Please Check If The Details Provided Are Correct!',
           });
         }
       });
@@ -99,7 +99,7 @@ export class AuthService {
           swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Successfully registration! Expect communication from the administrator',
+            title: 'We Have Received Your Application! Expect Communication From The Administrator',
             showConfirmButton: false,
             timer: 2500
           }).then(() => {
@@ -110,7 +110,7 @@ export class AuthService {
           swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Something went wrong!, Please check if the email or password provided is correct',
+            text: 'Something Went Wrong! Please Check If The Email Or Password Provided Is Correct!',
           });
         }
       });

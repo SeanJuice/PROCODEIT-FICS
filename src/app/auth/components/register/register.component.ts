@@ -156,7 +156,7 @@ export class RegisterComponent implements OnInit {
     return this.formGroup.get('Email_Address').hasError('required')
       ? 'Field is required'
       : this.formGroup.get('Email_Address').hasError('pattern')
-      ? 'Not a valid emailaddress'
+      ? 'Not a valid email address'
       : '';
   }
   /// ProfilePicture
