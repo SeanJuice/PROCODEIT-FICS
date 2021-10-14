@@ -3,11 +3,7 @@ import { Session } from 'src/app/models/Session';
 import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TraineeService } from '../services/trainee.service';
-
 import { CalendarOptions } from '@fullcalendar/angular';
-
-import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-MySessions',
   templateUrl: './MySessions.component.html',
@@ -130,9 +126,5 @@ export class MySessionsComponent implements OnInit {
    console.log('dayClick', event);
  }
 
-
-    goBack(): void {
-      this.location.back();
-    }
-  }
+}
 
