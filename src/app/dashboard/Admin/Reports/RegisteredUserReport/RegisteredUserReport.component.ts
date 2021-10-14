@@ -33,6 +33,7 @@ getUserRoles() {
   this.reportService.ViewUserRoles().subscribe(res =>{
       console.log(res);
       this.UserRoles = res;
+      this.UserRoles =this.UserRoles.splice(1)
   })
 }
 getReportResults(date) {
