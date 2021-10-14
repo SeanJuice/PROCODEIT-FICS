@@ -89,6 +89,19 @@ a {
     padding: 10px 24px;
   }
 
+  .hr1 {
+    border: 0;
+    height: 4px;
+    background: #095484;
+    background-image: linear-gradient(to right, #ccc, #092c64, #ccc);
+  }
+
+.o {
+    float: right;
+    top:2%;
+    display: inline;
+}
+
 .container {
     overflow: hidden;
     width: 100%;
