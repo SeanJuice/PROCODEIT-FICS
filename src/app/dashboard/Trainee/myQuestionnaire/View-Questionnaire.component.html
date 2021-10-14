@@ -8,8 +8,13 @@
 <div class="app">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-10 bg">
-        <h1 class="h1 title">
+      <div class="col-2 bg">
+        <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" align="center">
           <span>My Questionnaires</span> 
         </h1>
       </div>
@@ -25,16 +30,15 @@
     </div>
       <hr class="hr1">
   </div>
-  <br>
-  <br>
-  <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0;else  No_Questionnaires">
+  
+  <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0">
     <div class="container ">
       <br>
   <div class="table-card card" *ngFor="let category of questionContainer; let i=index" >
     <h2>{{category.question}}</h2>
 
     <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-      Question Is Not Complete
+      Question Is Incomplete
     </div>
     <table class="table">
       <thead>
@@ -49,7 +53,7 @@
                 {{q.Question}}
 
             </td>
-            <td *ngIf='arrayLengthCheck.length > 2; else elseblock'>
+            <td *ngIf='arrayLengthCheck.length > 2'>
 
                 <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
                   <option value="1">1</option>
@@ -58,17 +62,13 @@
                   <option value="4">4</option>
                 </select>
             </td>
+            <td *ngIf='arrayLengthCheck.length ==1'>
+            <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
+              <option value="6">Yes</option>
+              <option value="5">No</option>
 
-            <ng-template #elseblock>
-              <td >
-                <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
-                  <option value="6">Yes</option>
-                  <option value="5">No</option>
-
-                </select>
-            </td>
-          </ng-template>
-
+            </select>
+        </td>
 
           </tr>
       </tbody>
@@ -83,10 +83,7 @@
   <button class="btn btn-primary" type="button" (click)="submitQuestionnaire()">Complete Questionnaire</button>
 </div>
 
-
-<ng-template #No_Questionnaires>
-  <div class="container p-3 my-3 bg-primary text-white" >
-    <h1>NB</h1>
-    <p>No Questionnaire Assigned Yet</p>
-  </div>
-</ng-template>
+<div class="container p-3 my-3 bg-primary text-white" *ngIf="ArrayOfQuestions.length ==0">
+  <h1>NB</h1>
+  <p>No Questionnaire Assigned Yet</p>
+</div>

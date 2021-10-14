@@ -1,15 +1,37 @@
-<h1 class="h1 title">
-  <div class="btn-group"  (click)=" goBack()">
-       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          Make Booking
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Dates your trainer is available for sessions is highlighted in orange on the calendar</div>
+      
+          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
   </div>
-  <span> Back</span>
-</h1>
 <div class="wrapper">
   <div class="Grid Grid--full u-textCenter">
 
-    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> <br>
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS
+      
+    </h1></mat-card> <br>
       <mat-card-title>
-        Central Africa Time (CAT)
+        South Africa Standard Time (UTC+2)
       </mat-card-title><br></div>
   </div>
 
@@ -22,6 +44,10 @@
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
             Select A Date
+              <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select dropdown with today's date to view available sessions</div>
           </mat-card-title>
           <br>
           <mat-calendar [dateClass]="dateClass()" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
@@ -34,6 +60,11 @@
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
            Current Booking
+           <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select one time slot at a time. Times are set to SAST (UTC+2)</div>
+      
           </mat-card-title>
           <br>
 
