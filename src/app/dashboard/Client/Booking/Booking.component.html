@@ -1,36 +1,7 @@
-<h1 class="h1 title">
-  <div class="btn-group"  (click)=" goBack()">
-       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-10 bg">
-        <h1 class="h1 title">
-          <div class="btn-group"  (click)=" goBack()">
-              <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
-          </div>
-        </h1>
-      </div>
-
-      <div class="col-2 bg">
-          <div class="hint">
-            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
-          </div>
-            <div class="hide">Dates your practitioner is available for sessions is highlighted on the calendar</div>
-      
-          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
-      </div>
-    </div>
-  </div>
-  <span> Back</span>
-</h1>
-
 <div class="wrapper">
   <div class="Grid Grid--full u-textCenter">
 
-    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> <br>
-      <mat-card-title>
-        Central Africa Time (CAT)
-      </mat-card-title><br></div>
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> </div>
   </div>
 
 </div>
@@ -41,7 +12,7 @@
       <div class="example-full-width" appearance="fill">
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
-            Select A Date
+            Select a Date
           </mat-card-title>
           <br>
           <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
@@ -99,10 +70,10 @@
   <mat-card class="example-full-width" style="background-color: white; width: 100%;">
     <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
       <div class="Grid-cell">
-        <button mat-flat-button color="primary" (click)="BookSlot()">Confirm Booking</button>
+        <button mat-flat-button color="primary" (click)="BookSlot()">Confirm</button>
       </div>
       <div class="Grid-cell">
-         <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel Booking</button>
+         <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
       </div>
     </div>
   </mat-card>
