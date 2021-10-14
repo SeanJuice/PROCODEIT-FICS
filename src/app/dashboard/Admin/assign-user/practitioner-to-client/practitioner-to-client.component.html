@@ -5,10 +5,6 @@
 
 <main>
 
-  <header class="container" *ngIf="isSelected[0] && isSelected[1] && isClosed">
-    <a class="btn-gradient blue block" (click)="AssignPractitioner()">Assign</a>
-
-  </header>
 
   <div class="col">
     <a class="card card-5 stacked--up-left">
@@ -37,11 +33,11 @@
     </a>
   </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  
+
+  <header class="container" *ngIf="isSelected[0] && isSelected[1] && isClosed">
+    <a class="btn-gradient blue block" (click)="AssignPractitioner()">Assign</a>
+
+  </header>
 
 
 
