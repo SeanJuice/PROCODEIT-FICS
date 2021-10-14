@@ -56,4 +56,11 @@ export class ClientTypeComponent implements OnInit {
           ,error => {throw new Error('Client not added '); console.log(error)})
       });
   }
+
+  delete(id) {
+    this.typeService.RemoveclientType(id).subscribe(res=>{
+      console.log(res);
+      this.getClientTypes();
+    })
+  }
 }

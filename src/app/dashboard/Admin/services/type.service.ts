@@ -64,7 +64,13 @@ export class TypeService {
     );
   }
 
-  DeleteQuestionnaireType(id: number) {}
+  DeleteQuestionnaireType(id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeQuestionnaireType/${id}`, httpOptions);
+  }
 
   /**
    * Session Type crud
@@ -89,51 +95,8 @@ export class TypeService {
     );
   }
 
-  /**
-   * Document Type crud
-   */
-  AddDocumentType(doc: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
 
-    return this.http.post(`${rootURL}/AddDocumentype/`, doc, httpOptions);
-  }
 
-  UpdateDocumentType(doc, id: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(
-      `${rootURL}/MaintainDocumentType/${id}`,
-      doc,
-      httpOptions
-    );
-  }
-
-  /**
-   * Event Type crud
-   */
-  AddEventType(event: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(`${rootURL}/AddEventType/`, event, httpOptions);
-  }
-
-  UpdateEventType(event, id: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(
-      `${rootURL}/MaintainEventType/${id}`,
-      event,
-      httpOptions
-    );
-  }
 
   /**
    * Package Type crud
@@ -157,6 +120,13 @@ export class TypeService {
       httpOptions
     );
   }
+  RemovePackageType(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removePackageType/${id}`, httpOptions);
+  }
 
   /**
    * Client Type crud
@@ -179,6 +149,13 @@ export class TypeService {
       Client,
       httpOptions
     );
+  }
+  RemoveclientType(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeClientType/${id}`, httpOptions);
   }
 
   success(type) {
