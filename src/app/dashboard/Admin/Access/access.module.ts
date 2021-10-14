@@ -10,8 +10,8 @@ import { SearchAccessPipe } from './pipe';
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule, ReactiveFormsModule
+    CommonModule,FormsModule,ReactiveFormsModule,
   ],
-  declarations: [TraineesComponent,TrainersComponent,PractitionersComponent,ClientsComponent,SearchAccessPipe,SearchAccessPipe]
+  declarations: [TraineesComponent,TrainersComponent,PractitionersComponent,ClientsComponent,SearchAccessPipe]
 })
 export class AccessModule {}

@@ -33,6 +33,11 @@
 
   </div>
   <div class="Grid-cell">
+    <mat-card class="demo-inline-calendar-card" *ngIf="isDateChosen" >
+      <mat-card-title>
+      Date {{selectedDate | date}}
+      </mat-card-title>
+    </mat-card>
 
       <div class="example-full-width" appearance="fill">
 

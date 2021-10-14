@@ -23,7 +23,7 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let client of clients | Accessfilter: query">
+          <tr *ngFor="let client of clients  | Accessfilter: query">
             <td>{{client.Title}}</td>
             <td>{{client.Name}}</td>
             <td>{{client.Surname}}</td>

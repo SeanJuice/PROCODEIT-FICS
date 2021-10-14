@@ -31,7 +31,8 @@ export class ReviewDialogComponent implements OnInit {
   AvailableSlots: any = [];
   session:any=this.data.data;
   date:any;
-  AVSL_OBJ:any
+  AVSL_OBJ:any;
+  ReviewMessage = '';
 
   form = new FormGroup({
     date: new FormControl('', Validators.required),
@@ -48,7 +49,7 @@ export class ReviewDialogComponent implements OnInit {
   ngOnInit() {
     console.log(this.data.data)
     this.getAvailableDates();
-
+    this.getReviewSession();
 
   }
 
@@ -94,6 +95,12 @@ export class ReviewDialogComponent implements OnInit {
 
   }
 
+  getReviewSession() {
+    this.clientservice.getReviewSessionFeedback(this.session.Session_ID).subscribe(res=>{
+      this.ReviewMessage =  res.Feedback;
+      console.log(res)
+    })
+  }
   RescheduleSession() {
     /**
      * ?Placeholders

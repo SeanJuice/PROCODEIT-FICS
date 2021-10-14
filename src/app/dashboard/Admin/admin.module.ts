@@ -28,8 +28,6 @@ import { SearchAuditFilterPipe } from './audit-trail/pipe';
 import { SearchPipe } from './pipe';
 
 
-
-
 @NgModule({
   declarations: [
     ClientManagementComponent,
@@ -44,7 +42,7 @@ import { SearchPipe } from './pipe';
     AuditTrailComponent,
     TitleDetailsComponent,
     CpDocFilterPipe,
-    SearchPipe,
+    SearchPipe
   ],
   imports: [
     CommonModule,

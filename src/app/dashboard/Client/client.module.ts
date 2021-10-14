@@ -25,6 +25,7 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // must go before pl
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 import bootstrapPlugin from '@fullcalendar/bootstrap';
+import { SearchClientPipe } from './pipe';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin,
@@ -51,7 +52,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 
     // ProfileComponent
     // Dialogs
-    ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent
+    ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent,
+    //filter
+    SearchClientPipe
   ]
     ,
     entryComponents:[ReviewDialogComponent,ConfirmUpdateDialogComponent,TaskDialogComponent]

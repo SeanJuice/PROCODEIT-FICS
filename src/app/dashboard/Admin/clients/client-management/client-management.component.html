@@ -21,7 +21,7 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let client of clients | Gfilter: query">
+          <tr *ngFor="let client of clients   | Gfilter: query">
             <td>{{client.Title}}</td>
             <td>{{client.Name}}</td>
             <td>{{client.Surname}}</td>

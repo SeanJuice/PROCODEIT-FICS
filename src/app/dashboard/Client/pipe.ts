@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'Accessfilter'
+  name: 'Cfilter'
 })
 
-export class SearchAccessPipe implements PipeTransform {
+export class SearchClientPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
       if(!value)return null;
@@ -16,4 +16,5 @@ export class SearchAccessPipe implements PipeTransform {
           return JSON.stringify(data).toLowerCase().includes(args);
       });
   }
+
 }

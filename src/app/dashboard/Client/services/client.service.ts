@@ -58,15 +58,15 @@ export class ClientService {
   //Get session feedback
   getReviewSessionFeedback(SessionID:Number){
     let request:any;
-
+    console.log(SessionID)
     if(SessionID == null)
     {
-      request = "SessionID is Null"
+      request = of("SessionID is Null")
     }
     else{
       request =this.http.get(`${rootURL}/ReviewSessionFeedback/${SessionID}`);
     }
-    return of(request)
+    return request
   }
 
 
