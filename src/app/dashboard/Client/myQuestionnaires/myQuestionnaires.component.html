@@ -1,15 +1,38 @@
-<h1 class="h1 title">
+<!--<h1 class="h1 title">
   <div class="btn-group"  (click)=" goBack()">
        <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
   </div>
   <span> Back</span>
-</h1>
+</h1>-->
 
 <div class="app">
-  <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>My Questionnaires</span>
-  </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+          </div>
+      </div>
+
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          <span>My Questionnaires</span> 
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Rate yourself on a scale of 1 to 4, with 1 being most likely and 4 being least likely. Go to help for more assistance</div>
+      
+          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
+      </div>
+    </div>
+      <hr class="hr1">
+  </div>
+  <br>
+  <br>
   <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0;else  No_Questionnaires">
     <div class="container ">
       <br>
@@ -73,4 +96,3 @@
     <p>No Questionnaire Assigned Yet</p>
   </div>
 </ng-template>
-
