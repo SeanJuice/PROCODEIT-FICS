@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../Admin/services/DataService.service';
 import { TrainerService } from '../services/trainer.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-send-trainee-task',
   templateUrl: './send-trainee-task.component.html',
@@ -9,7 +9,7 @@ import { TrainerService } from '../services/trainer.service';
 })
 export class SendTraineeTaskComponent implements OnInit {
 
-  constructor(private data: DataService,private trainerservice:TrainerService) { }
+  constructor( private location: Location,private data: DataService,private trainerservice:TrainerService) { }
   trainees:Array<any>;
 
   ngOnInit() {
@@ -24,5 +24,9 @@ export class SendTraineeTaskComponent implements OnInit {
   let NameSurname =  Name +" "+ Surname
   this.data.changeMessage( NameSurname)
   }
+  
+goBack(): void {
+  this.location.back();
+}
 
 }

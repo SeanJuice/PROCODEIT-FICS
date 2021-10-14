@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../services/admin.service';
+import { Location } from '@angular/common';
 import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-audit-trail',
@@ -10,8 +11,11 @@ export class AuditTrailComponent implements OnInit {
   fileName= 'ExcelSheet.xlsx';
   public query: any = '';
   AuditLog: Array<any>
-   constructor(private admin: AdminService) { }
+
+   constructor(private admin: AdminService,  private location: Location) { }
+
    p: number = 1;
+
   ngOnInit() {
     this.GetAuditTrail()
   }
@@ -36,4 +40,10 @@ export class AuditTrailComponent implements OnInit {
       /* save to file */
       XLSX.writeFile(wb, this.fileName);
   }
+
+  
+goBack(): void {
+  this.location.back();
+}
+
 }

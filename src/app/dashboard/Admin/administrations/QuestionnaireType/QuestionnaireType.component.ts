@@ -29,8 +29,8 @@ export class QuestionnaireTypeComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Questionnaire',
-      question: 'Add your Questionnaire Type?: ',
+      title: 'Questionnaire Type',
+      question: 'Add Your Questionnaire Type: ',
         message: ''
       })
       .subscribe((message) => {

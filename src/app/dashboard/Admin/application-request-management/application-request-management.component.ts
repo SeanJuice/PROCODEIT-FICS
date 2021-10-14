@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-application-request-management',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationRequestManagementComponent implements OnInit {
   content:string = "content1";
-  constructor() { }
+  constructor( private location: Location) { 
+  
+    }
 
   ngOnInit() {
   }
 
   Change(num:number){
     this.content = "content"+num.toString();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

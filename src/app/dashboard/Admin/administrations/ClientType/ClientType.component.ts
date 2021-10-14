@@ -22,8 +22,8 @@ export class ClientTypeComponent implements OnInit {
   AddClientType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Name dialog',
-      question: 'Add your Client type?: ',
+      title: 'Client Type',
+      question: 'Add Your Client Type: ',
         message: ''
       })
       .subscribe((message) => {

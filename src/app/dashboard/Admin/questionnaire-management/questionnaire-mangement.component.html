@@ -3,8 +3,12 @@
 
   <div class="table-card">
     <h1 class="h1 title">
-      <span>Questionnaire Bank</span>
+      <div class="btn-group"  (click)=" goBack()">
+           <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+      </div>
+      <span> Questionnaire Bank </span>
     </h1>
+
     <div>
       <button  (click)="AddType()" style="color:white" class="btn-gradient blue mini" >Add Question Title</button>
     </div>

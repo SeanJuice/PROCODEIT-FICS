@@ -6,6 +6,8 @@ import { trigger, transition, animate, style } from '@angular/animations';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { forkJoin } from 'rxjs';
 import { TraineesService } from '../services/trainees.service';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-assign-questionnaire',
   animations: [
@@ -26,7 +28,8 @@ export class AssignQuestionnaireComponent implements OnInit {
     private questionnaireService: QuestionnaireService,
     private Clientservice: ClientsService,
     private snackbar: SnackbarService,
-    private trainee: TraineesService
+    private trainee: TraineesService,
+    private location: Location
   ) {}
 
   dropdownList = [];
@@ -160,4 +163,8 @@ export class AssignQuestionnaireComponent implements OnInit {
       () => console.log('fired')
     );
   }
+
+  goBack(): void {
+    this.location.back();
+  }  
 }

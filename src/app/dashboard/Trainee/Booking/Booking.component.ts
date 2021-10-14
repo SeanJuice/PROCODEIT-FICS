@@ -1,5 +1,5 @@
 
-
+import { Location } from '@angular/common'
 
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
@@ -23,7 +23,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Booking',
-  templateUrl: './Booking.component.html',
+  templateUrl:
+  './Booking.component.html',
   styleUrls: ['./Booking.component.scss'],
   providers: [
     { provide: DateAdapter, useClass: AppDateAdapter },
@@ -41,7 +42,9 @@ export class BookingComponent implements OnInit {
   minDate = new Date();
   package
 
-  constructor(private traineeservice: TraineeService,private router: Router) {}
+
+  constructor(private traineeservice: TraineeService, private location: Location,private router: Router) {}
+
 
   ngOnInit() {
     this.getAvailableDates();
@@ -147,6 +150,10 @@ export class BookingComponent implements OnInit {
     };
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
    // validate
    validate() {
     let book = {
@@ -169,5 +176,6 @@ export class BookingComponent implements OnInit {
     let timeArray = [times[0], times[1]];
     return timeArray;
   }
+
 
 }
