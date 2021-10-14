@@ -17,6 +17,8 @@ import {
 } from 'src/app/shared/material/fomart-datepicker';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { TraineeService } from '../services/trainee.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-Booking',
@@ -44,16 +46,33 @@ export class BookingComponent implements OnInit {
     /**
      * ?Placeholders
      */
-    let book = {
-      Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
-      Date: this.selectedDate,
-      SessionType_ID: 1,
-    };
 
-    this.traineeservice
-      .BookSlot(book, this.AvailabilityID)
-      .subscribe((res) => {});
+    Swal.fire({
+      title: 'Are you sure you want to make this booking?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed && this.validate()) {
+        let book = {
+          Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
+          Date: this.selectedDate,
+          SessionType_ID: 1,
+        };
+        console.log(book)
+        this.traineeservice
+          .BookSlot(book, this.AvailabilityID)
+          .subscribe((res) => {
+            Swal.fire('successfully booked!', '', 'success');
+          });
+      } else if (result.isDenied) {
+
+      }
+    });
   }
+
 
   ChooseSlot(AvailabilityID, slotInfo) {
     this.AvailabilityID = AvailabilityID;
@@ -86,6 +105,32 @@ export class BookingComponent implements OnInit {
     console.log(this.datesToHighlight)
   }
 
+  PractitionerExists()
+  {
+    if(sessionStorage.getItem('Trainer_ID') != 'null' )
+    {
+      this.getAvailableDates();
+    }
+    else
+    {
+      Swal.fire({
+        icon: 'error',
+        title: 'Booking cannot be made.',
+        text: 'Theres no practitioners assigned to you, a practitionerer will assigned to you soon!,Thank You',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //this.router.navigate(['/dashboard'])
+        }
+        //this.router.navigate(['/dashboard'])
+      })
+    }
+  }
+
+// Trainer_ID
   dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
       const highlightDate = this.datesToHighlight
@@ -94,6 +139,29 @@ export class BookingComponent implements OnInit {
 
       return highlightDate ? 'special-date' : '';
     };
+  }
+
+   // validate
+   validate() {
+    let book = {
+      Slot_ID: this.CurrentlyChosen.TimeSlot_ID,
+      Date: this.selectedDate,
+      SessionType_ID: 1,
+    };
+    if(book.Date != null && book.SessionType_ID != null )
+    {
+      return true
+    }
+    else{
+      return false;
+    }
+  }
+  //ChangeTime
+
+  TimeChange(time) {
+    let times = time.split('-');
+    let timeArray = [times[0], times[1]];
+    return timeArray;
   }
 
 }
