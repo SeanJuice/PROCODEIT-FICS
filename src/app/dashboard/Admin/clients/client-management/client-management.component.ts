@@ -17,7 +17,7 @@ export class ClientManagementComponent implements OnInit {
   message:string;
   subscription: Subscription;
   public query: any = '';
-  constructor(private clientsService:ClientsService,private data: DataService) { }
+  constructor(private clientsService:ClientsService,private data: DataService, private location: Location) { }
 
   ngOnInit() {
     this.clientsService.getClients().subscribe(res=>{
