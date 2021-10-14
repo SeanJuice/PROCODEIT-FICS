@@ -14,4 +14,4 @@ import { SearchAccessPipe } from './pipe';
   ],
   declarations: [TraineesComponent,TrainersComponent,PractitionersComponent,ClientsComponent,SearchAccessPipe]
 })
-export class AccessModule { }
+export class AccessModule {}

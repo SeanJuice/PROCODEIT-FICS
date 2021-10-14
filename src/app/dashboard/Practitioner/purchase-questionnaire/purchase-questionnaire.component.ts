@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-purchase-questionnaire',
   templateUrl: './purchase-questionnaire.component.html',
@@ -9,7 +9,7 @@ export class PurchaseQuestionnaireComponent implements OnInit {
 
   strikeCheckout:any = null;
 
-  constructor() { }
+  constructor( private location: Location) { }
 
   ngOnInit() {
     this.stripePaymentGateway();
@@ -53,5 +53,7 @@ export class PurchaseQuestionnaireComponent implements OnInit {
       window.document.body.appendChild(scr);
     }
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

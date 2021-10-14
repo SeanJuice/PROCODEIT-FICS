@@ -16,6 +16,7 @@ export class TraineeRequestsComponent implements OnInit {
   }
 
   AcceptOrReject(trainee, decision){
+    
     this.traineeservice.AcceptORejectTrainee(trainee,decision).subscribe(()=>{
       this.refreshData()
     })

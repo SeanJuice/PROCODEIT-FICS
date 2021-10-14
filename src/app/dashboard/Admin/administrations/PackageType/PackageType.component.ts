@@ -26,8 +26,8 @@ export class PackageTypeComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Name dialog',
-      question: 'Add your Client type?: ',
+      title: 'Package Type',
+      question: 'Add Your Package Type: ',
         message: ''
       })
       .subscribe((message) => {

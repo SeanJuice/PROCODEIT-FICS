@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../services/client.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-ProgressReport',
   templateUrl: './ProgressReport.component.html',
@@ -9,7 +9,7 @@ import { ClientService } from '../services/client.service';
 export class ProgressReportComponent implements OnInit {
 
   ReportData:any ={ Description: "No description given yet", Feedback: "No Feedback given"}
-  constructor(private clientservice:ClientService) { }
+  constructor(private clientservice:ClientService,private location: Location) { }
 
   ngOnInit() {
     this.clientservice.ProgressReport().subscribe(res=>{
@@ -18,7 +18,9 @@ export class ProgressReportComponent implements OnInit {
 
     })
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ClientService } from '../services/client.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-myQuestionnaires',
   templateUrl: './myQuestionnaires.component.html',
@@ -9,7 +9,7 @@ import { ClientService } from '../services/client.service';
 })
 export class MyQuestionnairesComponent implements OnInit {
 
-  constructor(private clientService: ClientService,private auth:AuthService) { }
+  constructor(private clientService: ClientService,private auth:AuthService, private location: Location) { }
  myQuestionnaires=[];
  questionContainer = [];
  arrayLengthCheck:any;
@@ -101,6 +101,10 @@ export class MyQuestionnairesComponent implements OnInit {
      if(canSubmit) this.clientService.CompleteQuestionnaire(this.ArrayOfQuestions).subscribe(response =>{
        console.log(response)
      })
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
 

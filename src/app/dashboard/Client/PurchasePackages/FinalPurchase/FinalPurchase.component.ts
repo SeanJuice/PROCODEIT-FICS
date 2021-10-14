@@ -27,8 +27,8 @@ export class FinalPurchaseComponent implements OnInit {
 
   checkout(amount) {
 
-    let tempString = 'Are you sure you want purchase this package';
-    let resultPopupString =  "successfully purchased!"
+    let tempString = 'Are You Sure You Want To Purchase This Package?';
+    let resultPopupString =  "Successfully Purchased!"
     let form =  this.regForm.value.PurchaseDetails
     let form2 =  this.regForm.value.ChoosePackageDetails
 

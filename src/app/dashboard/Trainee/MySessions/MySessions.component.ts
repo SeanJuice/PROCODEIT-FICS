@@ -3,6 +3,7 @@ import { Session } from 'src/app/models/Session';
 import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TraineeService } from '../services/trainee.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-MySessions',
   templateUrl: './MySessions.component.html',
@@ -13,7 +14,7 @@ export class MySessionsComponent implements OnInit {
      sessions:Array<Session> = [];
      ID:Number
 
-    constructor(private traineeService:TraineeService,public dialog: MatDialog) { }
+    constructor( private location: Location,private traineeService:TraineeService,public dialog: MatDialog) { }
 
     ngOnInit() {
 
@@ -32,5 +33,7 @@ export class MySessionsComponent implements OnInit {
         console.log('The dialog was closed');
       });
     }
-
+    goBack(): void {
+      this.location.back();
+    }
   }

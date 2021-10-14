@@ -10,8 +10,8 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
-const TrainerrootURL = 'https://localhost:44332/api/Trainer/';
+const rootURL = 'https://localhost:44389/api/Admin/';
+const TrainerrootURL = 'https://localhost:44389/api/Trainer/';
 
 
 @Injectable({
