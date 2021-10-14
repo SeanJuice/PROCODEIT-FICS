@@ -1,53 +1,64 @@
 <div class="app">
+
   <h1 class="h1 title">
-    <i class="fas fa-home"></i>
-    <span>My Questionnaires</span>
+    <div class="row">
+         <div class="col">
+           <div class="float-right">
+             <a href="https://scotty-crypto.github.io/526Traineesubsystem.html" target="_blank">
+              <img class="help" src="https://img.icons8.com/cute-clipart/64/000000/help.png" />
+            </a>
+           </div>
+           <div class="float-left">
+            My Questionnaires
+           </div>
+         </div>
+    </div>
   </h1>
   <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0">
     <div class="container ">
       <br>
-  <div class="table-card card" *ngFor="let category of questionContainer; let i=index" >
-    <h2>{{category.question}}</h2>
+      <div class="table-card card" *ngFor="let category of questionContainer; let i=index">
+        <h2>{{category.question}}</h2>
 
-    <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-      Question is not complete
-    </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <td id="tour-table">Question</td>
-          <td>Answer</td>
+        <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
+          Question is not complete
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <td id="tour-table">Question</td>
+              <td>Answer</td>
 
-        </tr>
-      <tbody>
-          <tr *ngFor="let q of filterById(category.id);let position=index">
-            <td >
+            </tr>
+          <tbody>
+            <tr *ngFor="let q of filterById(category.id);let position=index">
+              <td>
                 {{q.Question}}
 
-            </td>
-            <td *ngIf='arrayLengthCheck.length > 2'>
+              </td>
+              <td *ngIf='arrayLengthCheck.length > 2'>
 
-                <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
+                <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
-            </td>
-            <td *ngIf='arrayLengthCheck.length ==1'>
-            <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
-              <option value="6">Yes</option>
-              <option value="5">No</option>
+              </td>
+              <td *ngIf='arrayLengthCheck.length ==1'>
+                <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
+                  <option value="6">Yes</option>
+                  <option value="5">No</option>
 
-            </select>
-        </td>
+                </select>
+              </td>
 
-          </tr>
-      </tbody>
-    </table>
-    <br>
-  </div>
-  </div>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </div>
+    </div>
   </div>
 </div>
 

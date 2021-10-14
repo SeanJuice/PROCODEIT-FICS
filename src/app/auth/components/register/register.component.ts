@@ -45,9 +45,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
-    // const file = this.selectedPPFiles.item(0);
-    // this.currentPPUpload = new FileUpload(file);
-    // this.selectedPPFiles = undefined;
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
     let Role = Number(role) + Number(1);
     client.Contact_Number;
     this.submitted = false;
