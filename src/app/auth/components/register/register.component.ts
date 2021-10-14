@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
+
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
@@ -60,10 +61,16 @@ export class RegisterComponent implements OnInit {
         const file = this.selectedPPFiles.item(0);
     this.currentPPUpload = new FileUpload(file);
     this.selectedPPFiles = undefined;
+
+    // const file = this.selectedPPFiles.item(0);
+    // this.currentPPUpload = new FileUpload(file);
+    // this.selectedPPFiles = undefined;
+
     let Role = Number(role) + Number(1);
-    client.Contact_Number = "+27"+ client.Contact_Number.slice(1);
+    client.Contact_Number;
     this.submitted = false;
     console.log(client);
+
  
     this.Authservice.Register(client, Role, this.currentPPUpload);
       }
@@ -72,6 +79,10 @@ export class RegisterComponent implements OnInit {
       }
     })
     
+
+
+   this.Authservice.Register(client, Role, this.currentPPUpload);
+
 
   }
   createOtherForm() {

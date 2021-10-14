@@ -46,6 +46,7 @@
     "moment": "^2.29.1",
     "ng-multiselect-dropdown": "^0.3.4",
     "ngx-echarts": "^7.0.2",
+    "ngx-pagination": "^5.1.1",
     "ngx-simple-modal": "^1.4.17",
     "ngx-ui-switch": "^12.0.1",
     "ngx-webstorage-service": "^4.1.0",
