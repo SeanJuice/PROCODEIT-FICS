@@ -16,7 +16,7 @@ import { FileUploadService } from '../shared/services/fileUpload.service';
 
 const KEY = 'FICSINF';
 
-const rootURL = 'https://apifics.azurewebsites.net/api/Access';
+const rootURL = 'https://localhost:44389/api/Access';
 
 @Injectable({
   providedIn: 'root',
