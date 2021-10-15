@@ -64,4 +64,11 @@ export class QuestionnaireTypeComponent implements OnInit {
       });
   }
 
+  delete(id) {
+    this.typeService.DeleteQuestionnaireType(id).subscribe(res=>{
+      console.log(res);
+      this.getQuestionnaireTypes();
+    })
+  }
+
 }

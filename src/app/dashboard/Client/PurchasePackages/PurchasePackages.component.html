@@ -1,9 +1,12 @@
-<h1 class="h1 title">
+<h3 class="h2 title">
   <div class="btn-group"  (click)=" goBack()">
-       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+       <button  class=" bui btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
   </div>
-  <span> Back</span>
-</h1>
+ <!-- <span> Back</span>-->
+ <div class="help">
+    <button type="button"><a class="help" href="#">Help?</a></button>
+ </div>
+</h3>
 <div id="registration" class="conatiner col-md-12" style="width: 90%; align-self: center;">
   <form id="regForm" [formGroup]="PurchaseForm">
     <mat-horizontal-stepper #stepper  class="conatiner" >

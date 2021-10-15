@@ -1,5 +1,8 @@
 <h1 class="h1 title" style="color: white" align="center">
-  <i class="fas fa-home"></i>
+    <div class="hint">
+      <button type="button" class="btn"><i class="fa fa-question" style="color: #041c42"></i></button>
+    </div>
+      <div class="hide">Click the purchase button to select a package and enable the next button at the bottom of the page</div>
   <span>SELECT A PACKAGE</span>
 </h1>
 
@@ -35,9 +38,9 @@
 </div>
 
 <br>
-<!-- <button type="button" mat-flat-button color="warn" matStepperPrevious>
+<button type="button" mat-flat-button color="warn" matStepperPrevious>
   Back
-</button> -->
+</button>
 &nbsp;
 <button type="button" mat-flat-button color="primary" matStepperNext *ngIf="this.MoveToNext" (click)="step2Submitted()">
   Next
