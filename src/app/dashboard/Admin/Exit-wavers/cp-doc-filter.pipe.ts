@@ -4,20 +4,16 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'cpDocFilter'
 })
 export class CpDocFilterPipe implements PipeTransform {
+  transform(value: any, args?: any): any {
+    if(!value)return null;
+    if(!args)return value;
 
-  transform(items: any[], searchText: string): any[] {
-    console.log(items)
-    if(!items) return [];
-    if(!searchText) return items;
-    searchText = searchText.toLowerCase();
-    console.log(searchText)
-    return items.filter( it => {
-      console.log("here")
-          return it.Name.toLowerCase().includes(searchText) || it.type.toLowerCase().includes(searchText) 
-        
-        });
-   }
+    args = args.toLowerCase();
 
+    return value.filter(function(data){
+        return JSON.stringify(data).toLowerCase().includes(args);
+    });
+}
 }
 
 

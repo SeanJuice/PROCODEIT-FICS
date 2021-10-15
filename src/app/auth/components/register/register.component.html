@@ -177,13 +177,15 @@
     <div class="wrapper">
       <div class="Grid Grid--full u-textCenter">
 
-        <div class="Grid-cell">
-          <mat-card class="mat-card">
-            <button mat-raised-button color="accent" style="width:50%" type="submit">Apply</button>
-            &nbsp; &nbsp; &nbsp;
-            <button mat-raised-button color="warn" type="button" [routerLink]="['../Welcome/..']"
-              routerLinkActive="active">CANCEL</button>
-          </mat-card>
+          <!-- Sixth Row -->
+          <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+            <div class="Grid-cell">
+              <div class="Demo content-1of2" style="border-width: 1px; border-color: red;">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label style="color: black;">Password</mat-label>
+                    <input type="password" matInput formControlName="Password" placeholder="Ex. pat@example.com">
+        
+          
         </div>
 
       </div>
