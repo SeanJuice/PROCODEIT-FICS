@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import Swal from 'sweetalert2';
 import { TraineesService } from '../../services/trainees.service';
 import { TrainerService } from '../../services/trainer.service';
 
@@ -111,19 +112,33 @@ export class TrainerToTraineeComponent implements OnInit {
   }
 
   AssignTrainerToTraineer() {
-    let trainee = this.TraineesList.find(
-      (obj) => obj.Trainees_ID == this.SelectedTrainee.Trainees_ID
-    );
-
-    this.trainerService
-      .AssignTrainerToTrainee(
-        this.SelectedTrainer.Trainer_ID,
-        this.SelectedTrainee.Trainee_ID
-      )
-      .subscribe((res) => {
-        console.log(res);
-        this.snackbar.openSnackBar('Successfully Assigned Trainer to Trainee');
-      });
+    Swal.fire({
+      title: 'Are You Sure You Want To Assign This Trainer To This Trainee?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let trainee = this.TraineesList.find(
+          (obj) => obj.Trainees_ID == this.SelectedTrainee.Trainees_ID
+        );
+    
+        this.trainerService
+          .AssignTrainerToTrainee(
+            this.SelectedTrainer.Trainer_ID,
+            this.SelectedTrainee.Trainee_ID
+          )
+          .subscribe((res) => {
+            console.log(res);
+            this.snackbar.openSnackBar('Successfully Assigned Trainer to Trainee');
+      })
+      
+    }
+  })
+    
+      
   }
 
   checkIfTrainerIsAlreadyAssigned(users) {
