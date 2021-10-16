@@ -6,7 +6,7 @@ import { FileUpload } from 'src/app/models/fileupload';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -45,17 +45,28 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
-    const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
-    this.selectedPPFiles = undefined;
-    let Role = Number(role) + Number(1);
-    client.Contact_Number;
-    this.submitted = false;
-    console.log(client);
+    Swal.fire({
+      title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Apply Now'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const file = this.selectedPPFiles.item(0);
+        this.currentPPUpload = new FileUpload(file);
+        this.selectedPPFiles = undefined;
+        let Role = Number(role) + Number(1);
+        client.Contact_Number;
+        this.submitted = false;
+        console.log(client);
 
-   this.Authservice.Register(client, Role, this.currentPPUpload);
-
+        this.Authservice.Register(client, Role, this.currentPPUpload);
+      }
+    }) 
   }
+
   createOtherForm() {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
