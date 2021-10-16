@@ -6,7 +6,7 @@ import { Client } from 'src/app/models/Client';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
+const rootURL = '  https://apifics.azurewebsites.net/api/Admin/';
 
 @Injectable({
   providedIn: 'root',
