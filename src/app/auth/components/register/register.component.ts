@@ -87,8 +87,6 @@ export class RegisterComponent implements OnInit {
 
 
 
-   this.Authservice.Register(client, Role, this.currentPPUpload);
-
 
   }
   createOtherForm() {
