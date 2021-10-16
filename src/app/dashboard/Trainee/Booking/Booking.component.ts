@@ -154,6 +154,7 @@ export class BookingComponent implements OnInit {
     this.location.back();
   }
 
+
    // validate
    validate() {
     let book = {

@@ -83,7 +83,11 @@ export class RegisterComponent implements OnInit {
       else {
 
       }
-    });
+    })
+
+
+
+   this.Authservice.Register(client, Role, this.currentPPUpload);
 
 
   }
