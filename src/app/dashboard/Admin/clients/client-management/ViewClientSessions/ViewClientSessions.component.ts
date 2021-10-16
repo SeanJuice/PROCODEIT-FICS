@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ClientsService } from '../../../services/clients.service';
 import { DataService } from '../../../services/DataService.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-ViewClientSessions',
@@ -16,7 +17,7 @@ export class ViewClientSessionsComponent implements OnInit,OnDestroy  {
   message:string;
   subscription: Subscription;
 
-  constructor(private clientsService:ClientsService, private Arouter:ActivatedRoute,private data: DataService) { }
+  constructor(private clientsService:ClientsService, private Arouter:ActivatedRoute,private data: DataService, private location: Location) { }
 
   ngOnInit() {
     this.subscription = this.data.currentMessage.subscribe(message => this.message = message)
@@ -29,6 +30,10 @@ export class ViewClientSessionsComponent implements OnInit,OnDestroy  {
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
