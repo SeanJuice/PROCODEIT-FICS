@@ -80,6 +80,14 @@ button {
   color: inherit;
 }
 
+.button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
 .icon {
   padding: 20px;
 }
@@ -178,6 +186,14 @@ button {
   color: #717171;
 }
 
+.sidebar-nav a {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  color: #717171;
+}
+
 .sidebar-nav button:hover {
   color: #e3f3fa;
 }
@@ -186,7 +202,19 @@ button {
   flex: 1 1 0;
 }
 
-.sidebar-nav button i {
+.sidebar-nav button i  {
+  flex: 0 0 20px;
+}
+
+.sidebar-nav a:hover {
+  color: #e3f3fa;
+}
+
+.sidebar-nav a span {
+  flex: 1 1 0;
+}
+
+.sidebar-nav a i  {
   flex: 0 0 20px;
 }
 
@@ -203,7 +231,21 @@ button.primary {
   text-align: center;
 }
 
+a.primary {
+  display: block;
+  padding: 20px;
+  background: #00aeff;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  text-align: center;
+}
+
 button.primary:hover {
+  color: white;
+  background: #297bff;
+}
+
+a.primary:hover {
   color: white;
   background: #297bff;
 }
