@@ -68,7 +68,7 @@
     <div class="ribbon l-box-lrg pure-g">
       <h2 class="content-head content-head-ribbon">About Our Product</h2>
 
-                      <video  controls (canplay)="pauseVideo(videoplayer)"
+                      <video  controls autoplay="false" (canplay)="pauseVideo(videoplayer)"
                       #videoPlayer width="100%" height="480" control>
                     <source src="{{videoSource}}" type="video/mp4">
                     Your Browser Does Not Support The Video Tag.

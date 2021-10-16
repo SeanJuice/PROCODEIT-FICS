@@ -49,6 +49,11 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
 
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
+
+
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
@@ -65,6 +70,7 @@ export class RegisterComponent implements OnInit {
     // const file = this.selectedPPFiles.item(0);
     // this.currentPPUpload = new FileUpload(file);
     // this.selectedPPFiles = undefined;
+
 
     let Role = Number(role) + Number(1);
     client.Contact_Number;

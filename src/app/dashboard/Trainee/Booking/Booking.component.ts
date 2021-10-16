@@ -18,6 +18,7 @@ import {
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { TraineeService } from '../services/trainee.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,16 +31,23 @@ import Swal from 'sweetalert2';
   ],
 })
 export class BookingComponent implements OnInit {
+
   selectedDate: any | null;
   AvailableSlots: any = [];
   AvailabilityID: number;
-  datesToHighlight:any = [];
+  datesToHighlight: any = [];
   CurrentlyChosen: any;
+  Packages: any = [];
+  minDate = new Date();
+  package
 
-  constructor(private traineeservice: TraineeService, private location: Location) {}
+
+  constructor(private traineeservice: TraineeService, private location: Location,private router: Router) {}
+
 
   ngOnInit() {
     this.getAvailableDates();
+    this.TrainerExists()
   }
 
   BookSlot() {
@@ -105,7 +113,7 @@ export class BookingComponent implements OnInit {
     console.log(this.datesToHighlight)
   }
 
-  PractitionerExists()
+  TrainerExists()
   {
     if(sessionStorage.getItem('Trainer_ID') != 'null' )
     {
@@ -116,16 +124,16 @@ export class BookingComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Booking cannot be made.',
-        text: 'Theres no practitioners assigned to you, a practitionerer will assigned to you soon!,Thank You',
+        text: 'Theres no trainer assigned to you, a trainer will assigned to you soon!,Thank You',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok!',
         footer: '<a href="">Why do I have this issue?</a>'
       }).then((result) => {
         if (result.isConfirmed) {
-          //this.router.navigate(['/dashboard'])
+          this.router.navigate(['/dashboard'])
         }
-        //this.router.navigate(['/dashboard'])
+        this.router.navigate(['/dashboard'])
       })
     }
   }

@@ -1,3 +1,6 @@
+
+<!-- <div class="app">
+
 <h1 class="h1 title">
   <div class="btn-group"  (click)=" goBack()">
        <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
@@ -5,6 +8,7 @@
   <span> Back</span>
 </h1>
 <div class="app">
+
 
   <div class="table-card">
     <h1 class="h1 title">
@@ -41,4 +45,28 @@
       </tbody>
     </table>
   </div>
+</div> -->
+
+
+<div class="app">
+
+  <div class="table-card">
+    <h1 class="h1 title">
+      <i class="fas fa-home"></i>
+      <span>My Sessions</span>
+    </h1>
+
+
+
+
+  <full-calendar id='calendar' [options]="calendarOptions" (eventClick)="eventClick($event)"
+  (eventDrop)="updateEvent($event)"
+  (eventResize)="updateEvent($event)"
+  (clickButton)="clickButton($event)"
+  (dayClick)="dayClick($event)">
+</full-calendar>
+
+
 </div>
+</div>
+

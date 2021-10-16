@@ -32,7 +32,7 @@ public show:boolean = false;
 
   pauseVideo(videoplayer)
 {
-  videoplayer.nativeElement.play();
+ // videoplayer.nativeElement.play();
   // this.startedPlay = true;
   // if(this.startedPlay == true)
   // {
