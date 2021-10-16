@@ -10,8 +10,9 @@ import { PractitionerUserService } from '../../Practitioner/services/Practitione
 import { TrainerService } from '../../Admin/services/trainer.service';
 import { TraineesService } from '../../Admin/services/trainees.service';
 import { ExternalService } from 'src/app/shared/services/external.service';
-import { Location } from '@angular/common'
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-Profile',
   templateUrl: './Profile.component.html',
