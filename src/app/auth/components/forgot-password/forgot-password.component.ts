@@ -3,6 +3,7 @@ import { AuthService } from '../../auth.service';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
@@ -11,7 +12,7 @@ import { User } from 'src/app/models/user.model';
 export class ForgotPasswordComponent implements OnInit {
   Spinner= false;
   emailaddress:string
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {}
 
@@ -31,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
             .fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Email Successfully reset please check your email!',
+              title: 'Email Successfully Reset Please Check Your Email!',
               showConfirmButton: false,
               timer: 2000,
             })
@@ -51,7 +52,7 @@ export class ForgotPasswordComponent implements OnInit {
   error() {
     swal.fire({
       title: 'Redirect',
-      text: 'Please use your OTP as a temporary password',
+      text: 'Please Use Your OTP As A Temporary Password',
       timer: 7000,
     }).then(res=>{
        this.router.navigate(['login'])
@@ -80,5 +81,9 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(user)
       this.auth.Login(user)
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

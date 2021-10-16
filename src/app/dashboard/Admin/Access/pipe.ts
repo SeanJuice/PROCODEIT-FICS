@@ -16,5 +16,4 @@ export class SearchAccessPipe implements PipeTransform {
           return JSON.stringify(data).toLowerCase().includes(args);
       });
   }
-
 }

@@ -3,7 +3,12 @@
 <div class="col">
   <div class="card" style="background-color: rgb(255, 255, 255)">
     <i class="fas fa-home"></i>
-    <h2 class="card__title">ACCESS</h2>
+    <h2 class="h1 title">
+      <div class="btn-group"  (click)=" goBack()">
+           <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+      </div>
+      <span> Access </span>
+    </h2>
 
   </div>
 </div>
@@ -13,7 +18,7 @@
 
 <div class="tab_container" style="padding-bottom: 20%;">
 <input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./practitioners" (click)="Change(1)">
-<label for="tab1"><i class="fa fa-code"></i><span>Practitioners </span></label>
+<label for="tab1"><i class="fa fa-pencil-square-o"></i><span>Practitioners </span></label>
 
 <input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainers" (click)="Change(2)">
 <label for="tab2"><i class="fa fa-pencil-square-o"></i><span> Trainers </span></label>
@@ -22,7 +27,7 @@
 <label for="tab3"><i class="fa fa-pencil-square-o"></i><span> Trainees</span></label>
 
 <input id="tab4" type="radio" name="tabs" routerLinkActive="active"  routerLink="./clients" (click)="Change(4)">
-<label for="tab4"><i class="fa fa-pencil-square-o"></i><span> clients</span></label>
+<label for="tab4"><i class="fa fa-pencil-square-o"></i><span> Clients</span></label>
 
 
 <section id={{content}} class="tab-content" style="padding-bottom: 20%;">

@@ -1,41 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" style="font-size: 300%; text-align:center">
+          Trial Questionnaire
+        </h1>
+      </div>
 
-<div class="app" align="center">
-  <h1 class="h1 title" style="font-size: 300%;">
-    <i class="fas fa-home"></i>
-    <span>Teaser Questionnaire</span>
-  </h1>
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Rate Yourself On A Scale From 1 To 4, 
+      With 1 Being The Most Likely And 4 Being The Least Likely</div>
+      
+          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
 </div>
+  
 
-<hr>
-<br>
-<br>
 
-<h1 class="p1">Which picture represents you the most?</h1>
-<div class="cards-list">
 
-  <div class="card 1" *ngFor="let Question of Questions">
-    <div class="card_image">
+  <!--<div class="app" align="center"> 
+    <table>
+      <thead>
+        <tr><td> I describe myself as: </td></tr>
+        <tr><td>1. I always think of everyone else and forget about myself</td>
+        <td>1</td></tr>
+        <tr><td>2. People must not touch my things</td>
+          <td>2</td></tr>
+        <tr><td>3. I love surprises and enjoy being spontaneous</td>
+          <td>3</td></tr>   
+        <tr><td>4. I am reserved and self controlled</td>
+          <td>4</td></tr>
+        <br>
+        <tr><td> How do I interact with people: </td></tr>
+        <tr><td>5. I am sensitive to people's feelings and often take things personally</td>
+          <td>1</td></tr>
+        <tr><td>6. I get irritated easily with people</td>
+          <td>2</td></tr>
+        <tr><td>7. People's success stories motivate me</td>
+          <td>3</td></tr>   
+        <tr><td>8. I have one or two special friends</td>
+          <td>4</td></tr>
+      </thead>
 
-      <!-- <img src='{{Question.Question_Image}}' /> -->
-      <!-- Temporary image -->
-      <img src='https://i.redd.it/b3esnz5ra34y.jpg' />
-
-    </div>
-    <div class="card_title title-white">
-      <p>{{Question.Question}}</p>
-    </div>
-  </div>
-<!-- https://i.redd.it/b3esnz5ra34y.jpg -->
-
-<mat-card class="example-full-width" style="background-color: white; width: 100%;">
-  <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
-    <div class="Grid-cell">
-      <button mat-flat-button color="primary">Done</button>
-    </div>
-    <div class="Grid-cell">
-       <button mat-flat-button color="warn" [routerLink]="['../../dashboard']" routerLinkActive="active">Cancel</button>
-    </div>
-  </div>
-</mat-card>
-
-  </div>
+    </table>
+  </div>-->

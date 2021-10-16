@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
+const rootURL = 'https://localhost:44389/api/Admin/';
 import swal from 'sweetalert2';
 
 @Injectable({
@@ -162,7 +162,7 @@ export class TypeService {
     swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: `successfully updated ${type} type!`,
+              title: `Successfully Updated ${type} Type!`,
               showConfirmButton: false,
               timer: 2000,
             })

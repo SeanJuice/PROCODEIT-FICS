@@ -41,7 +41,7 @@ export class ResetPasswordComponent implements OnInit {
           swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Password successfully reset!',
+              title: 'Password Successfully Reset!',
               showConfirmButton: false,
               timer: 2000,
             })

@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { Client } from 'src/app/models/Client';
 import { ClientsService } from '../../services/clients.service';
 import { DataService } from '../../services/DataService.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-client-management',
   templateUrl: './client-management.component.html',
@@ -17,7 +17,7 @@ export class ClientManagementComponent implements OnInit {
   message:string;
   subscription: Subscription;
   public query: any = '';
-  constructor(private clientsService:ClientsService,private data: DataService) { }
+  constructor(private clientsService:ClientsService,private data: DataService, private location: Location) { }
 
   ngOnInit() {
     this.clientsService.getClients().subscribe(res=>{
@@ -31,6 +31,10 @@ export class ClientManagementComponent implements OnInit {
   this.clicked = false;
   let NameSurname =  Name +" "+ Surname
   this.data.changeMessage( NameSurname)
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

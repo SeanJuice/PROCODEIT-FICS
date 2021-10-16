@@ -1,7 +1,16 @@
+<h1 class="h1 title">
+  <div class="btn-group"  (click)=" goBack()">
+       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+  </div>
+  <span> Back</span>
+</h1>
 <div class="wrapper">
   <div class="Grid Grid--full u-textCenter">
 
-    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> </div>
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> <br>
+      <mat-card-title>
+        Central Africa Time (CAT)
+      </mat-card-title><br></div>
   </div>
 
 </div>
@@ -12,7 +21,7 @@
       <div class="example-full-width" appearance="fill">
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
-            Select a Date
+            Select A Date
           </mat-card-title>
           <br>
           <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>

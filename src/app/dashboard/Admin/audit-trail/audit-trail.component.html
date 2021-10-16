@@ -4,7 +4,10 @@
 
 
   <h1 class="h1 title">
-    <span>Audit trail</span>
+    <div class="btn-group"  (click)=" goBack()">
+         <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+    </div>
+    <span> Audit Trial </span>
   </h1>
   <div class="form-group">
     <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
@@ -15,11 +18,11 @@
   <table class="table" id="excel-table">
     <thead>
       <tr>
-        <td>User Name</td>
+        <td>User ID</td>
         <td>Date</td>
         <td>Time</td>
         <td>Description</td>
-        <td>history</td>
+        <td>Log History</td>
 
       </tr>
     <tbody>

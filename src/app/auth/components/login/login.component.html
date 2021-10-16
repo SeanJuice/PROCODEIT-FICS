@@ -7,6 +7,12 @@
       <div class="form-header">
           <h1>Account Login</h1>
       </div>
+      <!-- <h5 class="h1 title">
+        <div class="form-header" class="btn-group"  (click)=" goBack()">
+             <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+        </div>
+        <span> Account Login </span>
+      </h5> -->
       <div class="form-content">
           <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)" *ngIf="!Spinner">
               <div class="form-group"><label for="username">Username</label><input type="text" id="username" ngModel name="Username" required="required" /></div>

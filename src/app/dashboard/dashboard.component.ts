@@ -94,10 +94,39 @@ export class DashboardComponent implements OnInit {
 const dashboards_settings_client = [
   {
     NumberOfObject: 1,
+    Header_Name: 'Trial Questionnaire',
+    Button_Name: 'View Trial Questionnaire',
+    ImageLink: 'https://blog.hubspot.com/hubfs/questionnaire-4.jpg',
+    RouterLink: 'Trial_Questionnaire',
+    icon: 'open_in_new',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: ' Purchase Package',
+    Button_Name: 'Purchase',
+    ImageLink:
+      'https://www.bellwethercorp.com/wp-content/uploads/2015/11/Depositphotos_11044948_s-2015.jpg',
+    RouterLink: 'PurchasePackage',
+    icon: 'receipt',
+    color: '',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: ' My Packages',
+    Button_Name: 'Packages',
+    ImageLink:
+      'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
+    RouterLink: 'MyPackages',
+    icon: 'library_add',
+    color: '',
+  },
+  {
+    NumberOfObject: 1,
     Header_Name: 'Book Sessions',
     Button_Name: 'Book',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://cte.org.ua/wp-content/uploads/2021/06/schedule.jpg',
     RouterLink: 'Booking',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -110,27 +139,7 @@ const dashboards_settings_client = [
       'https://kgdshgoixg1vrh3sdpjwgidf-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/first-therapy-session-sunday-edit-scaled.jpg',
     RouterLink: 'Sessions',
     icon: 'format_line_spacing',
-    color: '#3D3B6D',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: ' Purchase Package',
-    Button_Name: 'Purchase',
-    ImageLink:
-      'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
-    RouterLink: 'PurchasePackage',
-    icon: 'receipt',
-    color: '',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: ' My Packages',
-    Button_Name: 'Packages',
-    ImageLink:
-      'https://blog.mercadoe.com/wp-content/uploads/2016/10/gestao-de-compras.jpg',
-    RouterLink: 'MyPackages',
-    icon: 'receipt',
-    color: '',
+    color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
@@ -140,7 +149,7 @@ const dashboards_settings_client = [
       'https://cdn.paperpile.com/guides/img/research-paper-types-illustr-400x400.png',
     RouterLink: 'My_Questionnaires',
     icon: 'library_books',
-    color: '#3a9b5a',
+    color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
@@ -150,26 +159,7 @@ const dashboards_settings_client = [
       'https://blog.gainapp.com/wp-content/uploads/2019/12/Blog-PrioritizeWork-2.jpg',
     RouterLink: 'tasks',
     icon: 'dns',
-    color: '#b9a013',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: 'Profile',
-    Button_Name: 'Maintain Profile',
-    ImageLink:
-      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
-    RouterLink: 'Profile',
-    icon: 'face',
-    color: '#F68C81',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: 'Trial Questionnaire',
-    Button_Name: 'View Trial Questionnaire',
-    ImageLink: 'https://blog.hubspot.com/hubfs/questionnaire-4.jpg',
-    RouterLink: 'Trial_Questionnaire',
-    icon: 'open_in_new',
-    color: '#39B39B',
+    color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
@@ -179,8 +169,18 @@ const dashboards_settings_client = [
       'https://www.pngix.com/pngfile/big/687-6877615_project-management-insights-and-data-and-insights-icon.png',
     RouterLink: 'ProgressReport',
     icon: 'trending_up',
-    color: '#006A98',
+    color: 'rgb(15, 147, 255);',
   },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Profile',
+    Button_Name: 'Maintain Profile',
+    ImageLink:
+      'https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png',
+    RouterLink: 'Profile',
+    icon: 'face',
+    color: 'rgb(15, 147, 255);',
+  }
 ];
 
 /**
@@ -192,9 +192,9 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Purchase Questionnaire',
     Button_Name: 'Purchase',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.bellwethercorp.com/wp-content/uploads/2015/11/Depositphotos_11044948_s-2015.jpg',
     RouterLink: 'purchase-questionnaire',
-    icon: 'library_add',
+    icon: 'receipt',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -202,29 +202,39 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Set Availability',
     Button_Name: 'Availability',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://play-lh.googleusercontent.com/WLAw5a143EIbRfvqtgCx-OxVDn4kuHVBZDaxTYeRUF616ua3Y-G14GeHGrsNoio_e7ii=h200',
     RouterLink: 'set-availability',
-    icon: 'library_add',
+    icon: 'format_line_spacing',
     color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'My Availability Slots',
-    Button_Name: 'Slots',
+    Header_Name: 'My Schedule',
+    Button_Name: 'Schedule',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn3.vectorstock.com/i/1000x1000/22/47/full-day-availability-icon-vector-29962247.jpg',
     RouterLink: 'my-slots',
-    icon: 'library_add',
+    icon: 'format_line_spacing',
     color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'Send Client Task',
+    Header_Name: 'Send Task To Client',
     Button_Name: 'Send',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn1.vectorstock.com/i/1000x1000/24/05/send-button-and-hand-icon-flat-style-vector-13902405.jpg',
     RouterLink: 'send-client-task',
-    icon: 'library_add',
+    icon: 'dns',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Send Feedback',
+    Button_Name: 'Feedback',
+    ImageLink:
+      'https://www.seekpng.com/png/detail/83-839679_submit-feedback-feedback-png-transparent.png',
+    RouterLink: 'feedbacks',
+    icon: 'dns',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -232,20 +242,10 @@ const dashboards_settings_practitioner = [
     Header_Name: 'Profile',
     Button_Name: 'Maintain Profile',
     ImageLink:
-      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+      'https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png',
     RouterLink: 'Profile-Practitioner',
     icon: 'face',
-    color: '#F68C81',
-  },
-  {
-    NumberOfObject: 1,
-    Header_Name: 'Send Feedbacks',
-    Button_Name: 'Feedback',
-    ImageLink:
-      'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
-    RouterLink: 'feedbacks',
-    icon: 'face',
-    color: '#F68C81',
+    color: 'rgb(15, 147, 255);',
   }
 ];
 /**
@@ -255,30 +255,32 @@ const dashboards_settings_practitioner = [
 const dashboards_settings_trainer = [
   {
     NumberOfObject: 1,
-    Header_Name: 'Send Feedback',
-    Button_Name: 'Feedback',
-    ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'send-feedback',
-    icon: 'library_add',
-    color: 'rgb(15, 147, 255);',
-  },{
-    NumberOfObject: 1,
-    Header_Name: 'send task to trainee',
-    Button_Name: 'Task',
-    ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
-    RouterLink: 'send-task-trainee',
-    icon: 'library_add',
-    color: 'rgb(15, 147, 255);',
-  },{
-    NumberOfObject: 1,
     Header_Name: 'Set Availability',
     Button_Name: 'Set',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://play-lh.googleusercontent.com/WLAw5a143EIbRfvqtgCx-OxVDn4kuHVBZDaxTYeRUF616ua3Y-G14GeHGrsNoio_e7ii=h200',
     RouterLink: 'set-practitioner-availability',
-    icon: 'library_add',
+    icon: 'format_line_spacing',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Send Task To Trainee',
+    Button_Name: 'Task',
+    ImageLink:
+      'https://cdn1.vectorstock.com/i/1000x1000/24/05/send-button-and-hand-icon-flat-style-vector-13902405.jpg',
+    RouterLink: 'send-task-trainee',
+    icon: 'dns',
+    color: 'rgb(15, 147, 255);',
+  },
+  {
+    NumberOfObject: 1,
+    Header_Name: 'Send Feedback',
+    Button_Name: 'Feedback',
+    ImageLink:
+      'https://www.seekpng.com/png/detail/83-839679_submit-feedback-feedback-png-transparent.png',
+    RouterLink: 'send-feedback',
+    icon: 'dns',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -286,9 +288,9 @@ const dashboards_settings_trainer = [
     Header_Name: 'Profile',
     Button_Name: 'Maintain Profile',
     ImageLink:
-    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    'https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png',
     RouterLink: 'trainer-profile',
-    icon: 'library_add',
+    icon: 'face',
     color: 'rgb(15, 147, 255);',
   },
 ];
@@ -301,19 +303,19 @@ const dashboards_settings_trainee = [
     Header_Name: 'Book Sessions',
     Button_Name: 'Book',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'http://cte.org.ua/wp-content/uploads/2021/06/schedule.jpg',
     RouterLink: 'book',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'Sessions',
+    Header_Name: 'My Sessions',
     Button_Name: 'Sessions',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://kgdshgoixg1vrh3sdpjwgidf-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/first-therapy-session-sunday-edit-scaled.jpg',
     RouterLink: 'sessions',
-    icon: 'library_add',
+    icon: 'format_line_spacing',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -321,7 +323,7 @@ const dashboards_settings_trainee = [
     Header_Name: 'Upload Case Study',
     Button_Name: 'Upload',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.kindpng.com/picc/m/261-2619141_cage-clipart-victorian-cloud-upload-icon-svg-hd.png',
     RouterLink: 'upload-case-study',
     icon: 'library_add',
     color: 'rgb(15, 147, 255);',
@@ -331,9 +333,9 @@ const dashboards_settings_trainee = [
     Header_Name: 'Performance Report',
     Button_Name: 'Performance',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://www.pinclipart.com/picdir/big/385-3851687_finacial-inclusions-performance-icon-png-clipart.png',
     RouterLink: 'performance',
-    icon: 'library_add',
+    icon: 'trending_up',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -341,9 +343,9 @@ const dashboards_settings_trainee = [
     Header_Name: 'My Questionnaires',
     Button_Name: 'Questionnaires',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://cdn.paperpile.com/guides/img/research-paper-types-illustr-400x400.png',
     RouterLink: 'questionnaire',
-    icon: 'library_add',
+    icon: 'library_books',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -351,9 +353,9 @@ const dashboards_settings_trainee = [
     Header_Name: 'My Tasks',
     Button_Name: 'Tasks',
     ImageLink:
-      'https://cdn.britannica.com/29/153629-050-7590A6D1/calendar-datess.jpg',
+      'https://blog.gainapp.com/wp-content/uploads/2019/12/Blog-PrioritizeWork-2.jpg',
     RouterLink: 'trainee-tasks',
-    icon: 'library_add',
+    icon: 'dns',
     color: 'rgb(15, 147, 255);',
   },
   {
@@ -361,9 +363,9 @@ const dashboards_settings_trainee = [
     Header_Name: 'Profile',
     Button_Name: 'Maintain Profile',
     ImageLink:
-    'https://www.facebook.com/images/help/fbhc_redesign/card_images/yourprofile.png',
+    'https://yorktonrentals.com/wp-content/uploads/2017/06/usericon.png',
     RouterLink: 'trainee-profile',
-    icon: 'library_add',
+    icon: 'face',
     color: 'rgb(15, 147, 255);',
   },
 ];

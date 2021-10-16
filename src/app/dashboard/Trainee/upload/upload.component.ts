@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadScriptService } from '../../services/lazy-load-script.service';
+
+import { Location } from '@angular/common'
 declare var $;
 @Component({
   selector: 'app-upload',
@@ -8,7 +10,7 @@ declare var $;
 })
 export class UploadComponent implements OnInit {
 
-  constructor(  private lazyLoadService: LazyLoadScriptService) { }
+  constructor(   private location: Location,private lazyLoadService: LazyLoadScriptService) { }
 
   ngOnInit() {
     this.lazyLoadService.loadScript('/assets/jquery.min.js').subscribe((_) => {
@@ -53,4 +55,8 @@ export class UploadComponent implements OnInit {
     });
 
   }
+  goBack(): void {
+    this.location.back();
+  }
+
 }
