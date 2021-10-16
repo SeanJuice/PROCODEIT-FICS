@@ -136,7 +136,7 @@ export class TypeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post(`${rootURL}/AddClientType/`, Client, httpOptions);
+    return this.http.post(`https://apifics.azurewebsites.net/AddClientType/`, Client, httpOptions);
   }
 
   UpdateClientType(Client, id: number) {

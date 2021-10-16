@@ -122,6 +122,13 @@ export class TraineeService {
   }
 
 
+
+  RescheduleSession(BookingIDs,availability_id){
+    BookingIDs.Trainee_ID = this.TraineeID;
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}/RescheduleSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());
+  }
+
   /**
    * Booking a slot
    */
