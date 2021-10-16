@@ -1,5 +1,5 @@
 <!-- Client Application  -->
-<div class="wrapper" *ngIf="ApplicationType==1; else other_content" ;>
+<div class="wrapper" *ngIf="ApplicationType==1; else other_content" >
   <div class="Grid Grid--full u-textCenter">
 
     <div class="Grid-cell">
@@ -33,7 +33,7 @@
             <mat-label style="color: black;">Name</mat-label>
             <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. pat">
             <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
-              Contact Number cannot be left empty
+              Name cannot be left empty
             </mat-hint>
           </mat-form-field>
         </div>

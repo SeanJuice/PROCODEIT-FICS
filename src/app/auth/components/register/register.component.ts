@@ -7,6 +7,8 @@ import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common'
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -28,7 +30,8 @@ export class RegisterComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private Authservice: AuthService,
-    private external: ExternalService
+    private external: ExternalService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +48,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(client: Client, role: number) {
+
+    const file = this.selectedPPFiles.item(0);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
+
+
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
@@ -55,18 +64,31 @@ export class RegisterComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         const file = this.selectedPPFiles.item(0);
-        this.currentPPUpload = new FileUpload(file);
-        this.selectedPPFiles = undefined;
-        let Role = Number(role) + Number(1);
-        client.Contact_Number;
-        this.submitted = false;
-        console.log(client);
+    this.currentPPUpload = new FileUpload(file);
+    this.selectedPPFiles = undefined;
 
-        this.Authservice.Register(client, Role, this.currentPPUpload);
+    // const file = this.selectedPPFiles.item(0);
+    // this.currentPPUpload = new FileUpload(file);
+    // this.selectedPPFiles = undefined;
+
+
+    let Role = Number(role) + Number(1);
+    client.Contact_Number;
+    this.submitted = false;
+    console.log(client);
+
+
+    this.Authservice.Register(client, Role, this.currentPPUpload);
       }
-    }) 
-  }
+      else {
 
+      }
+    })
+
+
+
+
+  }
   createOtherForm() {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -108,6 +130,7 @@ export class RegisterComponent implements OnInit {
         Contact_Number: [null, [Validators.required, Validators.maxLength(10)]],
         Gender: [null, [Validators.required]],
         Country: [null, [Validators.required]],
+        //Client_Type: [null, [Validators.required]],
         Client_Status: [null],
         Password: [null, [Validators.required, this.checkPassword]],
         Confirm_Password: ['', Validators.required],
@@ -149,7 +172,7 @@ export class RegisterComponent implements OnInit {
     return this.formGroup.get('Email_Address').hasError('required')
       ? 'Field is required'
       : this.formGroup.get('Email_Address').hasError('pattern')
-      ? 'Not a valid emailaddress'
+      ? 'Not a valid email address'
       : '';
   }
   /// ProfilePicture
@@ -167,5 +190,4 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-
 }
