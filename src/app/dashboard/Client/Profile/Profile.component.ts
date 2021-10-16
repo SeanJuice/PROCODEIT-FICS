@@ -10,6 +10,7 @@ import { PractitionerUserService } from '../../Practitioner/services/Practitione
 import { TrainerService } from '../../Admin/services/trainer.service';
 import { TraineesService } from '../../Admin/services/trainees.service';
 import { ExternalService } from 'src/app/shared/services/external.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-Profile',
@@ -24,6 +25,7 @@ export class ProfileComponent implements OnInit {
   isLoaded:boolean = false;
   roleId:number;
   showOthers:boolean = false;
+  profilePicture: any;
   MissingData = {
      Name: null,
      Surname: null,
@@ -37,6 +39,7 @@ export class ProfileComponent implements OnInit {
      ID_Number:null,
      User_ID:null
   };
+
   showExtra = false;
   countries =[]
   constructor(private formBuilder: FormBuilder,
@@ -46,12 +49,13 @@ export class ProfileComponent implements OnInit {
      private traineeService: TraineesService,
      private external: ExternalService,
 
-     @Inject(SESSION_STORAGE)private storage: StorageService,
+     @Inject(SESSION_STORAGE)private storage: StorageService, private firestore: AngularFirestore,
      private auth:AuthService,
      public dialog: MatDialog) { }
 
   ngOnInit() {
     // this.info.Name =''
+    this.profile();
     this.formGroup = this.formBuilder.group({
       'Name': ['', Validators.required],
       'Client_ID': ['', Validators.required],
@@ -111,6 +115,21 @@ export class ProfileComponent implements OnInit {
     }
 
 
+
+
+  }
+
+  profile() {
+    this.firestore.collection('ProfilePictures', res => res.where('userId', '==', Number(this.auth.loginId))).snapshotChanges().subscribe(items => {
+
+      items.forEach(a => {
+        const itemm: any = a.payload.doc.data();
+        itemm.id = a.payload.doc.id;
+        this.profilePicture = itemm
+        console.log(itemm);
+
+      })
+    })
   }
   createForm(info) {
     console.log(info)
