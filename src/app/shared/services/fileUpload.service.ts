@@ -16,7 +16,7 @@ export class FileUploadService {
 
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage,private firestore: AngularFirestore,) { }
 
-  pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
+  pushFileToStorage(fileUpload: FileUpload,DocumentName:string,fileType:string,UserID?:Number,isRegister?:boolean): Observable<number | undefined> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
@@ -28,11 +28,11 @@ export class FileUploadService {
           fileUpload.name = fileUpload.file.name;
           this.saveFileData(fileUpload);
 
-          return this.firestore.collection('Documents').add({
+          return this.firestore.collection(DocumentName).add({
                 Name: fileUpload.file.name,
                 Url: downloadURL,
-                userId: Number(sessionStorage.getItem('liid')),
-                type: "depends",
+                userId:isRegister? UserID : Number(sessionStorage.getItem('liid')),
+                type: fileType,
                 Date: Date.now()
               })
         });

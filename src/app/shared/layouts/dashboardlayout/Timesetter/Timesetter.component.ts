@@ -21,7 +21,7 @@ export class TimesetterComponent implements OnInit {
 
   SetTimer() {
     console.log(this.value)
-    this.sharedService.UpdateTimer(this.value).subscribe(res => {
+    this.sharedService.UpdateTimer(this.value*60).subscribe(res => {
       console.log(res)
       this.idleService.reset();
       this.idleService.Timer(this.value);

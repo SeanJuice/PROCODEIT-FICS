@@ -4,7 +4,8 @@ import { Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Session } from 'src/app/models/Session';
-const   rootURL = '  https://apifics.azurewebsites.net/api/Trainee/'
+ import { environment } from 'src/environments/environment';
+const rootURL = environment. baseUrl+'/Trainee/'
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class TraineeService {
    */
   UpdateTrainee(formData){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post('  https://apifics.azurewebsites.net/api/Trainee/MaintainTrainee/', formData,httpOptions).pipe(share());
+    return this.http.post('  https://localhost:44332/api/Trainee/MaintainTrainee/', formData,httpOptions).pipe(share());
   }
 
   //get Trainee ID

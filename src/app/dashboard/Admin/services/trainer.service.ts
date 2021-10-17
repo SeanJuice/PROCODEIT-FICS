@@ -9,9 +9,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
-const rootURL = '  https://apifics.azurewebsites.net/api/Admin/';
-const TrainerrootURL = '  https://apifics.azurewebsites.net/api/Trainer/';
+
+const rootURL = environment. baseUrl+'/Admin/';
+const TrainerrootURL = environment. baseUrl+ '/Trainer/';
+
 
 
 @Injectable({

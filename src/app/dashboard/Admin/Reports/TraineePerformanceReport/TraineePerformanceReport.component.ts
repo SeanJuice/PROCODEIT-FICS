@@ -11,9 +11,10 @@ import { ReportsService } from '../reports.service';
 export class TraineePerformanceReportComponent implements OnInit {
   Trainees: Array<any>;
   TraineesData: Array<any>;
-
+  Trainee:any;
   view: [number, number] = [1000, 700];
   isClicked: boolean =false;
+
   // options
   showXAxis = true;
   showYAxis = true;
@@ -60,11 +61,9 @@ export class TraineePerformanceReportComponent implements OnInit {
 
     this.reportService.TraineePerformanceReport(Number(data.traineeID)).subscribe((res:any)=>{
       console.log(res);
-
-      // TraineesData = res.Data.map(datum => ({ name: datum.PackageName, value: datum.Count }));
-      // Object.assign(this, { TraineesData })
       this.isClicked = true;
-      //this.buildGraph(numbers,Months)
+      this.Trainee = res
+
     })
   }
 
