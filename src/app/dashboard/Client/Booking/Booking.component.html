@@ -1,36 +1,52 @@
 <div class="container-fluid">
     <div class="row">
+<<<<<<< HEAD
+      <div class="col-10 bg">
+=======
       <div class="col-2 bg">
+>>>>>>> master
         <h1 class="h1 title">
           <div class="btn-group"  (click)=" goBack()">
               <button  class="btn btn-light bui"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</button>
           </div>
         </h1>
       </div>
+<<<<<<< HEAD
+=======
       <div class="col-8 bg">
         <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
           Make Booking
         </h1>
       </div>
+>>>>>>> master
 
       <div class="col-2 bg">
           <div class="hint">
             <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
           </div>
+<<<<<<< HEAD
+            <div class="hide">Dates your practitioner is available for sessions is highlighted on the calendar</div>
+=======
             <div class="hide">Dates your practitioner is available for sessions is highlighted in orange on the calendar</div>
+>>>>>>> master
       
           <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
       </div>
     </div>
+<<<<<<< HEAD
+  </div>
+=======
     <hr class="hr1">
   </div>
     
 
+>>>>>>> master
 
 <div class="wrapper">
   <div class="Grid Grid--full u-textCenter">
 
-    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> </div>
+    <div class="Grid-cell">     <mat-card><h1>BOOK SLOTS</h1></mat-card> 
+    </div>
   </div>
 
 </div>
@@ -41,6 +57,13 @@
       <div class="example-full-width" appearance="fill">
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
+<<<<<<< HEAD
+            Select A Date
+                <div class="hint">
+                  <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+                </div>
+                  <div class="hide">Click the dropdown with todays date to see available sessions</div>
+=======
             Select a Date
 
               <div class="hint">
@@ -49,6 +72,7 @@
             <div class="hide">Select dropdown with today's date to view available sessions</div>
       
 
+>>>>>>> master
           </mat-card-title>
           <br>
           <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
@@ -62,6 +86,10 @@
         <mat-card class="demo-inline-calendar-card">
           <mat-card-title>
            Current Booking
+              <div class="hint">
+                  <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+                </div>
+                  <div class="hide">All times provided are set to SAST, (UCT +2)</div>
           </mat-card-title>
           <br>
 

@@ -45,6 +45,12 @@ export class MyQuestionnairesComponent implements OnInit {
     return this.arrayLengthCheck;
   }
 
+  hint() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 8000);
+  }
+
   CreateTwoDimensionalQuestionsArray() {
     this.questionContainer.forEach(element => {
      let temp = [this.auth.loginId,element.id,]

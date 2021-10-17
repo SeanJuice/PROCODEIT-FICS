@@ -91,7 +91,7 @@
     display: inline;
     float: right;
   }
-      
+
   .hint:hover + .hide {
     display: inline;
     min-width: 250px;
@@ -108,13 +108,6 @@
     font-size: 17px;
   }
 
-  .bui {
-    background-color: #297bff;
-    color: #fff;
-    font-size: large;
-    padding: 10px 24px;
-  }
-
   .hr1 {
     border: 0;
     height: 4px;
@@ -126,6 +119,7 @@
     font-size: 2em;
     margin: 0;
     color: #297bff;
+    display: inline;
   }
 
   /*

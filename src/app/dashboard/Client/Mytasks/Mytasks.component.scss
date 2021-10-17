@@ -11,12 +11,12 @@
       .hint {
         display: inline;
       }
-    
+
       .help {
         display: inline;
         float: right;
       }
-          
+
       .hint:hover + .hide {
         display: inline;
         min-width: 250px;
@@ -32,7 +32,7 @@
         top: 20%;
         font-size: 17px;
       }
-    
+
       .bui {
         background-color: #297bff;
         color: #fff;

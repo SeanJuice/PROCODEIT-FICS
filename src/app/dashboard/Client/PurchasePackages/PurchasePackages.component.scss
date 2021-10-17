@@ -3,7 +3,7 @@
     background-color: rgb(0, 174, 255);
     color: blue;
 
-    
+
 }
 .lbl{
     color: rgb(0, 145, 255);
@@ -19,8 +19,17 @@
   .help {
     display: inline;
     float: right;
+    margin-right: 12%;
+    margin-top: 1%;
   }
-      
+
+  .bui {
+    background-color: #297bff;
+    color: #fff;
+    font-size: large;
+    padding: 10px 24px;
+  }
+
   .hint:hover + .hide {
     display: inline;
     min-width: 250px;
