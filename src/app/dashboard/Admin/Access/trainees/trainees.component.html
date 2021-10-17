@@ -1,9 +1,6 @@
 <div class="app">
-
-
   <div class="table-card">
     <h1 class="h1 title">
-      <i class="fas fa-home"></i>
       <span>Trainee Access</span>
     </h1>
     <div class="form-group">
@@ -20,7 +17,7 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let trainee of trainees">
+          <tr *ngFor="let trainee of trainees | Accessfilter: query">
             <td>{{trainee.Title}}</td>
             <td>{{trainee.Name}}</td>
             <td>{{trainee.Surname}}</td>

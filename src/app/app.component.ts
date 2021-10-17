@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { SharedService } from './shared/services/shared.service';
 import Swal from 'sweetalert2';
 import { IdleService } from './shared/services/idle.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,6 +31,22 @@ export class AppComponent implements OnInit {
     }
   }
   onLogout() {
-    this.authService.logout();
+    
+    Swal.fire({
+      title: 'Are You Sure You Want To Logout?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.authService.logout()
+      }
+      else {
+
+      }
+    })
+    ;
   }
 }

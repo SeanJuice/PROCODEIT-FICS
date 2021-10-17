@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
 import { TypeService } from '../../services/type.service';
 import { SimpleModalService } from 'ngx-simple-modal';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-PackageType',
   templateUrl: './PackageType.component.html',
@@ -26,8 +27,8 @@ export class PackageTypeComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Name dialog',
-      question: 'Add your Client type?: ',
+      title: 'Package Type',
+      question: 'Add Your Package Type: ',
         message: ''
       })
       .subscribe((message) => {
@@ -38,14 +39,14 @@ export class PackageTypeComponent implements OnInit {
             this.getPackagesTypes()
 
           },
-          error => {throw new Error('Client not added')})
+          error => {throw new Error('Client Not Added')})
       });
   }
 
   Maintain(PackageType,Id) {
     this.SimpleModalService.addModal(PromptComponent, {
       title: 'Package Type',
-      question: 'Update Package type: ',
+      question: 'Update Package Type: ',
       message: PackageType.toString()
     })
       .subscribe((message) => {
@@ -56,15 +57,26 @@ export class PackageTypeComponent implements OnInit {
             this.getPackagesTypes()
             console.log(response);
           }
-          ,error => {throw new Error('Client not added '); console.log(error)})
+          ,error => {throw new Error('Package Not Added '); console.log(error)})
       });
   }
 
 
   delete(id) {
-    this.typeService.RemovePackageType(id).subscribe(res=>{
-      console.log(res);
-      this.getPackagesTypes();
-    })
-  }
+    Swal.fire({
+      title: 'Are You Sure You Want To Delete Package Type?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.typeService.RemovePackageType(id).subscribe(res=>{
+          console.log(res);
+          this.getPackagesTypes();
+      })
+      }
+    }
+    )}
 }

@@ -4,6 +4,7 @@ import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TraineeService } from '../services/trainee.service';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-MySessions',
   templateUrl: './MySessions.component.html',
@@ -12,7 +13,7 @@ import { CalendarOptions } from '@fullcalendar/angular';
 export class MySessionsComponent implements OnInit {
 
 
-    constructor(private traineeService:TraineeService,public dialog: MatDialog) { }
+    constructor( private location: Location,private traineeService:TraineeService,public dialog: MatDialog) { }
 
 
 
@@ -126,5 +127,18 @@ export class MySessionsComponent implements OnInit {
    console.log('dayClick', event);
  }
 
-}
 
+
+    openReviewDialog(id): void {
+      let dialogRef = this.dialog.open(ReviewDialogComponent, {
+        width: '500px',
+        data: { name: id}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+    }
+    goBack(): void {
+      this.location.back();
+    }
+  }

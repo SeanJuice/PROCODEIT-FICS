@@ -2,9 +2,6 @@
 
 
 
-
-
-
 .clearfix:before,
 .clearfix:after {
 	content: " ";
@@ -129,4 +126,8 @@ label .fa {
 }
 .link {
   text-align:center;
+}
+
+a {
+  color: blue;
 }

@@ -1,14 +1,34 @@
-
 <app-pre-loader *ngIf="isLoaded"></app-pre-loader>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-2 bg">
+        <h1 class="h1 title">
+          <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui" >Back</button>
+          </div>
+        </h1>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title"  align="center">
+          Assign Questionnaire
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Select Client Or Trainer Block To Navigate Between The Two Users</div>
+      
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/522Adminsubsystem.html#AssignQuestionnaire " target="_blank">| Help</a></button>
+      </div>
+    </div>
+    <hr class="hr1">
+  </div>
 
 <div class="container Grid Grid--full u" style="padding-top: 3%; background-color:transparent">
 
-
-
-<h1 class="h1 title" *ngIf="!isLoaded">
-  <i class="fas fa-home"></i>
-  <span>Assign Questionnaire to a Client</span>
-</h1>
 
 <div style="width: 90%; align-self: center; text-align: center; ">
 
@@ -52,7 +72,7 @@
   </div>
   <div class="description" >
     <h1>Choose Assigning {{Name}}</h1>
-    <h2>step 1 of 4</h2>
+    <h2>step 1 of 3</h2>
     <p> </p>
   <!-- start -->
   <div style="padding-left:40%">
@@ -77,8 +97,8 @@
   <div class="blog-card" style="padding-bottom: 33%;z-index: -1">
 
     <div class="description" >
-      <h1> Choose desired Questionnaire Questions</h1>
-      <h2>step 3 of 4</h2>
+      <h1> Choose Desired Questionnaire Questions</h1>
+      <h2>step 2 of 3</h2>
       <p> </p>
     <!-- start -->
 
@@ -130,8 +150,8 @@
         </ul>
       </div>
       <div class="description" style="position: absolute;" >
-        <h1> Assign Questioner to {{Client.Name}} {{Client.Surname}}</h1>
-        <h2>step 4 of 4</h2>
+        <h1> Assign Questionnaire To {{Client.Name}} {{Client.Surname}}</h1>
+        <h2>step 3 of 3</h2>
         <p> </p>
       <!-- start -->
       <div class="Grid Grid--full u-textCenter">

@@ -7,6 +7,7 @@ import { Task } from 'src/app/models/Task';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { TrainerService } from '../../services/trainer.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-AssignTraineeTask',
@@ -33,7 +34,8 @@ export class AssignTraineeTaskComponent implements OnInit ,OnDestroy{
       private data: DataService,
       private sharedService:SharedService,
       private traineeService:TrainerService,
-      private snackbar: SnackbarService
+      private snackbar: SnackbarService,
+      private location: Location
     ) {}
 
     ngOnInit() {
@@ -70,6 +72,10 @@ export class AssignTraineeTaskComponent implements OnInit ,OnDestroy{
 
     ngOnDestroy() {
       this.subscription.unsubscribe();
+    }
+
+    goBack(): void {
+      this.location.back();
     }
 
   }

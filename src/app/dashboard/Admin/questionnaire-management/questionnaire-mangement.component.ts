@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionnaireService } from '../services/Questionnaire.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-questionnaire-mangement',
   templateUrl: './questionnaire-mangement.component.html',
@@ -10,7 +12,8 @@ import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.compo
 export class QuestionnaireManagementComponent implements OnInit {
 
   QuestionsBank:Array<any> = []
-  constructor(private questionnaireService: QuestionnaireService, private SimpleModalService: SimpleModalService) { }
+  public query: any = '';
+  constructor(private questionnaireService: QuestionnaireService, private SimpleModalService: SimpleModalService, private location: Location) { }
 
   ngOnInit() {
     this.getTitles();
@@ -59,6 +62,8 @@ export class QuestionnaireManagementComponent implements OnInit {
     })
   }
 
-
+  goBack(): void {
+    this.location.back();
+  }
 
 }

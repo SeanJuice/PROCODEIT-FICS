@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TrainerService } from '../services/trainer.service';
 import { SendTraineefeedbackComponent } from './sendTraineefeedback/sendTraineefeedback.component';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-send-feedback',
   templateUrl: './send-feedback.component.html',
@@ -14,7 +14,7 @@ export class SendFeedbackComponent implements OnInit {
 
   Tasks: any;
 
-    constructor( public dialog: MatDialog,private trainerService:TrainerService, private authService:AuthService) {}
+    constructor(private location: Location, public dialog: MatDialog,private trainerService:TrainerService, private authService:AuthService) {}
 
   ngOnInit() {
       this.getTasks();
@@ -44,7 +44,10 @@ export class SendFeedbackComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-
+  
+goBack(): void {
+  this.location.back();
+}
 }
 
 

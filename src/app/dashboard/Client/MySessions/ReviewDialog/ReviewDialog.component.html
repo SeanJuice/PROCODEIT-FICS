@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>Reschedule Session</h1>
+<h1 mat-dialog-title>Reschedule Session
+<div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Click on the reschedule dropdown to see the reschedule options</div>
+</h1>
 
 
 <div mat-dialog-content>
@@ -28,7 +33,7 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        RESCHADULE SESSION
+        reschedule SESSION
       </button>
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
@@ -53,20 +58,6 @@
       </div>
     </div>
   </div>
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTree" aria-expanded="false" aria-controls="panelsStayOpen-collapseTree">
-        VIEW  SESSION FEEDBACK
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTree">
-      <div class="accordion-body">
-          <li class="list-group-item">  {{ReviewMessage}}</li>
-      </div>
-    </div>
-  </div>
-
 
 </div>
 

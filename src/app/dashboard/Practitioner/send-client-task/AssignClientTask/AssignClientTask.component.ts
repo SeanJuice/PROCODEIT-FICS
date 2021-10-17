@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { PractitionerUserService } from '../../services/PractitionerUser.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-AssignClientTask',
   templateUrl: './AssignClientTask.component.html',
@@ -36,7 +37,8 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
     private data: DataService,
     private sharedService:SharedService,
     private practitionerService:PractitionerUserService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -66,18 +68,18 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
 
 
     Swal.fire({
-      title: 'are you sure you want to send this task?',
+      title: 'Are You Sure You Want To Send This Task To Your Client?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes!'
+      confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
         this.practitionerService.AssignTask(this.ClientID, this.Task).subscribe(res => {
           console.log(res);
           this.getTasksAssigned();
-          this.snackbar.openSnackBar("Successfully Assigned tasks")
+          this.snackbar.openSnackBar("Successfully Assigned Task")
         })
       }
       else {
@@ -92,5 +94,9 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

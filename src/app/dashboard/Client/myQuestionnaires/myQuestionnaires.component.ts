@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ClientService } from '../services/client.service';
-
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-myQuestionnaires',
   templateUrl: './myQuestionnaires.component.html',
@@ -9,7 +10,7 @@ import { ClientService } from '../services/client.service';
 })
 export class MyQuestionnairesComponent implements OnInit {
 
-  constructor(private clientService: ClientService,private auth:AuthService) { }
+  constructor(private clientService: ClientService,private auth:AuthService, private location: Location) { }
  myQuestionnaires=[];
  questionContainer = [];
  arrayLengthCheck:any;
@@ -86,6 +87,15 @@ export class MyQuestionnairesComponent implements OnInit {
   }
 
   submitQuestionnaire(){
+    Swal.fire({
+      title: "By Selecting Yes You Will Complete Your Questionnaire.",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
     let canSubmit= true
     this.ArrayOfQuestions.forEach(array=>{
       let index =this.questionContainer.findIndex(x => x.id === array[1]);
@@ -101,6 +111,11 @@ export class MyQuestionnairesComponent implements OnInit {
      if(canSubmit) this.clientService.CompleteQuestionnaire(this.ArrayOfQuestions).subscribe(response =>{
        console.log(response)
      })
+  }
+    })
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
 

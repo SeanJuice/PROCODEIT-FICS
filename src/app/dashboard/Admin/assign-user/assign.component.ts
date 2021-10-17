@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-assign',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignComponent implements OnInit {
   content:string = "content1";
-  constructor() { }
+  constructor( private location: Location) { }
 
   ngOnInit() {
   }
@@ -15,6 +16,10 @@ export class AssignComponent implements OnInit {
   Change(num:number){
     this.content = "content"+num.toString();
     return this.content;
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
 

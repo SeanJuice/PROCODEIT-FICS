@@ -1,38 +1,55 @@
-<div class="app">
+<!--<h1 class="h1 title">
+  <div class="btn-group"  (click)=" goBack()">
+       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+  </div>
+  <span> Back</span>
+</h1>-->
 
-  <h1 class="h1 title">
+<div class="app">
+  <div class="container-fluid">
     <div class="row">
-         <div class="col">
-           <div class="float-right">
-             <a href="https://scotty-crypto.github.io/526Traineesubsystem.html" target="_blank">
-              <img class="help" src="https://img.icons8.com/cute-clipart/64/000000/help.png" />
-            </a>
-           </div>
-           <div class="float-left">
-            My Questionnaires
-           </div>
-         </div>
+      <div class="col-2 bg">
+        <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" align="center">
+          <span>My Questionnaires</span>
+        </h1>
+      </div>
+
+      <div class="col-2 bg">
+          <div class="hint">
+            <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
+          </div>
+            <div class="hide">Rate Yourself On A Scale Of 1 To 4, With 1 Being Most Likely And 4 Being The Least Likely. Go To Help For More Assistance</div>
+
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/526Traineesubsystem.html#TraineeQuestionnaire " target="_blank">| Help</a></button>
+      </div>
     </div>
-  </h1>
+      <hr class="hr1">
+  </div>
+
   <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0">
     <div class="container ">
       <br>
       <div class="table-card card" *ngFor="let category of questionContainer; let i=index">
         <h2>{{category.question}}</h2>
 
-        <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-          Question is not complete
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <td id="tour-table">Question</td>
-              <td>Answer</td>
+    <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
+      Question Is Incomplete
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td id="tour-table">Question</td>
+          <td>Answer</td>
 
-            </tr>
-          <tbody>
-            <tr *ngFor="let q of filterById(category.id);let position=index">
-              <td>
+        </tr>
+      <tbody>
+          <tr *ngFor="let q of filterById(category.id);let position=index">
+            <td >
                 {{q.Question}}
 
               </td>

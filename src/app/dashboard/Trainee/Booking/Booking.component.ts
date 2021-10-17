@@ -1,5 +1,5 @@
 
-
+import { Location } from '@angular/common'
 
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
@@ -41,7 +41,7 @@ export class BookingComponent implements OnInit {
   minDate = new Date();
   package
 
-  constructor(private traineeservice: TraineeService,private router: Router) {}
+  constructor(private traineeservice: TraineeService,private router: Router, private location: Location) {}
 
   ngOnInit() {
     this.getAvailableDates();
@@ -147,6 +147,10 @@ export class BookingComponent implements OnInit {
     };
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
    // validate
    validate() {
     let book = {
@@ -170,4 +174,27 @@ export class BookingComponent implements OnInit {
     return timeArray;
   }
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-PurchasePackages',
   templateUrl: './PurchasePackages.component.html',
@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PurchasePackagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   PurchaseForm: FormGroup;
 
@@ -25,6 +25,9 @@ export class PurchasePackagesComponent implements OnInit {
       })
     });
 
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }
