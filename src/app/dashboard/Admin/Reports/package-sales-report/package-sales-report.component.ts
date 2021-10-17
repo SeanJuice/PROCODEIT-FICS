@@ -54,6 +54,7 @@ getReportResults(date) {
 
       UserRoles = res.Data.map(datum => ({ name: datum.PackageName, value: datum.Count }));
       Object.assign(this, { UserRoles })
+      UserRoles.sort((a:any, b:any) => parseFloat(b.value) - parseFloat(a.value))
       this.isClicked = true;
       //this.buildGraph(numbers,Months)
     })

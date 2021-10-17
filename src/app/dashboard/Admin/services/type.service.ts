@@ -9,8 +9,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44389/api/Admin/';
+
+
+const rootURL = environment. baseUrl+ '/Admin/';
+
 import swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',

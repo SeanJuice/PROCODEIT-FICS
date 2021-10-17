@@ -22,10 +22,15 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   countries =[];
   progress: { percentage: number } = { percentage: 0 };
+  progress2: { percentage: number } = { percentage: 0 };
   url = '';
     // ProfilePictureUpload
-    currentPPUpload: FileUpload;
-    selectedPPFiles: FileList;
+  currentPPUpload: FileUpload;
+  selectedPPFiles: FileList;
+  //CV
+  selectedTFiles: FileList;
+  currentCVUpload: FileUpload;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -49,10 +54,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
 
-    const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
-    this.selectedPPFiles = undefined;
-
+    this.uploads();
 
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
@@ -63,31 +65,16 @@ export class RegisterComponent implements OnInit {
       confirmButtonText: 'Apply Now'
     }).then((result) => {
       if (result.isConfirmed) {
-        const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
-    this.selectedPPFiles = undefined;
-
-    // const file = this.selectedPPFiles.item(0);
-    // this.currentPPUpload = new FileUpload(file);
-    // this.selectedPPFiles = undefined;
+           this.uploads();
+            let Role = Number(role) + Number(1);
+            client.Contact_Number;
+            this.submitted = false;
+            console.log(client);
 
 
-    let Role = Number(role) + Number(1);
-    client.Contact_Number;
-    this.submitted = false;
-    console.log(client);
+   this.Authservice.Register(client, Role, this.currentPPUpload, this.currentCVUpload);
+      });
 
- 
-    this.Authservice.Register(client, Role, this.currentPPUpload);
-      }
-      else {
-
-      }
-    })
-    
-
-
-   this.Authservice.Register(client, Role, this.currentPPUpload);
 
 
   }
@@ -190,6 +177,21 @@ export class RegisterComponent implements OnInit {
         this.url = event.target.result as string;
       };
     }
-
   }
+
+
+    selectFile2(event) {
+      this.selectedTFiles = event.target.files;
+      }
+      uploads() {
+        const filePP = this.selectedPPFiles.item(0);
+        this.currentPPUpload = new FileUpload(filePP);
+        this.selectedPPFiles = undefined;
+        //CV
+          const file = this.selectedTFiles.item(0);
+          this.selectedTFiles = undefined;
+          this.currentCVUpload = new FileUpload(file);
+          return
+        }
+
 }

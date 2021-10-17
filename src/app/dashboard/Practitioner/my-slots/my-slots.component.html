@@ -23,7 +23,7 @@
         </tr>
       <tbody>
           <tr *ngFor="let slot of MySlots">
-            <td>{{slot.Date }}</td>
+            <td>{{slot.Date | date }}</td>
             <td>{{slot.StartTime}}</td>
             <td>{{slot.EndTime}}</td>
             <td>{{slot.Client}}</td>

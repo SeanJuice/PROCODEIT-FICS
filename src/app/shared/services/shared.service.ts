@@ -5,8 +5,10 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
-const   rootURL = 'https://localhost:44389/api/Report/'
-const   AdrootURL = 'https://localhost:44389/api/Admin/'
+ import { environment } from 'src/environments/environment';
+const rootURL = environment.baseUrl+'/Report/'
+const   AdrootURL =  environment.baseUrl+'/Admin/'
+
 
 @Injectable({
   providedIn: 'root',
