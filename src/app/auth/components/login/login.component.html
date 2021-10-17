@@ -18,7 +18,7 @@
           <form  #myForm="ngForm"  (ngSubmit)="onSubmit(myForm.value)" *ngIf="!Spinner">
               <div class="form-group"><label for="username">Username</label>
                 <input class="hint" type="text" id="username" ngModel name="Username" required="required" />
-                    <div class="hide">Use your email as your username</div>
+                    <div class="hide">Use Your Email As Your Username</div>
               </div>
               <div class="form-group"><label for="password">Password</label><input type="password" id="password"  ngModel name="Password" required="required" /></div>
               <div class="form-group"><label class="form-remember"><input type="checkbox" />Remember Me</label><a class="form-recovery"[routerLink]="['../forgot-password']">Forgot Password?</a></div>
