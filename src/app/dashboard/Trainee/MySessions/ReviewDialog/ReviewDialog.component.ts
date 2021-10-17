@@ -60,10 +60,11 @@ export class ReviewDialogComponent implements OnInit {
         res.forEach((dates) => {
           console.log(dates);
           this.AvailableSlots.push(dates);
-          if(dates.Practitioner_ID === Number( sessionStorage.getItem('Practitioner_ID')))
+          if(dates.Practitioner_ID === Number( sessionStorage.getItem('Trainer_ID')))
             {
               this.AvailableSlots.push(dates);
             }
+            this.AvailableSlots =  this.AvailableSlots.filter((v,i,a)=>a.findIndex(t=>(t.Availability_ID === v.Availability_ID))===i)
         });
       });
   }

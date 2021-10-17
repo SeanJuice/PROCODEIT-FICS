@@ -13,11 +13,10 @@ import swal from 'sweetalert2';
 import { FileUploadService } from '../shared/services/fileUpload.service';
 import { FileUpload } from '../models/fileupload';
 
-
-
 const KEY = 'FICSINF';
+import { environment } from 'src/environments/environment';
 
-const rootURL = '  https://localhost:44332/api/Access';
+const rootURL = environment.baseUrl+'/Access';
 
 @Injectable({
   providedIn: 'root',

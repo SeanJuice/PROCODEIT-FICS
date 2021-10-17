@@ -4,7 +4,8 @@ import { Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Session } from 'src/app/models/Session';
-const   rootURL = '  https://localhost:44332/api/Trainee/'
+ import { environment } from 'src/environments/environment';
+const rootURL = environment. baseUrl+'/Trainee/'
 
 @Injectable({
   providedIn: 'root'
