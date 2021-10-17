@@ -15,9 +15,6 @@ import { environment } from 'src/environments/environment';
 const rootURL = environment. baseUrl+'/Admin/';
 const TrainerrootURL = environment. baseUrl+ '/Trainer/';
 
-
-
-
 @Injectable({
   providedIn: 'root',
 })

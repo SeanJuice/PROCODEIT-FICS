@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
 import { TypeService } from '../../services/type.service';
 import { SimpleModalService } from 'ngx-simple-modal';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-QuestionnaireType',
   templateUrl: './QuestionnaireType.component.html',
@@ -42,14 +43,14 @@ export class QuestionnaireTypeComponent implements OnInit {
 
 
           },
-          error => {throw new Error('Client not added')})
+          error => {throw new Error('Client Not Added')})
       });
   }
 
   Maintain(Description,Id) {
     this.SimpleModalService.addModal(PromptComponent, {
       title: 'Questionnaire Type',
-      question: 'Update Questionnaire type: ',
+      question: 'Update Questionnaire Type: ',
       message: Description.toString()
     })
       .subscribe((message) => {
@@ -60,15 +61,26 @@ export class QuestionnaireTypeComponent implements OnInit {
             this.getQuestionnaireTypes();
             this.typeService.success('questionnaire')
           }
-          ,error => {throw new Error('Client not added '); console.log(error)})
+          ,error => {throw new Error('Client Not Added '); console.log(error)})
       });
   }
 
   delete(id) {
-    this.typeService.DeleteQuestionnaireType(id).subscribe(res=>{
-      console.log(res);
-      this.getQuestionnaireTypes();
-    })
-  }
-
+    Swal.fire({
+      title: 'Are You Sure You Want To Delete Questionnaire Type?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.typeService.DeleteQuestionnaireType(id).subscribe(res=>{
+          console.log(res);
+          this.getQuestionnaireTypes();
+      })
+      }
+    }
+    )}
 }
+

@@ -109,7 +109,7 @@ export class PractitionerToClientComponent implements OnInit {
 
   AssignPractitioner() {
     Swal.fire({
-      title: 'Are You Sure You Want To Assign This Practitioner To The Client?',
+      title: 'Are You Sure You Want To Assign This Practitioner To This Client?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -119,6 +119,7 @@ export class PractitionerToClientComponent implements OnInit {
       if (result.isConfirmed) {
         this.practitionerservice.AssignPractitionerToClient(this.SelectedPractitioner.Practitioner_ID, this.SelectedClient.Client_ID).subscribe(res=>{
           console.log(res);
+          this.snackbar.openSnackBar('Successfully Assigned Practitioner to Client');
       })
       
     }

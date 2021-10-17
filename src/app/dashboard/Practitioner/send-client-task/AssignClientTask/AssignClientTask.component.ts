@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { PractitionerUserService } from '../../services/PractitionerUser.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-AssignClientTask',
   templateUrl: './AssignClientTask.component.html',
@@ -36,7 +37,8 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
     private data: DataService,
     private sharedService:SharedService,
     private practitionerService:PractitionerUserService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -92,5 +94,9 @@ export class AssignClientTaskComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

@@ -5,10 +5,10 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+
 import { environment } from 'src/environments/environment';
 const rootURL = environment.baseUrl+'/Trainer/';
 
-ster
 @Injectable({
   providedIn: 'root'
 })

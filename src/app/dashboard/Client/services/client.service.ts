@@ -38,6 +38,7 @@ export class ClientService {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
     return this.http.post(environment.baseUrl+'/Client/MaintainClientProfile/', formData,httpOptions).pipe(share());
 
+
   }
   //get Client ID
   get ClientID()

@@ -67,7 +67,7 @@ export class BookingComponent implements OnInit {
         this.clientservice
           .BookSlot(book, this.AvailabilityID)
           .subscribe((res) => {
-            Swal.fire('Successfully Booked!', '', 'success');
+            Swal.fire('Successfully Booked! Your practitioner will email you with the session details!', '', 'success');
           });
       } else if (result.isDenied) {
 

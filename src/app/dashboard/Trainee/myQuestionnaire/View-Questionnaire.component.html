@@ -20,8 +20,13 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-10 bg">
-        <h1 class="h1 title">
+      <div class="col-2 bg">
+        <div class="btn-group"  (click)=" goBack()">
+              <button  class="btn btn-light bui">Back</button>
+          </div>
+      </div>
+      <div class="col-8 bg">
+        <h1 class="h1 title" align="center">
           <span>My Questionnaires</span> 
         </h1>
       </div>
@@ -30,13 +35,14 @@
           <div class="hint">
             <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
           </div>
-            <div class="hide">Rate yourself on a scale of 1 to 4, with 1 being most likely and 4 being least likely. Go to help for more assistance</div>
+            <div class="hide">Rate Yourself On A Scale Of 1 To 4, With 1 Being Most Likely And 4 Being The Least Likely. Go To Help For More Assistance</div>
       
-          <button type="button" class="btn"><a class="help" href="#">| Help</a></button>
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/526Traineesubsystem.html#TraineeQuestionnaire " target="_blank">| Help</a></button>
       </div>
     </div>
       <hr class="hr1">
   </div>
+
   <br>
   <br>
   <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0;else  No_Questionnaires">
@@ -66,7 +72,7 @@
               <td *ngIf='arrayLengthCheck.length > 2'>
 
     <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-      Question Is Not Complete
+      Question Is Incomplete
     </div>
     <table class="table">
       <thead>
@@ -81,7 +87,7 @@
                 {{q.Question}}
 
             </td>
-            <td *ngIf='arrayLengthCheck.length > 2; else elseblock'>
+            <td *ngIf='arrayLengthCheck.length > 2'>
 
 
                 <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
@@ -96,6 +102,11 @@
                 <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
 
             </td>
+            <td *ngIf='arrayLengthCheck.length ==1'>
+            <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
+              <option value="6">Yes</option>
+              <option value="5">No</option>
+
 
             <ng-template #elseblock>
               <td >
@@ -119,6 +130,7 @@
           </ng-template>
 
 
+
           </tr>
       </tbody>
     </table>
@@ -140,10 +152,12 @@
 </div>
 
 
+
 <ng-template #No_Questionnaires>
   <div class="container p-3 my-3 bg-primary text-white" >
     <h1>NB</h1>
     <p>No Questionnaire Assigned Yet</p>
   </div>
 </ng-template>
+
 
