@@ -8,9 +8,11 @@ import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ClientService } from '../../Client/services/client.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { environment } from 'src/environments/environment';
 
 
-const   rootURL = 'https://localhost:44332/api/Admin/'
+const rootURL = environment. baseUrl+'/Admin/'
+
 
 @Injectable({
   providedIn: 'root'

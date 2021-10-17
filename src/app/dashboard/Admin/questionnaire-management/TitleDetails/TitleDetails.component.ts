@@ -27,7 +27,7 @@ export class TitleDetailsComponent implements OnInit {
 
     this.SimpleModalService.addModal(PromptComponent, {
       title: 'Titles',
-      question: 'Add your Question titles?: ',
+      question: 'Add Your Question titles: ',
         message: ''
       })
       .subscribe((message) => {

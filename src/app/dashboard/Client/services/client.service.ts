@@ -7,9 +7,9 @@ import { Client } from 'src/app/models/Client';
 import { Session } from 'src/app/models/Session';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+import { environment } from 'src/environments/environment';
+const rootURL = environment. baseUrl+'/Client/'
 
-
-const   rootURL = 'https://localhost:44332/api/Client/'
 
 @Injectable({
   providedIn: 'root'
@@ -34,11 +34,11 @@ export class ClientService {
    * @param formData
    * @returns
    */
-  UpdateClient(formData){
+   UpdateClient(formData){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post('https://localhost:44332/api/Client/MaintainClientProfile/', formData,httpOptions).pipe(share());
-  }
+    return this.http.post(environment.baseUrl+'/Client/MaintainClientProfile/', formData,httpOptions).pipe(share());
 
+  }
   //get Client ID
   get ClientID()
   {
@@ -58,15 +58,15 @@ export class ClientService {
   //Get session feedback
   getReviewSessionFeedback(SessionID:Number){
     let request:any;
-
+    console.log(SessionID)
     if(SessionID == null)
     {
-      request = "SessionID is Null"
+      request = of("SessionID is Null")
     }
     else{
       request =this.http.get(`${rootURL}/ReviewSessionFeedback/${SessionID}`);
     }
-    return of(request)
+    return request
   }
 
 

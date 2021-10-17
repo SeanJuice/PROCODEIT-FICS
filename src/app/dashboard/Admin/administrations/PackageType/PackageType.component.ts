@@ -26,8 +26,8 @@ export class PackageTypeComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Name dialog',
-      question: 'Add your Client type?: ',
+      title: 'Package Type',
+      question: 'Add Your Package Type: ',
         message: ''
       })
       .subscribe((message) => {
@@ -58,5 +58,13 @@ export class PackageTypeComponent implements OnInit {
           }
           ,error => {throw new Error('Client not added '); console.log(error)})
       });
+  }
+
+
+  delete(id) {
+    this.typeService.RemovePackageType(id).subscribe(res=>{
+      console.log(res);
+      this.getPackagesTypes();
+    })
   }
 }

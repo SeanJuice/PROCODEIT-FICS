@@ -9,8 +9,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
+
+
+const rootURL = environment. baseUrl+ '/Admin/';
+
 import swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -64,7 +68,13 @@ export class TypeService {
     );
   }
 
-  DeleteQuestionnaireType(id: number) {}
+  DeleteQuestionnaireType(id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeQuestionnaireType/${id}`, httpOptions);
+  }
 
   /**
    * Session Type crud
@@ -89,51 +99,8 @@ export class TypeService {
     );
   }
 
-  /**
-   * Document Type crud
-   */
-  AddDocumentType(doc: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
 
-    return this.http.post(`${rootURL}/AddDocumentype/`, doc, httpOptions);
-  }
 
-  UpdateDocumentType(doc, id: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(
-      `${rootURL}/MaintainDocumentType/${id}`,
-      doc,
-      httpOptions
-    );
-  }
-
-  /**
-   * Event Type crud
-   */
-  AddEventType(event: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(`${rootURL}/AddEventType/`, event, httpOptions);
-  }
-
-  UpdateEventType(event, id: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post(
-      `${rootURL}/MaintainEventType/${id}`,
-      event,
-      httpOptions
-    );
-  }
 
   /**
    * Package Type crud
@@ -157,6 +124,13 @@ export class TypeService {
       httpOptions
     );
   }
+  RemovePackageType(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removePackageType/${id}`, httpOptions);
+  }
 
   /**
    * Client Type crud
@@ -166,7 +140,7 @@ export class TypeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post(`${rootURL}/AddClientType/`, Client, httpOptions);
+    return this.http.post(`https://apifics.azurewebsites.net/AddClientType/`, Client, httpOptions);
   }
 
   UpdateClientType(Client, id: number) {
@@ -180,12 +154,19 @@ export class TypeService {
       httpOptions
     );
   }
+  RemoveclientType(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post(`${rootURL}/removeClientType/${id}`, httpOptions);
+  }
 
   success(type) {
     swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: `successfully updated ${type} type!`,
+              title: `Successfully Updated ${type} Type!`,
               showConfirmButton: false,
               timer: 2000,
             })

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./practitioners.component.scss']
 })
 export class PractitionersComponent implements OnInit {
-
+  public query: any = '';
   practitioners:Array<Practitioner>
   constructor( private practitionerService:PractitionerService) { }
 

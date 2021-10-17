@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TimesetterComponent } from './Timesetter/Timesetter.component';
+
 
 @Component({
   selector: 'app-dashboardlayout',
@@ -19,8 +21,9 @@ isLoggedIn$: Observable<boolean> | undefined;
 idleState = 'Not started.';
 timedOut = false;
 RoleName:string
+profilePicture: any;
 
-constructor(private Auth: AuthService,private idle: Idle,public dialog: MatDialog) { }
+constructor(private Auth: AuthService,private idle: Idle,public dialog: MatDialog,private firestore: AngularFirestore,) { }
 
 
 
@@ -37,8 +40,21 @@ ngOnInit() {
 
   console.log(this.RoleName)
   this.isLoggedIn$ = this.Auth.isLoggedIn;
+ this.profile();
 
+}
 
+profile() {
+  this.firestore.collection('ProfilePictures', res => res.where('userId', '==', Number(this.Auth.loginId))).snapshotChanges().subscribe(items => {
+
+    items.forEach(a => {
+      const itemm: any = a.payload.doc.data();
+      itemm.id = a.payload.doc.id;
+      this.profilePicture = itemm
+      console.log(itemm);
+
+    })
+  })
 }
 
 
@@ -57,7 +73,7 @@ Role(id: number): string {
   else if(id===4){
     role='Trainer'
   }
-  else if(id===4){
+  else if(id===5){
     role='Trainee'
   }
   return role

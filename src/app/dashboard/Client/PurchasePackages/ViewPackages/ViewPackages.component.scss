@@ -15,7 +15,7 @@
     display: inline;
     float: right;
   }
-      
+
   .hint:hover + .hide {
     display: inline;
     min-width: 250px;
@@ -30,4 +30,11 @@
     left: 50%;
     top: 20%;
     font-size: 17px;
+  }
+
+  .bui {
+    background-color: #297bff;
+    color: #fff;
+    font-size: large;
+    padding: 10px 24px;
   }

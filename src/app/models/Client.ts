@@ -8,6 +8,7 @@ export class Client {
     Contact_Number:any;
     Gender:String;
     Country:String;
+    //ClientType_ID: String; 
     Password?:String;
     Confirm_Password?:String;
     Username?:String;

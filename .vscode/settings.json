@@ -1,3 +1,7 @@
 {
-    "FSharp.suggestGitignore": false
+    "cSpell.words": [
+        "Removeclient"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/a5dcc7f7-c440-4432-80b8-9171d962d3b9/resourceGroups/APIFICS20211014211618ResourceGroup/providers/Microsoft.Web/sites/FICSCorp",
+    "appService.deploySubpath": "dist\\PROCODEIT-FICS"
 }

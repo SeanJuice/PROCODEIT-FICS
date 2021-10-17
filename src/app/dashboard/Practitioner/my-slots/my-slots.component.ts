@@ -36,7 +36,7 @@ export class MySlotsComponent implements OnInit {
 
   Transfer(Timeslot){
     Swal.fire({
-      title: 'Are You Sure You Want To Reschedule Your Availability?',
+      title: 'Are You Sure You Want To Reschedule?',
       icon: 'info',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

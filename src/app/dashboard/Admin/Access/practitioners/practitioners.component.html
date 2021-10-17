@@ -9,6 +9,9 @@
       <i class="fas fa-home"></i>
       <span>Practitioner Access</span>
     </h1>
+    <div class="form-group">
+      <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -20,7 +23,7 @@
 
         </tr>
       <tbody>
-          <tr *ngFor="let practitioner of practitioners">
+          <tr *ngFor="let practitioner of practitioners | Accessfilter: query">
             <td>{{practitioner.Title}}</td>
             <td>{{practitioner.Name}}</td>
             <td>{{practitioner.Surname}}</td>
@@ -28,7 +31,8 @@
             <td>
               <input type="button"  (click)="DisablePractitioner(practitioner.Practitioner_ID)"  class="btn-gradient red" value="Disable" >
             </td>
-          </tr>
+            </tr>
+
       </tbody>
     </table>
   </div>

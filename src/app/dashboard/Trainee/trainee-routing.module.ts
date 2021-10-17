@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TrialQuestionnaireComponent } from '../Client/TrialQuestionnaire/TrialQuestionnaire.component';
 import { BookingComponent } from './Booking/Booking.component';
 import { MakeRegistrationFeeComponent } from './make-registration-fee/make-registration-fee.component';
 import { ViewQuestionnaireComponent } from './myQuestionnaire/View-Questionnaire.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'upload-case-study', component: UploadComponent},
   {path: 'questionnaire', component: ViewQuestionnaireComponent},
   {path: 'trainee-tasks', component: MytasksComponent},
+  {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
 ];
 
 @NgModule({

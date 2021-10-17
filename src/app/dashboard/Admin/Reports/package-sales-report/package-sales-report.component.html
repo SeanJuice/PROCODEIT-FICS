@@ -24,26 +24,27 @@
       </div>
     </form>
     </div>
-    <div class="d-flex justify-content-center" *ngIf="isClicked">
+    <div *ngIf="isClicked">
       ...
-      <ngx-charts-bar-vertical
-
-        [view]="view"
-        [scheme]="colorScheme"
-        [results]="UserRoles"
-        [gradient]="gradient"
-        [xAxis]="showXAxis"
-        [yAxis]="showYAxis"
-        [legendPosition]="legendPosition"
-        [legend]="showLegend"
-        [showXAxisLabel]="showXAxisLabel"
-        [showYAxisLabel]="showYAxisLabel"
-        [xAxisLabel]="xAxisLabel"
-        [yAxisLabel]="yAxisLabel"
-        (select)="onSelect($event)"
-        class="mx-auto"
-      >
-      </ngx-charts-bar-vertical>
+      <div class="table-card">
+        <table class="table">
+          <thead>
+            <tr>
+              <td id="tour-table">Package Name</td>
+              <td>Number of Packages Bought</td>
+            </tr>
+          <tbody>
+              <tr *ngFor="let package of UserRoles">
+                <td>{{package.name}}</td>
+                <td>{{package.value}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+

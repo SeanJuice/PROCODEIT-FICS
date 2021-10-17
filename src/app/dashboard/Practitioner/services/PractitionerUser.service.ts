@@ -6,7 +6,11 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Task } from 'src/app/models/Task';
-const rootURL = 'https://localhost:44332/api/Practitioner/';
+
+import { environment } from 'src/environments/environment';
+
+const rootURL = environment.baseUrl+ '/Practitioner/';
+
 
 @Injectable({
   providedIn: 'root',
@@ -57,8 +61,8 @@ export class PractitionerUserService {
   }
 
   AvailabilityDates():Observable<any[]> {
-    return this.http
-    .get<any[]>(`https://localhost:44332/api/Client/GetAvailableDates/`)
+    return this.http.get<any[]>(`environment.baseUrl/Client/GetAvailableDates/`)
+
     .pipe(share());
   }
 

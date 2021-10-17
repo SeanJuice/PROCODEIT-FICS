@@ -4,7 +4,10 @@ import { Observable, of } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Session } from 'src/app/models/Session';
-const   rootURL = 'https://localhost:44332/api/Trainee/'
+
+ import { environment } from 'src/environments/environment';
+const rootURL = environment.baseUrl+'/Trainee/'
+
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +35,8 @@ export class TraineeService {
    */
   UpdateTrainee(formData){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post('https://localhost:44332/api/Trainee/MaintainTrainee/', formData,httpOptions).pipe(share());
+    return this.http.post(environment.baseUrl+'/Trainee/MaintainTrainee/', formData,httpOptions).pipe(share());
+
   }
 
   //get Trainee ID
@@ -121,6 +125,13 @@ export class TraineeService {
      return this.http.get<any[]>(`${rootURL}/ViewFeedbackNotes/${this.TraineeID}`).pipe(share());
   }
 
+
+
+  RescheduleSession(BookingIDs,availability_id){
+    BookingIDs.Trainee_ID = this.TraineeID;
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+     return this.http.post(`${rootURL}/RescheduleSession/${availability_id}`,BookingIDs,httpOptions).pipe(share());
+  }
 
   /**
    * Booking a slot

@@ -33,6 +33,11 @@
 
   </div>
   <div class="Grid-cell">
+    <mat-card class="demo-inline-calendar-card" *ngIf="isDateChosen" >
+      <mat-card-title>
+      Date {{selectedDate | date}}
+      </mat-card-title>
+    </mat-card>
 
       <div class="example-full-width" appearance="fill">
 
@@ -41,7 +46,11 @@
           <mat-card-title>
             Choose Your Availability  Time
           </mat-card-title>
-
+          <br>
+          <mat-card-title>
+            Central Africa Time (CAT)
+          </mat-card-title>
+          
         <div *ngIf="isDateChosen && !isReschedule">
                   <div  *ngFor="let slots of TimeSlots | slice:0:show; let i = index" >
                     <mat-card  [ngClass]="slots.isChosen? 'blue' : 'white'" (click)="ChooseSession(slots.TimeSlot_ID,i)" >

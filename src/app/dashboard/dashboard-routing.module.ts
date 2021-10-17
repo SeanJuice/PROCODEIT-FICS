@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardRoleGuard } from '../auth/dashboard-role.guard';
 import { ProfileComponent } from './Client/Profile/Profile.component';
 import { ResetPasswordComponent } from '../auth/components/reset-password/reset-password.component';
+import { TrialQuestionnaireComponent } from './Client/TrialQuestionnaire/TrialQuestionnaire.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,8 @@ const routes: Routes = [
     children: [{ path: 'Dashboard', component: DashboardComponent }],
   },
   {path:'reset-password', component: ResetPasswordComponent},
+  {path: 'Trial_Questionnaire', component: TrialQuestionnaireComponent},
+  {path: 'Profile', component: ProfileComponent},
   {
     path: '',
     loadChildren: () =>

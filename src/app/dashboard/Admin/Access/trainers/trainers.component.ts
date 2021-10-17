@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./trainers.component.scss']
 })
 export class TrainersComponent implements OnInit {
-
+  public query: any = '';
   trainers:Array<any>
   constructor( private TrainersService:TrainerService) { }
 

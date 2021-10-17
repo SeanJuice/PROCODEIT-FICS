@@ -24,7 +24,7 @@
     display: inline;
     float: right;
   }
-      
+
   .hint:hover + .hide {
     display: inline;
     min-width: 250px;
@@ -46,4 +46,11 @@
     color: #fff;
     font-size: large;
     padding: 10px 24px;
+  }
+
+  .hr1 {
+    border: 0;
+    height: 4px;
+    background: #095484;
+    background-image: linear-gradient(to right, #ccc, #092c64, #ccc);
   }

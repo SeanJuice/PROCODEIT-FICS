@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from '../services/client.service';
 import { TaskDialogComponent } from './taskDialog/taskDialog.component';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-Mytasks',
   templateUrl: './Mytasks.component.html',
@@ -27,19 +28,35 @@ refresh(){
 }
 
   CompleteTask(Tid,taskType): void {
-    let dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '500px',
-      height: '300px',
-      data: {
-        id: Tid,
-        taskType:taskType
+    Swal.fire({
+      title: 'By Selecting Yes Below You Are Ready To Send Your Task.',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let dialogRef = this.dialog.open(TaskDialogComponent, {
+          width: '500px',
+          height: '300px',
+          data: {
+            id: Tid,
+            taskType:taskType
+          }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          this.refresh()
+        });
       }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.refresh()
-    });
-  }
+      else {
+
+      }
+    })
+    
+    }
+    
 
   getFeedbacks(){
     this.clientservice.getFeedbacks().subscribe((res) => {

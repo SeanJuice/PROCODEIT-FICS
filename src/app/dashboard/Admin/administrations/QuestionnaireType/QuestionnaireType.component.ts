@@ -29,8 +29,8 @@ export class QuestionnaireTypeComponent implements OnInit {
   AddType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Questionnaire',
-      question: 'Add your Questionnaire Type?: ',
+      title: 'Questionnaire Type',
+      question: 'Add Your Questionnaire Type: ',
         message: ''
       })
       .subscribe((message) => {
@@ -62,6 +62,13 @@ export class QuestionnaireTypeComponent implements OnInit {
           }
           ,error => {throw new Error('Client not added '); console.log(error)})
       });
+  }
+
+  delete(id) {
+    this.typeService.DeleteQuestionnaireType(id).subscribe(res=>{
+      console.log(res);
+      this.getQuestionnaireTypes();
+    })
   }
 
 }

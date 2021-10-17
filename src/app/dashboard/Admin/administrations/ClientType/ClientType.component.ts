@@ -22,8 +22,8 @@ export class ClientTypeComponent implements OnInit {
   AddClientType() {
 
     this.SimpleModalService.addModal(PromptComponent, {
-      title: 'Name dialog',
-      question: 'Add your Client type?: ',
+      title: 'Client Type',
+      question: 'Add Your Client Type: ',
         message: ''
       })
       .subscribe((message) => {
@@ -55,5 +55,12 @@ export class ClientTypeComponent implements OnInit {
           }
           ,error => {throw new Error('Client not added '); console.log(error)})
       });
+  }
+
+  delete(id) {
+    this.typeService.RemoveclientType(id).subscribe(res=>{
+      console.log(res);
+      this.getClientTypes();
+    })
   }
 }
