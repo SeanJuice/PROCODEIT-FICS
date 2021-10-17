@@ -5,7 +5,7 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
-const rootURL = '  https://apifics.azurewebsites.net/api/Trainer/';
+const rootURL = '  https://localhost:44332/api/Trainer/';
 @Injectable({
   providedIn: 'root'
 })

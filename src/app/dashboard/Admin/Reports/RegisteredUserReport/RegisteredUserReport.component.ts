@@ -46,7 +46,7 @@ getReportResults(date) {
       let numbers = [];
       res.Results.forEach(element => {
         Months.push(element.Month)
-        numbers.push(element.UsersInactiveSince)
+        numbers.push(element.UsersRegistered)
       });
       this.buildGraph(numbers,Months)
     })

@@ -9,7 +9,7 @@ import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
 
-const   rootURL = '  https://apifics.azurewebsites.net/api/Client/'
+const   rootURL = '  https://localhost:44332/api/Client/'
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class ClientService {
    */
   UpdateClient(formData){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
-    return this.http.post('  https://apifics.azurewebsites.net/api/Client/MaintainClientProfile/', formData,httpOptions).pipe(share());
+    return this.http.post('  https://localhost:44332/api/Client/MaintainClientProfile/', formData,httpOptions).pipe(share());
   }
 
   //get Client ID

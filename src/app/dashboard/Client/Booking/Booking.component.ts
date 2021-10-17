@@ -36,7 +36,7 @@ export class BookingComponent implements OnInit {
   package
 
 
-  constructor(private clientservice: ClientService, private router: Router) {}
+  constructor(private clientservice: ClientService, private router: Router) { this.getAvailableDates() }
 
   ngOnInit() {
     this.PractitionerExists()
@@ -98,6 +98,8 @@ export class BookingComponent implements OnInit {
             {
               this.AvailableSlots.push(dates);
             }
+
+            this.AvailableSlots =  this.AvailableSlots.filter((v,i,a)=>a.findIndex(t=>(t.Availability_ID === v.Availability_ID))===i)
         });
       });
   }

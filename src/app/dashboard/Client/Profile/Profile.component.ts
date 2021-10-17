@@ -10,6 +10,8 @@ import { PractitionerUserService } from '../../Practitioner/services/Practitione
 import { TrainerService } from '../../Admin/services/trainer.service';
 import { TraineesService } from '../../Admin/services/trainees.service';
 import { ExternalService } from 'src/app/shared/services/external.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ViewDocumentDialogComponent } from 'src/app/shared/components/ViewDocumentDialog/ViewDocumentDialog.component';
 
 @Component({
   selector: 'app-Profile',
@@ -24,6 +26,10 @@ export class ProfileComponent implements OnInit {
   isLoaded:boolean = false;
   roleId:number;
   showOthers:boolean = false;
+  profilePicture: any;
+  UserCVDetails : any;
+  UseBrowserLocale = false;
+
   MissingData = {
      Name: null,
      Surname: null,
@@ -45,13 +51,14 @@ export class ProfileComponent implements OnInit {
      private trainerService: TrainerService,
      private traineeService: TraineesService,
      private external: ExternalService,
+     private firestore: AngularFirestore,
 
      @Inject(SESSION_STORAGE)private storage: StorageService,
      private auth:AuthService,
-     public dialog: MatDialog) { }
+     public dialog: MatDialog) { this.profile(); }
 
   ngOnInit() {
-    // this.info.Name =''
+    // this.info.Name ='''
     this.formGroup = this.formBuilder.group({
       'Name': ['', Validators.required],
       'Client_ID': ['', Validators.required],
@@ -112,6 +119,28 @@ export class ProfileComponent implements OnInit {
 
 
   }
+  profile() {
+    this.firestore.collection('ProfilePictures', res => res.where('userId', '==', Number(this.auth.UserId))).snapshotChanges().subscribe(items => {
+
+      items.forEach(a => {
+        const itemm: any = a.payload.doc.data();
+        itemm.id = a.payload.doc.id;
+        this.profilePicture = itemm
+        console.log(itemm);
+
+      })
+      this.firestore.collection('CVDocuments', res => res.where('userId', '==', Number(this.auth.UserId))).snapshotChanges().subscribe(items => {
+        items.forEach(a => {
+          const item: any = a.payload.doc.data();
+          item.id = a.payload.doc.id;
+          this.UserCVDetails = item
+          console.log(item);
+
+        })
+      })
+    })
+  }
+
   createForm(info) {
     console.log(info)
 
@@ -176,6 +205,16 @@ export class ProfileComponent implements OnInit {
   getCountries() {
     this.external.getCountries().subscribe((countries:any )=> {
       this.countries = countries.data;
+    })
+  }
+
+  openDetail(pdf): void {
+    const dialogRef = this.dialog.open(ViewDocumentDialogComponent, {
+      width: '1000px',
+      height: '1000px',
+      data: {
+        pdfUrl: pdf
+      }
     })
   }
 

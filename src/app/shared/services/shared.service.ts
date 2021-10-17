@@ -5,8 +5,8 @@ import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
-const   rootURL = '  https://apifics.azurewebsites.net/api/Report/'
-const   AdrootURL = '  https://apifics.azurewebsites.net/api/Admin/'
+const   rootURL = '  https://localhost:44332/api/Report/'
+const   AdrootURL = '  https://localhost:44332/api/Admin/'
 
 @Injectable({
   providedIn: 'root',

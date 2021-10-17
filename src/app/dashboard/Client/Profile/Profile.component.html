@@ -15,13 +15,13 @@
   </div>
   <br>
 
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" >
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
     <div class="detail-update">
 
       <div class="left">
 
         <div class="profile-pic">
-          <img src="https://app.nimia.com/static/img/default_profile.png">
+          <img [src]=profilePicture?.Url>
         </div>
 
 
@@ -30,7 +30,7 @@
           <h2> Change your email</h2>
           <small>Name</small>
           <BR>
-            <!-- {{info.Name}}<br><br> -->
+          <!-- {{info.Name}}<br><br> -->
           <label> Your new email address</label>
 
           <!-- <input class="cat_button" type="submit" value="Save Email" id="catupdatedetailsformbutton" /> -->
@@ -50,7 +50,7 @@
 
 
 
-          <input class="cat_button" type="submit" value="Save Marketing Preferences" id="catupdatedetailsformbutton" />
+          <input class="cat_button" (click)="openDetail(UserCVDetails?.Url)" type="button" value="View CV" id="catupdatedetailsformbutton" />
         </div>
 
       </div>
@@ -68,8 +68,8 @@
             </tr>
             <tr>
               <td class="heading">First Name:</td>
-              <td class="info"><input type="text" name="FirstName" id="FirstName"
-                  formControlName="Name" class="cat_textbox" maxlength="255" /></td>
+              <td class="info"><input type="text" name="FirstName" id="FirstName" formControlName="Name"
+                  class="cat_textbox" maxlength="255" /></td>
             </tr>
             <tr>
               <td class="heading">Last Name:</td>
@@ -89,8 +89,8 @@
             </tr>
             <tr>
               <td class="heading">ID Number:</td>
-              <td class="info"><input type="text" id="DOB" name="DOB" formControlName="ID_Number" class="cat_textbox"
-                /></td>
+              <td class="info"><input type="text" id="DOB" name="DOB" formControlName="ID_Number" class="cat_textbox" />
+              </td>
             </tr>
           </table>
         </div>
@@ -117,7 +117,7 @@
                   class="cat_textbox" maxlength="500" /></td>
             </tr>
 
-            <tr *ngIf="showOthers" >
+            <tr *ngIf="showOthers">
               <td class="heading">country:</td>
               <td class="info">
                 <select class="select-css cat_textbox" formControlName="Country">
@@ -134,6 +134,7 @@
     </div>
 
   </form>
+
 
 
 </ng-container>

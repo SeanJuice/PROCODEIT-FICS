@@ -24,6 +24,8 @@ import { ResetPasswordComponent } from '../auth/components/reset-password/reset-
 import { TimePipe } from './utils/time.pipe';
 import {MatChipsModule} from '@angular/material/chips'
 import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ViewDocumentDialogComponent } from './components/ViewDocumentDialog/ViewDocumentDialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.compon
     ConfirmComponent,
     PromptComponent,
     ParentDialogModalComponent,
-    TimePipe
+    TimePipe,
+    ViewDocumentDialogComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,8 @@ import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.compon
     FormsModule,
     MaterialModule,
     SimpleModalModule.forRoot({container: "modal-container"}),
-    MatChipsModule
+    MatChipsModule,
+    PdfViewerModule
   ],
   exports: [
     HeaderComponent,
@@ -67,7 +71,9 @@ import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.compon
     ClientAuditReportComponent,
     SweetAlert2Module,
     TimePipe,
-    MatChipsModule
+    MatChipsModule,
+    PdfViewerModule,
+
   ],
   entryComponents: [
     TimesetterComponent,
@@ -75,6 +81,7 @@ import { ExitWavierComponent } from './components/exit-wavier/exit-wavier.compon
     ConfirmComponent,
     PromptComponent,
     ParentDialogModalComponent,
+    ViewDocumentDialogComponent
   ],
   // providers: [{
   //   provide: ErrorHandler,

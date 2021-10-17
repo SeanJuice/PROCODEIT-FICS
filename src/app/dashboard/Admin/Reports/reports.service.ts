@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
-const rootURL = '  https://apifics.azurewebsites.net/api/Report/';
+const rootURL = '  https://localhost:44332/api/Report/';
 @Injectable({
   providedIn: 'root'
 })
