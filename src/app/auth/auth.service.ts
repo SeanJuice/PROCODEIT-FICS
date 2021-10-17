@@ -17,7 +17,10 @@ import { FileUploadService } from '../shared/services/fileUpload.service';
 const KEY = 'FICSINF';
 
 const rootURL = 'https://localhost:44332/api/Access';
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 @Injectable({
   providedIn: 'root',
 })
