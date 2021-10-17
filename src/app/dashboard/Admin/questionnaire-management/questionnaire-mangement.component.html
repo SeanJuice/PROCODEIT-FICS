@@ -13,7 +13,12 @@
         <h1 class="h1 title"  align="center">
           Questionnaire Bank
         </h1>
+        <div class="form-group">
+          <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+        </div>
       </div>
+
+      
 
       <div class="col-2 bg">
           <div class="hint">
@@ -42,7 +47,7 @@
           <td></td>
         </tr>
       <tbody>
-        <tr *ngFor="let question of QuestionsBank">
+        <tr *ngFor="let question of QuestionsBank | Gfilter: query">
           <td>{{question.QuestionTitle_ID}}</td>
           <td>{{question.Description}}</td>
           <td>
