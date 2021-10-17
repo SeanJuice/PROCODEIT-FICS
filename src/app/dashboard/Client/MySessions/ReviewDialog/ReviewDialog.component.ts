@@ -69,6 +69,7 @@ export class ReviewDialogComponent implements OnInit {
             {
               this.AvailableSlots.push(dates);
             }
+            this.AvailableSlots =  this.AvailableSlots.filter((v,i,a)=>a.findIndex(t=>(t.Availability_ID === v.Availability_ID))===i)
         });
       });
   }

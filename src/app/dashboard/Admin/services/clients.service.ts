@@ -5,8 +5,11 @@ import { Observable } from 'rxjs';
 import { Client } from 'src/app/models/Client';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
+
+
+const rootURL = environment. baseUrl+'/Admin/';
 
 @Injectable({
   providedIn: 'root',

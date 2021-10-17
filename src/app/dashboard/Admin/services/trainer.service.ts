@@ -9,10 +9,11 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
-const rootURL = 'https://localhost:44332/api/Admin/';
-const TrainerrootURL = 'https://localhost:44332/api/Trainer/';
 
+const rootURL = environment. baseUrl+'/Admin/';
+const TrainerrootURL = environment. baseUrl+ '/Trainer/';
 
 @Injectable({
   providedIn: 'root',

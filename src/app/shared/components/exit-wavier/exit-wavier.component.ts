@@ -24,6 +24,7 @@ export class ExitWavierComponent implements OnInit {
   }
 
   upload(): void {
+
     Swal.fire({
       title: 'Are You Sure You Want To Upload Your Exit Waiver?',
       icon: 'info',
@@ -47,6 +48,7 @@ export class ExitWavierComponent implements OnInit {
                 console.log(error);
               }
             );
+
           }
         }
     

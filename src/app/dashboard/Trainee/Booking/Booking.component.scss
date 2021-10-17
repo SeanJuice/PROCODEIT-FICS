@@ -1,3 +1,26 @@
+
+
+  @import 'src/app/shared/layouts/dropdown.scss';
+  .mat-card {
+      background: rgba(255, 255, 255, 0.568);
+      color:rgb(0, 170, 255);
+      border-radius: 25px;
+  }
+
+  .example-full-width {
+      width: 80%;
+      color: black;
+      border-radius: 25px;
+    }
+    .example-card {
+      max-width: 400px;
+    }
+
+    .example-header-image {
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+    }
+
 @import "src/app/shared/utils/table.scss";
 
 .hide {
@@ -35,9 +58,12 @@
     padding: 10px 24px;
   }
 
+
   .hr1 {
     border: 0;
     height: 4px;
     background: #095484;
     background-image: linear-gradient(to right, #ccc, #092c64, #ccc);
   }
+
+

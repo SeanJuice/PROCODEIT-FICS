@@ -50,9 +50,10 @@
             <div class="hide">Select A Date To View The Available Sessions</div>
           </mat-card-title>
           <br>
-          <mat-calendar [dateClass]="dateClass()" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
+          <mat-calendar [dateClass]="dateClass()"   [minDate]="minDate" (selectedChange)="getDateAvailability($event)" style="background-color: rgb(1, 134, 230);"></mat-calendar>
         </mat-card>
       </div>
+
   </div>
   <div class="Grid-cell">
 
@@ -76,21 +77,24 @@
             Available Slots
           </mat-card-title>
           <div *ngFor="let slot of AvailableSlots">
-            <mat-card  style="cursor: pointer !important;" (click)="ChooseSlot(slot.Availability_ID,slot)" >Date: {{slot.Date | date}}  |  Time: {{slot.Time}}| Practitioner: {{slot.Practitioner}}  </mat-card>
+            <mat-card  style="cursor: pointer !important;" (click)="ChooseSlot(slot.Availability_ID,slot)" >
 
+              <strong>  Practitioner: {{slot.Practitioner}}</strong> |
+                Date: {{slot.Date | date}}  |
+                <mat-chip color="warn"  class="mat-chip-list-stacked">  Time: {{ TimeChange(slot.Time)[0] | slice:0:5 }} - {{ TimeChange(slot.Time)[1] | slice:0:6 }}</mat-chip>
+            </mat-card>
           </div>
-
-
-
-
         </mat-card>
       </div>
     </div>
   </div>
   <br>
+
   <mat-card class="example-full-width" style="background-color: rgb(0, 166, 255); width: 100%; color:yellow" *ngIf="CurrentlyChosen">
     CHOSEN SLOT
-    Date: {{CurrentlyChosen.Date | date}}  |  Time: {{CurrentlyChosen.Time}}| Practitioner: {{CurrentlyChosen.Practitioner}}
+    Date: {{CurrentlyChosen.Date | date}}  |
+      <mat-chip color="warn"  class="mat-chip-list-stacked">  Time: {{ TimeChange(CurrentlyChosen.Time)[0] | slice:0:5 }} - {{ TimeChange(CurrentlyChosen.Time)[1] | slice:0:6 }}</mat-chip> |
+      Practitioner: {{CurrentlyChosen.Practitioner}}
   </mat-card>
   <br>
   <mat-card class="example-full-width" style="background-color: white; width: 100%;">

@@ -10,13 +10,17 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { share } from 'rxjs/operators';
 import swal from 'sweetalert2';
-import { FileUpload } from '../models/fileupload';
 import { FileUploadService } from '../shared/services/fileUpload.service';
-
+import { FileUpload } from '../models/fileupload';
 
 const KEY = 'FICSINF';
+import { environment } from 'src/environments/environment';
 
-const rootURL = 'https://localhost:44332/api/Access';
+
+const rootURL = environment.baseUrl+'/Access';
+
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -49,6 +53,10 @@ export class AuthService {
   get loginId() {
     return Number(sessionStorage.getItem('liid'));
   }
+
+  get UserId() {
+    return Number(sessionStorage.getItem('User_ID'));
+  }
   /*
   Login
   */
@@ -67,6 +75,7 @@ export class AuthService {
           sessionStorage.setItem('User_ID', this.encrypt(res.User_ID));
           sessionStorage.setItem('liid', this.encrypt(res.LoginID));
           sessionStorage.setItem('Practitioner_ID', this.encrypt(res.Practitioner_ID));
+          sessionStorage.setItem('Trainer_ID', this.encrypt(res.Trainer_ID));
 
 
           this.router.navigate(['./dashboard']);
@@ -82,7 +91,7 @@ export class AuthService {
     return this.http.post(rootURL + '/Login', user, httpOptions);
   }
 
-  Register(user: any, userID: Number, file: any) {
+  Register(user: any, UserRole: Number, ProfilePictureFile: FileUpload,CV: FileUpload) {
     user.Username = user.Email_Address;
     delete user.Confirm_Password;
     user.Profile_Picture =
@@ -90,11 +99,13 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
+
     this.http
-      .post(rootURL + `/Register/${userID}`, user, httpOptions)
+      .post(rootURL + `/Register/${UserRole}`, user, httpOptions)
       .subscribe((res: any) => {
         if (!res.Error) {
-          this.file.pushFileToStoragePP(file,res.User_ID, "ProfilePictures");
+          this.file.pushFileToStoragePP(ProfilePictureFile,Number(res.User_ID), "ProfilePictures");
+          this.file.pushFileToStorage(CV,"CVDocuments","CV",Number(res.User_ID),true);
           swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -116,9 +127,7 @@ export class AuthService {
     return 'True';
   }
 
-  uploadPP(id: string) {
 
-  }
 
   ForgotPassword(Email) {
     const httpOptions = {

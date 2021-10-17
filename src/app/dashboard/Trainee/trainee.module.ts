@@ -13,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TaskDialogComponent } from './mytasks/taskDialog/taskDialog.component';
 import { MytasksComponent } from './mytasks/mytasks.component';
 import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -28,6 +29,7 @@ import { ReviewDialogComponent } from './MySessions/ReviewDialog/ReviewDialog.co
     ReactiveFormsModule,
     RouterModule,
     FormsModule,
+    FullCalendarModule //
   ],
   entryComponents: [TaskDialogComponent,ReviewDialogComponent]
 })

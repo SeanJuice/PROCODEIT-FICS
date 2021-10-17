@@ -2,7 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
-const rootURL = 'https://localhost:44332/api/Admin/';
+
+import { environment } from 'src/environments/environment';
+
+const rootURL = environment.baseUrl+'/Admin/';
+
+
 
 @Injectable({
   providedIn: 'root'
