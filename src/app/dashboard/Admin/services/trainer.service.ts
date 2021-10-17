@@ -17,6 +17,7 @@ const TrainerrootURL = environment. baseUrl+ '/Trainer/';
 
 
 
+
 @Injectable({
   providedIn: 'root',
 })

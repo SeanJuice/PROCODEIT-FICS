@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { DataService } from '../../Admin/services/DataService.service';
 import { PractitionerUserService } from '../services/PractitionerUser.service';
 import { RescheduleDialogComponent } from './rescheduleDialog/rescheduleDialog.component';
-
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-my-slots',
   templateUrl: './my-slots.component.html',
@@ -17,7 +18,8 @@ export class MySlotsComponent implements OnInit {
     private practitionerService:PractitionerUserService,
     public dialog: MatDialog,
     private data: DataService,
-    private router: Router) { }
+    private router: Router,
+    private location: Location) { }
 
   ngOnInit() {
     this.getMySlots();
@@ -33,8 +35,26 @@ export class MySlotsComponent implements OnInit {
 
 
   Transfer(Timeslot){
+    Swal.fire({
+      title: 'Are You Sure You Want To Reschedule?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.data.changeMessage(Timeslot);
+        this.router.navigate(['/dashboard/set-availability'])
+      }
+      else {
 
-    this.data.changeMessage(Timeslot);
-    this.router.navigate(['/dashboard/set-availability'])
+      }
+    })
+    
+    }
+
+    goBack(): void {
+      this.location.back();
     }
 }

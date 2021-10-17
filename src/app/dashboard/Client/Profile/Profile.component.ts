@@ -12,6 +12,7 @@ import { TraineesService } from '../../Admin/services/trainees.service';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ViewDocumentDialogComponent } from 'src/app/shared/components/ViewDocumentDialog/ViewDocumentDialog.component';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-Profile',
@@ -52,6 +53,7 @@ export class ProfileComponent implements OnInit {
      private traineeService: TraineesService,
      private external: ExternalService,
      private firestore: AngularFirestore,
+     private location: Location,
 
      @Inject(SESSION_STORAGE)private storage: StorageService,
      private auth:AuthService,
@@ -70,6 +72,7 @@ export class ProfileComponent implements OnInit {
       'Contact_Number': ['', [Validators.required]],
       'Gender': ['', [Validators.required]],
       'Country': ['', [Validators.required]],
+      //'ClientType_ID': ['', [Validators.required]],
       'Client_Status': [0],
     });
     this.roleId = this.auth.Role;
@@ -157,6 +160,7 @@ export class ProfileComponent implements OnInit {
       'Contact_Number': [Number(info.Contact_Number), [Validators.required]],
       'Gender': [info.Gender, [Validators.required]],
       'Country': [info.Country, [Validators.required]],
+      'ClientType_ID': [info.ClientType_ID, [Validators.required]],
       'Client_Status': [0],
     });
 
@@ -206,6 +210,9 @@ export class ProfileComponent implements OnInit {
     this.external.getCountries().subscribe((countries:any )=> {
       this.countries = countries.data;
     })
+  }
+  goBack(): void {
+    this.location.back();
   }
 
   openDetail(pdf): void {

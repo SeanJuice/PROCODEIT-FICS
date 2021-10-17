@@ -10,7 +10,9 @@ import { share } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
 
 
+
 const rootURL = environment. baseUrl+ '/Admin/';
+
 import swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
 
@@ -164,7 +166,7 @@ export class TypeService {
     swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: `successfully updated ${type} type!`,
+              title: `Successfully Updated ${type} Type!`,
               showConfirmButton: false,
               timer: 2000,
             })

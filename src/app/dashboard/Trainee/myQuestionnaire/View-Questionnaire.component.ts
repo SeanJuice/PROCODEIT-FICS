@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TrainerService } from '../../Trainer/services/trainer.service';
 import { TraineeService } from '../services/trainee.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-View-Questionnaire',
   templateUrl: './View-Questionnaire.component.html',
@@ -11,7 +11,7 @@ import { TraineeService } from '../services/trainee.service';
 export class ViewQuestionnaireComponent implements OnInit {
 
 
-  constructor(private traineeservice: TraineeService,private auth:AuthService) { }
+  constructor(private traineeservice: TraineeService,private auth:AuthService,private location: Location) { }
  myQuestionnaires=[];
  questionContainer = [];
  arrayLengthCheck:any;
@@ -104,5 +104,10 @@ export class ViewQuestionnaireComponent implements OnInit {
        console.log(response)
      })
   }
+  goBack(): void {
+    this.location.back();
+  }
 }
+
+
 

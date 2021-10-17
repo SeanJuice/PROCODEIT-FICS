@@ -21,13 +21,13 @@ export class PractitionerRequestsComponent implements OnInit {
     let resultPopupString
     if(decision ==1)
     {
-      tempString = 'Are you sure you want to Accept this practitioner?';
-      resultPopupString =  "successfully accepted!"
+      tempString = 'Are You Sure You Want To Accept This Practitioner?';
+      resultPopupString =  "Successfully Accepted!"
     }
     else
     {
-      tempString = 'Are you sure you want to Accept this practitioner?';
-      resultPopupString =  "successfully Rejected!"
+      tempString = 'Are You Sure You Want To Reject This Practitioner?';
+      resultPopupString =  "Successfully Rejected!"
 
     }
 
@@ -36,7 +36,7 @@ export class PractitionerRequestsComponent implements OnInit {
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      denyButtonText: `Don't Save`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {

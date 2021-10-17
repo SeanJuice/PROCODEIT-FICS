@@ -1,4 +1,4 @@
-
+@import "src/app/shared/utils/table.scss";
 
 $font-size: 16px;
 $font-family: 'Titillium Web', serif;
@@ -52,6 +52,41 @@ hr {
   margin-bottom: 1em;
   border: 0;
   border-top: 1px solid #eee;
+}
+
+.hide {
+  display: none;
+}
+.hint {
+  display: inline;
+}
+
+.help {
+  display: inline;
+  float: right;
+}
+    
+.hint:hover + .hide {
+  display: inline;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #297bff;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 20%;
+  font-size: 17px;
+}
+
+.bui {
+  background-color: #297bff;
+  color: #fff;
+  font-size: large;
+  padding: 10px 24px;
 }
 
 .align-left {float: left;}

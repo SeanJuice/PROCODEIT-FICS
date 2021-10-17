@@ -5,7 +5,7 @@ import { ReviewDialogComponent } from './ReviewDialog/ReviewDialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import swal from 'sweetalert2';
 import { CalendarOptions } from '@fullcalendar/angular';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-MySessions',
   templateUrl: './MySessions.component.html',
@@ -20,7 +20,7 @@ export class MySessionsComponent implements OnInit {
    calendarOptions: CalendarOptions
   displayEvent: any;
 
-  constructor(private Clientservice:ClientService,public dialog: MatDialog) { }
+  constructor(private Clientservice:ClientService,public dialog: MatDialog, private location: Location) { }
   ngOnInit() {
     this.getDates();
   }
@@ -124,5 +124,7 @@ export class MySessionsComponent implements OnInit {
   dayClick(event) {
     console.log('dayClick', event);
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

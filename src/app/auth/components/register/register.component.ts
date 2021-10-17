@@ -6,6 +6,8 @@ import { FileUpload } from 'src/app/models/fileupload';
 import { ExternalService } from 'src/app/shared/services/external.service';
 import { AuthService } from '../../auth.service';
 import { MustMatch } from './must-match.validator';
+import Swal from 'sweetalert2';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-register',
@@ -33,7 +35,8 @@ export class RegisterComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private Authservice: AuthService,
-    private external: ExternalService
+    private external: ExternalService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -52,12 +55,27 @@ export class RegisterComponent implements OnInit {
   onSubmit(client: Client, role: number) {
 
     this.uploads();
-    let Role = Number(role) + Number(1);
-    client.Contact_Number;
-    this.submitted = false;
-    console.log(client);
+
+    Swal.fire({
+      title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Apply Now'
+    }).then((result) => {
+      if (result.isConfirmed) {
+           this.uploads();
+            let Role = Number(role) + Number(1);
+            client.Contact_Number;
+            this.submitted = false;
+            console.log(client);
+
 
    this.Authservice.Register(client, Role, this.currentPPUpload, this.currentCVUpload);
+      });
+
+
 
   }
   createOtherForm() {
@@ -101,6 +119,7 @@ export class RegisterComponent implements OnInit {
         Contact_Number: [null, [Validators.required, Validators.maxLength(10)]],
         Gender: [null, [Validators.required]],
         Country: [null, [Validators.required]],
+        //Client_Type: [null, [Validators.required]],
         Client_Status: [null],
         Password: [null, [Validators.required, this.checkPassword]],
         Confirm_Password: ['', Validators.required],
@@ -142,7 +161,7 @@ export class RegisterComponent implements OnInit {
     return this.formGroup.get('Email_Address').hasError('required')
       ? 'Field is required'
       : this.formGroup.get('Email_Address').hasError('pattern')
-      ? 'Not a valid emailaddress'
+      ? 'Not a valid email address'
       : '';
   }
   /// ProfilePicture
@@ -160,6 +179,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+
     selectFile2(event) {
       this.selectedTFiles = event.target.files;
       }
@@ -173,6 +193,5 @@ export class RegisterComponent implements OnInit {
           this.currentCVUpload = new FileUpload(file);
           return
         }
-
 
 }

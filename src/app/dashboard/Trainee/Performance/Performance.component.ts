@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ReportsService } from '../../Admin/Reports/reports.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-Performance',
@@ -11,7 +12,8 @@ export class PerformanceComponent implements OnInit {
   Trainee:any;
   isRequested:boolean;
   isLoading: boolean;
-  constructor(private reportService: ReportsService,private authService: AuthService) { }
+  constructor(private reportService: ReportsService,private authService: AuthService, private location: Location){ }
+
 
   ngOnInit() {
 
@@ -28,4 +30,8 @@ export class PerformanceComponent implements OnInit {
     })
   }
 
+  
+goBack(): void {
+  this.location.back();
+}
 }

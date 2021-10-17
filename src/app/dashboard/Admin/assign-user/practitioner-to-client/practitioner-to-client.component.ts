@@ -4,6 +4,7 @@ import { ClientService } from 'src/app/dashboard/Client/services/client.service'
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { ClientsService } from '../../services/clients.service';
 import { PractitionerService } from '../../services/practitioner.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-practitioner-to-client',
@@ -107,10 +108,22 @@ export class PractitionerToClientComponent implements OnInit {
   }
 
   AssignPractitioner() {
-
-    this.practitionerservice.AssignPractitionerToClient(this.SelectedPractitioner.Practitioner_ID, this.SelectedClient.Client_ID).subscribe(res=>{
-      console.log(res);
-      this.snackbar.openSnackBar("Successfully Assigned Practitioner")
-    })
-  }
+    Swal.fire({
+      title: 'Are You Sure You Want To Assign This Practitioner To The Client?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.practitionerservice.AssignPractitionerToClient(this.SelectedPractitioner.Practitioner_ID, this.SelectedClient.Client_ID).subscribe(res=>{
+          console.log(res);
+      })
+      
+    }
+  })
 }
+}
+
+

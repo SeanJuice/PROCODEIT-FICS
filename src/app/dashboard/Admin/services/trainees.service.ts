@@ -16,7 +16,6 @@ const rootURL = environment. baseUrl+ '/Admin/';
 const TraineerootURL = environment. baseUrl+'/Trainee/';
 
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -74,7 +73,8 @@ export class TraineesService {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
-    return this.http.post(`  environment. baseUrl'/Trainee/MantainTrainee/${this.auth.loginId}`,user, httpOptions);
+    return this.http.post(`environment.baseUrl/Trainee/MantainTrainee/${this.auth.loginId}`,user, httpOptions);
+
   }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
-
+import { Location } from '@angular/common'
 import {
   NativeDateAdapter,
   DateAdapter,
@@ -36,7 +36,8 @@ export class BookingComponent implements OnInit {
   package
 
 
-  constructor(private clientservice: ClientService, private router: Router) { this.getAvailableDates() }
+
+  constructor(private clientservice: ClientService, private router: Router, private location: Location) {this.getAvailableDates()}
 
   ngOnInit() {
     this.PractitionerExists()
@@ -48,7 +49,7 @@ export class BookingComponent implements OnInit {
      */
 
     Swal.fire({
-      title: 'Are you sure you want to make this booking?',
+      title: 'Are You Sure You Want To Make This Booking?',
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Yes',
@@ -66,7 +67,7 @@ export class BookingComponent implements OnInit {
         this.clientservice
           .BookSlot(book, this.AvailabilityID)
           .subscribe((res) => {
-            Swal.fire('successfully booked!', '', 'success');
+            Swal.fire('Successfully Booked!', '', 'success');
           });
       } else if (result.isDenied) {
 
@@ -143,12 +144,12 @@ export class BookingComponent implements OnInit {
     {
       Swal.fire({
         icon: 'error',
-        title: 'Booking cannot be made.',
-        text: 'Theres no practitioners assigned to you, a practitionerer will assigned to you soon!,Thank You',
+        title: 'Booking Cannot Be Made.',
+        text: 'There Are No Practitioners Assigned To You. A Practitionerer Will Be Assigned To You Soon!,Thank You',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok!',
-        footer: '<a href="">Why do I have this issue?</a>'
+        footer: '<a href="">Why Do I Have This Issue?</a>'
       }).then((result) => {
         if (result.isConfirmed) {
           this.router.navigate(['/dashboard'])
@@ -173,8 +174,8 @@ export class BookingComponent implements OnInit {
   timerNoPackageModal() {
     let timerInterval;
     Swal.fire({
-      title: 'You do not have  a package!',
-      html: 'The page will redierct you to the purchase page in <b></b> minutes.',
+      title: 'You Have Not Purchased A Package Yet!',
+      html: 'This Page Will Redierct You To The Purchase Package Page In <b></b> .',
       timer: 10000,
       timerProgressBar: true,
       didOpen: () => {
@@ -219,4 +220,8 @@ export class BookingComponent implements OnInit {
     let timeArray = [times[0], times[1]];
     return timeArray;
   }
+  goBack(): void {
+    this.location.back();
+  }
+
 }

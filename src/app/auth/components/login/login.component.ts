@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { IdleService } from 'src/app/shared/services/idle.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { IdleService } from 'src/app/shared/services/idle.service';
 export class LoginComponent implements OnInit {
   LoginForm: any
   Spinner:boolean =  false;
-  constructor(private AuthServe:AuthService,public router:Router,     private idle: IdleService,) {
+  constructor(private AuthServe:AuthService,public router:Router,     private idle: IdleService, private location: Location) {
 
    }
 
@@ -42,5 +43,7 @@ export class LoginComponent implements OnInit {
 
     }
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

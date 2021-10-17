@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 const rootURL = environment.baseUrl+'/Report/'
 const   AdrootURL =  environment.baseUrl+'/Admin/'
 
+
 @Injectable({
   providedIn: 'root',
 })

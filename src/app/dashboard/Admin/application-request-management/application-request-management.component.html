@@ -4,8 +4,12 @@
 	<div class="col">
 		<div class="card" style="background-color: rgb(255, 255, 255)">
 			<i class="fas fa-home"></i>
-			<h2 class="card__title">Assign Users</h2>
-
+			<h2 class="h1 title">
+				<div class="btn-group"  (click)=" goBack()">
+					 <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+				</div>
+				<span> Application Requests </span>
+			  </h2>
 		</div>
 	</div>
 
@@ -14,7 +18,7 @@
 
 <div class="tab_container" style="padding-bottom: 20%;">
 	<input id="tab1" type="radio" name="tabs" checked routerLinkActive="active"   routerLink="./practitioner-requests" (click)="Change(1)">
-	<label for="tab1"><i class="fa fa-code"></i><span>Practitioner Requests</span></label>
+	<label for="tab1"><i class="fa fa-pencil-square-o"></i><span>Practitioner Requests</span></label>
 
 	<input id="tab2" type="radio" name="tabs" routerLinkActive="active" routerLink="./trainee-requests" (click)="Change(2)">
 	<label for="tab2"><i class="fa fa-pencil-square-o"></i><span> Trainee Requests</span></label>

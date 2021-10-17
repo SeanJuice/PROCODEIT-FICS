@@ -2,9 +2,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+
 import { environment } from 'src/environments/environment';
 
 const rootURL = environment.baseUrl+'/Admin/';
+
 
 @Injectable({
   providedIn: 'root'

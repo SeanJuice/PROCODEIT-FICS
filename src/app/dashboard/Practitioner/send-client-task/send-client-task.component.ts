@@ -3,7 +3,7 @@ import { Client } from 'src/app/models/Client';
 import { ClientsService } from '../../Admin/services/clients.service';
 import { DataService } from '../../Admin/services/DataService.service';
 import { PractitionerUserService } from '../services/PractitionerUser.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-send-client-task',
   templateUrl: './send-client-task.component.html',
@@ -11,7 +11,7 @@ import { PractitionerUserService } from '../services/PractitionerUser.service';
 })
 export class SendClientTaskComponent implements OnInit {
 
-  constructor(private data: DataService,private PractitionerUserservice:PractitionerUserService) { }
+  constructor(private data: DataService, private location: Location,private PractitionerUserservice:PractitionerUserService) { }
   clients:Array<Client>;
 
   ngOnInit() {
@@ -25,6 +25,11 @@ export class SendClientTaskComponent implements OnInit {
   let NameSurname =  Name +" "+ Surname
   this.data.changeMessage( NameSurname)
   }
+
+  
+goBack(): void {
+  this.location.back();
+}
 
 }
 
