@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class QuestionnaireManagementComponent implements OnInit {
 
   QuestionsBank:Array<any> = []
+  public query: any = '';
   constructor(private questionnaireService: QuestionnaireService, private SimpleModalService: SimpleModalService, private location: Location) { }
 
   ngOnInit() {

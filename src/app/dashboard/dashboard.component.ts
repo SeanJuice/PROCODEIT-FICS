@@ -320,16 +320,6 @@ const dashboards_settings_trainee = [
   },
   {
     NumberOfObject: 1,
-    Header_Name: 'Upload Case Study',
-    Button_Name: 'Upload',
-    ImageLink:
-      'https://www.kindpng.com/picc/m/261-2619141_cage-clipart-victorian-cloud-upload-icon-svg-hd.png',
-    RouterLink: 'upload-case-study',
-    icon: 'library_add',
-    color: 'rgb(15, 147, 255);',
-  },
-  {
-    NumberOfObject: 1,
     Header_Name: 'Performance Report',
     Button_Name: 'Performance',
     ImageLink:

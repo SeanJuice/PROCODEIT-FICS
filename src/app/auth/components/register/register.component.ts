@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
 
     this.uploads();
 
+
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
@@ -180,6 +181,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
+
     selectFile2(event) {
       this.selectedTFiles = event.target.files;
       }
@@ -195,3 +197,4 @@ export class RegisterComponent implements OnInit {
         }
 
 }
+

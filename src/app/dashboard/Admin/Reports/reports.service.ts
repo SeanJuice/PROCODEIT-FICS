@@ -3,9 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
-
 import { environment } from 'src/environments/environment';
-
 const rootURL = environment.baseUrl+'/Report/';
 
 @Injectable({

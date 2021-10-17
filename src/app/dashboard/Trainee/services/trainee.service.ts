@@ -9,6 +9,7 @@ import { Session } from 'src/app/models/Session';
 const rootURL = environment.baseUrl+'/Trainee/'
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,9 @@ export class TraineeService {
    */
   UpdateTrainee(formData){
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+
     return this.http.post(environment.baseUrl+'/Trainee/MaintainTrainee/', formData,httpOptions).pipe(share());
+
 
   }
 

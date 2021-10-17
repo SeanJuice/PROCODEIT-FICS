@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TypeService } from '../../services/type.service';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { PromptComponent } from 'src/app/shared/utils/modals/prompt/prompt.component';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-ClientType',
   templateUrl: './ClientType.component.html',
@@ -41,7 +42,7 @@ export class ClientTypeComponent implements OnInit {
   Maintain(clientType,Id) {
     this.SimpleModalService.addModal(PromptComponent, {
       title: 'Client Type',
-      question: 'Update Client type: ',
+      question: 'Update Client Type: ',
       message: clientType.toString()
     })
       .subscribe((message) => {
@@ -53,14 +54,27 @@ export class ClientTypeComponent implements OnInit {
             this.typeService.success('client')
 
           }
-          ,error => {throw new Error('Client not added '); console.log(error)})
+          ,error => {throw new Error('Client Not Added '); console.log(error)})
       });
   }
 
   delete(id) {
-    this.typeService.RemoveclientType(id).subscribe(res=>{
-      console.log(res);
-      this.getClientTypes();
-    })
-  }
+    Swal.fire({
+      title: 'Are You Sure You Want To Delete Client Type?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.typeService.RemoveclientType(id).subscribe(res=>{
+          console.log(res);
+          this.getClientTypes();
+      })
+      }
+    }
+    )}
 }
+    
+
