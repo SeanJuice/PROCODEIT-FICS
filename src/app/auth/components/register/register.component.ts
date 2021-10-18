@@ -54,10 +54,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
 
-    const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
-    this.selectedPPFiles = undefined;
-
+    this.uploads();
 
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
@@ -68,25 +65,18 @@ export class RegisterComponent implements OnInit {
       confirmButtonText: 'Apply Now'
     }).then((result) => {
       if (result.isConfirmed) {
-        const file = this.selectedPPFiles.item(0);
-    this.currentPPUpload = new FileUpload(file);
-    this.selectedPPFiles = undefined;
+           this.uploads();
+            let Role = Number(role) + Number(1);
+            client.Contact_Number;
+            this.submitted = false;
+            console.log(client);
 
-    // const file = this.selectedPPFiles.item(0);
-    // this.currentPPUpload = new FileUpload(file);
-    // this.selectedPPFiles = undefined;
-
-
-    this.uploads();
-    let Role = Number(role) + Number(1);
-    client.Contact_Number;
-    this.submitted = false;
-    console.log(client);
 
    this.Authservice.Register(client, Role, this.currentPPUpload, this.currentCVUpload);
+      });
 
-      }
-    })
+
+
   }
   createOtherForm() {
     let emailregex: RegExp =
@@ -189,6 +179,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+
     selectFile2(event) {
       this.selectedTFiles = event.target.files;
       }
@@ -202,6 +193,5 @@ export class RegisterComponent implements OnInit {
           this.currentCVUpload = new FileUpload(file);
           return
         }
-
 
 }
