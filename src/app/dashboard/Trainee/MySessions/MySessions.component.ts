@@ -129,15 +129,7 @@ export class MySessionsComponent implements OnInit {
 
 
 
-    openReviewDialog(id): void {
-      let dialogRef = this.dialog.open(ReviewDialogComponent, {
-        width: '500px',
-        data: { name: id}
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-      });
-    }
+    
     goBack(): void {
       this.location.back();
     }
