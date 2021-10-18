@@ -54,9 +54,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(client: Client, role: number) {
 
-    this.uploads();
-
-
     Swal.fire({
       title: "Thank You For Your Application. You Will Be Hearing From The FICS Corp Team Soon. Please Check Your Email For Acceptance.",
       icon: 'info',
