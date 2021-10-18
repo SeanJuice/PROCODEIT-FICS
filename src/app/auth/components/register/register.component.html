@@ -33,7 +33,7 @@
             <mat-label style="color: black;">Name</mat-label>
             <input type="text" matInput formControlName="Name" maxLength="20" placeholder="Ex. pat">
             <mat-hint *ngIf="!formGroup.controls['Name'].valid && formGroup.controls['Name'].touched">
-              Name cannot be left empty
+              Contact Number cannot be left empty
             </mat-hint>
           </mat-form-field>
         </div>
@@ -191,9 +191,7 @@
       </div>
     </div>
 
-    <div class="alert alert-info" role="info">
-      Upon Registration You Are Able To Immediately Login. Please Make Sure You Purchase A Package Before Booking Your Sessions!
-    </div>
+
     <div class="wrapper">
       <div class="Grid Grid--full u-textCenter">
 
@@ -210,7 +208,7 @@
 
     </div>
   </form>
-  
+
 </div>
 
 <!-- Other Application Types -->
@@ -413,7 +411,7 @@
               <mat-label style="color: black;">Confirm password</mat-label>
               <input type="password" matInput formControlName="Confirm_Password" placeholder="Ex. **********">
               <mat-hint *ngIf=" g.Confirm_Password.errors" class="invalid-feedback">
-                <a *ngIf="g.Confirm_Password.errors.required">Confirm Password Is Required</a>
+                <a *ngIf="g.Confirm_Password.errors.required">Confirm Password is required</a>
                 <a *ngIf="g.Confirm_Password.errors.mustMatch">Passwords must match</a>
               </mat-hint>
             </mat-form-field>
@@ -421,9 +419,6 @@
         </div>
       </div>
 
-      <div class="alert alert-info" role="info">
-      An Email Will Be Sent To You Shortly Regarding Your Application Status.
-      </div>
 
       <div class="wrapper">
         <div class="Grid Grid--full u-textCenter">
@@ -444,5 +439,3 @@
 
   </div>
 </ng-template>
-
-
