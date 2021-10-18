@@ -37,10 +37,10 @@ export class ExitWavierComponent implements OnInit {
         if (this.selectedFiles) {
           const file: File | null = this.selectedFiles.item(0);
           this.selectedFiles = undefined;
-    
+
           if (file) {
             this.currentFileUpload = new FileUpload(file);
-            this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
+            this.uploadService.pushFileToStorage(this.currentFileUpload,"Documents","Exit Wavier").subscribe(
               percentage => {
                 this.percentage = Math.round(percentage ? percentage : 0);
               },
@@ -51,7 +51,7 @@ export class ExitWavierComponent implements OnInit {
 
           }
         }
-    
+
       }
     })
   }

@@ -74,11 +74,9 @@ export class RegisterComponent implements OnInit {
 
 
    this.Authservice.Register(client, Role, this.currentPPUpload, this.currentCVUpload);
-      });
-
-
-
   }
+})
+}
   createOtherForm() {
     let emailregex: RegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

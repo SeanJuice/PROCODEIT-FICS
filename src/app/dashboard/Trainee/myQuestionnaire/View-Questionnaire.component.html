@@ -1,23 +1,11 @@
-
+<!--<h1 class="h1 title">
+  <div class="btn-group"  (click)=" goBack()">
+       <button  class="btn btn-light" ><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+  </div>
+  <span> Back</span>
+</h1>-->
 
 <div class="app">
-
-  <h1 class="h1 title">
-    <div class="row">
-         <div class="col">
-           <div class="float-right">
-             <a href="https://scotty-crypto.github.io/526Traineesubsystem.html" target="_blank">
-              <img class="help" src="https://img.icons8.com/cute-clipart/64/000000/help.png" />
-            </a>
-           </div>
-           <div class="float-left">
-            My Questionnaires
-           </div>
-         </div>
-    </div>
-  </h1>
-  <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0">
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-2 bg">
@@ -25,9 +13,10 @@
               <button  class="btn btn-light bui">Back</button>
           </div>
       </div>
+
       <div class="col-8 bg">
-        <h1 class="h1 title" align="center">
-          <span>My Questionnaires</span> 
+        <h1 class="h1 title" style="color: rgb(120, 178, 255)" align="center">
+          <span>My Questionnaires</span>
         </h1>
       </div>
 
@@ -36,43 +25,22 @@
             <button type="button" class="btn"><i class="fa fa-question" style="color: #297bff"></i></button>
           </div>
             <div class="hide">Rate Yourself On A Scale Of 1 To 4, With 1 Being Most Likely And 4 Being The Least Likely. Go To Help For More Assistance</div>
-      
-          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/526Traineesubsystem.html#TraineeQuestionnaire " target="_blank">| Help</a></button>
+
+          <button type="button" class="btn"><a class="help" href="https://scotty-crypto.github.io/523Clientsubsystem.html#ClientQuestionnaire " target="_blank">| Help</a></button>
       </div>
     </div>
       <hr class="hr1">
   </div>
-
   <br>
   <br>
   <div class="jumbotron jumbotron-fluid " *ngIf="ArrayOfQuestions.length !=0;else  No_Questionnaires">
-
     <div class="container ">
       <br>
-      <div class="table-card card" *ngFor="let category of questionContainer; let i=index">
-        <h2>{{category.question}}</h2>
-
-
-        <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-          Question is not complete
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <td id="tour-table">Question</td>
-              <td>Answer</td>
-
-            </tr>
-          <tbody>
-            <tr *ngFor="let q of filterById(category.id);let position=index">
-              <td>
-                {{q.Question}}
-
-              </td>
-              <td *ngIf='arrayLengthCheck.length > 2'>
+  <div class="table-card card" *ngFor="let category of questionContainer; let i=index" >
+    <h2>{{category.question}}</h2>
 
     <div class="alert alert-danger" role="alert" *ngIf="category.isNotCompleted">
-      Question Is Incomplete
+      Question Is Not Complete
     </div>
     <table class="table">
       <thead>
@@ -87,48 +55,25 @@
                 {{q.Question}}
 
             </td>
-            <td *ngIf='arrayLengthCheck.length > 2'>
+            <td *ngIf='arrayLengthCheck.length > 2; else elseblock'>
 
-
-                <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
+                <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                 </select>
-
-              </td>
-              <td *ngIf='arrayLengthCheck.length ==1'>
-                <select matNativeControl #sel required (change)="assignAnswerToArray(sel.value,i,position)">
-
             </td>
-            <td *ngIf='arrayLengthCheck.length ==1'>
-            <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
-              <option value="6">Yes</option>
-              <option value="5">No</option>
-
 
             <ng-template #elseblock>
               <td >
                 <select matNativeControl #sel   required (change)="assignAnswerToArray(sel.value,i,position)">
-
                   <option value="6">Yes</option>
                   <option value="5">No</option>
 
                 </select>
-
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-        <br>
-      </div>
-    </div>
-
             </td>
           </ng-template>
-
 
 
           </tr>
@@ -137,7 +82,6 @@
     <br>
   </div>
   </div>
-
   </div>
 </div>
 
@@ -146,18 +90,9 @@
 </div>
 
 
-<div class="container p-3 my-3 bg-primary text-white" *ngIf="ArrayOfQuestions.length ==0">
-  <h1>NB</h1>
-  <p>No Questionnaire Assigned Yet</p>
-</div>
-
-
-
 <ng-template #No_Questionnaires>
   <div class="container p-3 my-3 bg-primary text-white" >
     <h1>NB</h1>
     <p>No Questionnaire Assigned Yet</p>
   </div>
 </ng-template>
-
-

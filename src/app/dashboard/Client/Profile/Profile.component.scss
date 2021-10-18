@@ -18,7 +18,7 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
-  
+
   .bui {
     background-color: #297bff;
     color: #fff;
@@ -219,8 +219,6 @@ display: none;
 
 // PDF
 
-=======
-
 .hide {
   display: none;
 }
@@ -232,7 +230,7 @@ display: none;
   display: inline;
   float: right;
 }
-    
+
 .hint:hover + .hide {
   display: inline;
   min-width: 250px;
