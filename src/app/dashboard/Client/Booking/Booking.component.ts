@@ -66,7 +66,7 @@ export class BookingComponent implements OnInit {
         this.clientservice
           .BookSlot(book, this.AvailabilityID)
           .subscribe((res) => {
-            Swal.fire('Successfully Booked! Your practitioner will email you with the session details!', '', 'success');
+            Swal.fire('Successfully Booked! Your Practitioner Will Email You With The Session Details!', '', 'success');
           });
       } else if (result.isDenied) {
 
@@ -144,7 +144,7 @@ export class BookingComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Booking Cannot Be Made.',
-        text: 'There Are No Practitioners Assigned To You. A Practitionerer Will Be Assigned To You Soon!,Thank You',
+        text: 'There Are No Practitioners Assigned To You. A Practitionerer Will Be Assigned To You Soon!Thank You',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok!',

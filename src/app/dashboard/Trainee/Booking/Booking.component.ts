@@ -54,7 +54,7 @@ export class BookingComponent implements OnInit {
      */
 
     Swal.fire({
-      title: 'Are you sure you want to make this booking?',
+      title: 'Are You Sure You Want To Make This Booking?',
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Yes',
@@ -71,7 +71,7 @@ export class BookingComponent implements OnInit {
         this.traineeservice
           .BookSlot(book, this.AvailabilityID)
           .subscribe((res) => {
-            Swal.fire('successfully booked!', '', 'success');
+            Swal.fire('Successfully Booked!', '', 'success');
           });
       } else if (result.isDenied) {
 
@@ -122,7 +122,7 @@ export class BookingComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Booking cannot be made.',
-        text: 'Theres no trainer assigned to you, a trainer will assigned to you soon!,Thank You',
+        text: 'There Is No Trainer Assigned To You. A trainer Will Be Assigned To You Soon!Thank You',
         showCancelButton: false,
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'Ok!',
